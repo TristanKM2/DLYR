@@ -1,269 +1,95 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D'LYR — Vivez l'immersion VR · Colombes</title>
-<meta name="description" content="D'LYR — Centre de loisirs VR à Colombes. Jeux en réalité virtuelle, fléchettes connectées, karaoké, événements et snack bar.">
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/home.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="D'LYR - Vivez l'immersion VR. Arène physique de réalité virtuelle pour des expériences uniques entre amis, en famille ou entre collègues.">
+    <title>D'LYR — Vivez l'immersion VR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-page="accueil" data-nav="dark">
-
-<!-- ===================== HERO ===================== -->
-<header class="hero">
-  <div class="hero__glow" aria-hidden="true"></div>
-  <div class="hero__inner wrap">
-    <h1 class="hero__word">D'LYR</h1>
-    <div class="hero__row">
-      <div class="hero__left">
-        <p class="hero__tagline">Vivez l'immersion VR</p>
-        <div class="hero__follow">
-          <span class="footer__followlabel" style="margin:0">Follow us !</span>
-          <div class="hero__social" data-social></div>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <div class="header__inner">
+            <a href="index.html" class="header__logo" id="header-logo">
+                <img src="assets/logo-white.png" alt="D'LYR - Vivez l'immersion VR" class="header__logo-img">
+            </a>
+            <div class="header__actions">
+                <a href="catalogue.html" class="btn btn--outline btn--sm" id="header-cta">RÉSERVER</a>
+                <button class="header__burger" id="burger-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                </button>
+            </div>
         </div>
-      </div>
-      <div class="hero__cta">
-        <a class="btn btn--lime-o" href="#reserver">Réserver</a>
-        <a class="btn btn--lime" href="#offrir">Offrir</a>
-      </div>
-    </div>
-  </div>
-  <div class="hero__scroll" aria-hidden="true"><span></span></div>
-</header>
+    </header>
 
-<!-- ===================== INTRO / EXPÉRIENCE UNIQUE ===================== -->
-<section class="section bg-paper tex intro">
-  <div class="wrap intro__grid">
-    <div class="intro__cards">
-      <a class="ucard ucard--big reveal" href="jeux-vr.html">
-        <div class="ph ucard__media"><span class="ph__label">Photo · Jeux VR</span></div>
-        <div class="ucard__body"><h3 class="ucard__title" style="font-size:var(--h-1)">Jeux VR</h3></div>
-      </a>
-      <a class="ucard reveal" data-d="1" href="activites.html">
-        <div class="ph ucard__media"><span class="ph__label">Photo · Activités</span></div>
-        <div class="ucard__body">
-          <h3 class="ucard__title">Activités</h3>
-          <p class="ucard__sub">Karaoké &amp; Fléchettes</p>
+    <!-- ========== MOBILE NAV OVERLAY ========== -->
+    <nav class="nav-overlay" id="nav-overlay" aria-hidden="true">
+        <div class="nav-overlay__backdrop" id="nav-backdrop"></div>
+        <div class="nav-overlay__panel">
+            <button class="nav-overlay__close" id="nav-close" aria-label="Fermer le menu">
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-overlay__links">
+                <li><a href="catalogue.html" class="nav-overlay__link">Catalogue</a></li>
+                <li><a href="activites.html" class="nav-overlay__link">Activités</a></li>
+                <li><a href="evenements.html" class="nav-overlay__link">Évènements</a></li>
+                <li><a href="snackbar.html" class="nav-overlay__link">SnackBar</a></li>
+                <li><a href="faq.html" class="nav-overlay__link">FAQ</a></li>
+                <li><a href="contact.html" class="nav-overlay__link">Contact</a></li>
+            </ul>
+            <div class="nav-overlay__socials">
+                <a href="#" class="nav-overlay__social" aria-label="TikTok" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.37a8.16 8.16 0 004.77 1.52V7.45a4.81 4.81 0 01-1.01-.76z"/></svg>
+                </a>
+                <a href="#" class="nav-overlay__social" aria-label="X (Twitter)" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="#" class="nav-overlay__social" aria-label="Instagram" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+            </div>
+            <div class="nav-overlay__cta">
+                <a href="catalogue.html" class="btn btn--primary">RÉSERVER</a>
+                <a href="catalogue.html?mode=offrir" class="btn btn--primary">OFFRIR</a>
+            </div>
         </div>
-      </a>
-      <a class="ucard reveal" data-d="2" href="evenements.html">
-        <div class="ph ucard__media"><span class="ph__label">Photo · Évènements</span></div>
-        <div class="ucard__body">
-          <h3 class="ucard__title">Évènements</h3>
-          <p class="ucard__sub">EVG/EVJF, Séminaires, Anniversaires</p>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="hero">
+        <div class="hero__content">
+            <h1 class="hero__title" id="hero-title">D'LYR</h1>
+            <p class="hero__subtitle">VIVEZ L'IMMERSION VR</p>
         </div>
-      </a>
-    </div>
-    <div class="intro__head reveal">
-      <h2 class="h1 intro__title">Vivez une expérience unique</h2>
-      <div class="intro__cue">
-        <span class="intro__cuetext">Découvrez nos activités !</span>
-        <span class="btn-arrow btn-arrow--lime">_ARROW_</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== EXPÉRIENCES VR (slider) ===================== -->
-<section class="section bg-ink xp">
-  <div class="xp__ghost" aria-hidden="true">VIRTUAL EX</div>
-  <div class="wrap xp__inner">
-    <div class="xp__head">
-      <h2 class="h2 accent eyebrow-bar"><span>Expériences VR</span></h2>
-      <p class="lead xp__lead">Plongez dans des mondes immersifs en réalité virtuelle, seul ou jusqu'à 6 joueurs. Action, aventure, horreur&nbsp;: chaque session est une nouvelle réalité.</p>
-    </div>
-
-    <div class="slider" data-slider>
-      <button class="slider__nav slider__nav--prev" aria-label="Précédent">‹</button>
-      <div class="slider__viewport">
-        <div class="slider__track" data-track></div>
-      </div>
-      <button class="slider__nav slider__nav--next" aria-label="Suivant">›</button>
-    </div>
-    <div class="slider__dots" data-dots></div>
-
-    <div class="xp__cta">
-      <h3 class="h2 xp__title" data-xp-title>Virtual Arena</h3>
-      <a class="btn btn--lime" href="catalogue.html">Voir le catalogue</a>
-    </div>
-  </div>
-
-  <div class="marquee xp__marquee">
-    <div class="marquee__track" style="--mg:48px">
-      <span class="marquee__item">Contagion<span class="marquee__dot"></span></span>
-      <span class="marquee__item">Wild Odyssey<span class="marquee__dot"></span></span>
-      <span class="marquee__item">The Smurfs<span class="marquee__dot"></span></span>
-      <span class="marquee__item">Contagion Origin<span class="marquee__dot"></span></span>
-      <span class="marquee__item">Affected<span class="marquee__dot"></span></span>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== ACTIVITÉS ===================== -->
-<section class="section bg-paper tex act">
-  <div class="wrap">
-    <h2 class="h1 eyebrow-bar act__h"><span>Activités</span></h2>
-    <div class="act__row reveal">
-      <div class="act__txt">
-        <h3 class="h2">Fléchettes</h3>
-        <p class="lead">Des cibles électroniques connectées, des dizaines de modes de jeu et des classements en temps réel. Idéal entre amis, autour d'un verre.</p>
-        <a class="btn btn--ink-o btn--sm" href="activites.html">En savoir plus</a>
-      </div>
-      <div class="ph act__media"><span class="ph__label">Photo · Fléchettes</span></div>
-    </div>
-    <div class="act__row act__row--rev reveal">
-      <div class="ph act__media"><span class="ph__label">Photo · Karaoké</span></div>
-      <div class="act__txt">
-        <h3 class="h2">Karaoké</h3>
-        <p class="lead">Des box privatives, un catalogue de milliers de titres et une ambiance qui monte. Réservez votre cabine pour chanter sans limite.</p>
-        <a class="btn btn--ink-o btn--sm" href="activites.html">En savoir plus</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== ÉVÈNEMENTS ===================== -->
-<section class="section bg-ink ev">
-  <div class="wrap">
-    <div class="ev__head">
-      <h2 class="h1 accent eyebrow-bar"><span>Évènements</span></h2>
-      <p class="lead">Privatisez D'LYR pour vos grands moments. Une équipe dédiée vous accompagne du début à la fin.</p>
-    </div>
-    <div class="ev__grid">
-      <article class="ecard reveal">
-        <div class="ph ph--dark ecard__media"><span class="ph__label">Photo · Anniversaires</span></div>
-        <div class="ecard__body">
-          <h3 class="h3">Anniversaires</h3>
-          <ul class="ecard__tags">
-            <li>Enfants &amp; ados</li><li>Formule goûter</li><li>Salle privative</li>
-          </ul>
+        <div class="hero__bottom">
+            <div class="hero__socials">
+                <span class="hero__socials-label">Follow us !</span>
+                <div class="hero__socials-icons">
+                    <a href="#" class="hero__social-icon" aria-label="TikTok" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.37a8.16 8.16 0 004.77 1.52V7.45a4.81 4.81 0 01-1.01-.76z"/></svg>
+                    </a>
+                    <a href="#" class="hero__social-icon" aria-label="X (Twitter)" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="#" class="hero__social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="hero__cta">
+                <a href="catalogue.html" class="btn btn--primary" id="hero-reserve">RÉSERVER</a>
+                <a href="catalogue.html?mode=offrir" class="btn btn--accent" id="hero-offrir">OFFRIR</a>
+            </div>
         </div>
-      </article>
-      <article class="ecard reveal" data-d="1">
-        <div class="ph ph--dark ecard__media"><span class="ph__label">Photo · EVG / EVJF</span></div>
-        <div class="ecard__body">
-          <h3 class="h3">EVG / EVJF</h3>
-          <ul class="ecard__tags">
-            <li>Groupes jusqu'à 20</li><li>Bar &amp; cocktails</li><li>Défis VR</li>
-          </ul>
-        </div>
-      </article>
-      <article class="ecard reveal" data-d="2">
-        <div class="ph ph--dark ecard__media"><span class="ph__label">Photo · Team Building</span></div>
-        <div class="ecard__body">
-          <h3 class="h3">Team Building</h3>
-          <ul class="ecard__tags">
-            <li>Coopération</li><li>Privatisation</li><li>Snack inclus</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-    <div class="ev__more reveal"><a class="btn btn--lime" href="evenements.html">En savoir plus</a></div>
-  </div>
-</section>
+    </section>
 
-<!-- ===================== SNACK BAR ===================== -->
-<section class="section bg-paper tex snack">
-  <div class="wrap">
-    <h2 class="h1 eyebrow-bar snack__h"><span>Snack Bar</span></h2>
-    <div class="snack__grid reveal">
-      <div class="ph snack__media snack__media--tall"><span class="ph__label">Photo · Cocktails</span></div>
-      <div class="ph snack__media"><span class="ph__label">Photo · Bar</span></div>
-      <div class="ph snack__media"><span class="ph__label">Photo · Tapas</span></div>
-    </div>
-    <div class="snack__foot reveal">
-      <p class="lead">Cocktails avec ou sans alcool, planches à partager et snacking gourmand&nbsp;: une pause savoureuse entre deux parties.</p>
-      <a class="btn btn--ink-o" href="snack-bar.html">Voir la carte</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== PRÊT À JOUER (CTA) ===================== -->
-<section class="ready" id="reserver">
-  <div class="marquee marquee--lime ready__mq">
-    <div class="marquee__track">
-      <span class="marquee__item">Prêt à jouer ?<span class="marquee__dot"></span></span>
-      <span class="marquee__item">Réservez votre session<span class="marquee__dot"></span></span>
-      <span class="marquee__item">Offrez une carte cadeau<span class="marquee__dot"></span></span>
-    </div>
-  </div>
-  <div class="ready__body bg-paper tex">
-    <div class="wrap ready__grid">
-      <h2 class="ready__title">Prêt à<br>jouer&nbsp;?</h2>
-      <div class="ready__cta">
-        <span class="btn-arrow btn-arrow--lime ready__arrow">_ARROW_</span>
-        <div class="ready__btns">
-          <a class="btn btn--lime" href="#reserver">Réserver une session</a>
-          <a class="btn btn--ink-o" href="#offrir">Offrir une carte cadeau</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="marquee marquee--lime marquee--rev ready__mq">
-    <div class="marquee__track">
-      <span class="marquee__item">VR · Fléchettes · Karaoké<span class="marquee__dot"></span></span>
-      <span class="marquee__item">Snack &amp; cocktails<span class="marquee__dot"></span></span>
-      <span class="marquee__item">Ouvert 7j/7<span class="marquee__dot"></span></span>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== AVIS CLIENTS ===================== -->
-<section class="section bg-ink rev">
-  <div class="wrap">
-    <h2 class="h1 rev__h">Ce que nos clients disent</h2>
-    <div class="rev__carousel" data-reviews>
-      <button class="rev__nav rev__nav--prev" aria-label="Précédent">‹</button>
-      <div class="rev__viewport"><div class="rev__track" data-rev-track></div></div>
-      <button class="rev__nav rev__nav--next" aria-label="Suivant">›</button>
-    </div>
-    <div class="rev__dots" data-rev-dots></div>
-  </div>
-</section>
-
-<!-- ===================== STATS ===================== -->
-<section class="section bg-paper tex stats">
-  <div class="wrap stats__grid">
-    <div class="stats__nums">
-      <div class="stat reveal"><span class="stat__label">Note moyenne</span><span class="stat__num" data-count="4.9" data-dec="1">4.9</span><span class="stat__suf">/5</span></div>
-      <div class="stat reveal" data-d="1"><span class="stat__label">Avis clients</span><span class="stat__num" data-count="121">121</span><span class="stat__suf">+</span></div>
-      <div class="stat reveal" data-d="2"><span class="stat__label">Parties jouées</span><span class="stat__num" data-count="121">121</span><span class="stat__suf">+</span></div>
-      <div class="stat reveal" data-d="3"><span class="stat__label">Évènements</span><span class="stat__num" data-count="345">345</span><span class="stat__suf">+</span></div>
-    </div>
-    <div class="stats__aside reveal" data-d="2">
-      <h2 class="h2 stats__merci">Un grand merci pour vos retours&nbsp;!</h2>
-      <div class="ph stats__media"><span class="ph__label">Photo · Équipe D'LYR</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== OÙ NOUS TROUVER ===================== -->
-<section class="section bg-ink maps">
-  <div class="wrap">
-    <h2 class="h1 maps__h">Où nous trouver ?</h2>
-    <div class="maps__layout reveal">
-      <div class="ph ph--dark maps__map"><span class="ph__label">Carte · 3 Bd Charles de Gaulle, Colombes</span></div>
-      <div class="maps__card">
-        <h3 class="h3">Horaires d'ouverture</h3>
-        <p class="maps__line"><span data-ic="pin"></span> 3 Bd Charles de Gaulle, 92700 Colombes</p>
-        <p class="maps__line"><span data-ic="clock"></span> Tous les jours 11h–23h · Sam. 10h–Minuit · Dim. 10h–22h</p>
-        <hr class="maps__rule">
-        <h3 class="h3">Comment s'y rendre ?</h3>
-        <div class="maps__how">
-          <p><strong>En métro&nbsp;:</strong> Ligne T2 — arrêt Charlebourg, à 5 min à pied.</p>
-          <p><strong>En bus&nbsp;:</strong> Lignes 167 / 366 — arrêt Charles de Gaulle.</p>
-          <p><strong>En voiture&nbsp;:</strong> Parking gratuit à proximité, accès A86.</p>
-        </div>
-        <a class="btn btn--light maps__btn" href="#">Nous contacter</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div data-footer></div>
-
-<script src="js/site.js"></script>
-<script src="js/home.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
