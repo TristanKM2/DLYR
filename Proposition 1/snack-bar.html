@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D'LYR — Snack Bar &amp; cocktails</title>
+<meta name="description" content="Cocktails avec ou sans alcool, pizzas artisanales et snacking gourmand au bar de D'LYR Colombes.">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/snack.css">
+<link rel="stylesheet" href="css/tweaks.css">
+</head>
+<body data-page="snack" data-nav="paper">
+
+<!-- ===== PAGE HERO ===== -->
+<section class="phero">
+  <div class="wrap phero__grid">
+    <div class="reveal">
+      <h1 class="phero__title">Snack<br>Bar</h1>
+      <p class="phero__lead">Cocktails signature avec ou sans alcool, pizzas artisanales prêtes en 2 minutes et snacking à partager. La pause gourmande entre deux parties.</p>
+      <div class="phero__cue">
+        <span class="btn-arrow btn-arrow--lime" data-arrow></span>
+        <span style="font-family:var(--f-btn);font-size:clamp(18px,1.6vw,24px)">Découvrez la carte</span>
+      </div>
+    </div>
+    <div class="phero__deco reveal" data-d="1">
+      <div class="ph"><span class="ph__label">Photo · Cocktail</span></div>
+      <div class="ph"><span class="ph__label">Photo · Pizza</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CARTE ===== -->
+<section class="section bg-ink menu">
+  <div class="wrap">
+    <div class="menu__head reveal">
+      <h2 class="eyebrow-bar"><span>La carte</span></h2>
+      <div class="menu__tabs" data-tabs>
+        <button class="menu__tab on" data-tab="cocktails">Cocktails</button>
+        <button class="menu__tab" data-tab="mocktails">Sans alcool</button>
+        <button class="menu__tab" data-tab="food">Snacking</button>
+        <button class="menu__tab" data-tab="pizza">Pizzas</button>
+      </div>
+    </div>
+    <div class="menu__list" data-menu></div>
+  </div>
+</section>
+
+<!-- ===== AMBIANCE / GALERIE ===== -->
+<section class="section bg-paper tex amb">
+  <div class="wrap">
+    <h2 class="h1 eyebrow-bar amb__h reveal"><span>L'ambiance</span></h2>
+    <div class="amb__grid reveal">
+      <div class="ph amb__img amb__img--a"><span class="ph__label">Photo · Bar</span></div>
+      <div class="ph amb__img amb__img--b"><span class="ph__label">Photo · Cocktails</span></div>
+      <div class="ph amb__img amb__img--c"><span class="ph__label">Photo · Terrasse</span></div>
+      <div class="ph amb__img amb__img--d"><span class="ph__label">Photo · Planche</span></div>
+    </div>
+    <div class="amb__foot reveal">
+      <p class="lead">Un espace convivial ouvert à tous, joueurs ou non. Venez simplement boire un verre, grignoter et profiter de l'ambiance afterwork.</p>
+      <a class="btn btn--ink-o" href="#reserver">Réserver une table</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee marquee--lime">
+  <div class="marquee__track" style="--mg:40px">
+    <span class="marquee__item">Cocktails signature<span class="marquee__dot"></span></span>
+    <span class="marquee__item">Pizzas en 2 min<span class="marquee__dot"></span></span>
+    <span class="marquee__item">Happy hour 17h–19h<span class="marquee__dot"></span></span>
+  </div>
+</div>
+
+<div data-maps></div>
+<div data-footer></div>
+
+<script src="js/site.js"></script>
+<script src="js/snack.js"></script>
+<script src="js/tweaks.js"></script>
+</body>
+</html>

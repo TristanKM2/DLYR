@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D'LYR — FAQ</title>
+<meta name="description" content="Questions fréquentes sur D'LYR : VR freeroaming, restauration, karaoké, fléchettes et événements à Colombes.">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/faq.css">
+<link rel="stylesheet" href="css/tweaks.css">
+</head>
+<body data-page="faq" data-nav="paper">
+
+<!-- ===== PAGE HERO ===== -->
+<section class="phero">
+  <div class="wrap phero__grid">
+    <div class="reveal">
+      <h1 class="phero__title">FAQ VR</h1>
+      <p class="phero__lead">Tout ce qu'il faut savoir avant votre visite&nbsp;: la VR, la restauration, les activités et la privatisation. Une question sans réponse&nbsp;? Contactez-nous.</p>
+      <div class="phero__cue">
+        <span class="btn-arrow btn-arrow--lime" data-arrow></span>
+        <span style="font-family:var(--f-btn);font-size:clamp(18px,1.6vw,24px)">Parcourez les questions</span>
+      </div>
+    </div>
+    <div class="phero__deco reveal" data-d="1">
+      <div class="ph"><span class="ph__label">Visuel</span></div>
+      <div class="ph"><span class="ph__label">Visuel</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section bg-ink faq">
+  <div class="wrap faq__layout">
+    <aside class="faq__cats">
+      <h2 class="eyebrow-bar faq__catstitle"><span>Catégories</span></h2>
+      <ul class="faq__catlist" data-cats>
+        <li><button class="faq__cat on" data-cat="all">Toutes les questions</button></li>
+        <li><button class="faq__cat" data-cat="vr">VR Freeroaming</button></li>
+        <li><button class="faq__cat" data-cat="food">Food &amp; Drinks</button></li>
+        <li><button class="faq__cat" data-cat="activites">Karaoké &amp; Fléchettes</button></li>
+        <li><button class="faq__cat" data-cat="pro">Évènements Pro</button></li>
+      </ul>
+    </aside>
+
+    <div class="faq__main">
+      <h3 class="eyebrow-line faq__qhead">Questions fréquentes</h3>
+      <div class="faq__list" data-faq></div>
+      <div class="pager" data-faq-pager></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAPS ===== -->
+<div data-maps></div>
+
+<div data-footer></div>
+
+<script src="js/site.js"></script>
+<script src="js/faq.js"></script>
+<script src="js/tweaks.js"></script>
+</body>
+</html>

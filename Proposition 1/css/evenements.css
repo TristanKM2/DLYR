@@ -1,0 +1,42 @@
+/* ============================================================
+   D'LYR — Évènements
+   ============================================================ */
+.ev2__h{ margin-bottom:clamp(36px,4vw,56px); }
+.ev2__h span{ color:var(--paper); }
+.ev2__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.evtype{ background:rgba(248,248,248,.04); border:1px solid rgba(248,248,248,.09); border-radius:var(--r-lg); overflow:hidden; transition:transform .3s, border-color .3s; }
+.evtype:hover{ transform:translateY(-6px); border-color:var(--lime); }
+.evtype__media{ aspect-ratio:16/10; border-radius:0; }
+.evtype__body{ padding:clamp(24px,2.4vw,32px); display:flex; flex-direction:column; gap:14px; }
+.evtype__name{ font-family:var(--f-display); font-weight:700; font-size:clamp(24px,2.4vw,30px); color:var(--paper); line-height:1.05; }
+.evtype__desc{ font-size:16px; line-height:1.5; color:rgba(248,248,248,.72); }
+.evtype__tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
+.evtype__tags li{ font-family:var(--f-btn); font-weight:700; font-size:14px; color:var(--ink); background:var(--lime); padding:5px 14px; border-radius:var(--r-pill); }
+
+/* PROCESSUS */
+.steps__head{ display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:clamp(40px,5vw,64px); }
+.steps__grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.step{ display:flex; flex-direction:column; gap:12px; padding-top:24px; border-top:4px solid var(--ink); }
+.step__num{ font-family:var(--f-display); font-weight:800; font-size:clamp(40px,4vw,60px); color:var(--blue); line-height:1; }
+.step__t{ font-family:var(--f-display); font-weight:700; font-size:clamp(20px,1.8vw,24px); color:var(--ink); }
+.step__d{ font-size:15px; line-height:1.5; color:var(--muted); }
+
+/* DEVIS */
+.quote__inner{ display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(40px,5vw,72px); align-items:start; }
+.quote__h{ color:var(--paper); margin-bottom:18px; }
+.quote__inner .lead{ color:rgba(248,248,248,.75); }
+.quote__form{ display:flex; flex-direction:column; gap:18px; }
+.quote__row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.field{ display:flex; flex-direction:column; gap:8px; }
+.field span{ font-family:var(--f-btn); font-weight:700; font-size:15px; color:rgba(248,248,248,.8); }
+.field input,.field select,.field textarea{ font-family:var(--f-body); font-size:16px; color:var(--paper); background:rgba(248,248,248,.06); border:2px solid rgba(248,248,248,.16); border-radius:12px; padding:14px 16px; transition:border-color .2s; }
+.field input::placeholder,.field textarea::placeholder{ color:rgba(248,248,248,.4); }
+.field input:focus,.field select:focus,.field textarea:focus{ outline:none; border-color:var(--lime); }
+.field select option{ color:#111; }
+.field textarea{ resize:vertical; }
+.quote__form .btn{ align-self:flex-start; }
+.quote__done{ background:rgba(219,248,58,.1); border:2px solid var(--lime); border-radius:var(--r-sm); padding:28px; color:var(--paper); text-align:center; }
+.quote__done strong{ color:var(--lime); }
+
+@media (max-width:900px){ .ev2__grid{ grid-template-columns:1fr; } .steps__grid{ grid-template-columns:1fr 1fr; } .quote__inner{ grid-template-columns:1fr; } }
+@media (max-width:520px){ .steps__grid{ grid-template-columns:1fr; } .quote__row{ grid-template-columns:1fr; } }
