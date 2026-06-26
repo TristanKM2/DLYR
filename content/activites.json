@@ -1,0 +1,16 @@
+{
+  "fr": {
+    "titre": "Activités",
+    "sous_titre": "Au-delà de la VR classique, D'LYR c'est aussi des fléchettes connectées et le Quiz Hologame en réalité virtuelle.",
+    "description_flechettes": "Des cibles électroniques dernière génération, des dizaines de modes de jeu et un suivi des scores en temps réel. Affrontez vos amis sur écran géant, du débutant au pro.",
+    "description_quiz": "Notre Quiz Hologame est un contenu à part entière : un blind-test et un quiz de culture générale vécus en réalité virtuelle, en équipe, buzzer en main.",
+    "photos": []
+  },
+  "en": {
+    "titre": "Activities",
+    "sous_titre": "Beyond classic VR, D'LYR also offers connected darts and the Hologame Quiz in virtual reality.",
+    "description_flechettes": "Latest generation electronic targets, dozens of game modes and real-time score tracking. Challenge your friends on a giant screen, from beginner to pro.",
+    "description_quiz": "Our Hologame Quiz is a full VR experience : a blind test and general knowledge quiz in virtual reality, as a team, buzzer in hand.",
+    "photos": []
+  }
+}
