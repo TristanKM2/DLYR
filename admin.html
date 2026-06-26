@@ -893,8 +893,45 @@ ul{ list-style:none; }
     ig:'@dlyr.vr', fb:'facebook.com/dlyr', tk:'@dlyr.vr'
   };
   var STORE_KEY = 'dlyr_cms';
+  var WORKER_URL = 'https://dlyr-cms-worker.tristankouker.workers.dev';
+  var CMS_PASSWORD = 'DLYR2026';
+
   function persist(){
     try{ localStorage.setItem(STORE_KEY, JSON.stringify({ content:CONTENT, settings:SETTINGS })); }catch(e){}
+  }
+
+  async function pushToGitHub(fichier, contenu){
+    try {
+      var response = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: CMS_PASSWORD, fichier: fichier, contenu: contenu })
+      });
+      var data = await response.json();
+      return data.succes === true;
+    } catch(e) {
+      return false;
+    }
+  }
+
+  async function sauvegarderPage(pageId){
+    var contenu = CONTENT[pageId];
+    var fichier = pageId + '.json';
+    persist();
+    var ok = await pushToGitHub(fichier, contenu);
+    return ok;
+  }
+
+  async function sauvegarderGlobal(){
+    var contenu = {
+      contact: { telephone: SETTINGS.tel, email: SETTINGS.mail, adresse: SETTINGS.addr },
+      horaires: { semaine: SETTINGS.h1, samedi: SETTINGS.h2, dimanche: SETTINGS.h3 },
+      reseaux: { instagram: SETTINGS.ig, facebook: SETTINGS.fb, tiktok: SETTINGS.tk },
+      site: { maintenance: SETTINGS.maintenance, bandeau_actif: SETTINGS.banner, bandeau_texte: '' }
+    };
+    persist();
+    var ok = await pushToGitHub('global.json', contenu);
+    return ok;
   }
   function loadStore(){
     try{
@@ -1143,15 +1180,23 @@ ul{ list-style:none; }
     });
 
     // Save / preview
-    document.getElementById('saveBtn').addEventListener('click', function(){
+    document.getElementById('saveBtn').addEventListener('click', async function(){
       collectEditor();
       p.updated = new Date().toISOString().slice(0,10);
-      // recalc badge état FR
       var fr = CONTENT[p.id].fr;
       p.fr = (fr.titre && fr.desc.length>=80) ? 'ok' : (fr.titre?'warn':'missing');
-      persist();
       renderEditor();
-      toast('Modifications enregistrées', 'Appliqué sur le site · '+p.name);
+      var btn = document.getElementById('saveBtn');
+      btn.textContent = 'Enregistrement…';
+      btn.disabled = true;
+      var ok = await sauvegarderPage(p.id);
+      btn.disabled = false;
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg> Enregistrer';
+      if(ok){
+        toast('Modifications enregistrées', 'Site mis à jour dans 1 à 2 min · ' + p.name);
+      } else {
+        toast('Erreur de sauvegarde', 'Vérifiez votre connexion et réessayez');
+      }
     });
     document.getElementById('previewBtn').addEventListener('click', function(){
       collectEditor();
@@ -1364,11 +1409,20 @@ ul{ list-style:none; }
     persist();
   });
   document.getElementById('tBanner').addEventListener('change', function(){ SETTINGS.banner = this.checked; persist(); });
-  document.getElementById('setForm').addEventListener('submit', function(e){
+  document.getElementById('setForm').addEventListener('submit', async function(e){
     e.preventDefault();
     collectSettings();
-    persist();
-    toast('Paramètres enregistrés', SETTINGS.maintenance ? 'Mode maintenance ACTIF sur le site' : 'Appliqué au site');
+    var btn = this.querySelector('[type=submit]');
+    btn.textContent = 'Enregistrement…';
+    btn.disabled = true;
+    var ok = await sauvegarderGlobal();
+    btn.disabled = false;
+    btn.textContent = 'Enregistrer les paramètres';
+    if(ok){
+      toast('Paramètres enregistrés', SETTINGS.maintenance ? 'Mode maintenance ACTIF sur le site' : 'Appliqué au site dans 1 à 2 min');
+    } else {
+      toast('Erreur de sauvegarde', 'Vérifiez votre connexion et réessayez');
+    }
   });
   hydrateSettings();
 })();
