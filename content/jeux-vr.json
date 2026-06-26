@@ -1,0 +1,14 @@
+{
+  "fr": {
+    "titre": "Jeux VR",
+    "sous_titre": "Plongez dans des mondes immersifs en réalité virtuelle, seul ou jusqu'à 6 joueurs.",
+    "description": "Action, aventure, horreur : chaque session est une nouvelle réalité. Plus de 20 expériences disponibles.",
+    "photos": []
+  },
+  "en": {
+    "titre": "VR Games",
+    "sous_titre": "Dive into immersive virtual reality worlds, alone or up to 6 players.",
+    "description": "Action, adventure, horror : every session is a new reality. More than 20 experiences available.",
+    "photos": []
+  }
+}
