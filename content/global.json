@@ -1,0 +1,22 @@
+{
+  "contact": {
+    "telephone": "+33 1 XX XX XX XX",
+    "email": "contact@dlyr.fr",
+    "adresse": "3 Bd Charles de Gaulle, 92700 Colombes"
+  },
+  "horaires": {
+    "semaine": "11h00 – 23h00",
+    "samedi": "10h00 – Minuit",
+    "dimanche": "10h00 – 22h00"
+  },
+  "reseaux": {
+    "instagram": "",
+    "facebook": "",
+    "tiktok": ""
+  },
+  "site": {
+    "maintenance": false,
+    "bandeau_actif": false,
+    "bandeau_texte": ""
+  }
+}
