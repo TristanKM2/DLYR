@@ -1,0 +1,16 @@
+{
+  "fr": {
+    "titre": "Snack Bar",
+    "sous_titre": "Cocktails signature avec ou sans alcool, pizzas artisanales prêtes en 2 minutes et snacking à partager. La pause gourmande entre deux parties.",
+    "description": "Un espace convivial ouvert à tous, joueurs ou non. Venez simplement boire un verre, grignoter et profiter de l'ambiance afterwork.",
+    "pdf_menu_url": "",
+    "photos": []
+  },
+  "en": {
+    "titre": "Snack Bar",
+    "sous_titre": "Signature cocktails with or without alcohol, artisan pizzas ready in 2 minutes and snacks to share.",
+    "description": "A friendly space open to everyone, players or not. Come have a drink, grab a bite and enjoy the afterwork atmosphere.",
+    "pdf_menu_url": "",
+    "photos": []
+  }
+}
