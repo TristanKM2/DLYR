@@ -1,0 +1,18 @@
+{
+  "fr": {
+    "titre": "Entreprises",
+    "sous_titre": "Team building, séminaires, soirées de fin d'année : privatisez D'LYR et fédérez vos équipes autour d'expériences immersives inoubliables.",
+    "description_teambuilding": "Renforcez la cohésion d'équipe autour d'expériences VR coopératives où chacun a un rôle à jouer.",
+    "description_seminaire": "Un espace meeting privatisé pour vos réunions et présentations, suivi d'une session VR pour décompresser.",
+    "description_soiree": "Fin d'année, after-work ou célébration d'un succès : VR, fléchettes, quiz et cocktails dans une ambiance festive.",
+    "photos": []
+  },
+  "en": {
+    "titre": "Corporate",
+    "sous_titre": "Team building, seminars, end of year parties : privatise D'LYR and unite your teams around unforgettable immersive experiences.",
+    "description_teambuilding": "Strengthen team cohesion through cooperative VR experiences where everyone has a role to play.",
+    "description_seminaire": "A privatised meeting space for your meetings and presentations, followed by a VR session to unwind.",
+    "description_soiree": "End of year, after-work or celebrating a success : VR, darts, quiz and cocktails in a festive atmosphere.",
+    "photos": []
+  }
+}
