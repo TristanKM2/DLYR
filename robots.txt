@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /_check/
+Disallow: /uploads/7.INPI-
+
+Sitemap: https://dlyr.fr/sitemap.xml

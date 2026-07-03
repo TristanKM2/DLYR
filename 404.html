@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D'LYR — Page introuvable</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" type="image/png" href="uploads/DLYR-11.png">
+<style>
+.nf{ min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; text-align:center; padding:32px; position:relative; overflow:hidden; }
+.nf__badge{ width:min(220px,42vw); filter:invert(1); opacity:.14; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
+.nf__code{ font-family:var(--f-display); font-weight:800; font-size:clamp(110px,22vw,280px); line-height:1; color:var(--lime); letter-spacing:-.04em; position:relative; }
+.nf__title{ font-family:var(--f-display); font-weight:700; font-size:clamp(24px,3vw,40px); position:relative; }
+.nf__sub{ font-size:clamp(15px,1.4vw,19px); color:rgba(248,248,248,.7); max-width:44ch; line-height:1.5; position:relative; }
+.nf__btns{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:14px; position:relative; }
+@media (prefers-reduced-motion: no-preference){
+  .nf__code{ animation:nfIn .7s cubic-bezier(.2,.8,.2,1) both; }
+  .nf__title,.nf__sub,.nf__btns{ animation:nfIn .7s cubic-bezier(.2,.8,.2,1) both .15s; }
+  @keyframes nfIn{ from{ opacity:0; transform:translateY(24px); } to{ opacity:1; transform:none; } }
+}
+</style>
+</head>
+<body>
+<main class="nf">
+  <img class="nf__badge" src="uploads/DLYR-09-ea5d8366.png" alt="">
+  <div class="nf__code">404</div>
+  <h1 class="nf__title">Vous avez quitté la simulation</h1>
+  <p class="nf__sub">Cette page n'existe pas — ou plus. Retournez dans la réalité D'LYR pour continuer l'aventure.</p>
+  <div class="nf__btns">
+    <a class="btn btn--lime" href="index.html">Retour à l'accueil</a>
+    <a class="btn btn--paper-o" href="catalogue.html">Voir les expériences VR</a>
+  </div>
+</main>
+</body>
+</html>
