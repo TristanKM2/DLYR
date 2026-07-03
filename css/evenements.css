@@ -7,7 +7,8 @@
 .ev2__grid--two{ grid-template-columns:repeat(2,1fr); max-width:880px; margin-inline:auto; }
 .evtype{ background:rgba(248,248,248,.04); border:1px solid rgba(248,248,248,.09); border-radius:var(--r-lg); overflow:hidden; transition:transform .3s, border-color .3s; }
 .evtype:hover{ transform:translateY(-6px); border-color:var(--lime); }
-.evtype__media{ aspect-ratio:16/10; border-radius:0; }
+.evtype__media{ aspect-ratio:16/10; border-radius:0; transition:transform .55s cubic-bezier(.2,.8,.2,1); }
+.evtype:hover .evtype__media{ transform:scale(1.05); }
 .evtype__body{ padding:clamp(24px,2.4vw,32px); display:flex; flex-direction:column; gap:14px; }
 .evtype__name{ font-family:var(--f-display); font-weight:700; font-size:clamp(24px,2.4vw,30px); color:var(--paper); line-height:1.05; }
 .evtype__desc{ font-size:16px; line-height:1.5; color:rgba(248,248,248,.72); }

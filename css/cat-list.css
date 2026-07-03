@@ -15,7 +15,8 @@
 .cat__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
 .xcard{ position:relative; border-radius:var(--r-sm); overflow:hidden; aspect-ratio:3/3.7; display:block; transition:transform .3s, box-shadow .3s; }
 .xcard:hover{ transform:translateY(-6px); box-shadow:0 20px 44px rgba(0,0,0,.45); }
-.xcard .ph{ position:absolute; inset:0; border-radius:0; }
+.xcard .ph{ position:absolute; inset:0; border-radius:0; transition:transform .6s cubic-bezier(.2,.8,.2,1); }
+.xcard:hover .ph{ transform:scale(1.05); }
 .xcard__scrim{ position:absolute; inset:0; background:linear-gradient(transparent 42%, rgba(0,0,0,.88)); }
 .xcard__tag{ position:absolute; top:18px; left:18px; }
 .xcard__name{ position:absolute; left:22px; right:22px; bottom:62px; font-family:var(--f-display); font-weight:700; font-size:clamp(24px,2.4vw,32px); line-height:1; color:var(--paper); }

@@ -64,7 +64,8 @@
 .jmore__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 .jcard{ position:relative; border-radius:var(--r-sm); overflow:hidden; aspect-ratio:3/4; display:block; transition:transform .3s, box-shadow .3s; }
 .jcard:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(0,0,0,.4); }
-.jcard .ph{ position:absolute; inset:0; border-radius:0; }
+.jcard .ph{ position:absolute; inset:0; border-radius:0; transition:transform .6s cubic-bezier(.2,.8,.2,1); }
+.jcard:hover .ph{ transform:scale(1.05); }
 .jcard__scrim{ position:absolute; inset:0; background:linear-gradient(transparent 45%, rgba(0,0,0,.85)); }
 .jcard__tag{ position:absolute; top:18px; left:18px; }
 .jcard__name{ position:absolute; left:20px; bottom:58px; font-family:var(--f-display); font-weight:700; font-size:clamp(24px,2.4vw,34px); color:var(--paper); }

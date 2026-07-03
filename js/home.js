@@ -9,7 +9,7 @@
     const soc = document.querySelector('[data-social]');
     if (soc) soc.innerHTML =
       `<a href="#" aria-label="TikTok">${I.tiktok}</a>
-       <a href="#" aria-label="X (Twitter)">${I.x}</a>
+       <a href="#" aria-label="Facebook">${I.facebook}</a>
        <a href="#" aria-label="Instagram">${I.instagram}</a>
        <a href="#" aria-label="LinkedIn">${I.linkedin}</a>`;
     document.querySelectorAll('.btn-arrow').forEach(b => { if (b.textContent.trim() === '_ARROW_') b.innerHTML = I.arrow; });

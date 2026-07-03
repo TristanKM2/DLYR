@@ -15,7 +15,7 @@
 
   const ICONS = {
     tiktok: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M16.5 3c.3 2.1 1.6 3.6 3.6 3.8v2.4c-1.3.1-2.5-.3-3.6-1v5.8a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v2.5a3.2 3.2 0 1 0 2.3 3V3h2.5z"/></svg>',
-    x: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.2 2H21l-6.5 7.4L22 22h-6l-4.7-6.1L5.9 22H3l7-8L2 2h6.2l4.2 5.6L18.2 2zm-1 18h1.6L7 3.7H5.3L17.2 20z"/></svg>',
+    facebook: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M13.5 22v-8.1h2.7l.4-3.1h-3.1V8.8c0-.9.25-1.5 1.55-1.5h1.65V4.5c-.3-.04-1.3-.13-2.4-.13-2.4 0-4.05 1.47-4.05 4.15v2.27H7.55v3.1h2.7V22h3.25z"/></svg>',
     instagram: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>',
     linkedin: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.4 8.4h3.1V21H3.4V8.4zM9.2 8.4h2.97v1.72h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.1v-5.52c0-1.32-.02-3.01-1.84-3.01-1.84 0-2.12 1.44-2.12 2.92V21H9.2V8.4z"/></svg>',
     pin: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>',
@@ -102,19 +102,19 @@
           <div class="footer__contact">
             <h4>Contactez-nous</h4>
             <p>${ICONS.pin}<span>3 Bd Charles de Gaulle,<br>92700 Colombes</span></p>
-            <p>${ICONS.clock}<span>Ouvert tous les jours 11h–23h<br>Samedi 10h–Minuit · Dimanche 10h–22h</span></p>
-            <p>${ICONS.phone}<span>+33 06 12 12 12 12</span></p>
-            <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg><a href="mailto:tristankouker@gmail.com" style="text-decoration:underline">tristankouker@gmail.com</a></p>
+            <p>${ICONS.clock}<span>Ouvert 7j/7 · Lun–Ven 11h–22h30<br>Samedi 10h–23h · Dimanche 10h–21h30</span></p>
+            <p>${ICONS.phone}<span><a href="tel:+33147800000">01 47 80 00 00</a></span></p>
+            <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg><a href="mailto:contact@dlyr.fr" style="text-decoration:underline">contact@dlyr.fr</a></p>
             <div class="footer__followlabel">Follow us !</div>
             <div class="footer__social">
               <a href="#" aria-label="TikTok">${ICONS.tiktok}</a>
-              <a href="#" aria-label="X (Twitter)">${ICONS.x}</a>
+              <a href="#" aria-label="Facebook">${ICONS.facebook}</a>
               <a href="#" aria-label="Instagram">${ICONS.instagram}</a>
               <a href="#" aria-label="LinkedIn">${ICONS.linkedin}</a>
             </div>
           </div>
           ${col('Activités', [['Jeux VR','jeux-vr.html'],['Fléchettes & Quiz','activites.html'],['Catalogue VR','catalogue.html']])}
-          ${col('Mentions légales', [['Politique de confidentialité','#'],['Mentions légales','#'],['CGV','#']])}
+          ${col('Mentions légales', [['Politique de confidentialité','politique-confidentialite.html'],['Mentions légales','mentions-legales.html'],['CGV','cgv.html']])}
           ${col('Plan du site', [['Accueil','index.html'],['Jeux VR','jeux-vr.html'],['Activités','activites.html'],['Évènements','evenements.html'],['Entreprises','entreprises.html'],['Offrir','offrir.html'],['Snack Bar','snack-bar.html'],['FAQ','faq.html']])}
         </div>
       </div>
@@ -164,7 +164,19 @@
     document.querySelectorAll('.marquee__track').forEach(tr => {
       if (tr.dataset.cloned) return;
       tr.dataset.cloned = '1';
-      tr.innerHTML += tr.innerHTML;
+      const container = tr.parentElement;
+      const unit = tr.innerHTML;
+      // Répète le motif de base jusqu'à ce qu'une "moitié" remplisse largement l'écran,
+      // puis duplique le tout : les deux moitiés identiques donnent une boucle sans raccord.
+      let half = unit;
+      tr.innerHTML = half;
+      let guard = 0;
+      while (tr.scrollWidth < container.offsetWidth + 100 && guard < 40) {
+        half += unit;
+        tr.innerHTML = half;
+        guard++;
+      }
+      tr.innerHTML = half + half;
     });
   }
 
@@ -177,6 +189,41 @@
       const kind = 'Réserver une session';
       window.DLYR_toast ? window.DLYR_toast(kind + ' — réservation en ligne bientôt disponible !') : alert(kind + ' — bientôt disponible.');
     });
+  }
+
+  /* ---------- Bandeau cookies (RGPD) ---------- */
+  function cookies() {
+    var KEY = 'dlyr_cookie_consent';
+    try { if (localStorage.getItem(KEY)) return; } catch (e) { return; }
+    var b = document.createElement('div');
+    b.className = 'cookiebar';
+    b.setAttribute('role', 'dialog');
+    b.setAttribute('aria-label', 'Gestion des cookies');
+    b.innerHTML =
+      '<div class="cookiebar__txt"><strong>Cookies &amp; confidentialit\u00e9</strong>' +
+      'Nous utilisons des cookies pour le bon fonctionnement du site et, avec votre accord, pour mesurer son audience. Notre module de r\u00e9servation (Smeetz) d\u00e9pose \u00e9galement ses propres cookies. ' +
+      '<a href="politique-confidentialite.html#cookies">En savoir plus</a></div>' +
+      '<div class="cookiebar__btns">' +
+      '<button class="btn btn--lime btn--sm" data-cc="accepted">Tout accepter</button>' +
+      '<button class="btn btn--paper-o btn--sm" data-cc="refused">Continuer sans accepter</button>' +
+      '</div>';
+    b.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-cc]');
+      if (!t) return;
+      try { localStorage.setItem(KEY, t.dataset.cc); } catch (err) {}
+      b.classList.remove('cookiebar--in');
+      setTimeout(function () { b.remove(); }, 400);
+    });
+    document.body.appendChild(b);
+    setTimeout(function () { b.classList.add('cookiebar--in'); }, 80);
+    // Failsafe : si la transition ne progresse pas (environnement throttlé), on force la position finale.
+    setTimeout(function () {
+      if (getComputedStyle(b).transform.indexOf('matrix') !== -1 && b.getBoundingClientRect().top > window.innerHeight) {
+        b.style.transition = 'none';
+        b.classList.add('cookiebar--in');
+        b.style.transform = 'translate(-50%,0)';
+      }
+    }, 900);
   }
 
   /* ---------- Toast léger ---------- */
@@ -200,11 +247,11 @@
       <div class="wrap">
         <h2 class="h1 pmaps__h">Où nous trouver ?</h2>
         <div class="pmaps__layout reveal">
-          <div class="ph ph--dark pmaps__map"><span class="ph__label">Carte · 3 Bd Charles de Gaulle, Colombes</span></div>
+          <div class="ph ph--dark pmaps__map map-embed"><iframe src="https://www.google.com/maps?q=3%20Boulevard%20Charles%20de%20Gaulle%2C%2092700%20Colombes&output=embed&hl=fr" title="Carte — D'LYR, 3 Bd Charles de Gaulle, Colombes" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
           <div class="pmaps__card">
             <h3 class="h3">Horaires d'ouverture</h3>
             <p class="pmaps__line">${ICONS.pin} 3 Bd Charles de Gaulle, 92700 Colombes</p>
-            <p class="pmaps__line">${ICONS.clock} Tous les jours 11h–23h · Sam. 10h–Minuit · Dim. 10h–22h</p>
+            <p class="pmaps__line">${ICONS.clock} 7j/7 · Lun–Ven 11h–22h30 · Sam. 10h–23h · Dim. 10h–21h30</p>
             <hr class="pmaps__rule">
             <h3 class="h3">Comment s'y rendre ?</h3>
             <div class="pmaps__how">
@@ -212,7 +259,7 @@
               <p><strong>En bus&nbsp;:</strong> Lignes 167 / 366 — arrêt Charles de Gaulle.</p>
               <p><strong>En voiture&nbsp;:</strong> Parking gratuit à proximité, accès A86.</p>
             </div>
-            <a class="btn btn--light" href="mailto:tristankouker@gmail.com?subject=${encodeURIComponent("Contact D'LYR")}" style="align-self:flex-start;margin-top:8px">Nous contacter</a>
+            <a class="btn btn--light" href="mailto:contact@dlyr.fr?subject=${encodeURIComponent("Contact D'LYR")}" style="align-self:flex-start;margin-top:8px">Nous contacter</a>
           </div>
         </div>
       </div>
@@ -238,7 +285,7 @@
   }
 
   function init() {
-    [buildNav, buildFooter, buildMaps, buildSnackTeaser, toastInit, reserve, marquees].forEach(fn => {
+    [buildNav, buildFooter, buildMaps, buildSnackTeaser, toastInit, reserve, marquees, cookies].forEach(fn => {
       try { fn(); } catch (e) { console.warn('[DLYR]', fn.name, e); }
     });
     try { reveal(); } catch (e) { console.warn('[DLYR] reveal', e); }
