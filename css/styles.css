@@ -85,7 +85,7 @@ ul{ list-style:none; }
 /* ============================================================
    UTILITAIRES
    ============================================================ */
-.wrap{ width:min(100% - 2*var(--gutter), var(--wrap)); margin-inline:auto; }
+.wrap{ width:min(80%, 1760px); margin-inline:auto; }
 .section{ padding-block:clamp(64px,8vw,140px); position:relative; }
 .bg-ink{ background:var(--ink); color:var(--paper); }
 .bg-paper{ background:var(--paper); color:var(--ink); }
@@ -181,7 +181,7 @@ ul{ list-style:none; }
 }
 .nav__inner{
   pointer-events:auto;
-  width:min(100% - 40px, 1572px);
+  width:calc(100% - 36px);
   height:74px;
   display:flex; align-items:center; gap:24px;
   padding:0 14px 0 22px;

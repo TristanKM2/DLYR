@@ -104,7 +104,7 @@
             <p>${ICONS.pin}<span>3 Bd Charles de Gaulle,<br>92700 Colombes</span></p>
             <p>${ICONS.clock}<span>Ouvert 7j/7 · Lun–Ven 11h–22h30<br>Samedi 10h–23h · Dimanche 10h–21h30</span></p>
             <p>${ICONS.phone}<span><a href="tel:+33147800000">01 47 80 00 00</a></span></p>
-            <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg><a href="mailto:contact@dlyr.fr" style="text-decoration:underline">contact@dlyr.fr</a></p>
+            <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg><a href="mailto:contact@dlyr-vr.com" style="text-decoration:underline">contact@dlyr-vr.com</a></p>
             <div class="footer__followlabel">Follow us !</div>
             <div class="footer__social">
               <a href="#" aria-label="TikTok">${ICONS.tiktok}</a>
@@ -191,6 +191,38 @@
     });
   }
 
+  /* ============================================================
+     Google Analytics 4 — chargé UNIQUEMENT après consentement
+     ============================================================
+     ⚠️ À CONFIGURER : remplacer G-XXXXXXXXXX par le vrai
+     identifiant de mesure GA4 (Admin > Flux de données > Web).
+     Tant que la valeur reste 'G-XXXXXXXXXX', rien n'est chargé. */
+  var GA_ID = 'G-XXXXXXXXXX';
+
+  function loadGA() {
+    if (window.__gaLoaded) return;
+    if (!GA_ID || GA_ID === 'G-XXXXXXXXXX' || GA_ID.indexOf('G-') !== 0) return;
+    window.__gaLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  }
+
+  function analytics() {
+    var KEY = 'dlyr_cookie_consent';
+    try { if (localStorage.getItem(KEY) === 'accepted') loadGA(); } catch (e) {}
+    // Chargement immédiat si l'utilisateur clique « Tout accepter » (sans recharger la page).
+    window.addEventListener('dlyr:consent', function (e) {
+      if (e.detail === 'accepted') loadGA();
+    });
+  }
+
   /* ---------- Bandeau cookies (RGPD) ---------- */
   function cookies() {
     var KEY = 'dlyr_cookie_consent';
@@ -211,6 +243,7 @@
       var t = e.target.closest('[data-cc]');
       if (!t) return;
       try { localStorage.setItem(KEY, t.dataset.cc); } catch (err) {}
+      window.dispatchEvent(new CustomEvent('dlyr:consent', { detail: t.dataset.cc }));
       b.classList.remove('cookiebar--in');
       setTimeout(function () { b.remove(); }, 400);
     });
@@ -259,7 +292,7 @@
               <p><strong>En bus&nbsp;:</strong> Lignes 167 / 366 — arrêt Charles de Gaulle.</p>
               <p><strong>En voiture&nbsp;:</strong> Parking gratuit à proximité, accès A86.</p>
             </div>
-            <a class="btn btn--light" href="mailto:contact@dlyr.fr?subject=${encodeURIComponent("Contact D'LYR")}" style="align-self:flex-start;margin-top:8px">Nous contacter</a>
+            <a class="btn btn--light" href="mailto:contact@dlyr-vr.com?subject=${encodeURIComponent("Contact D'LYR")}" style="align-self:flex-start;margin-top:8px">Nous contacter</a>
           </div>
         </div>
       </div>
@@ -285,7 +318,7 @@
   }
 
   function init() {
-    [buildNav, buildFooter, buildMaps, buildSnackTeaser, toastInit, reserve, marquees, cookies].forEach(fn => {
+    [buildNav, buildFooter, buildMaps, buildSnackTeaser, toastInit, reserve, marquees, cookies, analytics].forEach(fn => {
       try { fn(); } catch (e) { console.warn('[DLYR]', fn.name, e); }
     });
     try { reveal(); } catch (e) { console.warn('[DLYR] reveal', e); }

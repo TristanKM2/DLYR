@@ -186,7 +186,9 @@
 .stat{ display:flex; flex-direction:column; gap:4px; }
 .stat__label{ font-family:var(--f-body); font-size:16px; color:var(--muted); }
 .stat__num{ font-family:var(--f-display); font-weight:800; font-size:clamp(48px,7vw,96px); line-height:1; color:var(--ink); display:inline; }
+.stat__value{ display:flex; align-items:baseline; gap:6px; }
 .stat__suf{ font-family:var(--f-display); font-weight:800; font-size:clamp(28px,4vw,48px); color:var(--blue); }
+.stat__suf--pre{ margin-right:-2px; }
 .stat__label{ order:-1; }
 .stats__aside{ display:flex; flex-direction:column; gap:24px; }
 .stats__merci{ color:var(--ink); }

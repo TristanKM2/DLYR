@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D'LYR — CMS Admin</title>
+<link rel="icon" type="image/png" href="uploads/DLYR-11.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root{
+  --ink:      #0e0e0e;
+  --ink-2:    #141414;
+  --ink-3:    #1a1a1a;
+  --ink-4:    #202020;
+  --line:     #2a2a2a;
+  --line-2:   #383838;
+  --paper:    #f5f0e8;
+  --txt:      #ededed;
+  --muted:    #8c8c8c;
+  --muted-2:  #5c5c5c;
+  --lime:     #c8f135;
+  --lime-2:   #dbf83a;
+  --blue:     #4a90d9;
+  --ok:       #c8f135;
+  --warn:     #f0b53a;
+  --err:      #e0544e;
+  --f-disp: 'Barlow', sans-serif;
+  --f-body: 'Barlow', sans-serif;
+  --f-mono: 'Space Grotesk', monospace;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --side-w: 220px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ height:100%; }
+body{
+  font-family:var(--f-body);
+  background:var(--ink);
+  color:var(--txt);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.3;
+}
+button{ font:inherit; color:inherit; cursor:pointer; background:none; border:none; }
+input{ font:inherit; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; }
+:focus-visible{ outline:2px solid var(--lime); outline-offset:2px; }
+::selection{ background:var(--lime); color:var(--ink); }
+
+/* ============================================================
+   LOGIN
+   ============================================================ */
+.login{
+  position:fixed; inset:0; z-index:100;
+  background:var(--ink);
+  display:grid; place-items:center;
+  padding:24px;
+  overflow:hidden;
+}
+.login__bg{
+  position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(60% 50% at 78% 12%, rgba(200,241,53,.10), transparent 60%),
+    radial-gradient(50% 40% at 10% 90%, rgba(74,144,217,.10), transparent 60%);
+}
+.login__bg::after{
+  content:""; position:absolute; inset:0; opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+  background-size:46px 46px;
+  mask-image:radial-gradient(70% 70% at 50% 50%, #000, transparent);
+}
+.login__ghost{
+  position:absolute; left:-2vw; bottom:-6vh; pointer-events:none;
+  font-family:var(--f-disp); font-weight:900; font-style:italic;
+  font-size:26vw; line-height:.8; letter-spacing:-.04em;
+  color:transparent; -webkit-text-stroke:1.5px rgba(255,255,255,.04);
+  user-select:none;
+}
+.login__card{
+  position:relative; z-index:2;
+  width:min(100%, 420px);
+}
+.login__brand{
+  display:flex; align-items:baseline; gap:10px;
+  margin-bottom:34px;
+}
+.login__brand b{
+  font-family:var(--f-disp); font-weight:900; font-style:italic;
+  font-size:40px; letter-spacing:-.02em; color:var(--paper);
+}
+.login__brand span{
+  font-family:var(--f-mono); font-weight:500; font-size:12px;
+  text-transform:uppercase; letter-spacing:.22em; color:var(--lime);
+  padding-bottom:6px;
+}
+.login__title{
+  font-family:var(--f-disp); font-weight:800; font-size:30px;
+  letter-spacing:-.01em; margin-bottom:6px;
+}
+.login__sub{ font-size:15px; color:var(--muted); margin-bottom:28px; }
+.field{ margin-bottom:18px; }
+.field label{
+  display:block; font-family:var(--f-mono); font-weight:500;
+  font-size:11px; text-transform:uppercase; letter-spacing:.16em;
+  color:var(--muted); margin-bottom:8px;
+}
+.field input{
+  width:100%; background:var(--ink-3); color:var(--txt);
+  border:1px solid var(--line); border-radius:var(--r-sm);
+  padding:14px 15px; font-size:15px;
+  transition:border-color .18s, background .18s;
+}
+.field input:focus{ outline:none; border-color:var(--lime); background:var(--ink-4); }
+.field input::placeholder{ color:var(--muted-2); }
+.login__btn{
+  width:100%; margin-top:8px;
+  background:var(--lime); color:var(--ink);
+  font-family:var(--f-disp); font-weight:800; font-size:17px;
+  letter-spacing:.01em;
+  padding:15px; border-radius:var(--r-sm);
+  transition:transform .15s, box-shadow .2s, filter .2s;
+}
+.login__btn:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(200,241,53,.18); }
+.login__btn:active{ transform:translateY(0); }
+.login__err{
+  margin-top:16px; font-size:13.5px; color:var(--err);
+  display:none; align-items:center; gap:8px;
+}
+.login__err.show{ display:flex; }
+.login__hint{
+  margin-top:26px; padding-top:20px; border-top:1px solid var(--line);
+  font-family:var(--f-mono); font-size:11.5px; color:var(--muted-2);
+  line-height:1.7;
+}
+.login__hint b{ color:var(--muted); font-weight:500; }
+
+/* ============================================================
+   APP SHELL
+   ============================================================ */
+.app{ display:none; min-height:100vh; }
+.app.show{ display:grid; grid-template-columns:var(--side-w) 1fr; }
+
+/* ---------- Sidebar ---------- */
+.side{
+  position:sticky; top:0; align-self:start;
+  height:100vh; width:var(--side-w);
+  background:var(--ink-2);
+  border-right:1px solid var(--line);
+  display:flex; flex-direction:column;
+  padding:24px 0 18px;
+}
+.side__brand{
+  padding:0 22px 22px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:14px;
+}
+.side__logo{
+  font-family:var(--f-disp); font-weight:900; font-style:italic;
+  font-size:30px; letter-spacing:-.02em; color:var(--paper); line-height:1;
+}
+.side__logo i{ color:var(--lime); font-style:italic; }
+.side__cms{
+  display:block; margin-top:7px;
+  font-family:var(--f-mono); font-weight:500; font-size:10.5px;
+  text-transform:uppercase; letter-spacing:.2em; color:var(--muted);
+}
+.side__nav{ flex:1; padding:6px 12px; display:flex; flex-direction:column; gap:3px; }
+.navitem{
+  position:relative;
+  display:flex; align-items:center; gap:12px;
+  padding:11px 14px; border-radius:var(--r-sm);
+  font-weight:600; font-size:15px; color:var(--muted);
+  transition:background .15s, color .15s;
+  width:100%; text-align:left;
+}
+.navitem svg{ width:18px; height:18px; flex:none; stroke-width:1.9; }
+.navitem:hover{ background:var(--ink-4); color:var(--txt); }
+.navitem.active{ background:var(--ink-4); color:var(--paper); }
+.navitem.active::before{
+  content:""; position:absolute; left:0; top:8px; bottom:8px; width:3px;
+  background:var(--lime); border-radius:0 3px 3px 0;
+}
+.side__foot{
+  margin-top:auto; padding:14px 14px 0; border-top:1px solid var(--line);
+  display:flex; align-items:center; gap:11px;
+}
+.avatar{
+  width:38px; height:38px; flex:none; border-radius:10px;
+  background:var(--lime); color:var(--ink);
+  display:grid; place-items:center;
+  font-family:var(--f-disp); font-weight:800; font-size:14px;
+}
+.side__user{ min-width:0; flex:1; }
+.side__user b{ display:block; font-size:13.5px; font-weight:700; color:var(--txt);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.side__user span{ display:block; font-size:11.5px; color:var(--muted);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.logout{
+  width:34px; height:34px; flex:none; border-radius:9px;
+  display:grid; place-items:center; color:var(--muted);
+  border:1px solid var(--line);
+  transition:color .15s, border-color .15s, background .15s;
+}
+.logout:hover{ color:var(--err); border-color:var(--err); background:rgba(224,84,78,.08); }
+.logout svg{ width:16px; height:16px; stroke-width:1.9; }
+
+/* ---------- Main ---------- */
+.main{ min-width:0; padding:34px clamp(22px,3.4vw,48px) 64px; }
+.page{ display:none; }
+.page.active{ display:block; }
+.page__head{ margin-bottom:30px; }
+.page__eyebrow{
+  font-family:var(--f-mono); font-weight:500; font-size:11px;
+  text-transform:uppercase; letter-spacing:.2em; color:var(--lime);
+  margin-bottom:10px;
+}
+.page__title{
+  font-family:var(--f-disp); font-weight:800; font-size:clamp(30px,3.4vw,44px);
+  letter-spacing:-.015em; line-height:1;
+}
+.page__sub{ margin-top:10px; color:var(--muted); font-size:15px; max-width:56ch; }
+.placeholder{
+  border:1px dashed var(--line-2); border-radius:var(--r-lg);
+  padding:48px; text-align:center; color:var(--muted-2);
+  font-family:var(--f-mono); font-size:13px; letter-spacing:.04em;
+}
+
+/* ============================================================
+   MAINTENANCE BANNER
+   ============================================================ */
+.maint{
+  display:none; align-items:center; gap:13px;
+  background:rgba(240,181,58,.10); border:1px solid rgba(240,181,58,.45);
+  border-radius:var(--r-md); padding:14px 18px; margin-bottom:26px;
+}
+.maint.show{ display:flex; }
+.maint svg{ width:20px; height:20px; flex:none; color:var(--warn); stroke-width:2; }
+.maint b{ color:var(--warn); font-weight:700; }
+.maint span{ color:var(--muted); font-size:14px; }
+
+/* ============================================================
+   STAT CARDS
+   ============================================================ */
+.stats{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+  margin-bottom:38px;
+}
+.stat{
+  position:relative; overflow:hidden;
+  background:var(--ink-2); border:1px solid var(--line);
+  border-radius:var(--r-lg); padding:20px 20px 18px;
+}
+.stat::after{
+  content:""; position:absolute; top:0; left:0; width:3px; height:100%;
+  background:var(--lime); opacity:0; transition:opacity .2s;
+}
+.stat:hover::after{ opacity:1; }
+.stat__ic{
+  width:34px; height:34px; border-radius:9px; margin-bottom:18px;
+  display:grid; place-items:center;
+  background:var(--ink-4); color:var(--lime);
+}
+.stat__ic svg{ width:18px; height:18px; stroke-width:1.9; }
+.stat__num{
+  font-family:var(--f-disp); font-weight:800; font-size:34px;
+  letter-spacing:-.01em; line-height:1; color:var(--paper);
+}
+.stat__num small{ font-size:17px; font-weight:700; color:var(--muted); margin-left:4px; }
+.stat__label{
+  margin-top:7px; font-family:var(--f-mono); font-weight:500; font-size:11px;
+  text-transform:uppercase; letter-spacing:.13em; color:var(--muted);
+}
+.stat__num.is-date{ font-size:21px; }
+
+/* ============================================================
+   SECTION HEAD (in-page)
+   ============================================================ */
+.sec-head{
+  display:flex; align-items:baseline; justify-content:space-between;
+  gap:16px; margin-bottom:16px;
+}
+.sec-head h2{
+  font-family:var(--f-disp); font-weight:800; font-size:22px;
+  letter-spacing:-.01em;
+}
+.sec-head a, .sec-head button{
+  font-family:var(--f-mono); font-size:11.5px; font-weight:500;
+  text-transform:uppercase; letter-spacing:.12em; color:var(--blue);
+  transition:color .15s;
+}
+.sec-head a:hover, .sec-head button:hover{ color:var(--lime); }
+
+/* ============================================================
+   PAGE CARDS (quick access / grid)
+   ============================================================ */
+.pcards{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.pcard{
+  text-align:left; width:100%;
+  background:var(--ink-2); border:1px solid var(--line);
+  border-radius:var(--r-lg); padding:18px 18px 16px;
+  transition:border-color .18s, transform .18s, background .18s;
+}
+.pcard:hover{ border-color:var(--line-2); transform:translateY(-3px); background:var(--ink-3); }
+.pcard__cat{
+  font-family:var(--f-mono); font-weight:500; font-size:10.5px;
+  text-transform:uppercase; letter-spacing:.14em; color:var(--lime);
+}
+.pcard__name{
+  font-family:var(--f-disp); font-weight:700; font-size:19px;
+  letter-spacing:-.01em; margin-top:8px; color:var(--paper);
+}
+.pcard__foot{ display:flex; align-items:center; gap:8px; margin-top:16px; }
+.badge{
+  display:inline-flex; align-items:center; gap:5px;
+  font-family:var(--f-mono); font-weight:500; font-size:11px;
+  letter-spacing:.06em; padding:4px 9px; border-radius:7px;
+  border:1px solid transparent;
+}
+.badge i{ font-style:normal; font-weight:700; }
+.badge--ok{ color:var(--ok); background:rgba(200,241,53,.09); border-color:rgba(200,241,53,.30); }
+.badge--warn{ color:var(--warn); background:rgba(240,181,58,.09); border-color:rgba(240,181,58,.32); }
+.badge--missing{ color:var(--err); background:rgba(224,84,78,.09); border-color:rgba(224,84,78,.32); }
+.pcard__arrow{ margin-left:auto; color:var(--muted-2); transition:color .15s, transform .15s; }
+.pcard:hover .pcard__arrow{ color:var(--lime); transform:translateX(2px); }
+.pcard__arrow svg{ width:18px; height:18px; stroke-width:2; }
+
+@media (max-width:1080px){
+  .stats{ grid-template-columns:repeat(2,1fr); }
+  .pcards{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:760px){
+  .app.show{ grid-template-columns:1fr; }
+  .stats, .pcards{ grid-template-columns:1fr; }
+  .side{ position:fixed; left:0; top:0; transform:translateX(-100%);
+    transition:transform .25s; z-index:50; }
+}
+
+/* ============================================================
+   CATEGORY GROUPS (Pages du site)
+   ============================================================ */
+.catgroup{ margin-bottom:34px; }
+.catgroup__head{
+  display:flex; align-items:center; gap:12px; margin-bottom:14px;
+}
+.catgroup__bar{ width:6px; height:24px; background:var(--lime); border-radius:2px; flex:none; }
+.catgroup__head h2{
+  font-family:var(--f-disp); font-weight:800; font-size:21px; letter-spacing:-.01em;
+}
+.catgroup__count{
+  font-family:var(--f-mono); font-size:11px; color:var(--muted-2);
+  border:1px solid var(--line); border-radius:20px; padding:2px 9px;
+}
+
+/* ============================================================
+   EDITOR
+   ============================================================ */
+.crumbs{
+  display:flex; align-items:center; gap:9px; margin-bottom:18px;
+  font-family:var(--f-mono); font-size:12px; letter-spacing:.04em;
+}
+.crumbs button{ color:var(--blue); transition:color .15s; }
+.crumbs button:hover{ color:var(--lime); }
+.crumbs span{ color:var(--muted-2); }
+.crumbs b{ color:var(--txt); font-weight:500; }
+
+.editor__top{
+  display:flex; align-items:flex-end; justify-content:space-between;
+  gap:20px; margin-bottom:24px; flex-wrap:wrap;
+}
+.editor__cat{
+  font-family:var(--f-mono); font-weight:500; font-size:11px;
+  text-transform:uppercase; letter-spacing:.18em; color:var(--lime); margin-bottom:8px;
+}
+.editor__name{
+  font-family:var(--f-disp); font-weight:800; font-size:clamp(28px,3.4vw,42px);
+  letter-spacing:-.015em; line-height:1;
+}
+.langtoggle{ display:inline-flex; background:var(--ink-3); border:1px solid var(--line);
+  border-radius:10px; padding:3px; gap:3px; }
+.langtoggle button{
+  font-family:var(--f-mono); font-weight:500; font-size:13px; letter-spacing:.06em;
+  padding:8px 18px; border-radius:8px; color:var(--muted); transition:.15s;
+}
+.langtoggle button.active{ background:var(--lime); color:var(--ink); }
+
+.editor__grid{ display:grid; grid-template-columns:1fr 320px; gap:22px; align-items:start; }
+
+.block{
+  background:var(--ink-2); border:1px solid var(--line);
+  border-radius:var(--r-lg); padding:22px; margin-bottom:20px;
+}
+.block__title{
+  display:flex; align-items:center; gap:10px;
+  font-family:var(--f-disp); font-weight:700; font-size:17px; margin-bottom:18px;
+}
+.block__title svg{ width:17px; height:17px; color:var(--lime); stroke-width:1.9; }
+.fld{ margin-bottom:16px; }
+.fld:last-child{ margin-bottom:0; }
+.fld label{
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-family:var(--f-mono); font-weight:500; font-size:11px;
+  text-transform:uppercase; letter-spacing:.12em; color:var(--muted); margin-bottom:8px;
+}
+.fld .count{ text-transform:none; letter-spacing:.02em; color:var(--muted-2); font-size:11px; }
+.fld .count.over{ color:var(--err); }
+.fld input, .fld textarea{
+  width:100%; background:var(--ink-3); color:var(--txt);
+  border:1px solid var(--line); border-radius:var(--r-sm);
+  padding:12px 14px; font-size:14.5px; font-family:var(--f-body);
+  transition:border-color .15s, background .15s; resize:vertical;
+}
+.fld textarea{ min-height:96px; line-height:1.5; }
+.fld input:focus, .fld textarea:focus{ outline:none; border-color:var(--lime); background:var(--ink-4); }
+
+/* Photos */
+.dropzone{
+  border:1.5px dashed var(--line-2); border-radius:var(--r-md);
+  padding:26px; text-align:center; cursor:pointer;
+  transition:border-color .15s, background .15s; margin-bottom:16px;
+}
+.dropzone:hover, .dropzone.drag{ border-color:var(--lime); background:rgba(200,241,53,.04); }
+.dropzone svg{ width:26px; height:26px; color:var(--muted); margin:0 auto 10px; stroke-width:1.6; }
+.dropzone b{ display:block; font-size:14px; color:var(--txt); }
+.dropzone span{ font-family:var(--f-mono); font-size:11.5px; color:var(--muted-2); }
+.photogrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.photo{
+  position:relative; aspect-ratio:4/3; border-radius:var(--r-sm);
+  overflow:hidden; background:var(--ink-4); border:1px solid var(--line);
+}
+.photo img{ width:100%; height:100%; object-fit:cover; }
+.photo__ph{
+  width:100%; height:100%; display:grid; place-items:center;
+  font-family:var(--f-mono); font-size:10px; letter-spacing:.06em; color:var(--muted-2);
+  text-transform:uppercase; text-align:center; padding:8px;
+  background:repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 2px, transparent 2px 12px), var(--ink-4);
+}
+.photo__del{
+  position:absolute; top:7px; right:7px; width:28px; height:28px;
+  border-radius:8px; background:rgba(14,14,14,.7); color:#fff;
+  display:grid; place-items:center; opacity:0; transition:opacity .15s, background .15s;
+  backdrop-filter:blur(4px);
+}
+.photo__del svg{ width:15px; height:15px; stroke-width:2; }
+.photo:hover .photo__del{ opacity:1; }
+.photo__del:hover{ background:var(--err); }
+
+/* PDF block */
+.pdfrow{
+  display:flex; align-items:center; gap:14px;
+  background:var(--ink-3); border:1px solid var(--line);
+  border-radius:var(--r-md); padding:14px 16px;
+}
+.pdfrow__ic{
+  width:42px; height:42px; flex:none; border-radius:9px;
+  background:rgba(224,84,78,.12); color:var(--err);
+  display:grid; place-items:center; font-family:var(--f-disp); font-weight:800; font-size:12px;
+}
+.pdfrow__meta{ min-width:0; flex:1; }
+.pdfrow__meta b{ display:block; font-size:14px; color:var(--txt);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.pdfrow__meta span{ font-family:var(--f-mono); font-size:11px; color:var(--muted-2); }
+.pdfrow__act{ display:flex; gap:8px; flex:none; }
+
+/* SEO sidebar */
+.seo{ position:sticky; top:24px; }
+.seo__score{ display:flex; align-items:center; gap:16px; margin-bottom:20px; }
+.donut{ --p:0; --c:var(--ok); width:74px; height:74px; flex:none; position:relative;
+  border-radius:50%;
+  background:conic-gradient(var(--c) calc(var(--p)*1%), var(--ink-4) 0); }
+.donut::after{ content:""; position:absolute; inset:7px; border-radius:50%; background:var(--ink-2); }
+.donut b{ position:absolute; inset:0; display:grid; place-items:center; z-index:1;
+  font-family:var(--f-disp); font-weight:800; font-size:21px; }
+.seo__score p{ font-size:13px; color:var(--muted); }
+.seo__score p b{ display:block; color:var(--txt); font-size:15px; font-weight:700; font-family:var(--f-disp); }
+.checklist{ display:flex; flex-direction:column; gap:9px; margin-bottom:22px; }
+.checklist li{ display:flex; align-items:center; gap:9px; font-size:13px; color:var(--muted); }
+.checklist .tick{ width:18px; height:18px; flex:none; border-radius:50%; display:grid; place-items:center; }
+.checklist .tick svg{ width:11px; height:11px; stroke-width:3; }
+.checklist .ok .tick{ background:rgba(200,241,53,.15); color:var(--ok); }
+.checklist .ok{ color:var(--txt); }
+.checklist .no .tick{ background:var(--ink-4); color:var(--muted-2); border:1px solid var(--line); }
+
+/* Action bar */
+.editor__actions{
+  display:flex; gap:12px; margin-top:4px; padding-top:20px; border-top:1px solid var(--line);
+}
+.btn-a{
+  display:inline-flex; align-items:center; gap:9px;
+  font-family:var(--f-disp); font-weight:700; font-size:15px;
+  padding:13px 22px; border-radius:var(--r-sm); transition:transform .15s, box-shadow .2s, background .15s, color .15s;
+}
+.btn-a svg{ width:16px; height:16px; stroke-width:2; }
+.btn-a--lime{ background:var(--lime); color:var(--ink); }
+.btn-a--lime:hover{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(200,241,53,.18); }
+.btn-a--ghost{ border:1px solid var(--line-2); color:var(--txt); }
+.btn-a--ghost:hover{ background:var(--ink-4); border-color:var(--muted-2); }
+.btn-a--sm{ padding:8px 14px; font-size:13px; }
+.btn-a--danger{ color:var(--err); border:1px solid rgba(224,84,78,.4); }
+.btn-a--danger:hover{ background:rgba(224,84,78,.1); }
+
+/* ============================================================
+   MEDIA LIBRARY
+   ============================================================ */
+.filters{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px; }
+.filters select, .filters .seg{ font-family:var(--f-body); }
+.filters select{
+  background:var(--ink-3); color:var(--txt); border:1px solid var(--line);
+  border-radius:var(--r-sm); padding:10px 14px; font-size:14px; cursor:pointer;
+}
+.filters select:focus{ outline:none; border-color:var(--lime); }
+.seg{ display:inline-flex; background:var(--ink-3); border:1px solid var(--line); border-radius:var(--r-sm); padding:3px; }
+.seg button{ padding:7px 16px; border-radius:8px; font-size:13px; color:var(--muted); transition:.15s; font-weight:600; }
+.seg button.active{ background:var(--lime); color:var(--ink); }
+
+.media-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:14px; }
+.mfile{ background:var(--ink-2); border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden; transition:border-color .15s, transform .15s; }
+.mfile:hover{ border-color:var(--line-2); transform:translateY(-2px); }
+.mfile__thumb{ aspect-ratio:4/3; background:repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 2px, transparent 2px 12px), var(--ink-4);
+  display:grid; place-items:center; position:relative; }
+.mfile__thumb .tag{ position:absolute; top:8px; left:8px; font-family:var(--f-mono); font-size:9.5px; font-weight:700;
+  letter-spacing:.1em; padding:3px 7px; border-radius:5px; }
+.mfile__thumb .tag.img{ background:rgba(74,144,217,.18); color:var(--blue); }
+.mfile__thumb .tag.pdf{ background:rgba(224,84,78,.16); color:var(--err); }
+.mfile__thumb .glyph{ font-family:var(--f-mono); font-size:11px; color:var(--muted-2); letter-spacing:.06em; }
+.mfile__thumb .pdfbig{ font-family:var(--f-disp); font-weight:800; font-size:26px; color:var(--err); opacity:.5; }
+.mfile__body{ padding:11px 12px; }
+.mfile__name{ font-size:13px; color:var(--txt); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.mfile__meta{ font-family:var(--f-mono); font-size:10.5px; color:var(--muted-2); margin-top:3px; }
+
+/* ============================================================
+   FORM (Demande)
+   ============================================================ */
+.form-card{ background:var(--ink-2); border:1px solid var(--line); border-radius:var(--r-lg);
+  padding:26px; max-width:680px; }
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toasts{ position:fixed; bottom:26px; right:26px; z-index:200; display:flex; flex-direction:column; gap:10px; }
+.toast{
+  display:flex; align-items:center; gap:12px;
+  background:var(--ink-2); border:1px solid var(--line-2);
+  border-left:3px solid var(--lime); border-radius:var(--r-sm);
+  padding:14px 18px 14px 16px; min-width:280px; box-shadow:0 12px 32px rgba(0,0,0,.5);
+  animation:toastIn .3s cubic-bezier(.2,.8,.2,1) both;
+}
+.toast.out{ animation:toastOut .25s ease forwards; }
+.toast__ic{ width:26px; height:26px; flex:none; border-radius:7px; display:grid; place-items:center;
+  background:rgba(200,241,53,.14); color:var(--lime); }
+.toast__ic svg{ width:15px; height:15px; stroke-width:2.4; }
+.toast b{ font-size:14px; color:var(--txt); display:block; }
+.toast span{ font-size:12.5px; color:var(--muted); }
+@keyframes toastIn{ from{ opacity:0; transform:translateX(30px); } to{ opacity:1; transform:none; } }
+@keyframes toastOut{ to{ opacity:0; transform:translateX(30px); } }
+
+/* ============================================================
+   SETTINGS
+   ============================================================ */
+.set-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; max-width:860px; }
+.set-grid .block{ margin-bottom:0; }
+.set-grid .full{ grid-column:1/-1; }
+.set-row{ display:flex; gap:12px; }
+.set-row .fld{ flex:1; }
+.toggle-row{
+  display:flex; align-items:center; gap:14px;
+  padding:15px 0; border-bottom:1px solid var(--line);
+}
+.toggle-row:last-child{ border-bottom:none; }
+.toggle-row__txt{ flex:1; min-width:0; }
+.toggle-row__txt b{ display:block; font-size:14.5px; color:var(--txt); font-weight:600; }
+.toggle-row__txt span{ font-size:12.5px; color:var(--muted); }
+.switch{ position:relative; width:46px; height:26px; flex:none; }
+.switch input{ position:absolute; opacity:0; width:100%; height:100%; margin:0; cursor:pointer; }
+.switch .track{
+  position:absolute; inset:0; border-radius:20px;
+  background:var(--ink-4); border:1px solid var(--line-2); transition:background .18s, border-color .18s;
+}
+.switch .track::after{
+  content:""; position:absolute; top:3px; left:3px; width:18px; height:18px;
+  border-radius:50%; background:var(--muted); transition:transform .18s, background .18s;
+}
+.switch input:checked + .track{ background:var(--lime); border-color:var(--lime); }
+.switch input:checked + .track::after{ transform:translateX(20px); background:var(--ink); }
+.switch input:focus-visible + .track{ outline:2px solid var(--lime); outline-offset:2px; }
+
+@media (max-width:980px){
+  .editor__grid{ grid-template-columns:1fr; }
+  .seo{ position:static; }
+  .set-grid{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== LOGIN ===================== -->
+<div class="login" id="login">
+  <div class="login__bg"></div>
+  <div class="login__ghost">D'LYR</div>
+  <div class="login__card">
+    <div class="login__brand">
+      <b>D'LYR</b><span>Admin</span>
+    </div>
+    <h1 class="login__title">Espace administration</h1>
+    <p class="login__sub">Connectez-vous pour gérer le contenu du site.</p>
+
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <label for="email">Adresse email</label>
+        <input type="email" id="email" placeholder="vous@dlyr.fr" autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="pass">Mot de passe</label>
+        <input type="password" id="pass" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <button type="submit" class="login__btn">Se connecter</button>
+      <div class="login__err" id="loginErr">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+        <span>Identifiants incorrects. Réessayez.</span>
+      </div>
+    </form>
+
+    <p class="login__hint">
+      <b>Comptes de démonstration</b><br>
+      admin@dlyr.fr · dlyr2024<br>
+      gerant@dlyr.fr · gerant2024
+    </p>
+  </div>
+</div>
+
+<!-- ===================== APP ===================== -->
+<div class="app" id="app">
+
+  <!-- Sidebar -->
+  <aside class="side">
+    <div class="side__brand">
+      <div class="side__logo">D<i>'</i>LYR</div>
+      <span class="side__cms">CMS Admin</span>
+    </div>
+
+    <nav class="side__nav" id="nav">
+      <button class="navitem active" data-page="accueil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 11l9-8 9 8M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/></svg>
+        Accueil
+      </button>
+      <button class="navitem" data-page="pages">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+        Pages du site
+      </button>
+      <button class="navitem" data-page="media">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5L5 20"/></svg>
+        Médiathèque
+      </button>
+      <button class="navitem" data-page="demande">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14"/></svg>
+        Demander une page
+      </button>
+      <button class="navitem" data-page="params">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13.5a7.6 7.6 0 0 0 0-3l1.7-1.3-1.8-3.1-2 .8a7.6 7.6 0 0 0-2.6-1.5L14.2 2H9.8l-.4 2.1a7.6 7.6 0 0 0-2.6 1.5l-2-.8L3 7.9l1.7 1.3a7.6 7.6 0 0 0 0 3L3 13.5l1.8 3.1 2-.8a7.6 7.6 0 0 0 2.6 1.5l.4 2.1h4.4l.4-2.1a7.6 7.6 0 0 0 2.6-1.5l2 .8 1.8-3.1z"/></svg>
+        Paramètres
+      </button>
+    </nav>
+
+    <div class="side__foot">
+      <div class="avatar" id="userAvatar">AD</div>
+      <div class="side__user">
+        <b id="userName">Admin D'LYR</b>
+        <span id="userMail">admin@dlyr.fr</span>
+      </div>
+      <button class="logout" id="logout" title="Déconnexion" aria-label="Déconnexion">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 17l-5-5 5-5M5 12h11"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <section class="page active" data-page="accueil">
+      <div class="page__head">
+        <div class="page__eyebrow">Tableau de bord</div>
+        <h1 class="page__title">Bonjour <span id="hiName">Admin</span> 👋</h1>
+        <p class="page__sub">Gérez le contenu, les médias et les paramètres du site D'LYR depuis cet espace.</p>
+      </div>
+
+      <div class="maint" id="maintBanner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10.3 3.3l-8 13.8A1.5 1.5 0 0 0 3.6 19.4h16.8a1.5 1.5 0 0 0 1.3-2.3l-8-13.8a1.5 1.5 0 0 0-2.6 0z"/><path d="M12 9v4M12 16.5h.01"/></svg>
+        <div><b>Mode maintenance actif.</b> <span>Le site public affiche actuellement une page de maintenance.</span></div>
+      </div>
+
+      <div class="stats" id="statGrid"></div>
+
+      <div class="sec-head">
+        <h2>Accès rapide</h2>
+        <button data-jump="pages">Toutes les pages →</button>
+      </div>
+      <div class="pcards" id="recentGrid"></div>
+    </section>
+
+    <section class="page" data-page="pages">
+      <div class="page__head">
+        <div class="page__eyebrow">Contenu</div>
+        <h1 class="page__title">Pages du site</h1>
+        <p class="page__sub">Cliquez sur une page pour éditer ses textes, photos et référencement.</p>
+      </div>
+      <div id="pagesByCat"></div>
+    </section>
+
+    <section class="page" data-page="editor">
+      <div id="editorMount"></div>
+    </section>
+    <section class="page" data-page="media">
+      <div class="page__head">
+        <div class="page__eyebrow">Fichiers</div>
+        <h1 class="page__title">Médiathèque</h1>
+        <p class="page__sub">Tous les médias uploadés sur le site, filtrables par page et par type.</p>
+      </div>
+      <div class="filters">
+        <select id="mfPage"><option value="">Toutes les pages</option></select>
+        <div class="seg" id="mfType">
+          <button class="active" data-type="">Tout</button>
+          <button data-type="img">Images</button>
+          <button data-type="pdf">PDFs</button>
+        </div>
+      </div>
+      <div class="media-grid" id="mediaGrid"></div>
+    </section>
+    <section class="page" data-page="demande">
+      <div class="page__head">
+        <div class="page__eyebrow">Requête</div>
+        <h1 class="page__title">Demander une page</h1>
+        <p class="page__sub">Soumettez une demande de création de page à l'équipe technique.</p>
+      </div>
+      <form class="form-card" id="reqForm">
+        <div class="fld">
+          <label for="reqName">Nom de la page</label>
+          <input type="text" id="reqName" placeholder="ex. Karaoké VR" required>
+        </div>
+        <div class="fld">
+          <label for="reqCat">Catégorie</label>
+          <select id="reqCat" class="" style="width:100%;background:var(--ink-3);color:var(--txt);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;font-size:14.5px;font-family:var(--f-body);cursor:pointer;"></select>
+        </div>
+        <div class="fld">
+          <label for="reqDesc">Description souhaitée</label>
+          <textarea id="reqDesc" placeholder="Décrivez le contenu et l'objectif de cette page…"></textarea>
+        </div>
+        <div class="fld">
+          <label>Photos de référence</label>
+          <div class="dropzone" id="reqDrop">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg>
+            <b>Glissez vos images ici</b>
+            <span>ou cliquez pour parcourir</span>
+            <input type="file" accept="image/*" multiple hidden>
+          </div>
+          <div class="photogrid" id="reqPhotos"></div>
+        </div>
+        <div class="fld">
+          <label for="reqNotes">Notes (facultatif)</label>
+          <textarea id="reqNotes" placeholder="Précisions, délais, références…" style="min-height:70px"></textarea>
+        </div>
+        <div class="editor__actions" style="border:none;padding:0;margin-top:6px;">
+          <button type="submit" class="btn-a btn-a--lime">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            Envoyer la demande
+          </button>
+        </div>
+      </form>
+    </section>
+    <section class="page" data-page="params">
+      <div class="page__head">
+        <div class="page__eyebrow">Configuration</div>
+        <h1 class="page__title">Paramètres globaux</h1>
+        <p class="page__sub">Coordonnées, horaires, réseaux sociaux et état du site. Appliqués à l'ensemble des pages.</p>
+      </div>
+      <form id="setForm">
+        <div class="set-grid">
+          <div class="block">
+            <div class="block__title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg> Coordonnées</div>
+            <div class="fld"><label>Téléphone</label><input type="tel" id="setTel" value="01 47 80 00 00"></div>
+            <div class="fld"><label>Email</label><input type="email" id="setMail" value="contact@dlyr.fr"></div>
+            <div class="fld"><label>Adresse</label><input type="text" id="setAddr" value="3 Bd Charles de Gaulle, 92700 Colombes"></div>
+          </div>
+
+          <div class="block">
+            <div class="block__title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Horaires d'ouverture</div>
+            <div class="fld"><label>Du lundi au vendredi</label><input type="text" id="setH1" value="11h – 22h30"></div>
+            <div class="fld"><label>Samedi</label><input type="text" id="setH2" value="10h – 23h"></div>
+            <div class="fld"><label>Dimanche</label><input type="text" id="setH3" value="10h – 21h30"></div>
+          </div>
+
+          <div class="block">
+            <div class="block__title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg> Réseaux sociaux</div>
+            <div class="fld"><label>Instagram</label><input type="text" id="setIg" value="@dlyr.vr"></div>
+            <div class="fld"><label>Facebook</label><input type="text" id="setFb" value="facebook.com/dlyr"></div>
+            <div class="fld"><label>TikTok</label><input type="text" id="setTk" value="@dlyr.vr"></div>
+          </div>
+
+          <div class="block">
+            <div class="block__title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13.5a7.6 7.6 0 0 0 0-3l1.7-1.3-1.8-3.1-2 .8a7.6 7.6 0 0 0-2.6-1.5L14.2 2H9.8l-.4 2.1a7.6 7.6 0 0 0-2.6 1.5l-2-.8L3 7.9l1.7 1.3a7.6 7.6 0 0 0 0 3L3 13.5l1.8 3.1 2-.8a7.6 7.6 0 0 0 2.6 1.5l.4 2.1h4.4l.4-2.1a7.6 7.6 0 0 0 2.6-1.5l2 .8 1.8-3.1z"/></svg> État du site</div>
+            <div class="toggle-row">
+              <div class="toggle-row__txt"><b>Mode maintenance</b><span>Affiche une page de maintenance au public</span></div>
+              <label class="switch"><input type="checkbox" id="tMaint"><span class="track"></span></label>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-row__txt"><b>Bandeau d'info</b><span>Message d'annonce en haut du site</span></div>
+              <label class="switch"><input type="checkbox" id="tBanner" checked><span class="track"></span></label>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-row__txt"><b>Formulaire de contact</b><span>Activer la prise de contact en ligne</span></div>
+              <label class="switch"><input type="checkbox" id="tContact" checked><span class="track"></span></label>
+            </div>
+          </div>
+
+          <div class="full editor__actions" style="border:none;padding:0;">
+            <button type="submit" class="btn-a btn-a--lime"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg> Enregistrer les paramètres</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- Données partagées (pages du site) ---------- */
+  var CATS = ['Pages principales','Activités','Événements','Bar & Restauration'];
+  var PAGES = [
+    { id:'accueil',     cat:'Pages principales',   name:'Accueil',        fr:'ok',      en:'warn',    files:8,  updated:'2026-06-22' },
+    { id:'catalogue',   cat:'Pages principales',   name:'Catalogue VR',   fr:'ok',      en:'warn',    files:14, updated:'2026-06-20' },
+    { id:'jeux-vr',     cat:'Activités',           name:'Jeux VR',        fr:'ok',      en:'missing', files:11, updated:'2026-06-18' },
+    { id:'activites',   cat:'Activités',           name:'Activités',      fr:'ok',      en:'ok',      files:6,  updated:'2026-06-21' },
+    { id:'evenements',  cat:'Événements',          name:'Événements',     fr:'ok',      en:'warn',    files:9,  updated:'2026-06-17' },
+    { id:'entreprises', cat:'Événements',          name:'Entreprises',    fr:'warn',    en:'missing', files:4,  updated:'2026-06-12' },
+    { id:'offrir',      cat:'Pages principales',   name:'Offrir',         fr:'ok',      en:'ok',      files:3,  updated:'2026-06-19' },
+    { id:'snack-bar',   cat:'Bar & Restauration',  name:'Snack Bar',      fr:'ok',      en:'warn',    files:7,  updated:'2026-06-23', pdf:true },
+    { id:'faq',         cat:'Pages principales',   name:'FAQ',            fr:'ok',      en:'ok',      files:0,  updated:'2026-06-10' }
+  ];
+  var STATE = { maintenance:false };
+
+  // Contenu éditable par page et par langue (démo)
+  var FR_DEFAULT = { titre:'', sous:'', desc:'', sec:'', metaTitle:'', metaDesc:'' };
+  var CONTENT = {
+    accueil:    { fr:{ titre:"Vivez l'immersion VR", sous:"Centre de loisirs VR · Colombes", desc:"D'LYR, c'est l'expérience VR ultime à Colombes : jeux en réalité virtuelle freeroaming, fléchettes connectées, quiz Hologame, snack bar et événements privatisés. Plongez dans des mondes immersifs seul ou jusqu'à 6 joueurs.", sec:"Ouvert 7j/7 — réservez votre session dès maintenant.", metaTitle:"D'LYR — Vivez l'immersion VR · Colombes", metaDesc:"Centre de loisirs VR à Colombes : jeux VR, fléchettes, quiz Hologame, événements et snack bar." },
+                  en:{ titre:"Live the VR immersion", sous:"VR entertainment center · Colombes", desc:"D'LYR is the ultimate VR experience in Colombes.", sec:"", metaTitle:"D'LYR — VR experience", metaDesc:"" } },
+    catalogue:  { fr:{ titre:"Catalogue VR", sous:"Toutes nos expériences", desc:"Découvrez l'ensemble de nos jeux en réalité virtuelle : action, aventure, horreur. Chaque session est une nouvelle réalité, jouable seul ou en groupe.", sec:"Plus de 15 expériences disponibles.", metaTitle:"Catalogue VR — D'LYR", metaDesc:"Tout le catalogue de jeux VR de D'LYR à Colombes." },
+                  en:{ titre:"VR Catalogue", sous:"All our experiences", desc:"Discover all our virtual reality games.", sec:"", metaTitle:"", metaDesc:"" } },
+    'jeux-vr':  { fr:{ titre:"Jeux VR", sous:"Freeroaming jusqu'à 6 joueurs", desc:"Nos jeux VR freeroaming vous plongent au cœur de l'action : Contagion, Wild Odyssey, Affected… Déplacez-vous librement dans des espaces immersifs sans fil ni manette encombrante.", sec:"Sessions de 30 à 60 minutes.", metaTitle:"Jeux VR Freeroaming — D'LYR", metaDesc:"Jeux VR freeroaming à Colombes, jusqu'à 6 joueurs." },
+                  en:{ titre:"", sous:"", desc:"", sec:"", metaTitle:"", metaDesc:"" } },
+    activites:  { fr:{ titre:"Activités", sous:"Fléchettes & Quiz Hologame", desc:"Au-delà de la VR : des cibles électroniques connectées avec classements en temps réel, et notre quiz Hologame en réalité virtuelle, buzzer en main, en équipe.", sec:"Idéal entre amis, autour d'un verre.", metaTitle:"Activités — Fléchettes & Quiz · D'LYR", metaDesc:"Fléchettes connectées et quiz Hologame VR à Colombes." },
+                  en:{ titre:"Activities", sous:"Darts & Hologame Quiz", desc:"Connected electronic dartboards and our VR Hologame quiz.", sec:"Perfect with friends.", metaTitle:"Activities — D'LYR", metaDesc:"Darts and VR quiz in Colombes." } },
+    evenements: { fr:{ titre:"Événements", sous:"EVG/EVJF & Anniversaires", desc:"Privatisez D'LYR pour vos grands moments : anniversaires, EVG/EVJF, soirées entre amis. Une équipe dédiée vous accompagne du début à la fin.", sec:"Formules sur mesure, salle privative et bar.", metaTitle:"Événements & Privatisation — D'LYR", metaDesc:"Anniversaires, EVG/EVJF et événements privés à Colombes." },
+                  en:{ titre:"Events", sous:"Stag/Hen & Birthdays", desc:"Privatize D'LYR for your big moments.", sec:"", metaTitle:"", metaDesc:"" } },
+    entreprises:{ fr:{ titre:"Entreprises", sous:"Team building & séminaires", desc:"Renforcez la cohésion de vos équipes avec une expérience VR unique. Team building, séminaires, soirées d'entreprise : nous concevons un format adapté à vos objectifs.", sec:"", metaTitle:"", metaDesc:"" },
+                  en:{ titre:"", sous:"", desc:"", sec:"", metaTitle:"", metaDesc:"" } },
+    offrir:     { fr:{ titre:"Offrir une carte cadeau", sous:"Le cadeau qui sort de l'ordinaire", desc:"Offrez une expérience immersive inoubliable. Cartes cadeaux valables sur toutes nos activités, à personnaliser selon le montant de votre choix.", sec:"Valable 1 an, utilisable en plusieurs fois.", metaTitle:"Carte cadeau VR — D'LYR", metaDesc:"Offrez une carte cadeau D'LYR pour une expérience VR à Colombes." },
+                  en:{ titre:"Gift a card", sous:"An out-of-the-ordinary gift", desc:"Give an unforgettable immersive experience.", sec:"Valid 1 year.", metaTitle:"Gift card — D'LYR", metaDesc:"Gift a D'LYR card." } },
+    'snack-bar':{ fr:{ titre:"Snack Bar", sous:"Cocktails, planches & snacking", desc:"Cocktails avec ou sans alcool, planches à partager et snacking gourmand : une pause savoureuse entre deux parties. Découvrez notre carte complète.", sec:"Happy hour tous les jours de 17h à 19h.", metaTitle:"Snack Bar & Cocktails — D'LYR", metaDesc:"Bar, cocktails et snacking au centre VR D'LYR à Colombes." },
+                  en:{ titre:"Snack Bar", sous:"Cocktails & sharing boards", desc:"Cocktails with or without alcohol.", sec:"", metaTitle:"", metaDesc:"" } },
+    faq:        { fr:{ titre:"Questions fréquentes", sous:"Tout savoir avant de venir", desc:"Âge minimum, durée des sessions, accessibilité, réservation… Retrouvez les réponses aux questions les plus posées sur votre venue chez D'LYR.", sec:"", metaTitle:"FAQ — D'LYR", metaDesc:"Foire aux questions du centre VR D'LYR à Colombes." },
+                  en:{ titre:"FAQ", sous:"Everything before you come", desc:"Minimum age, session duration, booking…", sec:"", metaTitle:"FAQ — D'LYR", metaDesc:"D'LYR FAQ." } }
+  };
+  // Médiathèque (démo)
+  var MEDIA = [
+    { page:'accueil', type:'img', name:'hero-immersion-vr.jpg', size:'1.8 Mo' },
+    { page:'accueil', type:'img', name:'equipe-dlyr.jpg', size:'940 Ko' },
+    { page:'catalogue', type:'img', name:'contagion-cover.jpg', size:'2.1 Mo' },
+    { page:'catalogue', type:'img', name:'wild-odyssey.jpg', size:'1.6 Mo' },
+    { page:'catalogue', type:'img', name:'affected-screenshot.png', size:'2.4 Mo' },
+    { page:'jeux-vr', type:'img', name:'freeroaming-arena.jpg', size:'1.9 Mo' },
+    { page:'jeux-vr', type:'img', name:'casque-vr-joueur.jpg', size:'1.3 Mo' },
+    { page:'activites', type:'img', name:'flechettes-connectees.jpg', size:'1.1 Mo' },
+    { page:'activites', type:'img', name:'quiz-hologame.jpg', size:'1.4 Mo' },
+    { page:'evenements', type:'img', name:'anniversaire-vr.jpg', size:'1.7 Mo' },
+    { page:'evenements', type:'img', name:'evg-groupe.jpg', size:'2.0 Mo' },
+    { page:'snack-bar', type:'img', name:'cocktails-bar.jpg', size:'1.2 Mo' },
+    { page:'snack-bar', type:'img', name:'planche-tapas.jpg', size:'880 Ko' },
+    { page:'snack-bar', type:'pdf', name:'carte-snack-bar-2026.pdf', size:'640 Ko' },
+    { page:'offrir', type:'img', name:'carte-cadeau-visuel.jpg', size:'720 Ko' },
+    { page:'entreprises', type:'img', name:'team-building.jpg', size:'1.5 Mo' }
+  ];
+
+  // Paramètres globaux + persistance localStorage (partagés avec le site)
+  var SETTINGS = {
+    maintenance:false, banner:true, contact:true,
+    tel:'01 47 80 00 00', mail:'contact@dlyr.fr', addr:'3 Bd Charles de Gaulle, 92700 Colombes',
+    h1:'11h – 22h30', h2:'10h – 23h', h3:'10h – 21h30',
+    ig:'@dlyr.vr', fb:'facebook.com/dlyr', tk:'@dlyr.vr'
+  };
+  var STORE_KEY = 'dlyr_cms';
+  function persist(){
+    try{ localStorage.setItem(STORE_KEY, JSON.stringify({ content:CONTENT, settings:SETTINGS })); }catch(e){}
+  }
+  function loadStore(){
+    try{
+      var s = JSON.parse(localStorage.getItem(STORE_KEY));
+      if(!s) return;
+      if(s.content){ Object.keys(s.content).forEach(function(id){ if(CONTENT[id]) CONTENT[id] = s.content[id]; }); }
+      if(s.settings){ for(var k in s.settings){ SETTINGS[k] = s.settings[k]; } STATE.maintenance = !!SETTINGS.maintenance; }
+    }catch(e){}
+  }
+  loadStore();
+
+  var BADGE = {
+    ok:      { cls:'badge--ok',      ic:'\u2713', label:'ok' },
+    warn:    { cls:'badge--warn',    ic:'\u26A0', label:'incomplet' },
+    missing: { cls:'badge--missing', ic:'\u2717', label:'manquant' }
+  };
+  // build a badge span: LANG + icon
+  function badgeHTML(lang, st){
+    var b = BADGE[st];
+    return '<span class="badge '+b.cls+'" title="'+lang+' \u00b7 '+b.label+'">'+lang+' '+b.ic+'</span>';
+  }
+  function fmtDate(iso){
+    var d = new Date(iso+'T00:00:00');
+    return d.toLocaleDateString('fr-FR',{ day:'2-digit', month:'short' });
+  }
+  function totalFiles(){ return PAGES.reduce(function(s,p){ return s+p.files; },0); }
+  function lastModified(){
+    return PAGES.map(function(p){ return p.updated; }).sort().pop();
+  }
+  function arrowSVG(){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'; }
+
+  function pageCardHTML(p){
+    return '<button class="pcard" data-open="'+p.id+'">'
+      + '<div class="pcard__cat">'+p.cat+'</div>'
+      + '<div class="pcard__name">'+p.name+'</div>'
+      + '<div class="pcard__foot">'
+      +   badgeHTML('FR', p.fr) + badgeHTML('EN', p.en)
+      +   '<span class="pcard__arrow">'+arrowSVG()+'</span>'
+      + '</div></button>';
+  }
+
+  /* ---------- Dashboard render ---------- */
+  function renderDashboard(){
+    var stats = [
+      { ic:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/>',
+        num: PAGES.length, label:'Pages actives' },
+      { ic:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+        num: '2', sm:'FR · EN', label:'Langues' },
+      { ic:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
+        num: totalFiles(), label:'Fichiers uploadés' },
+      { ic:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+        num: fmtDate(lastModified()), isDate:true, label:'Dernière modif.' }
+    ];
+    document.getElementById('statGrid').innerHTML = stats.map(function(s){
+      return '<div class="stat">'
+        + '<div class="stat__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">'+s.ic+'</svg></div>'
+        + '<div class="stat__num'+(s.isDate?' is-date':'')+'">'+s.num+(s.sm?'<small>'+s.sm+'</small>':'')+'</div>'
+        + '<div class="stat__label">'+s.label+'</div>'
+        + '</div>';
+    }).join('');
+
+    var recent = PAGES.slice().sort(function(a,b){ return b.updated<a.updated?-1:1; }).slice(0,6);
+    document.getElementById('recentGrid').innerHTML = recent.map(pageCardHTML).join('');
+  }
+
+  /* ---------- Toasts ---------- */
+  var toastWrap = document.getElementById('toasts');
+  function toast(title, sub){
+    var t = document.createElement('div');
+    t.className = 'toast';
+    t.innerHTML = '<div class="toast__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg></div>'
+      + '<div><b>'+title+'</b>'+(sub?'<span>'+sub+'</span>':'')+'</div>';
+    toastWrap.appendChild(t);
+    setTimeout(function(){ t.classList.add('out'); setTimeout(function(){ t.remove(); }, 250); }, 3200);
+  }
+
+  /* ---------- Pages du site (grille par catégorie) ---------- */
+  function renderPagesByCat(){
+    var html = CATS.map(function(cat){
+      var items = PAGES.filter(function(p){ return p.cat===cat; });
+      if(!items.length) return '';
+      return '<div class="catgroup">'
+        + '<div class="catgroup__head"><span class="catgroup__bar"></span><h2>'+cat+'</h2>'
+        +   '<span class="catgroup__count">'+items.length+'</span></div>'
+        + '<div class="pcards">'+items.map(pageCardHTML).join('')+'</div>'
+        + '</div>';
+    }).join('');
+    document.getElementById('pagesByCat').innerHTML = html;
+  }
+
+  /* ---------- Éditeur de page ---------- */
+  var curPage = null, curLang = 'fr';
+  // stockage local des photos uploadées par page
+  var photoStore = {};
+  function ensurePhotos(id){
+    if(!photoStore[id]){
+      var n = (PAGES.find(function(p){return p.id===id;})||{}).files || 0;
+      var arr = [];
+      for(var i=0;i<Math.min(n,6);i++) arr.push({ ph:true, label:'Photo '+(i+1) });
+      photoStore[id] = arr;
+    }
+    return photoStore[id];
+  }
+
+  function tick(on){
+    return '<span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">'
+      + (on?'<path d="M20 6L9 17l-5-5"/>':'<path d="M5 12h14"/>')+'</svg></span>';
+  }
+  function seoScore(c){
+    var checks = [
+      { label:'Titre renseigné', ok:!!c.titre },
+      { label:'Description ≥ 80 caract.', ok:(c.desc||'').length>=80 },
+      { label:'Balise Title (30-60)', ok:c.metaTitle.length>=30 && c.metaTitle.length<=60 },
+      { label:'Meta description (≥ 50)', ok:(c.metaDesc||'').length>=50 },
+      { label:'Au moins une photo', ok:ensurePhotos(curPage.id).length>0 }
+    ];
+    var got = checks.filter(function(x){return x.ok;}).length;
+    return { pct:Math.round(got/checks.length*100), checks:checks };
+  }
+
+  function openEditor(id){
+    curPage = PAGES.find(function(p){ return p.id===id; });
+    if(!curPage) return;
+    curLang = 'fr';
+    renderEditor();
+    goTo('editor', true);
+  }
+
+  function renderEditor(){
+    var p = curPage;
+    var c = CONTENT[p.id] ? CONTENT[p.id][curLang] : Object.assign({}, FR_DEFAULT);
+    if(!c) c = Object.assign({}, FR_DEFAULT);
+    var photos = ensurePhotos(p.id);
+    var s = seoScore(CONTENT[p.id].fr);
+    var donutColor = s.pct>=75?'var(--ok)':(s.pct>=45?'var(--warn)':'var(--err)');
+
+    var photoCells = photos.map(function(ph,i){
+      var inner = ph.ph
+        ? '<div class="photo__ph">'+ph.label+'</div>'
+        : '<img src="'+ph.src+'" alt="">';
+      return '<div class="photo" data-pi="'+i+'">'+inner
+        + '<button class="photo__del" data-del="'+i+'" aria-label="Supprimer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>';
+    }).join('');
+
+    var pdfBlock = '';
+    if(p.pdf){
+      pdfBlock = '<div class="block">'
+        + '<div class="block__title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> Document PDF</div>'
+        + '<div class="pdfrow" id="pdfRow">'
+        +   '<div class="pdfrow__ic">PDF</div>'
+        +   '<div class="pdfrow__meta"><b id="pdfName">carte-snack-bar-2026.pdf</b><span id="pdfInfo">Mis à jour le 23 juin 2026 · 640 Ko</span></div>'
+        +   '<div class="pdfrow__act">'
+        +     '<button class="btn-a btn-a--ghost btn-a--sm" id="pdfReplace">Remplacer</button>'
+        +     '<button class="btn-a btn-a--danger btn-a--sm" id="pdfDelete">Supprimer</button>'
+        +   '</div></div>'
+        + '<input type="file" id="pdfInput" accept="application/pdf" hidden>'
+        + '</div>';
+    }
+
+    document.getElementById('editorMount').innerHTML =
+      '<div class="crumbs"><button data-jump="pages">Pages du site</button><span>/</span><b>'+p.name+'</b></div>'
+      + '<div class="editor__top">'
+      +   '<div><div class="editor__cat">'+p.cat+'</div><div class="editor__name">'+p.name+'</div></div>'
+      +   '<div class="langtoggle" id="langToggle">'
+      +     '<button data-lang="fr" class="'+(curLang==='fr'?'active':'')+'">FR</button>'
+      +     '<button data-lang="en" class="'+(curLang==='en'?'active':'')+'">EN</button>'
+      +   '</div>'
+      + '</div>'
+      + '<div class="editor__grid">'
+      +   '<div>'
+      +     '<div class="block">'
+      +       '<div class="block__title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7V5h16v2M9 5v14M7 19h4"/></svg> Textes <span style="font-family:var(--f-mono);font-size:11px;color:var(--muted-2);font-weight:400;margin-left:auto;">'+curLang.toUpperCase()+'</span></div>'
+      +       '<div class="fld"><label>Titre</label><input type="text" id="fTitre" value="'+esc(c.titre)+'"></div>'
+      +       '<div class="fld"><label>Sous-titre</label><input type="text" id="fSous" value="'+esc(c.sous)+'"></div>'
+      +       '<div class="fld"><label>Description principale <span class="count" id="descCount"></span></label><textarea id="fDesc" maxlength="320">'+esc(c.desc)+'</textarea></div>'
+      +       '<div class="fld"><label>Texte secondaire</label><textarea id="fSec" style="min-height:70px">'+esc(c.sec)+'</textarea></div>'
+      +     '</div>'
+      +     '<div class="block">'
+      +       '<div class="block__title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5L5 20"/></svg> Photos</div>'
+      +       '<div class="dropzone" id="editorDrop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg><b>Glissez vos images ici</b><span>ou cliquez pour parcourir</span><input type="file" accept="image/*" multiple hidden></div>'
+      +       '<div class="photogrid" id="editorPhotos">'+photoCells+'</div>'
+      +     '</div>'
+      +     pdfBlock
+      +     '<div class="editor__actions">'
+      +       '<button class="btn-a btn-a--lime" id="saveBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg> Enregistrer</button>'
+      +       '<button class="btn-a btn-a--ghost" id="previewBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Prévisualiser</button>'
+      +     '</div>'
+      +   '</div>'
+      +   '<aside class="block seo">'
+      +     '<div class="block__title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 3a8 8 0 1 0 5.3 14M21 21l-4.3-4.3"/></svg> Référencement SEO</div>'
+      +     '<div class="seo__score"><div class="donut" style="--p:'+s.pct+';--c:'+donutColor+'"><b style="color:'+donutColor+'">'+s.pct+'</b></div>'
+      +       '<p>Score SEO<b>'+(s.pct>=75?'Bon':(s.pct>=45?'Moyen':'À améliorer'))+'</b></p></div>'
+      +     '<ul class="checklist">'+s.checks.map(function(ck){ return '<li class="'+(ck.ok?'ok':'no')+'">'+tick(ck.ok)+ck.label+'</li>'; }).join('')+'</ul>'
+      +     '<div class="fld"><label>Balise Title <span class="count" id="mtCount"></span></label><input type="text" id="fMetaTitle" value="'+esc(c.metaTitle)+'"></div>'
+      +     '<div class="fld"><label>Meta description <span class="count" id="mdCount"></span></label><textarea id="fMetaDesc" style="min-height:80px" maxlength="160">'+esc(c.metaDesc)+'</textarea></div>'
+      +   '</aside>'
+      + '</div>';
+
+    bindEditor();
+  }
+
+  function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  function updCount(el, cnt, max){
+    var n = el.value.length;
+    cnt.textContent = n + (max?' / '+max:'') + ' car.';
+    cnt.classList.toggle('over', max && n>max);
+  }
+
+  function bindEditor(){
+    var p = curPage;
+    var store = CONTENT[p.id][curLang];
+    var fDesc = document.getElementById('fDesc');
+    var descCount = document.getElementById('descCount');
+    updCount(fDesc, descCount, 320);
+    fDesc.addEventListener('input', function(){ updCount(fDesc, descCount, 320); });
+
+    var fMT = document.getElementById('fMetaTitle'), mtCount = document.getElementById('mtCount');
+    var fMD = document.getElementById('fMetaDesc'), mdCount = document.getElementById('mdCount');
+    updCount(fMT, mtCount, 60); updCount(fMD, mdCount, 160);
+    fMT.addEventListener('input', function(){ updCount(fMT, mtCount, 60); });
+    fMD.addEventListener('input', function(){ updCount(fMD, mdCount, 160); });
+
+    // Lang toggle
+    document.getElementById('langToggle').addEventListener('click', function(e){
+      var b = e.target.closest('[data-lang]'); if(!b) return;
+      collectEditor();
+      curLang = b.dataset.lang;
+      renderEditor();
+    });
+
+    // Photos : dropzone
+    var drop = document.getElementById('editorDrop');
+    var input = drop.querySelector('input');
+    drop.addEventListener('click', function(){ input.click(); });
+    drop.addEventListener('dragover', function(e){ e.preventDefault(); drop.classList.add('drag'); });
+    drop.addEventListener('dragleave', function(){ drop.classList.remove('drag'); });
+    drop.addEventListener('drop', function(e){ e.preventDefault(); drop.classList.remove('drag'); addPhotos(e.dataTransfer.files); });
+    input.addEventListener('change', function(){ addPhotos(input.files); });
+
+    // Photos : delete
+    document.getElementById('editorPhotos').addEventListener('click', function(e){
+      var d = e.target.closest('[data-del]'); if(!d) return;
+      ensurePhotos(p.id).splice(+d.dataset.del, 1);
+      renderEditor();
+    });
+
+    // Save / preview
+    document.getElementById('saveBtn').addEventListener('click', function(){
+      collectEditor();
+      p.updated = new Date().toISOString().slice(0,10);
+      // recalc badge état FR
+      var fr = CONTENT[p.id].fr;
+      p.fr = (fr.titre && fr.desc.length>=80) ? 'ok' : (fr.titre?'warn':'missing');
+      persist();
+      renderEditor();
+      toast('Modifications enregistrées', 'Appliqué sur le site · '+p.name);
+    });
+    document.getElementById('previewBtn').addEventListener('click', function(){
+      collectEditor();
+      persist();
+      var url = (p.id==='accueil') ? 'index.html' : p.id+'.html';
+      window.open(url, '_blank');
+      toast('Aperçu ouvert', url);
+    });
+
+    // PDF
+    if(p.pdf){
+      var pdfInput = document.getElementById('pdfInput');
+      document.getElementById('pdfReplace').addEventListener('click', function(){ pdfInput.click(); });
+      pdfInput.addEventListener('change', function(){
+        if(!pdfInput.files[0]) return;
+        var f = pdfInput.files[0];
+        document.getElementById('pdfName').textContent = f.name;
+        document.getElementById('pdfInfo').textContent = 'Mis à jour à l\u2019instant · '+fmtSize(f.size);
+        toast('PDF remplacé', f.name);
+      });
+      document.getElementById('pdfDelete').addEventListener('click', function(){
+        var row = document.getElementById('pdfRow');
+        row.innerHTML = '<div class="pdfrow__meta" style="color:var(--muted-2)"><b style="color:var(--muted)">Aucun PDF</b><span>Ajoutez la carte au format PDF</span></div>'
+          + '<div class="pdfrow__act"><button class="btn-a btn-a--ghost btn-a--sm" id="pdfAdd">Ajouter</button></div>';
+        document.getElementById('pdfAdd').addEventListener('click', function(){ document.getElementById('pdfInput').click(); });
+        toast('PDF supprimé', 'carte-snack-bar-2026.pdf');
+      });
+    }
+
+    function addPhotos(files){
+      var arr = ensurePhotos(p.id);
+      [].forEach.call(files, function(f){
+        if(!f.type.indexOf('image/')===0 && f.type.indexOf('image/')!==0) return;
+        var reader = new FileReader();
+        reader.onload = function(ev){ arr.push({ src:ev.target.result }); renderEditor(); };
+        reader.readAsDataURL(f);
+      });
+    }
+  }
+
+  function collectEditor(){
+    var c = CONTENT[curPage.id][curLang];
+    c.titre = val('fTitre'); c.sous = val('fSous'); c.desc = val('fDesc');
+    c.sec = val('fSec'); c.metaTitle = val('fMetaTitle'); c.metaDesc = val('fMetaDesc');
+  }
+  function val(id){ var el=document.getElementById(id); return el?el.value:''; }
+  function fmtSize(b){ return b>1048576 ? (b/1048576).toFixed(1)+' Mo' : Math.round(b/1024)+' Ko'; }
+
+  /* ---------- Médiathèque ---------- */
+  var mFilter = { page:'', type:'' };
+  function renderMedia(){
+    var sel = document.getElementById('mfPage');
+    if(sel.options.length<=1){
+      PAGES.forEach(function(p){ var o=document.createElement('option'); o.value=p.id; o.textContent=p.name; sel.appendChild(o); });
+    }
+    var list = MEDIA.filter(function(m){
+      return (!mFilter.page || m.page===mFilter.page) && (!mFilter.type || m.type===mFilter.type);
+    });
+    var grid = document.getElementById('mediaGrid');
+    if(!list.length){ grid.innerHTML = '<div class="placeholder" style="grid-column:1/-1">Aucun fichier pour ce filtre</div>'; return; }
+    grid.innerHTML = list.map(function(m){
+      var pname = (PAGES.find(function(p){return p.id===m.page;})||{}).name||m.page;
+      var thumb = m.type==='pdf'
+        ? '<span class="tag pdf">PDF</span><span class="pdfbig">PDF</span>'
+        : '<span class="tag img">IMG</span><span class="glyph">'+m.name.split('.').pop().toUpperCase()+'</span>';
+      return '<div class="mfile"><div class="mfile__thumb">'+thumb+'</div>'
+        + '<div class="mfile__body"><div class="mfile__name" title="'+m.name+'">'+m.name+'</div>'
+        + '<div class="mfile__meta">'+pname+' · '+m.size+'</div></div></div>';
+    }).join('');
+  }
+
+  // expose for later steps
+  window.DLYR = { PAGES:PAGES, CATS:CATS, STATE:STATE, badgeHTML:badgeHTML, pageCardHTML:pageCardHTML, fmtDate:fmtDate, renderDashboard:renderDashboard, toast:toast };
+
+  var ACCOUNTS = {
+    'admin@dlyr.fr':  { pass:'dlyr2024',   name:"Admin D'LYR",   init:'AD' },
+    'gerant@dlyr.fr': { pass:'gerant2024', name:'Gérant D\u2019LYR', init:'GR' }
+  };
+
+  var login   = document.getElementById('login');
+  var app     = document.getElementById('app');
+  var form    = document.getElementById('loginForm');
+  var errBox  = document.getElementById('loginErr');
+
+  function signIn(acc, email){
+    document.getElementById('userName').textContent = acc.name;
+    document.getElementById('userMail').textContent = email;
+    document.getElementById('userAvatar').textContent = acc.init;
+    document.getElementById('hiName').textContent = acc.name.split(' ')[0];
+    login.style.display = 'none';
+    app.classList.add('show');
+    renderDashboard();
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('email').value.trim().toLowerCase();
+    var pass  = document.getElementById('pass').value;
+    var acc   = ACCOUNTS[email];
+    if(acc && acc.pass === pass){
+      errBox.classList.remove('show');
+      signIn(acc, email);
+    } else {
+      errBox.classList.add('show');
+    }
+  });
+
+  document.getElementById('logout').addEventListener('click', function(){
+    app.classList.remove('show');
+    login.style.display = 'grid';
+    form.reset();
+    errBox.classList.remove('show');
+  });
+
+  // Navigation (sans rechargement)
+  var nav = document.getElementById('nav');
+  function goTo(target, keepNav){
+    // l'éditeur n'a pas d'entrée de menu : on garde « Pages » surligné
+    var navTarget = (target==='editor') ? 'pages' : target;
+    nav.querySelectorAll('.navitem').forEach(function(b){ b.classList.toggle('active', b.dataset.page===navTarget); });
+    document.querySelectorAll('.main .page').forEach(function(p){
+      p.classList.toggle('active', p.dataset.page === target);
+    });
+    if(target==='pages') renderPagesByCat();
+    if(target==='media') renderMedia();
+    window.scrollTo(0,0);
+  }
+  window.DLYR.goTo = goTo;
+  window.DLYR.openEditor = openEditor;
+  nav.addEventListener('click', function(e){
+    var btn = e.target.closest('.navitem');
+    if(!btn) return;
+    goTo(btn.dataset.page);
+  });
+
+  // Clics globaux dans le main : sauter / ouvrir une page
+  document.querySelector('.main').addEventListener('click', function(e){
+    var jump = e.target.closest('[data-jump]');
+    if(jump){ goTo(jump.dataset.jump); return; }
+    var open = e.target.closest('[data-open]');
+    if(open){ openEditor(open.dataset.open); }
+  });
+
+  /* ---------- Médiathèque : filtres ---------- */
+  document.getElementById('mfPage').addEventListener('change', function(){ mFilter.page=this.value; renderMedia(); });
+  document.getElementById('mfType').addEventListener('click', function(e){
+    var b = e.target.closest('[data-type]'); if(!b) return;
+    this.querySelectorAll('button').forEach(function(x){ x.classList.toggle('active', x===b); });
+    mFilter.type = b.dataset.type; renderMedia();
+  });
+
+  /* ---------- Demande de page ---------- */
+  var reqCat = document.getElementById('reqCat');
+  CATS.forEach(function(c){ var o=document.createElement('option'); o.value=c; o.textContent=c; reqCat.appendChild(o); });
+  var reqDrop = document.getElementById('reqDrop');
+  var reqInput = reqDrop.querySelector('input');
+  var reqPhotos = document.getElementById('reqPhotos');
+  var reqStore = [];
+  function renderReqPhotos(){
+    reqPhotos.innerHTML = reqStore.map(function(src,i){
+      return '<div class="photo"><img src="'+src+'" alt=""><button class="photo__del" data-rdel="'+i+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>';
+    }).join('');
+  }
+  reqDrop.addEventListener('click', function(){ reqInput.click(); });
+  reqDrop.addEventListener('dragover', function(e){ e.preventDefault(); reqDrop.classList.add('drag'); });
+  reqDrop.addEventListener('dragleave', function(){ reqDrop.classList.remove('drag'); });
+  reqDrop.addEventListener('drop', function(e){ e.preventDefault(); reqDrop.classList.remove('drag'); reqFiles(e.dataTransfer.files); });
+  reqInput.addEventListener('change', function(){ reqFiles(reqInput.files); });
+  reqPhotos.addEventListener('click', function(e){
+    var d=e.target.closest('[data-rdel]'); if(!d) return;
+    reqStore.splice(+d.dataset.rdel,1); renderReqPhotos();
+  });
+  function reqFiles(files){
+    [].forEach.call(files, function(f){
+      if(f.type.indexOf('image/')!==0) return;
+      var r=new FileReader(); r.onload=function(ev){ reqStore.push(ev.target.result); renderReqPhotos(); }; r.readAsDataURL(f);
+    });
+  }
+  document.getElementById('reqForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('reqName').value.trim();
+    if(!name){ document.getElementById('reqName').focus(); return; }
+    this.reset(); reqStore=[]; renderReqPhotos();
+    toast('Demande envoyée à Tristan', name+' · '+reqCat.value);
+  });
+
+  /* ---------- Paramètres globaux ---------- */
+  var tMaint = document.getElementById('tMaint');
+  var maintBanner = document.getElementById('maintBanner');
+  function hydrateSettings(){
+    var map = { setTel:'tel', setMail:'mail', setAddr:'addr', setH1:'h1', setH2:'h2', setH3:'h3', setIg:'ig', setFb:'fb', setTk:'tk' };
+    Object.keys(map).forEach(function(id){ var el=document.getElementById(id); if(el) el.value = SETTINGS[map[id]]; });
+    document.getElementById('tMaint').checked = !!SETTINGS.maintenance;
+    document.getElementById('tBanner').checked = !!SETTINGS.banner;
+    document.getElementById('tContact').checked = !!SETTINGS.contact;
+    maintBanner.classList.toggle('show', !!SETTINGS.maintenance);
+  }
+  function collectSettings(){
+    var map = { setTel:'tel', setMail:'mail', setAddr:'addr', setH1:'h1', setH2:'h2', setH3:'h3', setIg:'ig', setFb:'fb', setTk:'tk' };
+    Object.keys(map).forEach(function(id){ var el=document.getElementById(id); if(el) SETTINGS[map[id]] = el.value; });
+    SETTINGS.maintenance = document.getElementById('tMaint').checked;
+    SETTINGS.banner = document.getElementById('tBanner').checked;
+    SETTINGS.contact = document.getElementById('tContact').checked;
+    STATE.maintenance = SETTINGS.maintenance;
+  }
+  tMaint.addEventListener('change', function(){
+    STATE.maintenance = tMaint.checked;
+    SETTINGS.maintenance = tMaint.checked;
+    maintBanner.classList.toggle('show', STATE.maintenance);
+    persist();
+  });
+  document.getElementById('tBanner').addEventListener('change', function(){ SETTINGS.banner = this.checked; persist(); });
+  document.getElementById('setForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    collectSettings();
+    persist();
+    toast('Paramètres enregistrés', SETTINGS.maintenance ? 'Mode maintenance ACTIF sur le site' : 'Appliqué au site');
+  });
+  hydrateSettings();
+})();
+</script>
+</body>
+</html>

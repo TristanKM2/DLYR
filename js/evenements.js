@@ -5,7 +5,9 @@
   if (ar) ar.innerHTML = I.arrow || '';
 
   // Adresse de réception des demandes de devis
-  const DEST = 'tristankouker@gmail.com';
+  // ⚠️ RAPPEL : la boîte contact@dlyr-vr.com n'est pas encore active côté client.
+  // Le 1er envoi via FormSubmit déclenchera un e-mail d'activation à confirmer sur cette adresse.
+  const DEST = 'contact@dlyr-vr.com';
   const ENDPOINT = 'https://formsubmit.co/ajax/' + encodeURIComponent(DEST);
 
   const form = document.querySelector('[data-quote]');

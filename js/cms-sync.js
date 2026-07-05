@@ -1,7 +1,10 @@
 /* ============================================================
-   D'LYR — CMS Sync
-   Applique sur les pages publiques le contenu édité dans le CMS
-   (stocké dans localStorage par admin.html). Aucune dépendance.
+   D'LYR — CMS Sync v2
+   Applique sur les pages publiques le contenu édité dans le CMS.
+   Source de vérité : les fichiers content/*.json du repo
+   (servis par Cloudflare Pages). Le localStorage sert de
+   surcouche de prévisualisation quand on vient d'éditer
+   dans admin.html sur le même navigateur.
    ============================================================ */
 (function(){
   'use strict';
@@ -22,54 +25,104 @@
     'faq.html':      'faq'
   };
 
-  // Sélecteur du titre selon la page (par défaut .phero__title)
-  var TITLE_SEL = { 'accueil':'.hero__tagline', 'jeux-vr':'.jhero__title' };
-  // Sélecteur du texte principal (lead) — l'accueil n'en a pas
-  var LEAD_SEL  = { 'accueil':null };
+  // Identifiant de page CMS -> nom du fichier JSON dans content/
+  var JSON_NAME = { 'accueil':'index' };
 
-  function read(){
+  // Sélecteurs par page (null = champ non applicable sur cette page)
+  // jeux-vr : le titre du hero est le nom du jeu affiché (slider),
+  // on ne l'écrase pas — seules les meta SEO s'appliquent.
+  var TITLE_SEL = { 'accueil':'.hero__tagline', 'jeux-vr':null };
+  var LEAD_SEL  = { 'accueil':null, 'jeux-vr':null };
+  var SUB_SEL   = { 'accueil':null, 'jeux-vr':null };
+
+  var file = location.pathname.split('/').pop().toLowerCase();
+  var pageId = FILE_MAP[file];
+
+  function readLocal(){
     try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; }
     catch(e){ return {}; }
   }
 
-  var file = location.pathname.split('/').pop().toLowerCase();
-  var pageId = FILE_MAP[file];
-  var store = read();
-  var settings = store.settings || {};
-
-  /* ---------- 1. Mode maintenance (global) ---------- */
-  if(settings.maintenance){
-    showMaintenance();
-    return; // on n'applique rien d'autre
+  function fetchJSON(name){
+    return fetch('content/' + name + '.json', { cache:'no-store' })
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .catch(function(){ return null; });
   }
 
-  /* ---------- 2. Bandeau d'info (global) ---------- */
-  if(settings.banner){
-    showBanner(settings.bannerText || "Nouveau : réservez votre session VR en ligne — ouvert 7j/7 !");
+  // 1. On charge global.json + le JSON de la page, puis on applique.
+  Promise.all([
+    fetchJSON('global'),
+    pageId ? fetchJSON(JSON_NAME[pageId] || pageId) : Promise.resolve(null)
+  ]).then(function(res){
+    var local    = readLocal();
+    var settings = merge(res[0], local.settings);
+    var content  = pageContent(res[1], local, pageId);
+    ready(function(){ apply(settings, content); });
+  });
+
+  function merge(base, over){
+    var out = {};
+    var k;
+    if(base) for(k in base) out[k] = base[k];
+    if(over) for(k in over) out[k] = over[k];
+    return out;
   }
 
-  /* ---------- 3. Contenu de la page ---------- */
-  if(pageId && store.content && store.content[pageId]){
-    applyContent(pageId, store.content[pageId].fr || {});
+  // Le JSON peut contenir { fr:{...}, en:{...} } ou directement les champs
+  function pageContent(json, local, id){
+    var remote = json ? (json.fr || json) : null;
+    var loc = (id && local.content && local.content[id]) ? (local.content[id].fr || {}) : null;
+    return merge(remote, loc);
   }
 
-  /* ---------- 4. Coordonnées / horaires dans le footer ---------- */
-  applyGlobals(settings);
+  function ready(fn){
+    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
+    else fn();
+  }
 
   // ====================================================
 
+  function apply(settings, c){
+    /* ---------- Mode maintenance (global) ---------- */
+    if(settings.maintenance){
+      showMaintenance(settings);
+      return; // on n'applique rien d'autre
+    }
+
+    /* ---------- Bandeau d'info (global) ---------- */
+    if(settings.banner){
+      showBanner(settings.bannerText || "Nouveau : réservez votre session VR en ligne — ouvert 7j/7 !");
+    }
+
+    /* ---------- Contenu de la page ---------- */
+    if(pageId && c) applyContent(pageId, c);
+
+    /* ---------- Coordonnées / horaires (footer + cartes) ---------- */
+    applyGlobals(settings);
+  }
+
+  function setText(sel, txt){
+    var el = document.querySelector(sel);
+    if(el) el.textContent = txt;
+  }
+
   function applyContent(id, c){
-    if(!c) return;
-    // Titre
+    // Titre principal
     if(c.titre){
       var tSel = (id in TITLE_SEL) ? TITLE_SEL[id] : '.phero__title';
-      if(tSel){ var t = document.querySelector(tSel); if(t) t.textContent = c.titre; }
+      if(tSel) setText(tSel, c.titre);
     }
     // Texte principal (lead)
     if(c.desc){
       var lSel = (id in LEAD_SEL) ? LEAD_SEL[id] : '.phero__lead';
-      if(lSel){ var l = document.querySelector(lSel); if(l) l.textContent = c.desc; }
+      if(lSel) setText(lSel, c.desc);
     }
+    // Sous-titre -> texte d'accroche à côté de la flèche du hero
+    if(c.sous){
+      var sSel = (id in SUB_SEL) ? SUB_SEL[id] : '.phero__cue span:last-child';
+      if(sSel) setText(sSel, c.sous);
+    }
+    // NB : le champ « sec » n'a pas d'emplacement sur les pages (réservé).
     // Meta SEO
     if(c.metaTitle){ document.title = c.metaTitle; }
     if(c.metaDesc){
@@ -79,17 +132,43 @@
   }
 
   function applyGlobals(s){
-    // Le footer est injecté de façon asynchrone par site.js : on observe.
+    var hours = (s.h1 || s.h2 || s.h3)
+      ? 'Ouvert 7j/7 · Lun–Ven ' + (s.h1||'') + '\nSamedi ' + (s.h2||'') + ' · Dimanche ' + (s.h3||'')
+      : null;
+
+    // Le footer est injecté de façon asynchrone par site.js : on réessaie.
     function patch(){
-      if(s.addr){
-        document.querySelectorAll('[data-cms-addr], .footer__contact p').forEach(function(el){
-          if(/Colombes|Gaulle/i.test(el.textContent)){
-            var svg = el.querySelector('svg');
-            el.textContent = ' ' + s.addr;
-            if(svg) el.insertBefore(svg, el.firstChild);
-          }
-        });
+      var ps = document.querySelectorAll('.footer__contact p');
+      if(ps.length >= 4){
+        if(s.addr) setSpan(ps[0], s.addr);
+        if(hours)  setSpan(ps[1], hours);
+        if(s.tel){
+          var a = ps[2].querySelector('a');
+          if(a){ a.textContent = s.tel; a.href = 'tel:+33' + s.tel.replace(/\D/g,'').replace(/^0/,''); }
+        }
+        if(s.mail){
+          var m = ps[3].querySelector('a');
+          if(m){ m.textContent = s.mail; m.href = 'mailto:' + s.mail; }
+        }
       }
+      // Carte « Où nous trouver » (injectée aussi par site.js)
+      var lines = document.querySelectorAll('.pmaps__line');
+      if(lines.length >= 2){
+        if(s.addr) appendAfterIcon(lines[0], ' ' + s.addr);
+        if(s.h1)   appendAfterIcon(lines[1], ' 7j/7 · Lun–Ven ' + s.h1 + ' · Sam. ' + (s.h2||'') + ' · Dim. ' + (s.h3||''));
+      }
+    }
+    function setSpan(p, txt){
+      var span = p.querySelector('span:last-child');
+      if(span){ span.textContent = ''; txt.split('\n').forEach(function(line, i){
+        if(i) span.appendChild(document.createElement('br'));
+        span.appendChild(document.createTextNode(line));
+      }); }
+    }
+    function appendAfterIcon(el, txt){
+      var svg = el.querySelector('svg');
+      el.textContent = txt;
+      if(svg) el.insertBefore(svg, el.firstChild);
     }
     patch();
     var tries = 0, iv = setInterval(function(){ patch(); if(++tries>20) clearInterval(iv); }, 200);
@@ -113,7 +192,9 @@
     document.body.insertBefore(b, document.body.firstChild);
   }
 
-  function showMaintenance(){
+  function showMaintenance(s){
+    var tel  = s.tel  || '01 47 80 00 00';
+    var mail = s.mail || 'contact@dlyr-vr.com';
     var o = document.createElement('div');
     o.style.cssText = 'position:fixed;inset:0;z-index:9999;background:#0e0e0e;color:#f5f0e8;'
       + 'display:flex;flex-direction:column;align-items:center;justify-content:center;'
@@ -126,8 +207,8 @@
       + '<h1 style="font-weight:800;font-size:clamp(28px,5vw,46px);margin:26px 0 12px;">'
       +   'Le site est en maintenance</h1>'
       + '<p style="color:#8c8c8c;font-size:17px;max-width:42ch;line-height:1.5;">'
-      +   'Nous revenons très vite. En attendant, contactez-nous au 01 47 80 00 00 ou '
-      +   '\u00e9crivez \u00e0 contact@dlyr.fr.</p>';
+      +   'Nous revenons très vite. En attendant, contactez-nous au ' + tel + ' ou '
+      +   '\u00e9crivez \u00e0 ' + mail + '.</p>';
     function mount(){ document.body.appendChild(o); }
     if(document.body) mount(); else document.addEventListener('DOMContentLoaded', mount);
   }
