@@ -18,7 +18,7 @@
 
   /* ---------- Slider Expériences VR ---------- */
   const GAMES = [
-    { name: 'Outbreak Lab',     genre: 'Horreur',   dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/Outbreak Lab.png', href: 'jeux-vr.html' },
+    { name: 'Outbreak Lab',     genre: 'Horreur',   dur: '30 min', pl: '2 à 12 joueurs', vid: 'uploads/Video gamers.mp4', href: 'jeux-vr.html' },
     { name: 'Wild Odyssey',     genre: 'Aventure',  dur: '30 min', pl: '2 à 6 joueurs' },
     { name: 'The Smurfs',       genre: 'Famille',   dur: '25 min', pl: '1 à 4 joueurs' },
     { name: 'Contagion Origin', genre: 'Action',    dur: '20 min', pl: '1 à 6 joueurs' },
@@ -33,23 +33,64 @@
     const clockSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
     const plSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M15 19a4.5 4.5 0 0 1 6 0"/></svg>';
     track.innerHTML = GAMES.map(g => `
-      <${g.href ? `a href="${g.href}"` : 'div'} class="slide">
-        <div class="ph ph--dark">${g.img ? `<img class="ph__img" src="${g.img}" alt="${g.name}" style="object-position:center 30%">` : `<span class="ph__label">Visuel · ${g.name}</span>`}</div>
+      <${g.href ? `a href="${g.href}"` : 'div'} class="slide${g.vid ? ' slide--video' : ''}">
+        ${g.vid
+          ? `<video class="slide__video" src="${g.vid}" muted loop playsinline preload="metadata"></video>`
+          : `<div class="ph ph--dark">${g.img ? `<img class="ph__img" src="${g.img}" alt="${g.name}" style="object-position:center 30%">` : `<span class="ph__label">Visuel · ${g.name}</span>`}</div>`}
         <div class="slide__scrim"></div>
         <div class="slide__top"><span class="tag-genre">${g.genre}</span></div>
+        ${g.vid ? `<div class="slide__ctrl"><button type="button" data-vplay aria-label="Lecture / pause"></button><button type="button" data-vmute aria-label="Activer / couper le son"></button></div>` : ''}
         <div class="slide__name">${g.name}</div>
         <div class="slide__meta">
           <span>${clockSvg} Durée ${g.dur}</span>
           <span>${plSvg} ${g.pl}</span>
         </div>
       </${g.href ? 'a' : 'div'}>`).join('');
+
+    /* contrôles vidéo (sans quitter le lien vers la fiche jeu) */
+    const icPlay = '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>';
+    const icPause = '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>';
+    const icVol = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>';
+    const icMute = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="M16 9l6 6M22 9l-6 6"/></svg>';
+    track.querySelectorAll('.slide--video').forEach(sl => {
+      const v = sl.querySelector('video');
+      const bp = sl.querySelector('[data-vplay]');
+      const bm = sl.querySelector('[data-vmute]');
+      const sync = () => { bp.innerHTML = v.paused ? icPlay : icPause; bm.innerHTML = v.muted ? icMute : icVol; };
+      bp.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); if (v.paused) { v.dataset.user = ''; v.play(); } else { v.dataset.user = 'paused'; v.pause(); } });
+      bm.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); v.muted = !v.muted; });
+      ['play', 'pause', 'volumechange'].forEach(ev => v.addEventListener(ev, sync));
+      sync();
+    });
     dots.innerHTML = GAMES.map((_, i) => `<button aria-label="Slide ${i + 1}"${i === 0 ? ' class="on"' : ''}></button>`).join('');
     let idx = 0; const n = GAMES.length;
+
+    /* lecture uniquement quand la vidéo est visible (slide actif + slider à l'écran) */
+    let inView = false;
+    const vids = [...track.querySelectorAll('.slide--video')].map(sl => ({
+      v: sl.querySelector('video'),
+      k: [...track.children].indexOf(sl),
+    }));
+    function syncPlayback() {
+      vids.forEach(({ v, k }) => {
+        const active = (k === idx) && inView;
+        if (!active) { if (!v.paused) v.pause(); }
+        else if (v.dataset.user !== 'paused' && v.paused) { v.play().catch(() => {}); }
+      });
+    }
+    if (vids.length && 'IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        inView = entries[0].isIntersecting;
+        syncPlayback();
+      }, { threshold: .35 }).observe(root);
+    } else { inView = true; syncPlayback(); }
+
     function go(i) {
       idx = (i + n) % n;
       track.style.transform = `translateX(-${idx * 100}%)`;
       dots.querySelectorAll('button').forEach((b, k) => b.classList.toggle('on', k === idx));
       if (titleEl) titleEl.textContent = GAMES[idx].name;
+      syncPlayback();
     }
     root.querySelector('.slider__nav--next').addEventListener('click', () => go(idx + 1));
     root.querySelector('.slider__nav--prev').addEventListener('click', () => go(idx - 1));
