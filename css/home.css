@@ -16,7 +16,7 @@
 
 /* ---------- HERO ---------- */
 .hero{
-  min-height:100svh; background:var(--ink); position:relative; overflow:hidden;
+  min-height:min(92svh, 960px); background:var(--ink); position:relative; overflow:hidden;
   display:flex; flex-direction:column; justify-content:flex-end;
   padding-top:88px;
   padding-bottom:clamp(40px,6vh,72px);
@@ -43,7 +43,7 @@
 }
 .hero__word img{ width:min(640px,84%); height:auto; display:block; margin-inline:auto; }
 .hero__word--badge{ flex:1; display:grid; place-items:center; min-height:0; }
-.hero__word--badge img{ width:min(400px,56vw); max-height:52svh; object-fit:contain; filter:invert(1); }
+.hero__word--badge img{ width:min(370px,52vw); max-height:45svh; object-fit:contain; filter:invert(1); }
 @media (prefers-reduced-motion: no-preference){
   .hero__word--badge img{ animation:badgeFloat 7s ease-in-out infinite; }
 }

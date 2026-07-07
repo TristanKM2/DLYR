@@ -18,7 +18,7 @@
 
   /* ---------- Slider Expériences VR ---------- */
   const GAMES = [
-    { name: 'Contagion',        genre: 'Horreur',   dur: '20 min', pl: '1 à 6 joueurs' },
+    { name: 'Outbreak Lab',     genre: 'Horreur',   dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/Outbreak Lab.png', href: 'jeux-vr.html' },
     { name: 'Wild Odyssey',     genre: 'Aventure',  dur: '30 min', pl: '2 à 6 joueurs' },
     { name: 'The Smurfs',       genre: 'Famille',   dur: '25 min', pl: '1 à 4 joueurs' },
     { name: 'Contagion Origin', genre: 'Action',    dur: '20 min', pl: '1 à 6 joueurs' },
@@ -33,8 +33,8 @@
     const clockSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
     const plSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M15 19a4.5 4.5 0 0 1 6 0"/></svg>';
     track.innerHTML = GAMES.map(g => `
-      <div class="slide">
-        <div class="ph ph--dark"><span class="ph__label">Visuel · ${g.name}</span></div>
+      <${g.href ? `a href="${g.href}"` : 'div'} class="slide">
+        <div class="ph ph--dark">${g.img ? `<img class="ph__img" src="${g.img}" alt="${g.name}" style="object-position:center 30%">` : `<span class="ph__label">Visuel · ${g.name}</span>`}</div>
         <div class="slide__scrim"></div>
         <div class="slide__top"><span class="tag-genre">${g.genre}</span></div>
         <div class="slide__name">${g.name}</div>
@@ -42,7 +42,7 @@
           <span>${clockSvg} Durée ${g.dur}</span>
           <span>${plSvg} ${g.pl}</span>
         </div>
-      </div>`).join('');
+      </${g.href ? 'a' : 'div'}>`).join('');
     dots.innerHTML = GAMES.map((_, i) => `<button aria-label="Slide ${i + 1}"${i === 0 ? ' class="on"' : ''}></button>`).join('');
     let idx = 0; const n = GAMES.length;
     function go(i) {

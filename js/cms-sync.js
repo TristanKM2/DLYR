@@ -12,17 +12,18 @@
   var STORE_KEY = 'dlyr_cms';
 
   // Fichier courant -> identifiant de page CMS
+  // (fonctionne avec ou sans « .html » : Cloudflare Pages sert des URL propres)
   var FILE_MAP = {
-    '':              'accueil',
-    'index.html':    'accueil',
-    'catalogue.html':'catalogue',
-    'jeux-vr.html':  'jeux-vr',
-    'activites.html':'activites',
-    'evenements.html':'evenements',
-    'entreprises.html':'entreprises',
-    'offrir.html':   'offrir',
-    'snack-bar.html':'snack-bar',
-    'faq.html':      'faq'
+    '':           'accueil',
+    'index':      'accueil',
+    'catalogue':  'catalogue',
+    'jeux-vr':    'jeux-vr',
+    'activites':  'activites',
+    'evenements': 'evenements',
+    'entreprises':'entreprises',
+    'offrir':     'offrir',
+    'snack-bar':  'snack-bar',
+    'faq':        'faq'
   };
 
   // Identifiant de page CMS -> nom du fichier JSON dans content/
@@ -35,7 +36,7 @@
   var LEAD_SEL  = { 'accueil':null, 'jeux-vr':null };
   var SUB_SEL   = { 'accueil':null, 'jeux-vr':null };
 
-  var file = location.pathname.split('/').pop().toLowerCase();
+  var file = location.pathname.split('/').pop().toLowerCase().replace(/\.html$/, '');
   var pageId = FILE_MAP[file];
 
   function readLocal(){

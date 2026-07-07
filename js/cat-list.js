@@ -8,7 +8,7 @@
 
   const GAMES = [
     { name: 'Quiz Hologame',    genre: 'Hologame', dur: 30, players: 6, href: 'activites.html#quiz' },
-    { name: 'Contagion',        genre: 'Horreur',  dur: 20, players: 6, href: 'jeux-vr.html' },
+    { name: 'Outbreak Lab',     genre: 'Horreur',  dur: 30, players: 12, pl: '2 à 12', img: 'uploads/Outbreak Lab.png', href: 'jeux-vr.html' },
     { name: 'Contagion Origin', genre: 'Action',   dur: 20, players: 6, href: 'jeux-vr.html' },
     { name: 'Wild Odyssey',     genre: 'Aventure', dur: 30, players: 6, href: 'jeux-vr.html' },
     { name: 'The Smurfs',       genre: 'Famille',  dur: 25, players: 4, href: 'jeux-vr.html' },
@@ -51,11 +51,11 @@
 
     gridEl.innerHTML = list.map((g, i) => `
       <a class="xcard reveal" data-d="${i % 4}" href="${g.href}">
-        <div class="ph ph--dark"><span class="ph__label">Visuel · ${g.name}</span></div>
+        <div class="ph ph--dark">${g.img ? `<img class="ph__img" src="${g.img}" alt="${g.name}">` : `<span class="ph__label">Visuel · ${g.name}</span>`}</div>
         <span class="xcard__scrim"></span>
         <span class="xcard__tag tag-genre" style="background:${GCOLOR[g.genre] || 'var(--blue)'}">${g.genre}</span>
         <span class="xcard__name">${g.name}</span>
-        <span class="xcard__meta"><span>${clock} ${g.dur} min</span><span>${ppl} ${g.players <= 1 ? 'Solo' : '1 à ' + g.players}</span></span>
+        <span class="xcard__meta"><span>${clock} ${g.dur} min</span><span>${ppl} ${g.pl || (g.players <= 1 ? 'Solo' : '1 à ' + g.players)}</span></span>
       </a>`).join('');
 
     if (window.DLYR_reveal) window.DLYR_reveal();

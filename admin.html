@@ -890,6 +890,21 @@ ul{ list-style:none; }
   function persist(){
     try{ localStorage.setItem(STORE_KEY, JSON.stringify({ content:CONTENT, settings:SETTINGS })); }catch(e){}
   }
+
+  // Publication vers GitHub via le Worker (content/<page>.json)
+  var JSON_NAME = { accueil:'index' }; // id CMS -> nom de fichier
+  function pushToWorker(page, data, onDone){
+    var s = (window.DLYR && window.DLYR.session) ? window.DLYR.session() : null;
+    if(!s || !s.key){ if(onDone) onDone(false, 'Session expirée — reconnectez-vous.'); return; }
+    fetch(window.DLYR.WORKER_URL + '/save', {
+      method:'PUT',
+      headers:{ 'Content-Type':'application/json', 'Authorization':'Bearer ' + s.key },
+      body: JSON.stringify({ page: JSON_NAME[page] || page, data: data })
+    })
+    .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok: r.ok && j.ok, err: j.error }; }); })
+    .then(function(res){ if(onDone) onDone(res.ok, res.ok ? null : ('Erreur serveur' + (res.err ? ' ('+res.err+')' : ''))); })
+    .catch(function(){ if(onDone) onDone(false, 'Serveur injoignable.'); });
+  }
   function loadStore(){
     try{
       var s = JSON.parse(localStorage.getItem(STORE_KEY));
@@ -1145,7 +1160,11 @@ ul{ list-style:none; }
       p.fr = (fr.titre && fr.desc.length>=80) ? 'ok' : (fr.titre?'warn':'missing');
       persist();
       renderEditor();
-      toast('Modifications enregistrées', 'Appliqué sur le site · '+p.name);
+      toast('Enregistré', 'Publication sur le site en cours…');
+      pushToWorker(p.id, CONTENT[p.id], function(ok, err){
+        if(ok) toast('Publié ✅', p.name + ' · en ligne dans 1 à 2 min');
+        else   toast('Échec de publication ⚠️', err || 'Réessayez.');
+      });
     });
     document.getElementById('previewBtn').addEventListener('click', function(){
       collectEditor();
@@ -1395,13 +1414,21 @@ ul{ list-style:none; }
     SETTINGS.maintenance = tMaint.checked;
     maintBanner.classList.toggle('show', STATE.maintenance);
     persist();
+    pushToWorker('global', SETTINGS, function(ok, err){
+      if(ok) toast(tMaint.checked ? 'Maintenance ACTIVÉE ✅' : 'Maintenance désactivée ✅', 'En ligne dans 1 à 2 min');
+      else   toast('Échec de publication ⚠️', err || 'Réessayez.');
+    });
   });
   document.getElementById('tBanner').addEventListener('change', function(){ SETTINGS.banner = this.checked; persist(); });
   document.getElementById('setForm').addEventListener('submit', function(e){
     e.preventDefault();
     collectSettings();
     persist();
-    toast('Paramètres enregistrés', SETTINGS.maintenance ? 'Mode maintenance ACTIF sur le site' : 'Appliqué au site');
+    toast('Paramètres enregistrés', 'Publication sur le site en cours…');
+    pushToWorker('global', SETTINGS, function(ok, err){
+      if(ok) toast('Publié ✅', SETTINGS.maintenance ? 'Mode maintenance ACTIF' : 'En ligne dans 1 à 2 min');
+      else   toast('Échec de publication ⚠️', err || 'Réessayez.');
+    });
   });
   hydrateSettings();
 })();

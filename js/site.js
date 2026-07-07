@@ -309,7 +309,7 @@
         <h2 class="h1 eyebrow-bar" style="margin-bottom:clamp(36px,4vw,56px)"><span>Snack Bar</span></h2>
         <div class="steaser__grid reveal">
           <div class="ph steaser__media steaser__media--tall"><span class="ph__label">Photo · Cocktails</span></div>
-          <div class="ph steaser__media"><span class="ph__label">Photo · Bar</span></div>
+          <div class="ph steaser__media"><img class="ph__img" src="uploads/lounge.png" alt="L'espace lounge de D'LYR"></div>
           <div class="ph steaser__media"><span class="ph__label">Photo · Tapas</span></div>
         </div>
         <div class="steaser__foot reveal"><a class="btn btn--ink-o" href="snack-bar.html">Voir la carte</a></div>
@@ -317,8 +317,31 @@
     </section>`;
   }
 
+  /* ---------- Lightbox images ---------- */
+  function lightboxInit() {
+    const imgs = [...document.querySelectorAll('.ph__img, [data-lightbox]')]
+      .filter(el => !el.closest('[data-video]'));
+    if (!imgs.length) return;
+    const ov = document.createElement('div');
+    ov.className = 'lightbox';
+    ov.innerHTML = '<button class="lightbox__close" aria-label="Fermer">×</button><img class="lightbox__img" alt="">';
+    document.body.appendChild(ov);
+    const im = ov.querySelector('.lightbox__img');
+    function close() { ov.classList.remove('on'); document.body.style.overflow = ''; }
+    imgs.forEach(el => {
+      el.classList.add('is-zoomable');
+      el.addEventListener('click', (e) => {
+        e.preventDefault(); e.stopPropagation();
+        im.src = el.currentSrc || el.src; im.alt = el.alt || '';
+        ov.classList.add('on'); document.body.style.overflow = 'hidden';
+      });
+    });
+    ov.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  }
+
   function init() {
-    [buildNav, buildFooter, buildMaps, buildSnackTeaser, toastInit, reserve, marquees, cookies, analytics].forEach(fn => {
+    [buildNav, buildFooter, buildMaps, buildSnackTeaser, toastInit, reserve, marquees, cookies, analytics, lightboxInit].forEach(fn => {
       try { fn(); } catch (e) { console.warn('[DLYR]', fn.name, e); }
     });
     try { reveal(); } catch (e) { console.warn('[DLYR] reveal', e); }

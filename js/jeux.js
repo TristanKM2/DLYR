@@ -8,19 +8,46 @@
   const ar = document.querySelector('[data-arrow]');
   if (ar) ar.innerHTML = I.arrow || '';
 
-  /* ---- Bouton vidéo (placeholder) ---- */
+  /* ---- Bande-annonce vidéo ---- */
   const vid = document.querySelector('[data-video]');
-  if (vid) vid.addEventListener('click', () => {
-    window.DLYR_toast && window.DLYR_toast('Bande-annonce — vidéo à intégrer prochainement');
-  });
+  if (vid) {
+    const player = vid.querySelector('.jhero__player');
+    const start = () => {
+      if (!player || vid.classList.contains('is-playing')) return;
+      vid.classList.add('is-playing');
+      player.controls = true;
+      const t = parseFloat(localStorage.getItem('dlyr-trailer-t') || '0');
+      if (t > 0 && t < (player.duration || Infinity) - 2) player.currentTime = t;
+      player.play();
+    };
+    vid.addEventListener('click', (e) => { if (!vid.classList.contains('is-playing')) { e.preventDefault(); start(); } });
+    vid.addEventListener('keydown', (e) => { if ((e.key === 'Enter' || e.key === ' ') && !vid.classList.contains('is-playing')) { e.preventDefault(); start(); } });
+    if (player) {
+      player.addEventListener('timeupdate', () => { try { localStorage.setItem('dlyr-trailer-t', String(player.currentTime)); } catch (_) {} });
+      player.addEventListener('ended', () => {
+        try { localStorage.setItem('dlyr-trailer-t', '0'); } catch (_) {}
+        vid.classList.remove('is-playing');
+        player.controls = false;
+      });
+    }
+  }
+
+  /* ---- Galerie carrousel ---- */
+  const gal = document.querySelector('[data-jgal]');
+  if (gal) {
+    const vp = gal.querySelector('.jgal__viewport');
+    const step = () => ((gal.querySelector('.jg')?.offsetWidth || 240) + 16);
+    gal.querySelector('.jgal__nav--next').addEventListener('click', () => vp.scrollBy({ left: step(), behavior: 'smooth' }));
+    gal.querySelector('.jgal__nav--prev').addEventListener('click', () => vp.scrollBy({ left: -step(), behavior: 'smooth' }));
+  }
 
   /* ---- Avis carousel ---- */
   const AVIS = [
     { n: 'Thomas M.', t: "Le meilleur jeu VR auquel j'ai joué ! L'immersion est totale, on sursaute pour de vrai. Mention spéciale au mode coopératif à 6, c'est l'éclate totale." },
     { n: 'Laura P.',  t: "Frissons garantis. On se croit vraiment au cœur d'une invasion de zombies. Le free roaming change tout : on bouge, on se cache, on court. Bluffant." },
-    { n: 'Yanis K.',  t: "Venu pour mon EVG, on a adoré Contagion. Difficulté bien dosée, ambiance au top. On a enchaîné deux sessions tellement c'était prenant." },
+    { n: 'Yanis K.',  t: "Venu pour mon EVG, on a adoré Outbreak Lab. Difficulté bien dosée, ambiance au top. On a enchaîné deux sessions tellement c'était prenant." },
     { n: 'Nadia B.',  t: "Une expérience intense et hyper réaliste. L'équipe explique très bien le fonctionnement, même pour les débutants. On reviendra tester les autres jeux !" },
-    { n: 'Marc D.',   t: "Graphismes superbes, sensations garanties. Parfait pour les amateurs d'action et d'horreur. 20 minutes qui passent à toute vitesse." },
+    { n: 'Marc D.',   t: "Graphismes superbes, sensations garanties. Parfait pour les amateurs d'action et d'horreur. 30 minutes qui passent à toute vitesse." },
   ];
   (function avis() {
     const root = document.querySelector('[data-javis]'); if (!root) return;
