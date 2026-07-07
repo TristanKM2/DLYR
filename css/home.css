@@ -111,6 +111,10 @@
 .slide .ph{ position:absolute; inset:0; border-radius:0; transition:transform .8s ease; }
 .slide:hover .ph{ transform:scale(1.03); }
 .slide__scrim{ position:absolute; inset:0; background:linear-gradient(transparent 40%, rgba(0,0,0,.85)); }
+.slide__video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; background:#000; }
+.slide__ctrl{ position:absolute; bottom:18px; right:22px; display:flex; gap:10px; z-index:3; }
+.slide__ctrl button{ width:44px; height:44px; border-radius:50%; background:rgba(0,0,0,.55); border:1px solid rgba(248,248,248,.35); color:var(--paper); display:grid; place-items:center; cursor:pointer; transition:background .2s, color .2s; }
+.slide__ctrl button:hover{ background:var(--lime); color:var(--ink); border-color:var(--lime); }
 .slide__top{ position:absolute; top:24px; left:24px; }
 .slide__meta{ position:absolute; left:0; right:0; bottom:22px; display:flex; justify-content:center; gap:38px; color:var(--paper); font-family:var(--f-btn); font-weight:700; font-size:16px; }
 .slide__meta span{ display:flex; align-items:center; gap:8px; }
