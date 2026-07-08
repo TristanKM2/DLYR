@@ -18,11 +18,11 @@
 
   /* ---------- Slider Expériences VR ---------- */
   const GAMES = [
-    { name: 'Outbreak Lab',     genre: 'Horreur',   dur: '30 min', pl: '2 à 12 joueurs', vid: 'uploads/Video gamers.mp4', href: 'jeux-vr.html' },
-    { name: 'Wild Odyssey',     genre: 'Aventure',  dur: '30 min', pl: '2 à 6 joueurs' },
-    { name: 'The Smurfs',       genre: 'Famille',   dur: '25 min', pl: '1 à 4 joueurs' },
-    { name: 'Contagion Origin', genre: 'Action',    dur: '20 min', pl: '1 à 6 joueurs' },
-    { name: 'Affected',         genre: 'Horreur',   dur: '35 min', pl: '2 à 4 joueurs' },
+    { name: 'Outbreak Lab',        genre: 'Horreur',  dur: '30 min', pl: '2 à 12 joueurs', vid: 'uploads/Video gamers.mp4', href: 'jeu-outbreak-lab.html' },
+    { name: 'Harbor Siege',        genre: 'Action',   dur: '20 min', pl: '2 à 12 joueurs', href: 'jeu-harbor-siege.html' },
+    { name: 'Paradise Expedition', genre: 'Action',   dur: '30 min', pl: '2 à 12 joueurs', href: 'jeu-paradise-expedition.html' },
+    { name: 'Volcanic Warfare',    genre: 'Action',   dur: '30 min', pl: '4 à 8 joueurs',  href: 'jeu-volcanic-warfare.html' },
+    { name: 'Time Quest',          genre: 'Aventure', dur: '30 min', pl: '2 à 20 participants', href: 'jeu-time-quest.html' },
   ];
   function slider() {
     const root = document.querySelector('[data-slider]');

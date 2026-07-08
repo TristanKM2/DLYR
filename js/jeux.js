@@ -4,13 +4,17 @@
 (function () {
   const I = window.DLYR_ICONS || {};
 
+  /* ---- Jeu courant (body[data-game]) ---- */
+  const ALL = window.DLYR_GAMES || [];
+  const slug = document.body.dataset.game || 'outbreak-lab';
+
   // flèche
   const ar = document.querySelector('[data-arrow]');
   if (ar) ar.innerHTML = I.arrow || '';
 
   /* ---- Bande-annonce vidéo ---- */
   const vid = document.querySelector('[data-video]');
-  if (vid) {
+  if (vid && vid.querySelector('.jhero__player')) {
     const player = vid.querySelector('.jhero__player');
     const start = () => {
       if (!player || vid.classList.contains('is-playing')) return;
@@ -74,19 +78,19 @@
   })();
 
   /* ---- Plus de jeux ---- */
-  const GAMES = [
-    { name: 'Wild Odyssey',     genre: 'Aventure', dur: '30 min', pl: '2 à 6 joueurs' },
-    { name: 'The Smurfs',       genre: 'Famille',  dur: '25 min', pl: '1 à 4 joueurs' },
-    { name: 'Contagion Origin', genre: 'Action',   dur: '20 min', pl: '1 à 6 joueurs' },
-  ];
+  const GAMES = ALL.filter(g => g.slug !== slug).slice(0, 3).map(g => ({
+    name: g.name, genre: g.genre,
+    dur: g.dur ? g.dur + ' min' : '', pl: g.pl || '',
+    href: 'jeu-' + g.slug + '.html', img: g.img
+  }));
   const grid = document.querySelector('.jmore__grid');
   if (grid) grid.innerHTML = GAMES.map(g => `
-    <a class="jcard" href="jeux-vr.html">
-      <div class="ph ph--dark"><span class="ph__label">Visuel · ${g.name}</span></div>
+    <a class="jcard" href="${g.href}">
+      <div class="ph ph--dark">${g.img ? `<img class="ph__img" src="${g.img}" alt="${g.name}">` : `<span class="ph__label">Visuel · ${g.name}</span>`}</div>
       <span class="jcard__scrim"></span>
       <span class="jcard__tag tag-genre">${g.genre}</span>
       <span class="jcard__name">${g.name}</span>
-      <span class="jcard__meta"><span>Durée ${g.dur}</span><span>${g.pl}</span></span>
+      <span class="jcard__meta">${g.dur ? `<span>Durée ${g.dur}</span>` : ''}${g.pl ? `<span>${g.pl}</span>` : ''}</span>
     </a>`).join('');
 
   /* ---- Marquee gaming ---- */

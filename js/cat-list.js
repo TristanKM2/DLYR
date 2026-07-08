@@ -6,23 +6,12 @@
   const ar = document.querySelector('[data-arrow]');
   if (ar) ar.innerHTML = I.arrow || '';
 
-  const GAMES = [
-    { name: 'Quiz Hologame',    genre: 'Hologame', dur: 30, players: 6, href: 'activites.html#quiz' },
-    { name: 'Outbreak Lab',     genre: 'Horreur',  dur: 30, players: 12, pl: '2 à 12', img: 'uploads/Outbreak Lab.png', href: 'jeux-vr.html' },
-    { name: 'Contagion Origin', genre: 'Action',   dur: 20, players: 6, href: 'jeux-vr.html' },
-    { name: 'Wild Odyssey',     genre: 'Aventure', dur: 30, players: 6, href: 'jeux-vr.html' },
-    { name: 'The Smurfs',       genre: 'Famille',  dur: 25, players: 4, href: 'jeux-vr.html' },
-    { name: 'Affected',         genre: 'Horreur',  dur: 35, players: 4, href: 'jeux-vr.html' },
-    { name: 'Space Pirates',    genre: 'Aventure', dur: 25, players: 6, href: 'jeux-vr.html' },
-    { name: 'Zombie Survival',  genre: 'Action',   dur: 20, players: 4, href: 'jeux-vr.html' },
-    { name: 'Mystery Manor',    genre: 'Horreur',  dur: 30, players: 2, href: 'jeux-vr.html' },
-    { name: 'Dragon Quest VR',  genre: 'Aventure', dur: 40, players: 4, href: 'jeux-vr.html' },
-    { name: 'Kids Adventure',   genre: 'Famille',  dur: 15, players: 4, href: 'jeux-vr.html' },
-    { name: 'Cyber Arena',      genre: 'Action',   dur: 20, players: 6, href: 'jeux-vr.html' },
-    { name: 'Ocean Deep',       genre: 'Famille',  dur: 25, players: 4, href: 'jeux-vr.html' },
-  ];
-  const GENRES = ['Tous', 'Action', 'Horreur', 'Aventure', 'Famille', 'Hologame'];
-  const GCOLOR = { Action: '#234db4', Horreur: '#581383', Aventure: '#1b8a4b', Famille: '#c2410c', Hologame: '#0e7490' };
+  const GAMES = (window.DLYR_GAMES || []).map(g => ({
+    name: g.name, genre: g.genre, dur: g.dur, players: g.players, pl: g.pl,
+    img: g.img, href: 'jeu-' + g.slug + '.html'
+  }));
+  const GENRES = ['Tous', 'Action', 'Aventure', 'Horreur', 'Famille', 'Quiz', 'Escape game'];
+  const GCOLOR = { Action: '#234db4', Horreur: '#581383', Aventure: '#1b8a4b', Famille: '#c2410c', Quiz: '#0e7490', 'Escape game': '#7c3aed' };
 
   const state = { genre: 'Tous', players: 'all', sort: 'az' };
 
@@ -42,9 +31,9 @@
   function apply() {
     let list = GAMES.filter(g =>
       (state.genre === 'Tous' || g.genre === state.genre) &&
-      (state.players === 'all' || playersBucket(g.players) === state.players)
+      (state.players === 'all' || (g.players && playersBucket(g.players) === state.players))
     );
-    list.sort((a, b) => state.sort === 'dur' ? a.dur - b.dur : a.name.localeCompare(b.name));
+    list.sort((a, b) => state.sort === 'dur' ? (a.dur || 99) - (b.dur || 99) : a.name.localeCompare(b.name));
 
     countEl.textContent = `${list.length} expérience${list.length > 1 ? 's' : ''} disponible${list.length > 1 ? 's' : ''}`;
     emptyEl.hidden = list.length > 0;
@@ -55,7 +44,7 @@
         <span class="xcard__scrim"></span>
         <span class="xcard__tag tag-genre" style="background:${GCOLOR[g.genre] || 'var(--blue)'}">${g.genre}</span>
         <span class="xcard__name">${g.name}</span>
-        <span class="xcard__meta"><span>${clock} ${g.dur} min</span><span>${ppl} ${g.pl || (g.players <= 1 ? 'Solo' : '1 à ' + g.players)}</span></span>
+        <span class="xcard__meta">${g.dur ? `<span>${clock} ${g.dur} min</span>` : ''}${g.pl ? `<span>${ppl} ${g.pl}</span>` : ''}</span>
       </a>`).join('');
 
     if (window.DLYR_reveal) window.DLYR_reveal();

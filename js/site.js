@@ -4,12 +4,11 @@
 (function () {
   document.documentElement.classList.add('js-anim');
   const PAGES = [
-    { href: 'jeux-vr.html',     label: 'Jeux VR',     key: 'jeux' },
     { href: 'catalogue.html',   label: 'Expériences VR', key: 'catalogue' },
-    { href: 'activites.html',   label: 'Activités',   key: 'activites' },
+    { href: 'activites.html',   label: 'Fléchettes',  key: 'activites' },
     { href: 'evenements.html',  label: 'Évènements',  key: 'evenements' },
     { href: 'entreprises.html', label: 'Entreprises', key: 'entreprises' },
-    { href: 'snack-bar.html',   label: 'Snack Bar',   key: 'snack' },
+    { href: 'snack-bar.html',   label: 'Bar&Snack',   key: 'snack' },
     { href: 'faq.html',         label: 'FAQ',         key: 'faq' },
   ];
 
@@ -46,6 +45,7 @@
         <nav class="nav__links">${links}</nav>
         <div class="nav__cta">
           <a class="btn btn--sm ${onPaper ? 'btn--ink-o' : 'btn--paper-o'}" href="#reserver">Réserver</a>
+          <a class="btn btn--sm btn--lime" href="offrir.html">Offrir</a>
         </div>
         <button class="nav__burger" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -113,9 +113,9 @@
               <a href="#" aria-label="LinkedIn">${ICONS.linkedin}</a>
             </div>
           </div>
-          ${col('Activités', [['Jeux VR','jeux-vr.html'],['Fléchettes & Quiz','activites.html'],['Catalogue VR','catalogue.html']])}
+          ${col('Activités', [['Jeux VR','catalogue.html'],['Fléchettes','activites.html'],['Catalogue VR','catalogue.html']])}
           ${col('Mentions légales', [['Politique de confidentialité','politique-confidentialite.html'],['Mentions légales','mentions-legales.html'],['CGV','cgv.html']])}
-          ${col('Plan du site', [['Accueil','index.html'],['Jeux VR','jeux-vr.html'],['Activités','activites.html'],['Évènements','evenements.html'],['Entreprises','entreprises.html'],['Offrir','offrir.html'],['Snack Bar','snack-bar.html'],['FAQ','faq.html']])}
+          ${col('Plan du site', [['Accueil','index.html'],['Jeux VR','catalogue.html'],['Fléchettes','activites.html'],['Évènements','evenements.html'],['Entreprises','entreprises.html'],['Offrir','offrir.html'],['Bar&Snack','snack-bar.html'],['FAQ','faq.html']])}
         </div>
       </div>
       <div class="footer__word" aria-hidden="true"><img src="uploads/DLYR-05.png" alt=""></div>
@@ -290,7 +290,7 @@
             <div class="pmaps__how">
               <p><strong>En métro&nbsp;:</strong> Ligne T2 — arrêt Charlebourg, à 5 min à pied.</p>
               <p><strong>En bus&nbsp;:</strong> Lignes 167 / 366 — arrêt Charles de Gaulle.</p>
-              <p><strong>En voiture&nbsp;:</strong> Parking gratuit à proximité, accès A86.</p>
+              <p><strong>En voiture&nbsp;:</strong> Parking Q-Park à proximité — tarif négocié. <a href="#" data-qpark style="text-decoration:underline">Réservez votre place ici</a>. Accès A86.</p>
             </div>
             <a class="btn btn--light" href="mailto:contact@dlyr-vr.com?subject=${encodeURIComponent("Contact D'LYR")}" style="align-self:flex-start;margin-top:8px">Nous contacter</a>
           </div>
@@ -306,7 +306,7 @@
     mount.outerHTML = `
     <section class="section bg-paper tex">
       <div class="wrap">
-        <h2 class="h1 eyebrow-bar" style="margin-bottom:clamp(36px,4vw,56px)"><span>Snack Bar</span></h2>
+        <h2 class="h1 eyebrow-bar" style="margin-bottom:clamp(36px,4vw,56px)"><span>Bar&amp;Snack</span></h2>
         <div class="steaser__grid reveal">
           <div class="ph steaser__media steaser__media--tall"><span class="ph__label">Photo · Cocktails</span></div>
           <div class="ph steaser__media"><img class="ph__img" src="uploads/lounge.png" alt="L'espace lounge de D'LYR"></div>
