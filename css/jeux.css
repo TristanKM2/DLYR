@@ -13,6 +13,9 @@
 .jhero__scrim,.jhero__vtitle,.jhero__play{ transition:opacity .3s; }
 .jhero__videobg{ position:absolute; inset:0; border-radius:var(--r-lg); }
 .jhero__scrim{ position:absolute; inset:0; background:rgba(0,0,0,.35); }
+.jhero__video.has-poster .jhero__vtitle{ display:none; }
+.jhero__video.has-poster .jhero__scrim{ background:linear-gradient(transparent 52%, rgba(0,0,0,.55)); }
+.jhero__player--portrait{ object-fit:contain; background:rgba(12,12,14,.55); backdrop-filter:blur(18px); }
 .jhero__vtitle{ position:absolute; inset:0; display:grid; place-items:center; text-align:center;
   font-family:var(--f-display); font-weight:800; font-style:italic; font-size:clamp(28px,5vw,72px); line-height:1; letter-spacing:.02em;
   color:rgba(248,248,248,.9); text-transform:uppercase; text-shadow:0 4px 30px rgba(0,0,0,.6); }
@@ -96,6 +99,22 @@
   .jrcard__img{ max-width:180px; }
 }
 @media (max-width:560px){
-  .jgal__nav{ width:44px; height:44px; font-size:24px; }
+  .jgal__nav{ display:none; }
+  .jstory__gallery{ gap:0; }
   .jmore__grid{ grid-template-columns:1fr; }
+}
+
+/* ---------- Mobile ≤640px ---------- */
+@media (max-width:640px){
+  /* Les formes déco écrasent la vidéo sur petit écran */
+  .jhero__deco{ display:none; }
+  .jhero__video{ aspect-ratio:16/9; }
+  .jhero__play{ width:64px; }
+  /* Avis : swipe à la place des flèches */
+  .javis__carousel .rev__nav{ display:none; }
+  .javis__carousel{ gap:0; }
+  .javis__viewport{ touch-action:pan-y; }
+  .javis__dots button{ width:12px; height:12px; }
+  .javis__dots{ gap:12px; }
+  .javis__head{ justify-content:center; }
 }

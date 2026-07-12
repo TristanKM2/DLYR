@@ -113,6 +113,7 @@
 .slide:hover .ph{ transform:scale(1.03); }
 .slide__scrim{ position:absolute; inset:0; background:linear-gradient(transparent 40%, rgba(0,0,0,.85)); }
 .slide__video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; background:#000; }
+.slide__video--portrait{ object-fit:contain; background:rgba(12,12,14,.55); backdrop-filter:blur(18px); }
 .slide__ctrl{ position:absolute; bottom:18px; right:22px; display:flex; gap:10px; z-index:3; }
 .slide__ctrl button{ width:44px; height:44px; border-radius:50%; background:rgba(0,0,0,.55); border:1px solid rgba(248,248,248,.35); color:var(--paper); display:grid; place-items:center; cursor:pointer; transition:background .2s, color .2s; }
 .slide__ctrl button:hover{ background:var(--lime); color:var(--ink); border-color:var(--lime); }
@@ -238,4 +239,26 @@
   .stats__nums{ gap:32px 24px; }
   .ready__title{ font-size:clamp(56px,18vw,90px); }
   .rev__nav, .slider__nav{ width:44px; height:44px; font-size:24px; }
+}
+
+/* ---------- Mobile ≤640px : carrousels pleinécran + swipe ---------- */
+@media (max-width:640px){
+  /* Les flèches latérales cèdent la place au swipe (géré en JS) */
+  .slider__nav, .rev__nav{ display:none; }
+  .slider, .rev__carousel{ gap:0; }
+  .slider__viewport{ border-radius:var(--r-sm); touch-action:pan-y; }
+  .rev__viewport{ touch-action:pan-y; }
+  .slide{ border-radius:var(--r-sm); }
+  .slide__top{ top:14px; left:14px; }
+  .slide__name{ left:16px; bottom:52px; font-size:clamp(24px,7vw,34px); }
+  .slide__meta{ bottom:14px; gap:18px; font-size:13px; padding-inline:12px; flex-wrap:wrap; }
+  .slide__ctrl{ bottom:44px; right:12px; }
+  .slide__ctrl button{ width:40px; height:40px; }
+  .slider__dots button, .rev__dots button{ width:12px; height:12px; }
+  .slider__dots, .rev__dots{ gap:12px; }
+  .rcard{ padding:0 2px; }
+  .rcard__inner{ padding:22px 20px; }
+  /* Hero : CTA pleine largeur, plus simple au pouce */
+  .hero__cta{ width:100%; }
+  .hero__cta .btn{ flex:1; }
 }

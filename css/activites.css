@@ -39,4 +39,4 @@
 .cform__price span{ font-family:var(--f-display); font-weight:800; font-size:clamp(40px,5vw,56px); color:var(--lime); display:inline-block; margin-right:6px; }
 
 @media (max-width:900px){ .afeat{ grid-template-columns:1fr; gap:48px; } .afeat__img--sub{ width:38%; } .combo__grid{ grid-template-columns:1fr; } }
-@media (max-width:560px){ .afeat__img--sub{ position:static; width:60%; margin-top:16px; border-width:0; } }
+@media (max-width:560px){ .afeat__img--sub{ position:static; width:60%; margin-top:16px; border-width:0; } .afeat__deco{ left:0; } }
