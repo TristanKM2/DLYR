@@ -6,6 +6,7 @@ window.DLYR_GAMES = [
     slug: 'harbor-siege', name: 'Harbor Siege', genre: 'Action',
     tags: ['Conquête', 'Stratégie', "Esprit d'équipe"],
     type: 'Domination', pl: '2 à 12 joueurs', players: 12, dur: 20,
+    img: 'uploads/Harbor Siege.png', vid: 'uploads/harbor siege.mp4',
     objective: 'Capturer et défendre les zones de contrôle pour mener votre équipe à la victoire.',
     tagline: 'Prenez le contrôle du port.<br>Dominez le champ de bataille.',
     story: [
@@ -32,6 +33,7 @@ window.DLYR_GAMES = [
     slug: 'paradise-expedition', name: 'Paradise Expedition', genre: 'Action',
     tags: ['Free For All', 'Compétition', 'Survie'],
     type: 'Free For All', pl: '2 à 12 joueurs', players: 12, dur: 30,
+    img: 'uploads/Paradise Expedition.png', vid: 'uploads/paradise expedition.mp4',
     objective: "Éliminer un maximum d'adversaires et réaliser le meilleur score.",
     tagline: 'Dans ce paradis perdu, chaque<br>rencontre peut être votre dernière',
     story: [
@@ -44,6 +46,7 @@ window.DLYR_GAMES = [
     slug: 'volcanic-warfare', name: 'Volcanic Warfare', genre: 'Action',
     tags: ['Team Deathmatch', 'Coopération', 'Tactique'],
     type: 'Team Deathmatch', pl: '4 à 8 joueurs', players: 8, dur: 30,
+    img: 'uploads/Volcanic Warfare.png', vid: 'uploads/volcanic warfare.mp4',
     objective: "Éliminer un maximum d'adversaires et permettre à votre équipe d'atteindre le score le plus élevé.",
     tagline: 'Deux équipes.<br>Une seule victoire.',
     story: [
@@ -56,6 +59,7 @@ window.DLYR_GAMES = [
     slug: 'snow-village', name: 'Snow Village', genre: 'Famille',
     tags: ['Famille', 'Coopératif', 'Magie de Noël'],
     type: 'Family Adventure', pl: '2 à 12 joueurs', players: 12, dur: 15,
+    img: 'uploads/Snow Village.png', vid: 'uploads/snow village.mp4',
     objective: 'Défendre le village du Père Noël, sauver les habitants et vaincre les armées du sorcier maléfique.',
     tagline: 'La magie de Noël est en danger.<br>Devenez les héros de Snow Village.',
     story: [
@@ -69,6 +73,7 @@ window.DLYR_GAMES = [
     slug: 'brain-arena', name: 'Brain Arena', genre: 'Quiz',
     tags: ['Quiz', 'Multijoueur', 'Culture générale'],
     type: 'Quiz immersif multijoueur', pl: '2 à 8 joueurs', players: 8, dur: 30,
+    img: 'uploads/Brain arena.png', vid: 'uploads/Brain Arena.mp4',
     objective: 'Accumuler le maximum de points en répondant correctement et rapidement aux questions pour terminer en tête du classement.',
     tagline: 'La connaissance est<br>votre meilleure arme',
     story: [
@@ -81,7 +86,8 @@ window.DLYR_GAMES = [
   {
     slug: 'spirit-of-the-wild', name: 'Spirit of the Wild', genre: 'Aventure',
     tags: ['Sensoriel', 'Nature', 'Légendes'],
-    type: 'Expérience sensorielle', pl: null, players: null, dur: null,
+    type: 'Expérience sensorielle', pl: '2 à 10 joueurs', players: 10, dur: 30,
+    img: 'uploads/Spirit of the wild.png',
     objective: null,
     tagline: "Éveillez l'animal<br>qui sommeille en vous",
     story: [
@@ -92,6 +98,7 @@ window.DLYR_GAMES = [
     slug: 'icarus-station', name: 'Icarus Station', genre: 'Escape game',
     tags: ['Escape game', 'Coopératif', 'Science-fiction'],
     type: 'Escape Game coopératif', pl: '2 à 12 joueurs', players: 12, dur: 30,
+    img: 'uploads/Icarus Station.png', vid: 'uploads/Icarus Station.mp4',
     objective: "Réparer les systèmes de la station, traverser les secteurs sinistrés et rejoindre la plateforme d'extraction avant l'effondrement d'Icarus-7.",
     tagline: "Échappez-vous avant que la station<br>ne sombre dans le vide spatial",
     story: [
@@ -105,6 +112,7 @@ window.DLYR_GAMES = [
     slug: 'time-quest', name: 'Time Quest', genre: 'Aventure',
     tags: ['Narratif', 'Culturel', 'Exploration'],
     type: 'Aventure culturelle immersive', pl: '2 à 20 participants', players: 20, dur: 30,
+    img: 'uploads/TimeQuest.png', vid: 'uploads/Time quest.mp4',
     objective: 'Explorer les civilisations du passé et résoudre les mystères du temps.',
     tagline: "Traversez les siècles.<br>Vivez l'Histoire.",
     story: [

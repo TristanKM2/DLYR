@@ -18,11 +18,15 @@
 
   /* ---------- Slider Expériences VR ---------- */
   const GAMES = [
-    { name: 'Outbreak Lab',        genre: 'Horreur',  dur: '30 min', pl: '2 à 12 joueurs', vid: 'uploads/Video gamers.mp4', href: 'jeu-outbreak-lab.html' },
-    { name: 'Harbor Siege',        genre: 'Action',   dur: '20 min', pl: '2 à 12 joueurs', href: 'jeu-harbor-siege.html' },
-    { name: 'Paradise Expedition', genre: 'Action',   dur: '30 min', pl: '2 à 12 joueurs', href: 'jeu-paradise-expedition.html' },
-    { name: 'Volcanic Warfare',    genre: 'Action',   dur: '30 min', pl: '4 à 8 joueurs',  href: 'jeu-volcanic-warfare.html' },
-    { name: 'Time Quest',          genre: 'Aventure', dur: '30 min', pl: '2 à 20 participants', href: 'jeu-time-quest.html' },
+    { name: 'Outbreak Lab',        genre: 'Horreur',  dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/Outbreak Lab.png', vid: 'uploads/Video gamers.mp4', href: 'jeu-outbreak-lab.html' },
+    { name: 'Harbor Siege',        genre: 'Action',   dur: '20 min', pl: '2 à 12 joueurs', img: 'uploads/Harbor Siege.png', vid: 'uploads/harbor siege.mp4', vp: true, href: 'jeu-harbor-siege.html' },
+    { name: 'Paradise Expedition', genre: 'Action',   dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/Paradise Expedition.png', vid: 'uploads/paradise expedition.mp4', vp: true, href: 'jeu-paradise-expedition.html' },
+    { name: 'Volcanic Warfare',    genre: 'Action',   dur: '30 min', pl: '4 à 8 joueurs',  img: 'uploads/Volcanic Warfare.png', vid: 'uploads/volcanic warfare.mp4', href: 'jeu-volcanic-warfare.html' },
+    { name: 'Time Quest',          genre: 'Aventure', dur: '30 min', pl: '2 à 20 participants', img: 'uploads/TimeQuest.png', vid: 'uploads/Time quest.mp4', href: 'jeu-time-quest.html' },
+    { name: 'Snow Village',        genre: 'Famille',  dur: '15 min', pl: '2 à 12 joueurs', img: 'uploads/Snow Village.png', vid: 'uploads/snow village.mp4', vp: true, href: 'jeu-snow-village.html' },
+    { name: 'Icarus Station',      genre: 'Escape game', dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/Icarus Station.png', vid: 'uploads/Icarus Station.mp4', href: 'jeu-icarus-station.html' },
+    { name: 'Brain Arena',         genre: 'Quiz',     dur: '30 min', pl: '2 à 8 joueurs', img: 'uploads/Brain arena.png', vid: 'uploads/Brain Arena.mp4', vp: true, href: 'jeu-brain-arena.html' },
+    { name: 'Spirit of the Wild',  genre: 'Aventure', dur: '30 min', pl: '2 à 10 joueurs', img: 'uploads/Spirit of the wild.png', href: 'jeu-spirit-of-the-wild.html' },
   ];
   function slider() {
     const root = document.querySelector('[data-slider]');
@@ -34,9 +38,8 @@
     const plSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M15 19a4.5 4.5 0 0 1 6 0"/></svg>';
     track.innerHTML = GAMES.map(g => `
       <${g.href ? `a href="${g.href}"` : 'div'} class="slide${g.vid ? ' slide--video' : ''}">
-        ${g.vid
-          ? `<video class="slide__video" src="${g.vid}" muted loop playsinline preload="metadata"></video>`
-          : `<div class="ph ph--dark">${g.img ? `<img class="ph__img" src="${g.img}" alt="${g.name}" style="object-position:center 30%">` : `<span class="ph__label">Visuel · ${g.name}</span>`}</div>`}
+        <div class="ph ph--dark">${g.img ? `<img class="ph__img" src="${g.img}" alt="${g.name}" style="object-position:center 30%">` : `<span class="ph__label">Visuel · ${g.name}</span>`}</div>
+        ${g.vid ? `<video class="slide__video${g.vp ? ' slide__video--portrait' : ''}" src="${g.vid}" muted loop playsinline preload="metadata"></video>` : ''}
         <div class="slide__scrim"></div>
         <div class="slide__top"><span class="tag-genre">${g.genre}</span></div>
         ${g.vid ? `<div class="slide__ctrl"><button type="button" data-vplay aria-label="Lecture / pause"></button><button type="button" data-vmute aria-label="Activer / couper le son"></button></div>` : ''}
@@ -96,8 +99,13 @@
     root.querySelector('.slider__nav--prev').addEventListener('click', () => go(idx - 1));
     dots.querySelectorAll('button').forEach((b, k) => b.addEventListener('click', () => go(k)));
     let timer = setInterval(() => go(idx + 1), 5000);
+    const restart = () => { clearInterval(timer); timer = setInterval(() => go(idx + 1), 5000); };
     root.addEventListener('mouseenter', () => clearInterval(timer));
-    root.addEventListener('mouseleave', () => timer = setInterval(() => go(idx + 1), 5000));
+    root.addEventListener('mouseleave', restart);
+    if (window.DLYR_swipe) window.DLYR_swipe(root.querySelector('.slider__viewport'), {
+      left: () => { go(idx + 1); restart(); },
+      right: () => { go(idx - 1); restart(); },
+    });
     go(0);
   }
 
@@ -140,6 +148,10 @@
     }
     root.querySelector('.rev__nav--next').addEventListener('click', () => { idx = Math.min(idx + 1, maxIdx()); render(); });
     root.querySelector('.rev__nav--prev').addEventListener('click', () => { idx = Math.max(idx - 1, 0); render(); });
+    if (window.DLYR_swipe) window.DLYR_swipe(root.querySelector('.rev__viewport'), {
+      left: () => { idx = Math.min(idx + 1, maxIdx()); render(); },
+      right: () => { idx = Math.max(idx - 1, 0); render(); },
+    });
     window.addEventListener('resize', render);
     render();
   }

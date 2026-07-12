@@ -159,6 +159,25 @@
   }
   window.DLYR_reveal = reveal;
 
+  /* ---------- Swipe tactile (carrousels) ----------
+     DLYR_swipe(el, { left, right }) : left = geste vers la gauche (slide suivante). */
+  window.DLYR_swipe = function (el, cb) {
+    if (!el) return;
+    let x0 = 0, y0 = 0, t0 = 0, tracking = false;
+    el.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      x0 = t.clientX; y0 = t.clientY; t0 = Date.now(); tracking = true;
+    }, { passive: true });
+    el.addEventListener('touchend', (e) => {
+      if (!tracking) return; tracking = false;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - x0, dy = t.clientY - y0;
+      if (Date.now() - t0 > 700) return;                 // trop lent = pas un swipe
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) * 1.2) return; // geste vertical = scroll
+      if (dx < 0) cb.left && cb.left(); else cb.right && cb.right();
+    }, { passive: true });
+  };
+
   /* ---------- Marquees : duplique le contenu pour boucle continue ---------- */
   function marquees() {
     document.querySelectorAll('.marquee__track').forEach(tr => {

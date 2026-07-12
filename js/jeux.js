@@ -7,6 +7,7 @@
   /* ---- Jeu courant (body[data-game]) ---- */
   const ALL = window.DLYR_GAMES || [];
   const slug = document.body.dataset.game || 'outbreak-lab';
+  const TK = 'dlyr-trailer-t-' + slug;
 
   // flèche
   const ar = document.querySelector('[data-arrow]');
@@ -20,16 +21,16 @@
       if (!player || vid.classList.contains('is-playing')) return;
       vid.classList.add('is-playing');
       player.controls = true;
-      const t = parseFloat(localStorage.getItem('dlyr-trailer-t') || '0');
+      const t = parseFloat(localStorage.getItem(TK) || '0');
       if (t > 0 && t < (player.duration || Infinity) - 2) player.currentTime = t;
       player.play();
     };
     vid.addEventListener('click', (e) => { if (!vid.classList.contains('is-playing')) { e.preventDefault(); start(); } });
     vid.addEventListener('keydown', (e) => { if ((e.key === 'Enter' || e.key === ' ') && !vid.classList.contains('is-playing')) { e.preventDefault(); start(); } });
     if (player) {
-      player.addEventListener('timeupdate', () => { try { localStorage.setItem('dlyr-trailer-t', String(player.currentTime)); } catch (_) {} });
+      player.addEventListener('timeupdate', () => { try { localStorage.setItem(TK, String(player.currentTime)); } catch (_) {} });
       player.addEventListener('ended', () => {
-        try { localStorage.setItem('dlyr-trailer-t', '0'); } catch (_) {}
+        try { localStorage.setItem(TK, '0'); } catch (_) {}
         vid.classList.remove('is-playing');
         player.controls = false;
       });
@@ -73,8 +74,13 @@
     root.querySelector('.rev__nav--prev').addEventListener('click', () => go(idx - 1));
     dots.querySelectorAll('button').forEach((b, k) => b.addEventListener('click', () => go(k)));
     let t = setInterval(() => go(idx + 1), 6000);
+    const restart = () => { clearInterval(t); t = setInterval(() => go(idx + 1), 6000); };
     root.addEventListener('mouseenter', () => clearInterval(t));
-    root.addEventListener('mouseleave', () => t = setInterval(() => go(idx + 1), 6000));
+    root.addEventListener('mouseleave', restart);
+    if (window.DLYR_swipe) window.DLYR_swipe(root.querySelector('.javis__viewport'), {
+      left: () => { go(idx + 1); restart(); },
+      right: () => { go(idx - 1); restart(); },
+    });
   })();
 
   /* ---- Plus de jeux ---- */
