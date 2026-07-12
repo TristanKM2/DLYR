@@ -33,10 +33,12 @@
       <span class="deco deco--diamond jhero__deco jhero__deco--diamond"></span>
       <span class="deco deco--circle jhero__deco jhero__deco--circle"></span>
       <span class="deco deco--tri jhero__deco jhero__deco--tri"></span>
-      <div class="jhero__video">
-        <div class="ph ph--dark jhero__videobg"><span class="ph__label">Visuel · Time Quest</span></div>
+      <div class="jhero__video" data-video role="button" tabindex="0" aria-label="Lire la bande-annonce">
+        <div class="ph ph--dark jhero__videobg"><img class="ph__img" src="uploads/TimeQuest.png" alt="Time Quest — affiche du jeu VR"></div>
+        <video class="jhero__player" src="uploads/Time quest.mp4" preload="metadata" playsinline></video>
         <span class="jhero__scrim"></span>
         <span class="jhero__vtitle">Traversez les siècles.<br>Vivez l'Histoire.</span>
+        <span class="jhero__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
       </div>
     </div>
     <h1 class="jhero__title reveal" data-d="2">Time Quest</h1>
@@ -64,19 +66,6 @@
   </div>
   <div class="wrap reveal" data-d="1" style="display:flex;justify-content:center;margin-bottom:clamp(36px,4vw,56px)">
     <a class="btn btn--lime" href="#reserver">Réserver</a>
-  </div>
-  <div class="wrap jstory__gallery reveal" data-d="1" data-jgal>
-    <button class="jgal__nav jgal__nav--prev" aria-label="Précédent">‹</button>
-    <div class="jgal__viewport">
-      <div class="jgal__track">
-        <div class="ph ph--dark jg"><span class="ph__label">Visuel · Time Quest</span></div>
-        <div class="ph ph--dark jg"><span class="ph__label">Screenshot</span></div>
-        <div class="ph ph--dark jg"><span class="ph__label">Screenshot</span></div>
-        <div class="ph ph--dark jg"><span class="ph__label">Screenshot</span></div>
-        <div class="ph ph--dark jg"><span class="ph__label">Screenshot</span></div>
-      </div>
-    </div>
-    <button class="jgal__nav jgal__nav--next" aria-label="Suivant">›</button>
   </div>
 </section>
 
