@@ -5,13 +5,13 @@
 .ev2__h span{ color:var(--paper); }
 .ev2__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 .ev2__grid--two{ grid-template-columns:repeat(2,1fr); max-width:880px; margin-inline:auto; }
-.evtype{ background:rgba(248,248,248,.04); border:1px solid rgba(248,248,248,.09); border-radius:var(--r-lg); overflow:hidden; transition:transform .3s, border-color .3s; }
+.evtype{ background:rgba(245,246,238,.04); border:1px solid rgba(245,246,238,.09); border-radius:var(--r-lg); overflow:hidden; transition:transform .3s, border-color .3s; }
 .evtype:hover{ transform:translateY(-6px); border-color:var(--lime); }
 .evtype__media{ aspect-ratio:16/10; border-radius:0; transition:transform .55s cubic-bezier(.2,.8,.2,1); }
 .evtype:hover .evtype__media{ transform:scale(1.05); }
 .evtype__body{ padding:clamp(24px,2.4vw,32px); display:flex; flex-direction:column; gap:14px; }
 .evtype__name{ font-family:var(--f-display); font-weight:700; font-size:clamp(24px,2.4vw,30px); color:var(--paper); line-height:1.05; }
-.evtype__desc{ font-size:16px; line-height:1.5; color:rgba(248,248,248,.72); }
+.evtype__desc{ font-size:16px; line-height:1.5; color:rgba(245,246,238,.72); }
 .evtype__tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
 .evtype__tags li{ font-family:var(--f-btn); font-weight:700; font-size:14px; color:var(--ink); background:var(--lime); padding:5px 14px; border-radius:var(--r-pill); }
 
@@ -26,18 +26,18 @@
 /* DEVIS */
 .quote__inner{ display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(40px,5vw,72px); align-items:start; }
 .quote__h{ color:var(--paper); margin-bottom:18px; }
-.quote__inner .lead{ color:rgba(248,248,248,.75); }
+.quote__inner .lead{ color:rgba(245,246,238,.75); }
 .quote__form{ display:flex; flex-direction:column; gap:18px; }
 .quote__row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
 .field{ display:flex; flex-direction:column; gap:8px; }
-.field span{ font-family:var(--f-btn); font-weight:700; font-size:15px; color:rgba(248,248,248,.8); }
-.field input,.field select,.field textarea{ font-family:var(--f-body); font-size:16px; color:var(--paper); background:rgba(248,248,248,.06); border:2px solid rgba(248,248,248,.16); border-radius:12px; padding:14px 16px; transition:border-color .2s; }
-.field input::placeholder,.field textarea::placeholder{ color:rgba(248,248,248,.4); }
+.field span{ font-family:var(--f-btn); font-weight:700; font-size:15px; color:rgba(245,246,238,.8); }
+.field input,.field select,.field textarea{ font-family:var(--f-body); font-size:16px; color:var(--paper); background:rgba(245,246,238,.06); border:2px solid rgba(245,246,238,.16); border-radius:12px; padding:14px 16px; transition:border-color .2s; }
+.field input::placeholder,.field textarea::placeholder{ color:rgba(245,246,238,.4); }
 .field input:focus,.field select:focus,.field textarea:focus{ outline:none; border-color:var(--lime); }
 .field select option{ color:#111; }
 .field textarea{ resize:vertical; }
 .quote__form .btn{ align-self:flex-start; }
-.quote__done{ background:rgba(219,248,58,.1); border:2px solid var(--lime); border-radius:var(--r-sm); padding:28px; color:var(--paper); text-align:center; }
+.quote__done{ background:rgba(212,188,114,.1); border:2px solid var(--lime); border-radius:var(--r-sm); padding:28px; color:var(--paper); text-align:center; }
 .quote__done strong{ color:var(--lime); }
 .quote__err{ background:rgba(255,90,90,.1); border:1.5px solid rgba(255,120,120,.5); border-radius:12px; padding:14px 16px; font-size:15px; color:#ffd9d9; line-height:1.5; }
 .quote__err a{ color:var(--lime); text-decoration:underline; font-weight:700; }

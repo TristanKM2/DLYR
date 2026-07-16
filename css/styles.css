@@ -11,19 +11,19 @@
    ============================================================ */
 :root{
   /* Couleurs */
-  --ink:        #272727;   /* anthracite principal  rgb(39,39,39)  */
-  --ink-2:      #1c1c1c;   /* noir profond          rgb(28,28,28)  */
-  --ink-3:      #202020;
-  --paper:      #f8f8f8;   /* blanc cassé           rgb(248,248,248)*/
-  --paper-2:    #ececec;   /* gris clair            rgb(236,236,236)*/
-  --gray:       #d9d9d9;   /* placeholder           rgb(217,217,217)*/
-  --gray-2:     #c3c3c3;
-  --muted:      #565656;   /* texte secondaire      */
-  --lime:       #dbf83a;   /* accent vert citron    rgb(219,248,58) */
-  --lime-2:     #d3ef4c;
-  --blue:       #234db4;   /* bleu tag              rgb(35,77,180)  */
-  --blue-2:     #4a7eda;   /* bleu clair            rgb(74,126,218) */
-  --purple:     #581383;   /* violet                rgb(88,19,131)  */
+  --ink:        #1c3024;   /* anthracite principal  rgb(28,48,36)  */
+  --ink-2:      #101f15;   /* noir profond          rgb(16,31,21)  */
+  --ink-3:      #14271b;
+  --paper:      #f5f6ee;   /* blanc cassé           rgb(245,246,238)*/
+  --paper-2:    #e8ecdc;   /* gris clair            rgb(232,236,220)*/
+  --gray:       #d2dac5;   /* placeholder           rgb(210,218,197)*/
+  --gray-2:     #b7c3a8;
+  --muted:      #4d5c49;   /* texte secondaire      */
+  --lime:       #d4bc72;   /* accent vert citron    rgb(212,188,114) */
+  --lime-2:     #c8ae61;
+  --blue:       #43744c;   /* bleu tag              rgb(67,116,76)  */
+  --blue-2:     #6f9a72;   /* bleu clair            rgb(111,154,114) */
+  --purple:     #55703a;   /* violet                rgb(85,112,58)  */
   --star:       #ffc72c;   /* étoiles avis          rgb(255,199,44) */
 
   /* Typo — Barlow partout (charte D'LYR) */
@@ -186,7 +186,7 @@ ul{ list-style:none; }
 .lightbox{ position:fixed; inset:0; z-index:2000; background:rgba(15,15,15,.93); display:grid; place-items:center; padding:4vh 4vw; opacity:0; pointer-events:none; transition:opacity .25s; }
 .lightbox.on{ opacity:1; pointer-events:auto; }
 .lightbox__img{ max-width:100%; max-height:92vh; width:auto; height:auto; object-fit:contain; border-radius:10px; box-shadow:0 30px 80px rgba(0,0,0,.55); }
-.lightbox__close{ position:absolute; top:14px; right:20px; font-size:44px; line-height:1; color:#f8f8f8; background:none; border:none; cursor:pointer; z-index:1; }
+.lightbox__close{ position:absolute; top:14px; right:20px; font-size:44px; line-height:1; color:#f5f6ee; background:none; border:none; cursor:pointer; z-index:1; }
 
 /* ============================================================
    NAVIGATION
@@ -197,21 +197,21 @@ ul{ list-style:none; }
 }
 .nav__inner{
   pointer-events:auto;
-  width:calc(100% - 36px);
+  width:min(80%, calc(100% - 36px));
   height:74px;
   display:flex; align-items:center; gap:24px;
   padding:0 14px 0 22px;
   border-radius:var(--r-sm);
-  background:rgba(248,248,248,.12);
+  background:rgba(245,246,238,.12);
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
-  border:1px solid rgba(248,248,248,.16);
+  border:1px solid rgba(245,246,238,.16);
   transition:background .3s ease, border-color .3s ease;
 }
-.nav--solid .nav__inner{ background:rgba(28,28,28,.82); border-color:rgba(248,248,248,.10); }
+.nav--solid .nav__inner{ background:rgba(16,31,21,.82); border-color:rgba(245,246,238,.10); }
 /* sur pages à fond clair */
-.nav--on-paper .nav__inner{ background:rgba(39,39,39,.06); border-color:rgba(39,39,39,.12); }
-.nav--on-paper.nav--solid .nav__inner{ background:rgba(248,248,248,.92); border-color:rgba(39,39,39,.16); box-shadow:0 10px 30px rgba(39,39,39,.14); }
+.nav--on-paper .nav__inner{ background:rgba(28,48,36,.06); border-color:rgba(28,48,36,.12); }
+.nav--on-paper.nav--solid .nav__inner{ background:rgba(245,246,238,.92); border-color:rgba(28,48,36,.16); box-shadow:0 10px 30px rgba(28,48,36,.14); }
 
 .brand{
   display:flex; align-items:center; flex:none;
@@ -337,7 +337,7 @@ ul{ list-style:none; }
   position:fixed; left:50%; bottom:20px; transform:translate(-50%,140%);
   z-index:300; width:min(940px, calc(100vw - 32px));
   background:var(--ink); color:var(--paper);
-  border:1px solid rgba(248,248,248,.16); border-radius:16px;
+  border:1px solid rgba(245,246,238,.16); border-radius:16px;
   padding:18px 22px; display:flex; align-items:center; gap:22px; flex-wrap:wrap;
   box-shadow:0 18px 50px rgba(0,0,0,.45);
   transition:transform .45s cubic-bezier(.6,0,.2,1);
@@ -365,7 +365,7 @@ ul{ list-style:none; }
 @media (max-width:640px){
   :root{ --gutter:20px; }
   .footer__grid{ grid-template-columns:1fr; gap:36px; }
-  .nav__inner{ height:64px; }
+  .nav__inner{ height:64px; width:calc(100% - 36px); }
   .brand{ font-size:28px; }
   .btn{ padding:14px 22px; white-space:normal; text-align:center; }
 }
@@ -373,7 +373,7 @@ ul{ list-style:none; }
 /* ---------- Bouton langue (drapeau) ---------- */
 .lang-btn{background:none;border:0;padding:4px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:transform .15s ease}
 .lang-btn svg{width:29px;height:20px;border-radius:4px;display:block;box-shadow:0 0 0 1.5px rgba(255,255,255,.4)}
-.nav--on-paper:not(.nav--solid) .lang-btn svg{box-shadow:0 0 0 1.5px rgba(39,39,39,.35)}
+.nav--on-paper:not(.nav--solid) .lang-btn svg{box-shadow:0 0 0 1.5px rgba(28,48,36,.35)}
 .lang-btn:hover{transform:scale(1.12)}
-.lang-btn:focus-visible{outline:2px solid #dbf83a;outline-offset:2px}
+.lang-btn:focus-visible{outline:2px solid #d4bc72;outline-offset:2px}
 .drawer .lang-btn{align-self:center;margin-top:4px}
