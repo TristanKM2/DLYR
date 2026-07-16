@@ -3,17 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D'LYR — Catalogue des expériences VR</title>
+<title>D'LYR — Expériences VR</title>
 <meta name="description" content="Découvrez toutes les expériences VR de D'LYR : action, horreur, aventure, famille. Filtrez par genre, durée et nombre de joueurs.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Cuprum:ital,wght@0,400;0,700;1,700&family=Sora:wght@400;600;700;800&family=Inter:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@500;700&family=Iceland&display=swap">
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/pages.css">
 <link rel="stylesheet" href="css/cat-list.css">
 <link rel="stylesheet" href="css/tweaks.css">
 <link rel="canonical" href="https://www.dlyr-vr.com/catalogue.html">
+<link rel="alternate" hreflang="fr" href="https://www.dlyr-vr.com/catalogue.html">
+<link rel="alternate" hreflang="en" href="https://www.dlyr-vr.com/en/catalogue.html">
+<link rel="alternate" hreflang="x-default" href="https://www.dlyr-vr.com/catalogue.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="D'LYR">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:title" content="D'LYR — Catalogue des expériences VR">
+<meta property="og:title" content="D'LYR — Expériences VR">
 <meta property="og:description" content="Découvrez toutes les expériences VR de D'LYR : action, horreur, aventure, famille. Filtrez par genre, durée et nombre de joueurs.">
 <meta property="og:url" content="https://www.dlyr-vr.com/catalogue.html">
 <meta property="og:image" content="https://www.dlyr-vr.com/uploads/DLYR-09-ea5d8366.png">
@@ -22,6 +26,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" type="image/png" href="uploads/DLYR-11.png">
+<link rel="apple-touch-icon" sizes="180x180" href="uploads/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 </head>
 <body data-page="catalogue" data-nav="paper">
 
@@ -29,7 +35,7 @@
 <section class="phero">
   <div class="wrap phero__grid">
     <div class="reveal">
-      <h1 class="phero__title">Catalogue<br>VR</h1>
+      <h1 class="phero__title">Expériences<br>VR</h1>
       <p class="phero__lead">Des expériences immersives en réalité virtuelle. Action, aventure, escape game ou famille&nbsp;: trouvez le monde qui vous fera vibrer.</p>
       <div class="phero__cue">
         <span class="btn-arrow btn-arrow--lime" data-arrow></span>
@@ -37,7 +43,7 @@
       </div>
     </div>
     <div class="phero__deco reveal" data-d="1">
-      <div class="ph"><img class="ph__img" src="uploads/spirit-of-the-wild-2.png" alt="Spirit of the Wild — affiche du jeu VR"></div>
+      <div class="ph"><img class="ph__img" loading="lazy" src="uploads/spirit-of-the-wild-2.jpg" alt="Spirit of the Wild — affiche du jeu VR"></div>
       <div class="ph"><video class="ph__vid" src="uploads/icarus-station.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
     </div>
   </div>
@@ -93,6 +99,12 @@
 <script src="js/cat-list.js"></script>
 <script src="js/tweaks.js"></script>
 
-<script src="js/cms-sync.js"></script>
+<script src="js/seo-jsonld.js"></script>
+<script src="js/i18n-en-ui.js"></script>
+<script src="js/i18n-en-games.js"></script>
+<script src="js/i18n-en-content.js"></script>
+<script src="js/i18n-en-legal.js"></script>
+<script src="js/i18n-en-privacy.js"></script>
+<script src="js/i18n.js"></script>
 </body>
 </html>

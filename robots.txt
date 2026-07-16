@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /admin.html
 Disallow: /_check/
 Disallow: /uploads/7.INPI-
 

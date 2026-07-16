@@ -16,18 +16,14 @@ Site statique du centre de loisirs VR D'LYR (Colombes) : jeux VR free-roaming, f
 ├── faq.html                FAQ
 ├── cgv.html, mentions-legales.html, politique-confidentialite.html
 ├── 404.html                Page introuvable
-├── admin.html              CMS admin (édition de contenu, localStorage + content/*.json)
+├── en/                     Versions anglaises (mêmes pages)
 ├── css/                    Styles (styles.css = base commune + 1 fichier par page)
 ├── js/                     Scripts (site.js = shell commun + 1 fichier par page)
 ├── uploads/                Médias (images, vidéos) — noms ASCII sans espaces
-├── worker/                 Worker Cloudflare pour la synchro CMS
-├── robots.txt, sitemap.xml
+├── robots.txt, sitemap.xml, site.webmanifest
 ```
 
 ## Déploiement
 
 Site 100 % statique : aucun build. Servir la racine telle quelle
 (GitHub Pages, Cloudflare Pages, Netlify…).
-
-Note CMS : `js/cms-sync.js` tente de charger `content/*.json` (optionnel,
-généré via `admin.html`) ; en son absence le site affiche son contenu par défaut.
