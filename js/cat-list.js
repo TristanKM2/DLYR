@@ -11,7 +11,7 @@
     img: g.img, href: 'jeu-' + g.slug + '.html'
   }));
   const GENRES = ['Tous', 'Action', 'Aventure', 'Horreur', 'Famille', 'Quiz', 'Escape game'];
-  const GCOLOR = { Action: '#234db4', Horreur: '#581383', Aventure: '#1b8a4b', Famille: '#c2410c', Quiz: '#0e7490', 'Escape game': '#7c3aed' };
+  const GCOLOR = { Action: '#43744c', Horreur: '#55703a', Aventure: '#1b8a4b', Famille: '#c2410c', Quiz: '#0e7490', 'Escape game': '#7c3aed' };
 
   const state = { genre: 'Tous', players: 'all', sort: 'az' };
 

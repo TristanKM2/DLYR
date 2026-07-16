@@ -5,7 +5,7 @@
 (function () {
   const KEY = 'dlyr_tweaks';
   const DEFAULTS = {
-    accent: '#dbf83a',
+    accent: '#d4bc72',
     headingFont: 'Barlow',
     radius: 16,
     marquee: 28,
@@ -18,15 +18,19 @@
     Oswald: { stack: "'Oswald', sans-serif", import: 'Oswald:wght@500;600;700' },
   };
   const ACCENTS = [
-    { v: '#dbf83a', n: 'Citron' },
-    { v: '#3ad8f8', n: 'Cyan' },
-    { v: '#ff7a2c', n: 'Orange' },
-    { v: '#f83ad8', n: 'Magenta' },
-    { v: '#5cf86a', n: 'Vert' },
+    { v: '#d4bc72', n: 'Doré' },
+    { v: '#8fb573', n: 'Vert sauge' },
+    { v: '#5e8c5a', n: 'Vert forêt' },
+    { v: '#c99a4b', n: 'Ambre' },
+    { v: '#a8c686', n: 'Vert clair' },
   ];
 
   function load() {
-    try { return Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem(KEY) || '{}')); }
+    try {
+      const s = JSON.parse(localStorage.getItem(KEY) || '{}');
+      if (s.accent === '#dbf83a') delete s.accent; // migration ancien accent lime
+      return Object.assign({}, DEFAULTS, s);
+    }
     catch (_) { return Object.assign({}, DEFAULTS); }
   }
   function save(t) { try { localStorage.setItem(KEY, JSON.stringify(t)); } catch (_) {} }

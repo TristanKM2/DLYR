@@ -119,11 +119,11 @@
 
   /* ---------- Carrousel d'avis ---------- */
   const REVIEWS = [
-    { n: 'Thomas M.', c: '#234db4', t: "Une expérience VR bluffante ! On s'est cru dans le jeu pendant 30 minutes. L'équipe est top et le bar parfait pour finir la soirée." },
-    { n: 'Sophie L.', c: '#581383', t: "Organisé l'EVJF de ma sœur ici, soirée inoubliable. Quiz Hologame, fléchettes, cocktails… tout y était. Je recommande à 200%." },
+    { n: 'Thomas M.', c: '#43744c', t: "Une expérience VR bluffante ! On s'est cru dans le jeu pendant 30 minutes. L'équipe est top et le bar parfait pour finir la soirée." },
+    { n: 'Sophie L.', c: '#55703a', t: "Organisé l'EVJF de ma sœur ici, soirée inoubliable. Quiz Hologame, fléchettes, cocktails… tout y était. Je recommande à 200%." },
     { n: 'Julien R.', c: '#1b8a4b', t: "Le meilleur spot de Colombes pour s'amuser entre potes. Les jeux sont variés et l'immersion est totale. On reviendra !" },
     { n: 'Inès B.',   c: '#c2410c', t: "Anniversaire de mon fils au top, les enfants ont adoré la réalité virtuelle. Accueil chaleureux et formule goûter parfaite." },
-    { n: 'Karim D.',  c: '#234db4', t: "Team building d'entreprise réussi. Ambiance garantie, défis VR en équipe et privatisation impeccable. Bravo à toute l'équipe." },
+    { n: 'Karim D.',  c: '#43744c', t: "Team building d'entreprise réussi. Ambiance garantie, défis VR en équipe et privatisation impeccable. Bravo à toute l'équipe." },
   ];
   function reviews() {
     const root = document.querySelector('[data-reviews]');

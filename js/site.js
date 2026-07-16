@@ -283,7 +283,7 @@
   /* ---------- Toast léger ---------- */
   function toastInit() {
     const t = document.createElement('div');
-    t.style.cssText = 'position:fixed;left:50%;bottom:28px;transform:translate(-50%,140%);z-index:200;background:#dbf83a;color:#272727;font-family:Barlow,sans-serif;font-weight:700;font-size:18px;padding:14px 26px;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.3);transition:transform .4s cubic-bezier(.6,0,.2,1);max-width:90vw;text-align:center';
+    t.style.cssText = 'position:fixed;left:50%;bottom:28px;transform:translate(-50%,140%);z-index:200;background:#d4bc72;color:#1c3024;font-family:Barlow,sans-serif;font-weight:700;font-size:18px;padding:14px 26px;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.3);transition:transform .4s cubic-bezier(.6,0,.2,1);max-width:90vw;text-align:center';
     document.body.appendChild(t);
     let to;
     window.DLYR_toast = (msg) => {
@@ -341,7 +341,7 @@
   /* ---------- Lightbox images ---------- */
   function lightboxInit() {
     const imgs = [...document.querySelectorAll('.ph__img, [data-lightbox]')]
-      .filter(el => !el.closest('[data-video]'));
+      .filter(el => !el.closest('[data-video]') && !el.closest('a'));
     if (!imgs.length) return;
     const ov = document.createElement('div');
     ov.className = 'lightbox';
