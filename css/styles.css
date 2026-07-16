@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* ---------- Fonts ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Cuprum:ital,wght@0,400;0,700;1,700&family=Sora:wght@400;600;700;800&family=Inter:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@500;700&family=Iceland&display=swap');
+/* Fonts : chargées via <link> dans le <head> de chaque page (perf) */
 
 /* ============================================================
    TOKENS
@@ -369,3 +369,11 @@ ul{ list-style:none; }
   .brand{ font-size:28px; }
   .btn{ padding:14px 22px; white-space:normal; text-align:center; }
 }
+
+/* ---------- Bouton langue (drapeau) ---------- */
+.lang-btn{background:none;border:0;padding:4px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:transform .15s ease}
+.lang-btn svg{width:29px;height:20px;border-radius:4px;display:block;box-shadow:0 0 0 1.5px rgba(255,255,255,.4)}
+.nav--on-paper:not(.nav--solid) .lang-btn svg{box-shadow:0 0 0 1.5px rgba(39,39,39,.35)}
+.lang-btn:hover{transform:scale(1.12)}
+.lang-btn:focus-visible{outline:2px solid #dbf83a;outline-offset:2px}
+.drawer .lang-btn{align-self:center;margin-top:4px}

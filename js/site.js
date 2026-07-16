@@ -44,6 +44,7 @@
         ${brand(onPaper)}
         <nav class="nav__links">${links}</nav>
         <div class="nav__cta">
+          <button class="lang-btn" data-lang-toggle type="button" aria-label="Switch site to English" title="English version"><svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"></rect><path d="M0 0 60 40M60 0 0 40" stroke="#fff" stroke-width="8"></path><path d="M0 0 60 40M60 0 0 40" stroke="#C8102E" stroke-width="4"></path><path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="13"></path><path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="8"></path></svg></button>
           <a class="btn btn--sm ${onPaper ? 'btn--ink-o' : 'btn--paper-o'}" href="#reserver">Réserver</a>
           <a class="btn btn--sm btn--lime" href="offrir.html">Offrir</a>
         </div>
@@ -71,6 +72,7 @@
       <button class="drawer__close" aria-label="Fermer">&times;</button>
       ${PAGES.map(p => `<a href="${p.href}"${p.key === current ? ' aria-current="page"' : ''}>${p.label}</a>`).join('')}
       <div class="drawer__cta">
+        <button class="lang-btn" data-lang-toggle type="button" aria-label="Switch site to English" title="English version"><svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"></rect><path d="M0 0 60 40M60 0 0 40" stroke="#fff" stroke-width="8"></path><path d="M0 0 60 40M60 0 0 40" stroke="#C8102E" stroke-width="4"></path><path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="13"></path><path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="8"></path></svg></button>
         <a class="btn btn--lime" href="#reserver">Réserver</a>
         <a class="btn btn--paper-o" href="offrir.html">Offrir</a>
       </div>`;
@@ -113,9 +115,9 @@
               <a href="#" aria-label="LinkedIn">${ICONS.linkedin}</a>
             </div>
           </div>
-          ${col('Activités', [['Jeux VR','catalogue.html'],['Fléchettes','activites.html'],['Catalogue VR','catalogue.html']])}
+          ${col('Activités', [['Expériences VR','catalogue.html'],['Fléchettes','activites.html'],['Laissez-nous un avis ⭐','https://www.google.com/maps/search/?api=1&query=D%27LYR%2C+3+Boulevard+Charles+de+Gaulle%2C+92700+Colombes']])}
           ${col('Mentions légales', [['Politique de confidentialité','politique-confidentialite.html'],['Mentions légales','mentions-legales.html'],['CGV','cgv.html']])}
-          ${col('Plan du site', [['Accueil','index.html'],['Jeux VR','catalogue.html'],['Fléchettes','activites.html'],['Évènements','evenements.html'],['Entreprises','entreprises.html'],['Offrir','offrir.html'],['Bar&Snack','snack-bar.html'],['FAQ','faq.html']])}
+          ${col('Plan du site', [['Accueil','index.html'],['Expériences VR','catalogue.html'],['Fléchettes','activites.html'],['Évènements','evenements.html'],['Entreprises','entreprises.html'],['Offrir','offrir.html'],['Bar&Snack','snack-bar.html'],['FAQ','faq.html']])}
         </div>
       </div>
       <div class="footer__word" aria-hidden="true"><img src="uploads/DLYR-05.png" alt=""></div>
@@ -299,7 +301,7 @@
       <div class="wrap">
         <h2 class="h1 pmaps__h">Où nous trouver ?</h2>
         <div class="pmaps__layout reveal">
-          <div class="ph ph--dark pmaps__map map-embed"><iframe src="https://www.google.com/maps?q=3%20Boulevard%20Charles%20de%20Gaulle%2C%2092700%20Colombes&output=embed&hl=fr" title="Carte — D'LYR, 3 Bd Charles de Gaulle, Colombes" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+          <div class="ph ph--dark pmaps__map map-embed"><iframe src="https://www.google.com/maps?q=D%27LYR%2C%203%20Boulevard%20Charles%20de%20Gaulle%2C%2092700%20Colombes&output=embed&hl=fr" title="Carte — D'LYR, 3 Bd Charles de Gaulle, Colombes" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
           <div class="pmaps__card">
             <h3 class="h3">Horaires d'ouverture</h3>
             <p class="pmaps__line">${ICONS.pin} 3 Bd Charles de Gaulle, 92700 Colombes</p>
@@ -328,7 +330,7 @@
         <h2 class="h1 eyebrow-bar" style="margin-bottom:clamp(36px,4vw,56px)"><span>Bar&amp;Snack</span></h2>
         <div class="steaser__grid reveal">
           <div class="ph steaser__media steaser__media--tall"><span class="ph__label">Photo · Cocktails</span></div>
-          <div class="ph steaser__media"><img class="ph__img" src="uploads/lounge.png" alt="L'espace lounge de D'LYR"></div>
+          <div class="ph steaser__media"><img class="ph__img" src="uploads/lounge.jpg" alt="L'espace lounge de D'LYR"></div>
           <div class="ph steaser__media"><span class="ph__label">Photo · Tapas</span></div>
         </div>
         <div class="steaser__foot reveal"><a class="btn btn--ink-o" href="snack-bar.html">Voir la carte</a></div>

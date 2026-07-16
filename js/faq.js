@@ -21,6 +21,7 @@
     { cat: 'securite', q: "Est-on en sécurité dans l'arène ? Voit-on les autres joueurs ?", a: "Absolument. Même si vous êtes totalement immergé dans un autre univers, un système de barrières virtuelles de sécurité (gardien) apparaît dans votre casque si vous vous approchez trop d'un mur réel. De plus, vous voyez les avatars de vos coéquipiers en temps réel et à leur position exacte pour éviter toute collision." },
     { cat: 'securite', q: "Y a-t-il des contre-indications médicales ?", a: "L'expérience est déconseillée aux personnes souffrant d'épilepsie photosensible, de troubles cardiaques sévères ou de troubles de l'équilibre marqués. Par mesure de précaution, certaines de nos expériences les plus dynamiques sont déconseillées aux femmes enceintes." },
   ];
+  window.DLYR_FAQ_DATA = FAQ; // exposé pour le JSON-LD FAQPage (seo-jsonld.js)
   const CATS = { all: 'Toutes les questions', vr: 'VR & Jeux', food: 'Bar & Restauration', resa: 'Réservations & Tarifs', pratique: 'Infos Pratiques', securite: 'Sécurité & Santé' };
   // Toutes les questions sur une seule page — pas de pagination (demande Tristan)
   const PER = 1000;

@@ -18,15 +18,15 @@
 
   /* ---------- Slider Expériences VR ---------- */
   const GAMES = [
-    { name: 'Outbreak Lab',        genre: 'Horreur',  dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/outbreak-lab.png', vid: 'uploads/video-gamers.mp4', href: 'jeu-outbreak-lab.html' },
-    { name: 'Harbor Siege',        genre: 'Action',   dur: '20 min', pl: '2 à 12 joueurs', img: 'uploads/harbor-siege.png', vid: 'uploads/harbor-siege.mp4', vp: true, href: 'jeu-harbor-siege.html' },
-    { name: 'Paradise Expedition', genre: 'Action',   dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/paradise-expedition.png', vid: 'uploads/paradise-expedition.mp4', vp: true, href: 'jeu-paradise-expedition.html' },
-    { name: 'Volcanic Warfare',    genre: 'Action',   dur: '30 min', pl: '4 à 8 joueurs',  img: 'uploads/volcanic-warfare.png', vid: 'uploads/volcanic-warfare.mp4', href: 'jeu-volcanic-warfare.html' },
-    { name: 'Time Quest',          genre: 'Aventure', dur: '30 min', pl: '2 à 20 participants', img: 'uploads/time-quest.png', vid: 'uploads/time-quest.mp4', href: 'jeu-time-quest.html' },
-    { name: 'Snow Village',        genre: 'Famille',  dur: '15 min', pl: '2 à 12 joueurs', img: 'uploads/snow-village.png', vid: 'uploads/snow-village.mp4', vp: true, href: 'jeu-snow-village.html' },
-    { name: 'Icarus Station',      genre: 'Escape game', dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/icarus-station.png', vid: 'uploads/icarus-station.mp4', href: 'jeu-icarus-station.html' },
-    { name: 'Brain Arena',         genre: 'Quiz',     dur: '30 min', pl: '2 à 8 joueurs', img: 'uploads/brain-arena.png', vid: 'uploads/brain-arena.mp4', vp: true, href: 'jeu-brain-arena.html' },
-    { name: 'Spirit of the Wild',  genre: 'Aventure', dur: '30 min', pl: '2 à 10 joueurs', img: 'uploads/spirit-of-the-wild.png', href: 'jeu-spirit-of-the-wild.html' },
+    { name: 'Outbreak Lab',        genre: 'Horreur',  dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/outbreak-lab.jpg', vid: 'uploads/video-gamers.mp4', href: 'jeu-outbreak-lab.html' },
+    { name: 'Harbor Siege',        genre: 'Action',   dur: '20 min', pl: '2 à 12 joueurs', img: 'uploads/harbor-siege.jpg', vid: 'uploads/harbor-siege.mp4', vp: true, href: 'jeu-harbor-siege.html' },
+    { name: 'Paradise Expedition', genre: 'Action',   dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/paradise-expedition.jpg', vid: 'uploads/paradise-expedition.mp4', vp: true, href: 'jeu-paradise-expedition.html' },
+    { name: 'Volcanic Warfare',    genre: 'Action',   dur: '30 min', pl: '4 à 8 joueurs',  img: 'uploads/volcanic-warfare.jpg', vid: 'uploads/volcanic-warfare.mp4', href: 'jeu-volcanic-warfare.html' },
+    { name: 'Time Quest',          genre: 'Aventure', dur: '30 min', pl: '2 à 20 participants', img: 'uploads/time-quest.jpg', vid: 'uploads/time-quest.mp4', href: 'jeu-time-quest.html' },
+    { name: 'Snow Village',        genre: 'Famille',  dur: '15 min', pl: '2 à 12 joueurs', img: 'uploads/snow-village.jpg', vid: 'uploads/snow-village.mp4', vp: true, href: 'jeu-snow-village.html' },
+    { name: 'Icarus Station',      genre: 'Escape game', dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/icarus-station.jpg', vid: 'uploads/icarus-station.mp4', href: 'jeu-icarus-station.html' },
+    { name: 'Brain Arena',         genre: 'Quiz',     dur: '30 min', pl: '2 à 8 joueurs', img: 'uploads/brain-arena.jpg', vid: 'uploads/brain-arena.mp4', vp: true, href: 'jeu-brain-arena.html' },
+    { name: 'Spirit of the Wild',  genre: 'Aventure', dur: '30 min', pl: '2 à 10 joueurs', img: 'uploads/spirit-of-the-wild.jpg', href: 'jeu-spirit-of-the-wild.html' },
   ];
   function slider() {
     const root = document.querySelector('[data-slider]');
@@ -97,6 +97,14 @@
     }
     root.querySelector('.slider__nav--next').addEventListener('click', () => go(idx + 1));
     root.querySelector('.slider__nav--prev').addEventListener('click', () => go(idx - 1));
+    // Navigation clavier (flèches) quand le slider a le focus
+    root.setAttribute('tabindex', '0');
+    root.setAttribute('role', 'region');
+    root.setAttribute('aria-label', 'Expériences VR — carrousel');
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1); restart(); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1); restart(); }
+    });
     dots.querySelectorAll('button').forEach((b, k) => b.addEventListener('click', () => go(k)));
     let timer = setInterval(() => go(idx + 1), 5000);
     const restart = () => { clearInterval(timer); timer = setInterval(() => go(idx + 1), 5000); };
