@@ -4,8 +4,8 @@
 .tw{
   position:fixed; right:20px; bottom:20px; z-index:300;
   width:312px; max-width:calc(100vw - 40px);
-  background:#101f15; color:#e4ecd8;
-  border:1px solid rgba(228,236,216,.14); border-radius:18px;
+  background:#101f15; color:#c2d0b3;
+  border:1px solid rgba(194,208,179,.14); border-radius:18px;
   box-shadow:0 24px 60px rgba(0,0,0,.5);
   font-family:'Cuprum', sans-serif;
   transform:translateY(140%) scale(.98); opacity:0; pointer-events:none;
@@ -13,26 +13,26 @@
   max-height:calc(100vh - 40px); display:flex; flex-direction:column;
 }
 .tw.open{ transform:none; opacity:1; pointer-events:auto; }
-.tw__head{ display:flex; align-items:center; justify-content:space-between; padding:16px 18px; border-bottom:1px solid rgba(228,236,216,.1); }
+.tw__head{ display:flex; align-items:center; justify-content:space-between; padding:16px 18px; border-bottom:1px solid rgba(194,208,179,.1); }
 .tw__title{ font-family:'Barlow', sans-serif; font-weight:800; font-size:20px; letter-spacing:.02em; }
-.tw__close{ width:32px; height:32px; border-radius:9px; color:#e4ecd8; font-size:26px; line-height:1; display:grid; place-items:center; transition:background .2s; }
-.tw__close:hover{ background:rgba(228,236,216,.1); }
+.tw__close{ width:32px; height:32px; border-radius:9px; color:#c2d0b3; font-size:26px; line-height:1; display:grid; place-items:center; transition:background .2s; }
+.tw__close:hover{ background:rgba(194,208,179,.1); }
 .tw__body{ padding:8px 18px 18px; overflow-y:auto; }
-.tw__sec{ font-family:'Barlow', sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:rgba(228,236,216,.55); margin:18px 0 10px; display:flex; justify-content:space-between; align-items:center; }
+.tw__sec{ font-family:'Barlow', sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:rgba(194,208,179,.55); margin:18px 0 10px; display:flex; justify-content:space-between; align-items:center; }
 .tw__val{ color:var(--lime,#d4bc72); font-size:13px; }
 .tw__swatches{ display:flex; gap:10px; }
 .tw__sw{ width:38px; height:38px; border-radius:10px; border:3px solid transparent; transition:transform .15s, border-color .15s; }
 .tw__sw:hover{ transform:scale(1.08); }
-.tw__sw.on{ border-color:#e4ecd8; }
+.tw__sw.on{ border-color:#c2d0b3; }
 .tw__seg{ display:flex; flex-wrap:wrap; gap:6px; }
-.tw__opt{ flex:1; min-width:64px; font-family:'Cuprum', sans-serif; font-weight:700; font-size:14px; color:#e4ecd8; padding:9px 10px; border-radius:10px; border:1.5px solid rgba(228,236,216,.18); transition:.18s; }
-.tw__opt:hover{ border-color:rgba(228,236,216,.4); }
+.tw__opt{ flex:1; min-width:64px; font-family:'Cuprum', sans-serif; font-weight:700; font-size:14px; color:#c2d0b3; padding:9px 10px; border-radius:10px; border:1.5px solid rgba(194,208,179,.18); transition:.18s; }
+.tw__opt:hover{ border-color:rgba(194,208,179,.4); }
 .tw__opt.on{ background:var(--lime,#d4bc72); color:#101f15; border-color:var(--lime,#d4bc72); }
-.tw__range{ width:100%; -webkit-appearance:none; appearance:none; height:6px; border-radius:4px; background:rgba(228,236,216,.18); outline:none; }
+.tw__range{ width:100%; -webkit-appearance:none; appearance:none; height:6px; border-radius:4px; background:rgba(194,208,179,.18); outline:none; }
 .tw__range::-webkit-slider-thumb{ -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--lime,#d4bc72); cursor:pointer; border:3px solid #101f15; box-shadow:0 0 0 1px var(--lime,#d4bc72); }
 .tw__range::-moz-range-thumb{ width:18px; height:18px; border-radius:50%; background:var(--lime,#d4bc72); cursor:pointer; border:3px solid #101f15; }
-.tw__reset{ width:100%; margin-top:22px; font-family:'Cuprum', sans-serif; font-weight:700; font-size:14px; color:rgba(228,236,216,.7); padding:11px; border-radius:10px; border:1.5px solid rgba(228,236,216,.18); transition:.18s; }
-.tw__reset:hover{ color:#e4ecd8; border-color:rgba(228,236,216,.45); }
+.tw__reset{ width:100%; margin-top:22px; font-family:'Cuprum', sans-serif; font-weight:700; font-size:14px; color:rgba(194,208,179,.7); padding:11px; border-radius:10px; border:1.5px solid rgba(194,208,179,.18); transition:.18s; }
+.tw__reset:hover{ color:#c2d0b3; border-color:rgba(194,208,179,.45); }
 
 /* ---- Application des tweaks ---- */
 [data-btn-style="outline"] .btn--lime{ background:transparent !important; color:var(--lime) !important; }
