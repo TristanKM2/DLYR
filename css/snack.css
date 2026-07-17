@@ -4,17 +4,17 @@
 .menu__head{ display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap; margin-bottom:clamp(32px,4vw,48px); }
 .menu__head .eyebrow-bar span{ color:var(--paper); }
 .menu__tabs{ display:flex; flex-wrap:wrap; gap:10px; }
-.menu__tab{ font-family:var(--f-btn); font-weight:700; font-size:17px; color:var(--paper); padding:10px 22px; border-radius:var(--r-pill); border:2px solid rgba(245,246,238,.2); transition:.2s; }
+.menu__tab{ font-family:var(--f-btn); font-weight:700; font-size:17px; color:var(--paper); padding:10px 22px; border-radius:var(--r-pill); border:2px solid rgba(228,236,216,.2); transition:.2s; }
 .menu__tab:hover{ border-color:var(--lime); }
 .menu__tab.on{ background:var(--lime); color:var(--ink); border-color:var(--lime); }
 
 .menu__list{ display:grid; grid-template-columns:1fr 1fr; gap:8px 56px; }
-.mitem{ display:flex; align-items:baseline; gap:14px; padding:18px 0; border-bottom:1px solid rgba(245,246,238,.1); }
+.mitem{ display:flex; align-items:baseline; gap:14px; padding:18px 0; border-bottom:1px solid rgba(228,236,216,.1); }
 .mitem__info{ flex:1; min-width:0; }
 .mitem__name{ font-family:var(--f-display); font-weight:700; font-size:clamp(19px,1.7vw,23px); color:var(--paper); display:flex; align-items:center; gap:10px; }
 .mitem__badge{ font-family:var(--f-btn); font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink); background:var(--lime); padding:2px 9px; border-radius:var(--r-pill); }
-.mitem__desc{ font-size:14px; color:rgba(245,246,238,.6); margin-top:4px; line-height:1.4; }
-.mitem__dots{ flex:1; border-bottom:2px dotted rgba(245,246,238,.22); transform:translateY(-4px); min-width:18px; }
+.mitem__desc{ font-size:14px; color:rgba(228,236,216,.6); margin-top:4px; line-height:1.4; }
+.mitem__dots{ flex:1; border-bottom:2px dotted rgba(228,236,216,.22); transform:translateY(-4px); min-width:18px; }
 .mitem__price{ font-family:var(--f-display); font-weight:800; font-size:clamp(19px,1.7vw,23px); color:var(--lime); white-space:nowrap; }
 
 .amb__h{ margin-bottom:clamp(32px,4vw,48px); }

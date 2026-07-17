@@ -6,12 +6,12 @@
 .faq__catstitle span{ color:var(--paper); }
 .faq__catlist{ display:flex; flex-direction:column; gap:8px; }
 .faq__cat{ display:block; width:100%; text-align:left; font-family:var(--f-display); font-weight:600; font-size:17px; color:var(--paper); padding:14px 18px; border-radius:12px; opacity:.7; transition:.2s; }
-.faq__cat:hover{ opacity:1; background:rgba(245,246,238,.06); }
+.faq__cat:hover{ opacity:1; background:rgba(228,236,216,.06); }
 .faq__cat.on{ opacity:1; background:var(--lime); color:var(--ink); font-weight:700; }
 
 .faq__qhead{ color:var(--paper); margin-bottom:26px; }
 .faq__list{ display:flex; flex-direction:column; gap:14px; }
-.faq__item{ background:rgba(245,246,238,.04); border:1px solid rgba(245,246,238,.08); border-radius:var(--r-sm); overflow:hidden; transition:border-color .25s; }
+.faq__item{ background:rgba(228,236,216,.04); border:1px solid rgba(228,236,216,.08); border-radius:var(--r-sm); overflow:hidden; transition:border-color .25s; }
 .faq__item.open{ border-color:var(--lime); }
 .faq__q{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:20px; text-align:left;
   font-family:var(--f-display); font-weight:700; font-size:clamp(15px,1.3vw,19px); text-transform:uppercase; letter-spacing:.02em;
@@ -19,10 +19,10 @@
 .faq__chev{ flex:none; width:26px; height:26px; display:grid; place-items:center; color:var(--lime); transition:transform .3s; }
 .faq__item.open .faq__chev{ transform:rotate(180deg); }
 .faq__a{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
-.faq__a-inner{ padding:0 28px 26px; color:rgba(245,246,238,.78); font-size:16px; line-height:1.55; max-width:75ch; }
+.faq__a-inner{ padding:0 28px 26px; color:rgba(228,236,216,.78); font-size:16px; line-height:1.55; max-width:75ch; }
 .faq__ul{ list-style:disc; padding-left:20px; margin:0; display:flex; flex-direction:column; gap:10px; }
 .faq__ul li{ padding-left:2px; }
-.faq__ul strong{ color:rgba(245,246,238,.95); }
+.faq__ul strong{ color:rgba(228,236,216,.95); }
 
 @media (max-width:780px){
   .faq__layout{ grid-template-columns:1fr; }

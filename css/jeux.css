@@ -18,9 +18,9 @@
 .jhero__player--portrait{ object-fit:contain; background:rgba(12,12,14,.55); backdrop-filter:blur(18px); }
 .jhero__vtitle{ position:absolute; inset:0; display:grid; place-items:center; text-align:center;
   font-family:var(--f-display); font-weight:800; font-style:italic; font-size:clamp(28px,5vw,72px); line-height:1; letter-spacing:.02em;
-  color:rgba(245,246,238,.9); text-transform:uppercase; text-shadow:0 4px 30px rgba(0,0,0,.6); }
+  color:rgba(228,236,216,.9); text-transform:uppercase; text-shadow:0 4px 30px rgba(0,0,0,.6); }
 .jhero__play{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:clamp(72px,8vw,108px); aspect-ratio:1; border-radius:50%;
-  background:rgba(245,246,238,.18); backdrop-filter:blur(6px); border:3px solid var(--paper); display:grid; place-items:center; color:var(--paper); transition:transform .25s, background .25s; }
+  background:rgba(228,236,216,.18); backdrop-filter:blur(6px); border:3px solid var(--paper); display:grid; place-items:center; color:var(--paper); transition:transform .25s, background .25s; }
 .jhero__video:hover .jhero__play{ transform:translate(-50%,-50%) scale(1.08); background:var(--lime); color:var(--ink); border-color:var(--lime); }
 .jhero__play svg{ width:42%; height:42%; margin-left:6%; }
 .jhero__deco{ z-index:3; }
@@ -36,18 +36,18 @@
 .jstory__h{ margin-bottom:24px; }
 .jstory__h span:first-child{ color:var(--paper); }
 .jstory__arrow{ width:48px; height:48px; }
-.jstory__text .lead{ color:rgba(245,246,238,.82); }
+.jstory__text .lead{ color:rgba(228,236,216,.82); }
 .jstory__meta{ display:flex; flex-direction:column; gap:20px; text-align:right; padding-top:76px; }
 .jmeta{ display:flex; flex-direction:column; gap:4px; }
 .jmeta__k{ font-family:var(--f-display); font-weight:700; font-size:clamp(18px,1.8vw,24px); color:var(--paper); text-transform:uppercase; }
-.jmeta__v{ font-family:var(--f-body); font-size:16px; color:rgba(245,246,238,.6); }
+.jmeta__v{ font-family:var(--f-body); font-size:16px; color:rgba(228,236,216,.6); }
 .jstory__tags{ display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end; margin-top:6px; }
 .jstory__gallery{ display:flex; align-items:center; gap:16px; margin-top:clamp(36px,4vw,56px); }
 .jgal__viewport{ flex:1; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; }
 .jgal__viewport::-webkit-scrollbar{ display:none; }
 .jgal__track{ display:flex; gap:16px; }
 .jg{ flex:0 0 clamp(200px,22vw,260px); aspect-ratio:9/16; border-radius:var(--r-sm); scroll-snap-align:start; }
-.jgal__nav{ width:54px; height:54px; flex:none; border-radius:50%; background:rgba(245,246,238,.1); color:var(--paper); font-size:30px; display:grid; place-items:center; cursor:pointer; border:none; transition:background .2s, transform .2s; }
+.jgal__nav{ width:54px; height:54px; flex:none; border-radius:50%; background:rgba(228,236,216,.1); color:var(--paper); font-size:30px; display:grid; place-items:center; cursor:pointer; border:none; transition:background .2s, transform .2s; }
 .jgal__nav:hover{ background:var(--lime); color:var(--ink); transform:scale(1.06); }
 
 /* AVIS */
@@ -64,9 +64,9 @@
 .jrcard__body{ display:flex; flex-direction:column; gap:12px; }
 .jrcard__name{ font-family:var(--f-display); font-weight:700; font-size:22px; color:var(--paper); }
 .jrcard__stars{ color:var(--star); letter-spacing:3px; font-size:18px; }
-.jrcard__text{ color:rgba(245,246,238,.8); line-height:1.55; font-size:17px; }
+.jrcard__text{ color:rgba(228,236,216,.8); line-height:1.55; font-size:17px; }
 .javis__dots{ display:flex; justify-content:center; gap:10px; margin-top:24px; }
-.javis__dots button{ width:10px; height:10px; border-radius:50%; background:rgba(245,246,238,.25); transition:.2s; }
+.javis__dots button{ width:10px; height:10px; border-radius:50%; background:rgba(228,236,216,.25); transition:.2s; }
 .javis__dots button.on{ background:var(--lime); width:28px; border-radius:6px; }
 
 /* PLUS DE JEUX */
@@ -80,7 +80,7 @@
 .jcard__scrim{ position:absolute; inset:0; background:linear-gradient(transparent 45%, rgba(0,0,0,.85)); }
 .jcard__tag{ position:absolute; top:18px; left:18px; }
 .jcard__name{ position:absolute; left:20px; bottom:58px; font-family:var(--f-display); font-weight:700; font-size:clamp(24px,2.4vw,34px); color:var(--paper); }
-.jcard__meta{ position:absolute; left:20px; right:20px; bottom:20px; display:flex; justify-content:space-between; font-family:var(--f-btn); font-weight:700; font-size:15px; color:rgba(245,246,238,.85); }
+.jcard__meta{ position:absolute; left:20px; right:20px; bottom:20px; display:flex; justify-content:space-between; font-family:var(--f-btn); font-weight:700; font-size:15px; color:rgba(228,236,216,.85); }
 .jmore__cta{ display:flex; justify-content:center; margin-top:40px; }
 
 /* MARQUEE GAMING */
