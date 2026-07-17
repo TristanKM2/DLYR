@@ -125,6 +125,28 @@
     </footer>`;
   }
 
+  /* ---------- Rondelles de bois sur fonds sauge (positions/tailles pseudo-aléatoires stables) ---------- */
+  function woodRings() {
+    const els = document.querySelectorAll('.bg-paper, .phero, .footer');
+    let seed = 7 + location.pathname.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+    const rnd = (min, max) => { seed = (seed * 16807) % 2147483647; return min + (seed / 2147483647) * (max - min); };
+    els.forEach(el => {
+      el.classList.add('tex');
+      el.style.setProperty('--b1x', rnd(-12, 28).toFixed(1) + '%');
+      el.style.setProperty('--b1y', rnd(-15, 45).toFixed(1) + '%');
+      el.style.setProperty('--b1s', Math.round(rnd(160, 380)) + 'px');
+      el.style.setProperty('--b2x', rnd(75, 112).toFixed(1) + '%');
+      el.style.setProperty('--b2y', rnd(55, 112).toFixed(1) + '%');
+      el.style.setProperty('--b2s', Math.round(rnd(260, 560)) + 'px');
+      el.style.setProperty('--b3x', rnd(35, 75).toFixed(1) + '%');
+      el.style.setProperty('--b3y', rnd(-18, 25).toFixed(1) + '%');
+      el.style.setProperty('--b3s', Math.round(rnd(120, 300)) + 'px');
+      el.style.setProperty('--b4x', rnd(0, 45).toFixed(1) + '%');
+      el.style.setProperty('--b4y', rnd(70, 115).toFixed(1) + '%');
+      el.style.setProperty('--b4s', Math.round(rnd(140, 340)) + 'px');
+    });
+  }
+
   /* ---------- Scroll reveal ---------- */
   function reveal() {
     const root = document.documentElement;
@@ -362,7 +384,7 @@
   }
 
   function init() {
-    [buildNav, buildFooter, buildMaps, buildSnackTeaser, toastInit, reserve, marquees, cookies, analytics, lightboxInit].forEach(fn => {
+    [buildNav, buildFooter, buildMaps, buildSnackTeaser, toastInit, reserve, marquees, cookies, analytics, lightboxInit, woodRings].forEach(fn => {
       try { fn(); } catch (e) { console.warn('[DLYR]', fn.name, e); }
     });
     try { reveal(); } catch (e) { console.warn('[DLYR] reveal', e); }

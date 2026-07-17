@@ -2,17 +2,6 @@
    D'LYR — Accueil
    ============================================================ */
 
-/* Texture anneaux de bois (très subtile) sur fonds clairs */
-.tex{ position:relative; }
-.tex::before{
-  content:""; position:absolute; inset:0; pointer-events:none; z-index:0;
-  background:
-    radial-gradient(circle at 12% 30%, transparent 0, transparent 38px, rgba(28,48,36,.035) 39px, transparent 42px, transparent 78px, rgba(28,48,36,.03) 79px, transparent 84px, transparent 128px, rgba(28,48,36,.025) 129px, transparent 134px),
-    radial-gradient(circle at 88% 78%, transparent 0, transparent 60px, rgba(28,48,36,.03) 61px, transparent 66px, transparent 132px, rgba(28,48,36,.022) 133px, transparent 140px);
-  background-size:520px 520px, 680px 680px;
-  opacity:.9;
-}
-.tex > *{ position:relative; z-index:1; }
 
 /* ---------- HERO ---------- */
 .hero{

@@ -95,6 +95,19 @@ ul{ list-style:none; }
 .section{ padding-block:clamp(64px,8vw,140px); position:relative; }
 .bg-ink{ background:var(--ink); color:var(--paper); }
 .bg-paper{ background:var(--sapin); color:var(--ink); }
+/* Texture anneaux de bois (véritables rondelles) sur fonds sauge */
+.tex{ position:relative; }
+.tex::before{
+  content:""; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background:
+    url("../uploads/bois-rond-1.png") var(--b1x,-4%) var(--b1y,-6%) / var(--b1s,340px) no-repeat,
+    url("../uploads/bois-rond-2.png") var(--b2x,104%) var(--b2y,108%) / var(--b2s,480px) no-repeat,
+    url("../uploads/bois-rond-2.png") var(--b3x,55%) var(--b3y,-12%) / var(--b3s,220px) no-repeat,
+    url("../uploads/bois-rond-1.png") var(--b4x,15%) var(--b4y,112%) / var(--b4s,260px) no-repeat;
+  opacity:.14;
+}
+.tex > *{ position:relative; z-index:1; }
+
 .bg-paper .eyebrow-bar::before{ background:var(--ink); }
 .bg-paper .btn--ink-o{ --fg:var(--ink); --bd:var(--ink); }
 .bg-paper .btn--ink-o:hover{ --bg:var(--ink); --fg:var(--paper); }
