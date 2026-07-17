@@ -6,7 +6,7 @@
 .page{ padding-top:0; }
 
 /* ---------- PAGE HERO (fond clair) ---------- */
-.phero{ background:var(--paper); color:var(--ink); padding:calc(110px + clamp(40px,6vw,90px)) 0 clamp(50px,6vw,90px); position:relative; overflow:hidden; }
+.phero{ background:var(--sapin); color:var(--ink); padding:calc(110px + clamp(40px,6vw,90px)) 0 clamp(50px,6vw,90px); position:relative; overflow:hidden; }
 .phero__grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; }
 .phero__title{ font-family:var(--f-display); font-weight:800; font-size:var(--h-hero); line-height:.92; color:var(--ink); }
 .phero__lead{ margin-top:22px; max-width:44ch; font-size:clamp(16px,1.3vw,24px); line-height:1.45; }
