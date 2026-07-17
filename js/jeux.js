@@ -60,7 +60,7 @@
     const dots = document.querySelector('[data-javis-dots]');
     track.innerHTML = AVIS.map(a => `
       <div class="jrcard">
-        <div class="ph ph--dark jrcard__img"><span class="ph__label">Photo joueur</span></div>
+        <div class="ph ph--dark jrcard__img"><img class="ph__img" loading="lazy" src="uploads/hero-accueil.jpg" alt=""></div>
         <div class="jrcard__body">
           <span class="jrcard__name">${a.n}</span>
           <span class="jrcard__stars">★★★★★</span>

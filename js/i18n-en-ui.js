@@ -187,7 +187,7 @@ window.DLYR_EN = Object.assign(window.DLYR_EN || {}, {
 
   /* ---------- Entreprises ---------- */
   "D'LYR — Entreprises · Team building & séminaires": "D'LYR — Corporate · Team building & seminars",
-  "Team building, séminaires, soirées de fin d'année : privatisez D'LYR et fédérez vos équipes autour d'expériences immersives inoubliables. Une équipe dédiée construit votre programme sur mesure.": "Team building, seminars, end-of-year parties: privatise D'LYR and bring your teams together around unforgettable immersive experiences. A dedicated team builds your tailor-made programme.",
+  "Team building, séminaires, soirée annuelle, lancement de produit : privatisez D'LYR et fédérez vos équipes autour d'expériences immersives inoubliables. Une équipe dédiée construit votre programme sur mesure.": "Team building, seminars, annual parties, product launches: privatise D'LYR and bring your teams together around unforgettable immersive experiences. A dedicated team builds your tailor-made programme.",
   "Privatisation sur mesure": "Tailor-made private hire",
   "Nos formats": "Our formats",
   "Renforcez la cohésion d'équipe autour d'expériences VR coopératives où chacun a un rôle à jouer. Défis, classements et débrief convivial au bar.": "Strengthen team spirit with cooperative VR experiences where everyone has a part to play. Challenges, leaderboards and a friendly debrief at the bar.",
