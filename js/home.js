@@ -43,7 +43,6 @@
         <div class="slide__scrim"></div>
         <div class="slide__top"><span class="tag-genre">${g.genre}</span></div>
         ${g.vid ? `<div class="slide__ctrl"><button type="button" data-vplay aria-label="Lecture / pause"></button><button type="button" data-vmute aria-label="Activer / couper le son"></button></div>` : ''}
-        <div class="slide__name">${g.name}</div>
         <div class="slide__meta">
           <span>${clockSvg} Durée ${g.dur}</span>
           <span>${plSvg} ${g.pl}</span>
