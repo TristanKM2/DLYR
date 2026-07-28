@@ -4,29 +4,34 @@
 (function () {
   document.documentElement.classList.add('js-anim');
   const PAGES = [
-    { href: 'catalogue.html',   label: 'Expériences VR', key: 'catalogue' },
+    { href: 'catalogue.html',   label: 'Expériences', key: 'catalogue' },
     { href: 'activites.html',   label: 'Fléchettes',  key: 'activites' },
     { href: 'evenements.html',  label: 'Évènements',  key: 'evenements' },
     { href: 'entreprises.html', label: 'Entreprises', key: 'entreprises' },
     { href: 'snack-bar.html',   label: 'Bar&Snack',   key: 'snack' },
     { href: 'faq.html',         label: 'FAQ',         key: 'faq' },
+    { href: 'contact.html',     label: 'Contact',     key: 'contact' },
   ];
+
+  /* Réservation : sur une fiche jeu, ouvre le widget Smeetz (#reserver) ;
+     partout ailleurs, renvoie vers la page Expériences VR. */
+  const isGamePage = /jeu-[a-z-]+\.html?$/i.test(location.pathname);
+  const BOOK_HREF = isGamePage ? '#reserver' : 'catalogue.html';
 
   const ICONS = {
     tiktok: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M16.5 3c.3 2.1 1.6 3.6 3.6 3.8v2.4c-1.3.1-2.5-.3-3.6-1v5.8a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v2.5a3.2 3.2 0 1 0 2.3 3V3h2.5z"/></svg>',
     facebook: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M13.5 22v-8.1h2.7l.4-3.1h-3.1V8.8c0-.9.25-1.5 1.55-1.5h1.65V4.5c-.3-.04-1.3-.13-2.4-.13-2.4 0-4.05 1.47-4.05 4.15v2.27H7.55v3.1h2.7V22h3.25z"/></svg>',
     instagram: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>',
     linkedin: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.4 8.4h3.1V21H3.4V8.4zM9.2 8.4h2.97v1.72h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.1v-5.52c0-1.32-.02-3.01-1.84-3.01-1.84 0-2.12 1.44-2.12 2.92V21H9.2V8.4z"/></svg>',
-    pin: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>',
-    clock: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
-    phone: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l1.6 5-2.2 1.4a12 12 0 0 0 5.2 5.2L15.2 15l5 1.6V21a1.6 1.6 0 0 1-1.8 1.6A17 17 0 0 1 3.4 5.8 1.6 1.6 0 0 1 5 4z"/></svg>',
+    pin: '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>',
+    clock: '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
+    phone: '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l1.6 5-2.2 1.4a12 12 0 0 0 5.2 5.2L15.2 15l5 1.6V21a1.6 1.6 0 0 1-1.8 1.6A17 17 0 0 1 3.4 5.8 1.6 1.6 0 0 1 5 4z"/></svg>',
     arrow: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 9v9H9"/></svg>',
   };
   window.DLYR_ICONS = ICONS;
 
   function brand(onPaper) {
-    const logo = onPaper ? 'uploads/DLYR-01.png' : 'uploads/DLYR-02.png';
-    return `<a class="brand" href="index.html" aria-label="D'LYR — accueil"><img src="${logo}" alt="D'LYR — vivez l'immersion VR"></a>`;
+    return `<a class="brand" href="index.html" aria-label="D'LYR — accueil"><img src="uploads/brand/logo-client.png" alt="D'LYR"></a>`;
   }
 
   function buildNav() {
@@ -45,8 +50,8 @@
         <nav class="nav__links">${links}</nav>
         <div class="nav__cta">
           <button class="lang-btn" data-lang-toggle type="button" aria-label="Switch site to English" title="English version"><svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"></rect><path d="M0 0 60 40M60 0 0 40" stroke="#fff" stroke-width="8"></path><path d="M0 0 60 40M60 0 0 40" stroke="#C8102E" stroke-width="4"></path><path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="13"></path><path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="8"></path></svg></button>
-          <a class="btn btn--sm ${onPaper ? 'btn--ink-o' : 'btn--paper-o'}" href="#reserver">Réserver</a>
-          <a class="btn btn--sm btn--lime" href="offrir.html">Offrir</a>
+          <a class="btn btn--sm btn--cta" href="${BOOK_HREF}">Réserver</a>
+          <a class="btn btn--sm btn--cta" href="offrir.html">Offrir</a>
         </div>
         <button class="nav__burger" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -73,7 +78,7 @@
       ${PAGES.map(p => `<a href="${p.href}"${p.key === current ? ' aria-current="page"' : ''}>${p.label}</a>`).join('')}
       <div class="drawer__cta">
         <button class="lang-btn" data-lang-toggle type="button" aria-label="Switch site to English" title="English version"><svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"></rect><path d="M0 0 60 40M60 0 0 40" stroke="#fff" stroke-width="8"></path><path d="M0 0 60 40M60 0 0 40" stroke="#C8102E" stroke-width="4"></path><path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="13"></path><path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="8"></path></svg></button>
-        <a class="btn btn--lime" href="#reserver">Réserver</a>
+        <a class="btn btn--paper-o" href="${BOOK_HREF}">Réserver</a>
         <a class="btn btn--paper-o" href="offrir.html">Offrir</a>
       </div>`;
     body.appendChild(drawer);
@@ -115,9 +120,9 @@
               <a href="#" aria-label="LinkedIn">${ICONS.linkedin}</a>
             </div>
           </div>
-          ${col('Activités', [['Expériences VR','catalogue.html'],['Fléchettes','activites.html'],['Laissez-nous un avis ⭐','https://www.google.com/maps/search/?api=1&query=D%27LYR%2C+3+Boulevard+Charles+de+Gaulle%2C+92700+Colombes']])}
+          ${col('Activités', [['Expériences','catalogue.html'],['Fléchettes','activites.html'],['Laissez-nous un avis ⭐','https://www.google.com/maps/search/?api=1&query=D%27LYR%2C+3+Boulevard+Charles+de+Gaulle%2C+92700+Colombes']])}
           ${col('Mentions légales', [['Politique de confidentialité','politique-confidentialite.html'],['Mentions légales','mentions-legales.html'],['CGV','cgv.html']])}
-          ${col('Plan du site', [['Accueil','index.html'],['Expériences VR','catalogue.html'],['Fléchettes','activites.html'],['Évènements','evenements.html'],['Entreprises','entreprises.html'],['Offrir','offrir.html'],['Bar&Snack','snack-bar.html'],['FAQ','faq.html']])}
+          ${col('Plan du site', [['Accueil','index.html'],['Expériences','catalogue.html'],['Fléchettes','activites.html'],['Évènements','evenements.html'],['Entreprises','entreprises.html'],['Offrir','offrir.html'],['Bar&Snack','snack-bar.html'],['FAQ','faq.html'],['Contact','contact.html']])}
         </div>
       </div>
       <div class="footer__word" aria-hidden="true"><img src="uploads/DLYR-05.png" alt=""></div>
@@ -223,14 +228,104 @@
     });
   }
 
-  /* ---------- Réservation (placeholder) ---------- */
+  /* ============================================================
+     Réservation — widget Smeetz
+     ============================================================
+     Un produit Smeetz par jeu. Pour ajouter un jeu : copier une
+     entrée ci-dessous en reprenant productId / codes / cats fournis
+     par Smeetz (Embed code du produit).
+     Les pages sans produit configuré affichent le message d'attente. */
+  var SMEETZ_GID = '19897';
+  var SMEETZ_WID = '5696';
+
+  var SMEETZ_PRODUCTS = {
+    'jeu-brain-arena': {
+      productId: '76840',
+      codes: 'M1GAXSNW,VTGRZERM,9FYJTSN6,JCS35DY7,CFQ4FUTQ',
+      cats: '161527,161528,161529,161530,161531'
+    },
+    'jeu-volcanic-warfare': {
+      productId: '76836',
+      codes: '7ZN7QTLN,9EYV77ZG,R8J9LAFN,963UTFK2,S2NEFHFY',
+      cats: '161505,161506,161507,161508,161509'
+    },
+    'jeu-time-quest': {
+      productId: '76844',
+      codes: '1XNKDUDZ,AKFVPTCM,SGFWVCRM,EZV89MBD,ZV14GA5M',
+      cats: '161577,161578,161579,161580,161581'
+    },
+    'jeu-spirit-of-the-wild': {
+      productId: '76843',
+      codes: 'Z3VTAVSP,TRXCH7QH,QTHQLW63,ZQTMBGHH,LUL8N73Y',
+      cats: '161569,161570,161571,161572,161573'
+    },
+    'jeu-snow-village': {
+      productId: '76838',
+      codes: 'DHNL3T62,BXMEJGZT,VNCVZHHG,ZNMSBGF2,RD2T2LYF',
+      cats: '161520,161521,161522,161523,161524'
+    },
+    'jeu-paradise-expedition': {
+      productId: '76835',
+      codes: 'QZPVPZS7,M72Y7F4A,EX113SNJ,A79QDY3W,399NK1TT',
+      cats: '161498,161499,161500,161501,161502'
+    },
+    'jeu-outbreak-lab': {
+      productId: '76834',
+      codes: 'MCRD4MW5,KPBVEJDR,H68LXZ3X,MU84YMAJ,T7E5JVAB',
+      cats: '161493,161494,161495,161496,161497'
+    },
+    'jeu-icarus-station': {
+      productId: '76837',
+      codes: 'NHYT93B7,LF8KAE68,VBH8FM5T,AQL6HKWS,WPX4M16T',
+      cats: '161513,161514,161515,161516,161517'
+    },
+    'jeu-harbor-siege': {
+      productId: '75662',
+      codes: 'YTDM1D5P,44YF2JL1,KVQP12CW,L7EFY8RJ,7TUSP6DM',
+      cats: '153187,161042,161043,161044,161045'
+    }
+  };
+
+  function smeetzLoad() {
+    if (window._smtz) return;
+    var w = window, d = document;
+    var p = w._smtz = function () { p.p ? p.p.apply(p, arguments) : p.q.push(arguments); };
+    p.q = []; p.t = 1 * new Date(); p.g = SMEETZ_GID;
+    var r = d.createElement('script');
+    r.async = 1;
+    r.src = 'https://tracker.smeetz.com/smeetz-main-widget.js';
+    var s = d.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(r, s);
+  }
+
+  function currentProduct() {
+    var slug = (location.pathname.split('/').pop() || '').replace(/\.html?$/i, '');
+    return SMEETZ_PRODUCTS[slug] || null;
+  }
+
+  function smeetzOpen(prod) {
+    smeetzLoad();
+    window._smtz('openwidget', 1 * new Date(), {
+      productId: prod.productId,
+      lightbox: true,
+      listView: false,
+      gId: SMEETZ_GID,
+      codes: prod.codes,
+      cats: prod.cats,
+      grouptickets: prod.cats
+    });
+  }
+
   function reserve() {
+    var prod = currentProduct();
+    if (prod) smeetzLoad();
     document.addEventListener('click', (e) => {
       const a = e.target.closest('a[href="#reserver"]');
       if (!a) return;
       e.preventDefault();
-      const kind = 'Réserver une session';
-      window.DLYR_toast ? window.DLYR_toast(kind + ' — réservation en ligne bientôt disponible !') : alert(kind + ' — bientôt disponible.');
+      var p = currentProduct();
+      if (p) { smeetzOpen(p); return; }
+      location.href = 'catalogue.html';
     });
   }
 

@@ -24,7 +24,7 @@
       { n: "Limonade maison", d: "Citron pressé, menthe, sirop artisanal", p: "5€" },
     ],
     food: [
-      { n: "Planche à partager", d: "Charcuterie, fromages, olives, focaccia", p: "16€", b: "À partager" },
+      { n: "Pizza à partager", d: "Mozzarella, tomate, basilic, roquette", p: "16€", b: "À partager" },
       { n: "Nachos D'LYR", d: "Tortillas, cheddar fondu, guacamole, salsa", p: "9€" },
       { n: "Tenders croustillants", d: "Poulet pané maison, sauce au choix", p: "8€" },
       { n: "Frites maison", d: "Pommes de terre fraîches, sel aux herbes", p: "5€" },

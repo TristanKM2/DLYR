@@ -27,67 +27,70 @@
 </head>
 <body data-page="jeux" data-game="icarus-station" data-nav="dark">
 
-<!-- ===== HERO VIDÉO ===== -->
+<!-- ===== HERO : TITLE + 2 COLUMNS ===== -->
 <section class="jhero bg-ink">
   <div class="wrap">
-    <div class="jhero__stage reveal">
-      <span class="deco deco--x jhero__deco jhero__deco--x"></span>
-      <span class="deco deco--diamond jhero__deco jhero__deco--diamond"></span>
-      <span class="deco deco--circle jhero__deco jhero__deco--circle"></span>
-      <span class="deco deco--tri jhero__deco jhero__deco--tri"></span>
-      <div class="jhero__video" data-video="" role="button" tabindex="0" aria-label="Watch the trailer">
-        <div class="ph ph--dark jhero__videobg"><img class="ph__img" loading="lazy" src="../uploads/icarus-station.jpg" alt="Icarus Station — VR game poster"></div>
-        <video class="jhero__player" src="../uploads/icarus-station.mp4" preload="metadata" playsinline=""></video>
-        <span class="jhero__scrim"></span>
-        <span class="jhero__vtitle">Escape before the station<br>sinks into the void of space</span>
-        <span class="jhero__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></span>
+    <h1 class="jhero__title reveal">Icarus Station</h1>
+    <div class="jhero__content">
+      <!-- Left Column: Synopsis -->
+      <div class="jhero__left reveal">
+        <h2 class="eyebrow-bar jhero__sh"><span>Synopsis</span></h2>
+        <p class="lead">An unprecedented disaster strikes the Icarus-7 space station. As it pursues its mission at the far reaches of space, a mysterious computer virus takes control of the station's critical systems.</p>
+        <p class="lead">With no one at the controls, the station is slowly falling apart. Airlocks are sealing shut, life-support systems are failing and entire sectors are now inaccessible.</p>
+        <p class="lead">Your mission is simple: make your way through the damaged zones, reactivate the essential systems and reach the mobile extraction platform before it's too late.</p>
+        <p class="lead">But you are not alone. An unknown presence seems to be moving through the station's corridors. Time is running out. Space forgives no mistake.</p>
+      </div>
+      <!-- Right Column: Video -->
+      <div class="jhero__stage reveal" data-d="1">
+        <div class="jhero__video" data-video="" role="button" tabindex="0" aria-label="Watch the trailer">
+          <div class="ph ph--dark jhero__videobg"><img class="ph__img" loading="lazy" src="../uploads/icarus-station.jpg" alt="Icarus Station — VR game poster"></div>
+          <video class="jhero__player" src="../uploads/icarus-station.mp4" preload="metadata" playsinline=""></video>
+          <span class="jhero__scrim"></span>
+          <span class="jhero__vtitle">Escape before the station<br>sinks into the void of space</span>
+          <span class="jhero__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></span>
+        </div>
       </div>
     </div>
-    <h1 class="jhero__title reveal" data-d="2">Icarus Station</h1>
-  </div>
-</section>
-
-<!-- ===== HISTOIRE ===== -->
-<section class="section bg-ink jstory">
-  <div class="wrap jstory__grid">
-    <div class="jstory__text reveal">
-      <h2 class="eyebrow-bar jstory__h"><span>Story</span> <span class="btn-arrow btn-arrow--lime jstory__arrow" data-arrow=""></span></h2>
-      <p class="lead">An unprecedented disaster strikes the Icarus-7 space station. As it pursues its mission at the far reaches of space, a mysterious computer virus takes control of the station's critical systems. Within minutes, communications are cut, security protocols disabled and the ship's commander neutralised. You are among the last survivors.</p>
-      <p class="lead" style="margin-top:18px">With no one at the controls, the station is slowly falling apart. Airlocks are sealing shut, life-support systems are failing and entire sectors are now inaccessible. In the icy silence of space, any mistake can be fatal.</p>
-      <p class="lead" style="margin-top:18px">Your mission is simple: make your way through the damaged zones, reactivate the essential systems, fix the failures caused by the attack and reach the mobile extraction platform before it's too late.</p>
-      <p class="lead" style="margin-top:18px">But you are not alone. An unknown presence seems to be moving through the station's corridors, while the countdown to destruction draws inexorably to its end. Time is running out. The enemy is closing in. Space forgives no mistake.</p>
-    </div>
-    <aside class="jstory__meta reveal" data-d="1">
+    <!-- Metadata full width (under video) -->
+    <div class="jhero__meta reveal">
       <div class="jmeta"><span class="jmeta__k">Game type</span><span class="jmeta__v">Co-op escape game</span></div>
       <div class="jmeta"><span class="jmeta__k">Duration</span><span class="jmeta__v">30 minutes</span></div>
       <div class="jmeta"><span class="jmeta__k">Number of players</span><span class="jmeta__v">2 to 12 players</span></div>
       <div class="jmeta"><span class="jmeta__k">Objective</span><span class="jmeta__v">Repair the station's systems, cross the stricken sectors and reach the extraction platform before Icarus-7 collapses.</span></div>
-      <div class="jstory__tags">
-        <span class="tag-genre">Escape game</span><span class="tag-genre">Co-op</span><span class="tag-genre">Science fiction</span>
-      </div>
-    </aside>
-  </div>
-  <div class="wrap reveal" data-d="1" style="display:flex;justify-content:center;margin-bottom:clamp(36px,4vw,56px)">
-    <a class="btn btn--lime" href="#reserver">Book</a>
+    </div>
+    <div class="jhero__cta reveal">
+      <a class="btn btn--lime" href="#reserver">Book</a>
+    </div>
   </div>
 </section>
 
-<!-- ===== PLUS DE JEUX ===== -->
+<!-- ===== REVIEWS ===== -->
+<section class="section bg-ink javis">
+  <div class="wrap">
+    <div class="javis__head reveal">
+      <h2 class="eyebrow-bar"><span>Reviews</span></h2>
+      <div class="javis__score"><span class="javis__scorelabel">Average<br>rating</span><span class="javis__scorenum">9,5/10</span></div>
+    </div>
+    <div class="javis__carousel reveal" data-d="1" data-javis="">
+      <button class="rev__nav rev__nav--prev" aria-label="Previous">‹</button>
+      <div class="javis__viewport"><div class="javis__track" data-javis-track=""></div></div>
+      <button class="rev__nav rev__nav--next" aria-label="Next">›</button>
+    </div>
+    <div class="javis__dots" data-javis-dots=""></div>
+  </div>
+</section>
+
+<!-- ===== MORE EXPERIENCES ===== -->
 <section class="section bg-ink jmore">
   <div class="wrap">
-    <h2 class="eyebrow-bar jmore__h"><span>More games</span></h2>
+    <h2 class="eyebrow-bar jmore__h"><span>More experiences</span></h2>
     <div class="jmore__grid reveal" data-d="1"></div>
     <div class="jmore__cta reveal"><a class="btn btn--lime" href="catalogue.html">View the full catalogue</a></div>
   </div>
 </section>
 
-<!-- ===== MARQUEE GAMING ===== -->
-<div class="marquee marquee--lime jgmq">
-  <div class="marquee__track" style="--mg:36px" data-gmq=""></div>
-</div>
 
 <!-- ===== SNACK ===== -->
-<div data-snack-teaser=""></div>
 
 <div data-footer=""></div>
 

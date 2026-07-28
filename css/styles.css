@@ -132,33 +132,50 @@ ul{ list-style:none; }
 }
 
 /* ============================================================
-   BOUTONS
+   BOUTONS (Style universel identique aux boutons Réserver & Offrir HP)
    ============================================================ */
-.btn{
-  --bg:var(--lime); --fg:var(--ink); --bd:var(--lime);
+.btn, .btn--lime, .btn--lime-o, .btn--light, .btn--ink-o, .btn--paper-o, .btn--cta{
+  --bg:#243b2d; --fg:#ffffff; --bd:rgba(212,188,114,.45); --fx:var(--lime,#d4bc72);
+  position:relative; isolation:isolate; overflow:hidden;
   display:inline-flex; align-items:center; justify-content:center; gap:10px;
-  font-family:var(--f-btn); font-weight:700; font-size:clamp(18px,1.3vw,24px);
-  line-height:1; letter-spacing:.01em;
-  padding:18px 30px; border-radius:var(--r-sm);
-  background:var(--bg); color:var(--fg);
-  border:4px solid var(--bd);
-  transition:transform .18s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+  font-family:var(--f-btn); font-weight:700; font-size:clamp(17px,1.2vw,22px);
+  line-height:1; letter-spacing:.02em;
+  padding:14px 28px; border-radius:12px;
+  background:transparent; color:#ffffff !important;
+  border:2px solid var(--bd);
+  transition:transform .22s ease, color .25s ease, border-color .25s ease, box-shadow .2s ease;
   white-space:nowrap;
+  text-decoration:none;
 }
-.btn:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.25); }
+/* Fond de base vert sombre */
+.btn::after, .btn--lime::after, .btn--lime-o::after, .btn--light::after, .btn--ink-o::after, .btn--paper-o::after, .btn--cta::after{
+  content:""; position:absolute; inset:0; z-index:-2;
+  background:var(--bg); transition:background .25s ease;
+}
+/* Overlay de survol jaune/doré montant depuis le bas */
+.btn::before, .btn--lime::before, .btn--lime-o::before, .btn--light::before, .btn--ink-o::before, .btn--paper-o::before, .btn--cta::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:var(--fx);
+  transform:translateY(101%);
+  transition:transform .38s cubic-bezier(.55,0,.2,1);
+  pointer-events:none;
+}
+.btn:hover::before, .btn:focus-visible::before,
+.btn--lime:hover::before, .btn--lime-o:hover::before, .btn--light:hover::before,
+.btn--ink-o:hover::before, .btn--paper-o:hover::before, .btn--cta:hover::before{
+  transform:translateY(0) !important;
+}
+.btn:hover, .btn:focus-visible,
+.btn--lime:hover, .btn--lime-o:hover, .btn--light:hover,
+.btn--ink-o:hover, .btn--paper-o:hover, .btn--cta:hover{
+  transform:translateY(-3px); box-shadow:0 12px 28px rgba(0,0,0,.3);
+  color:var(--ink,#1c3024) !important;
+  border-color:var(--lime,#d4bc72) !important;
+}
 .btn:active{ transform:translateY(0); }
-.btn--lime{ --bg:var(--lime); --fg:var(--ink); --bd:var(--lime); }
-.btn--lime-o{ --bg:transparent; --fg:var(--lime); --bd:var(--lime); }
-.btn--lime-o:hover{ --bg:var(--lime); --fg:var(--ink); }
-.btn--light{ --bg:var(--paper); --fg:var(--ink); --bd:var(--ink); }
-.btn--light:hover{ --bg:var(--ink); --fg:var(--paper); }
-.btn--ink-o{ --bg:transparent; --fg:var(--ink); --bd:var(--ink); }
-.btn--ink-o:hover{ --bg:var(--ink); --fg:var(--paper); }
-.btn--paper-o{ --bg:transparent; --fg:var(--paper); --bd:var(--paper); }
-.btn--paper-o:hover{ --bg:var(--paper); --fg:var(--ink); }
-.nav .btn--ink-o{ --fg:#fff; --bd:#fff; }
-.nav .btn--ink-o:hover{ --bg:#fff; --fg:var(--ink); }
-.btn--sm{ padding:8px 22px; border-width:3px; font-size:clamp(16px,1.1vw,20px); }
+@media (prefers-reduced-motion: reduce){ .btn::before{ transition:none; } }
+
+.btn--sm{ padding:10px 22px; font-size:clamp(15px,1vw,18px); }
 
 /* Bouton flèche carré (lime) */
 .btn-arrow{
@@ -235,11 +252,15 @@ a:hover .ph__img, a:focus-visible .ph__img{ transform:scale(1.05); }
 .nav--on-paper.nav--solid .nav__inner{ background:rgba(16,31,21,.88); border-color:rgba(232,238,221,.12); }
 
 .brand{
-  display:flex; align-items:center; flex:none;
-  line-height:1;
+  display:inline-flex; align-items:center; justify-content:center; flex:none;
+  height:64px; margin-block:auto;
 }
-.brand img{ height:46px; width:auto; display:block; }
-@media (max-width:640px){ .brand img{ height:38px; } }
+.brand img{
+  height:64px; width:auto; display:block; object-fit:contain;
+}
+@media (max-width:640px){
+  .brand, .brand img{ height:46px; }
+}
 .nav__links{
   display:flex; align-items:center; gap:clamp(10px,1.6vw,30px);
   margin-inline:auto;

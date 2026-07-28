@@ -7,11 +7,11 @@
   if (ar) ar.innerHTML = I.arrow || '';
 
   const GAMES = (window.DLYR_GAMES || []).map(g => ({
-    name: g.name, genre: g.genre, dur: g.dur, players: g.players, pl: g.pl,
+    name: g.name, genre: g.genre, type: g.type, dur: g.dur, players: g.players, pl: g.pl,
     img: g.img, href: 'jeu-' + g.slug + '.html'
   }));
-  const GENRES = ['Tous', 'Action', 'Aventure', 'Horreur', 'Famille', 'Quiz', 'Escape game'];
-  const GCOLOR = { Action: '#43744c', Horreur: '#55703a', Aventure: '#1b8a4b', Famille: '#c2410c', Quiz: '#0e7490', 'Escape game': '#7c3aed' };
+  const GENRES = ['Tous', 'Action', 'Aventure', 'Escape Game', 'Quiz', 'Adapté aux enfants', 'Culturel'];
+  const GCOLOR = { Action: '#43744c', Aventure: '#1b8a4b', 'Escape Game': '#7c3aed', Quiz: '#0e7490', 'Adapté aux enfants': '#c2410c', Culturel: '#b91c1c' };
 
   const state = { genre: 'Tous', players: 'all', sort: 'az' };
 
@@ -42,9 +42,14 @@
       <a class="xcard reveal" data-d="${i % 4}" href="${g.href}">
         <div class="ph ph--dark">${g.img ? `<img class="ph__img" src="${g.img}" alt="${g.name}">` : `<span class="ph__label">Visuel · ${g.name}</span>`}</div>
         <span class="xcard__scrim"></span>
-        <span class="xcard__tag tag-genre" style="background:${GCOLOR[g.genre] || 'var(--blue)'}">${g.genre}</span>
-        <span class="xcard__name">${g.name}</span>
-        <span class="xcard__meta">${g.dur ? `<span>${clock} ${g.dur} min</span>` : ''}${g.pl ? `<span>${ppl} ${g.pl}</span>` : ''}</span>
+        <div class="xcard__header">
+          <div class="xcard__tags">
+            <span class="xcard__tag tag-genre" style="background:${GCOLOR[g.genre] || 'var(--blue)'}">${g.genre}</span>
+            ${g.type ? `<span class="xcard__tag tag-type">${g.type}</span>` : ''}
+          </div>
+          <h3 class="xcard__name">${g.name}</h3>
+          <div class="xcard__meta">${g.dur ? `<span>${clock} ${g.dur} min</span>` : ''}${g.pl ? `<span>${ppl} ${g.pl}</span>` : ''}</div>
+        </div>
       </a>`).join('');
 
     if (window.DLYR_reveal) window.DLYR_reveal();

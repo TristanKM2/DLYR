@@ -1,5 +1,25 @@
 /* D'LYR — Dictionnaire FR → EN (2/3) : contenu des jeux VR (fiches + slider + catalogue). */
 window.DLYR_EN = Object.assign(window.DLYR_EN || {}, {
+  /* Carrousel accueil : thèmes & accroches */
+  "Survie · Zombies": "Survival · Zombies",
+  "Conquête · Stratégie": "Conquest · Strategy",
+  "Free For All · Survie": "Free For All · Survival",
+  "Team Deathmatch · Tactique": "Team Deathmatch · Tactics",
+  "Narratif · Culturel": "Narrative · Cultural",
+  "Coopératif · Magie de Noël": "Co-op · Christmas magic",
+  "Coopératif · Science-fiction": "Co-op · Science fiction",
+  "Multijoueur · Culture générale": "Multiplayer · General knowledge",
+  "Sensoriel · Nature": "Sensory · Nature",
+  "Découvrir le jeu": "Discover the game",
+  "Un laboratoire contaminé, des couloirs plongés dans le noir et une horde qui se rapproche : survivrez-vous assez longtemps pour percer le secret de X-Labs ?": "A contaminated lab, pitch-black corridors and a horde closing in: will you survive long enough to uncover the X-Labs secret?",
+  "Deux équipes, un port abandonné, des ruelles à prendre mètre par mètre. Coordonnez-vous, tenez vos positions et dominez le champ de bataille.": "Two teams, an abandoned harbour, alleyways to be won metre by metre. Coordinate, hold your ground and dominate the battlefield.",
+  "Une serre tropicale magnifique… et impitoyable. Chacun pour soi : dans ce paradis perdu, chaque rencontre peut être votre dernière.": "A stunning — and merciless — tropical greenhouse. Every player for themselves: in this lost paradise, every encounter could be your last.",
+  "La lave dévale l'île et le sol tremble sous vos pieds. Deux équipes s'affrontent, une seule victoire : jouez serré, la montagne ne pardonne pas.": "Lava pours down the island and the ground shakes beneath you. Two teams, one victory: play tight, the mountain shows no mercy.",
+  "Une faille temporelle vous propulse d'une civilisation à l'autre. Explorez, déchiffrez, résolvez les mystères du temps et vivez l'Histoire de l'intérieur.": "A rift in time hurls you from one civilisation to the next. Explore, decipher, solve the mysteries of time and live history from the inside.",
+  "Le village du Père Noël est attaqué et la magie s'éteint. En famille, défendez les lutins et rendez Noël à Snow Village.": "Santa's village is under attack and the magic is fading. As a family, defend the elves and give Snow Village its Christmas back.",
+  "La station Icarus-7 dérive et ses systèmes lâchent un à un. Réparez, coopérez, atteignez la plateforme d'extraction avant le vide spatial.": "The Icarus-7 station is adrift and its systems are failing one by one. Repair, cooperate and reach the extraction platform before the void takes you.",
+  "Le premier jeu télévisé immersif où votre cerveau est l'arme absolue. Buzzez plus vite que les autres et grimpez au classement.": "The first immersive TV game show where your brain is the ultimate weapon. Buzz faster than the rest and climb the leaderboard.",
+  "Inspiré des légendes du Grand Nord : devenez créature mythique, traversez des paysages enchanteurs et éveillez l'animal qui sommeille en vous.": "Inspired by the legends of the Far North: become a mythical creature, roam enchanting landscapes and awaken the animal within.",
   /* Genres & tags */
   "Horreur": "Horror",
   "Aventure": "Adventure",

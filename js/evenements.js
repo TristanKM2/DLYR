@@ -54,7 +54,7 @@
       const data = await res.json().catch(() => ({}));
       if (!res.ok || (data && data.success === 'false')) throw new Error(data.message || 'Échec de l\'envoi');
 
-      form.innerHTML = `<div class="quote__done"><strong>Merci ${nom || ''} !</strong><br>Votre demande a bien été envoyée. Notre équipe vous recontacte sous 24h.</div>`;
+      form.innerHTML = `<div class="quote__done"><strong>Merci ${nom || ''} !</strong><br>Votre demande a bien été envoyée. Notre équipe vous recontacte sous 24/48h.</div>`;
       window.DLYR_toast && window.DLYR_toast('Demande de devis envoyée !');
     } catch (err) {
       btn.disabled = false;

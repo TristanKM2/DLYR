@@ -5,23 +5,22 @@ window.DLYR_GAMES = [
   {
     slug: 'harbor-siege', name: 'Harbor Siege', genre: 'Action',
     tags: ['Conquête', 'Stratégie', "Esprit d'équipe"],
-    type: 'Domination', pl: '2 à 12 joueurs', players: 12, dur: 20,
-    img: 'uploads/harbor-siege.jpg', vid: 'uploads/harbor-siege.mp4',
+    type: 'Domination', pl: '2 à 12 joueurs', players: 12, dur: 30,
+    img: 'uploads/experiences/Harbor Siege sans titre.png', vid: 'uploads/harbor-siege.mp4',
     objective: 'Capturer et défendre les zones de contrôle pour mener votre équipe à la victoire.',
     tagline: 'Prenez le contrôle du port.<br>Dominez le champ de bataille.',
     story: [
       "Plongez au cœur d'un ancien port abandonné, un véritable labyrinthe de ruelles étroites, d'entrepôts oubliés et de caisses de marchandises. Dans cet environnement chargé d'histoire, chaque recoin peut cacher un adversaire.",
-      "Formez votre équipe et partez à la conquête des zones stratégiques du port. Plus vous contrôlez de territoires, plus vous accumulez de points. Mais attention\u00a0: vos adversaires feront tout pour reprendre le contrôle et inverser le cours de la bataille.",
       "Coordination, rapidité et sens tactique seront les clés de la victoire dans cette expérience immersive où chaque décision compte."
     ]
   },
   {
-    slug: 'outbreak-lab', name: 'Outbreak Lab', genre: 'Horreur',
-    tags: ['Survie', 'Action', 'Horreur'],
+    slug: 'outbreak-lab', name: 'Outbreak Lab', genre: 'Aventure',
+    tags: ['Survie', 'Action', 'Zombies'],
     type: 'Zombies', pl: '2 à 12 joueurs', players: 12, dur: 30,
     objective: 'Survivre, éliminer les menaces et révéler le secret de X-Labs.',
     tagline: "Survivez à une invasion<br>de zombies",
-    img: 'uploads/outbreak-lab.jpg', vid: 'uploads/video-gamers.mp4',
+    img: 'uploads/experiences/Outbreak Lab 3-4.png', vid: 'uploads/video-gamers.mp4',
     story: [
       "Le laboratoire secret de X-Labs a cessé toute communication. L'équipe Alpha, envoyée sur place pour rétablir le contact, ne donne plus aucun signe de vie. C'est désormais à vous d'entrer en scène.",
       "Équipe Bravo, à vous de jouer\u00a0! Dès votre déploiement, vous allez vite comprendre que la mission a viré au cauchemar. Des expériences interdites ont échappé à tout contrôle, et des créatures terrifiantes hantent désormais les couloirs du complexe.",
@@ -33,7 +32,7 @@ window.DLYR_GAMES = [
     slug: 'paradise-expedition', name: 'Paradise Expedition', genre: 'Action',
     tags: ['Free For All', 'Compétition', 'Survie'],
     type: 'Free For All', pl: '2 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/paradise-expedition.jpg', vid: 'uploads/paradise-expedition.mp4',
+    img: 'uploads/experiences/Paradise Expedition sans Titre.png', vid: 'uploads/paradise-expedition.mp4',
     objective: "Éliminer un maximum d'adversaires et réaliser le meilleur score.",
     tagline: 'Dans ce paradis perdu, chaque<br>rencontre peut être votre dernière',
     story: [
@@ -46,7 +45,7 @@ window.DLYR_GAMES = [
     slug: 'volcanic-warfare', name: 'Volcanic Warfare', genre: 'Action',
     tags: ['Team Deathmatch', 'Coopération', 'Tactique'],
     type: 'Team Deathmatch', pl: '4 à 8 joueurs', players: 8, dur: 30,
-    img: 'uploads/volcanic-warfare.jpg', vid: 'uploads/volcanic-warfare.mp4',
+    img: 'uploads/experiences/Volcanic Warfare sans titre.png', vid: 'uploads/volcanic-warfare.mp4',
     objective: "Éliminer un maximum d'adversaires et permettre à votre équipe d'atteindre le score le plus élevé.",
     tagline: 'Deux équipes.<br>Une seule victoire.',
     story: [
@@ -56,10 +55,10 @@ window.DLYR_GAMES = [
     ]
   },
   {
-    slug: 'snow-village', name: 'Snow Village', genre: 'Famille',
+    slug: 'snow-village', name: 'Snow Village', genre: 'Adapté aux enfants',
     tags: ['Famille', 'Coopératif', 'Magie de Noël'],
-    type: 'Family Adventure', pl: '2 à 12 joueurs', players: 12, dur: 15,
-    img: 'uploads/snow-village.jpg', vid: 'uploads/snow-village.mp4',
+    type: 'Family Adventure', pl: '2 à 12 joueurs', players: 12, dur: 30,
+    img: 'uploads/experiences/Snow Village Sans titre.png', vid: 'uploads/snow-village.mp4',
     objective: 'Défendre le village du Père Noël, sauver les habitants et vaincre les armées du sorcier maléfique.',
     tagline: 'La magie de Noël est en danger.<br>Devenez les héros de Snow Village.',
     story: [
@@ -73,7 +72,7 @@ window.DLYR_GAMES = [
     slug: 'brain-arena', name: 'Brain Arena', genre: 'Quiz',
     tags: ['Quiz', 'Multijoueur', 'Culture générale'],
     type: 'Quiz immersif multijoueur', pl: '2 à 8 joueurs', players: 8, dur: 30,
-    img: 'uploads/brain-arena.jpg', vid: 'uploads/brain-arena.mp4',
+    img: 'uploads/experiences/Brain Arena sans titre.png', vid: 'uploads/brain-arena.mp4',
     objective: 'Accumuler le maximum de points en répondant correctement et rapidement aux questions pour terminer en tête du classement.',
     tagline: 'La connaissance est<br>votre meilleure arme',
     story: [
@@ -84,10 +83,10 @@ window.DLYR_GAMES = [
     ]
   },
   {
-    slug: 'spirit-of-the-wild', name: 'Spirit of the Wild', genre: 'Aventure',
+    slug: 'spirit-of-the-wild', name: 'Spirit of the Wild', genre: 'Culturel',
     tags: ['Sensoriel', 'Nature', 'Légendes'],
     type: 'Expérience sensorielle', pl: '2 à 10 joueurs', players: 10, dur: 30,
-    img: 'uploads/spirit-of-the-wild.jpg',
+    img: 'uploads/experiences/Spirit of the wild sans titre.png',
     objective: null,
     tagline: "Éveillez l'animal<br>qui sommeille en vous",
     story: [
@@ -95,10 +94,10 @@ window.DLYR_GAMES = [
     ]
   },
   {
-    slug: 'icarus-station', name: 'Icarus Station', genre: 'Escape game',
-    tags: ['Escape game', 'Coopératif', 'Science-fiction'],
+    slug: 'icarus-station', name: 'Icarus Station', genre: 'Escape Game',
+    tags: ['Escape Game', 'Coopératif', 'Science-fiction'],
     type: 'Escape Game coopératif', pl: '2 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/icarus-station.jpg', vid: 'uploads/icarus-station.mp4',
+    img: 'uploads/experiences/Icarus Station sans titre.png', vid: 'uploads/icarus-station.mp4',
     objective: "Réparer les systèmes de la station, traverser les secteurs sinistrés et rejoindre la plateforme d'extraction avant l'effondrement d'Icarus-7.",
     tagline: "Échappez-vous avant que la station<br>ne sombre dans le vide spatial",
     story: [
@@ -109,10 +108,10 @@ window.DLYR_GAMES = [
     ]
   },
   {
-    slug: 'time-quest', name: 'Time Quest', genre: 'Aventure',
-    tags: ['Narratif', 'Culturel', 'Exploration'],
+    slug: 'time-quest', name: 'Time Quest', genre: 'Culturel',
+    tags: ['Escape Game', 'Culturel', 'Exploration'],
     type: 'Aventure culturelle immersive', pl: '2 à 20 participants', players: 20, dur: 30,
-    img: 'uploads/time-quest.jpg', vid: 'uploads/time-quest.mp4',
+    img: 'uploads/experiences/Time Quest sans titre.png', vid: 'uploads/time-quest.mp4',
     objective: 'Explorer les civilisations du passé et résoudre les mystères du temps.',
     tagline: "Traversez les siècles.<br>Vivez l'Histoire.",
     story: [

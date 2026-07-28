@@ -27,53 +27,44 @@
 </head>
 <body data-page="jeux" data-game="outbreak-lab" data-nav="dark">
 
-<!-- ===== HERO VIDÉO ===== -->
+<!-- ===== HERO : TITLE + 2 COLUMNS ===== -->
 <section class="jhero bg-ink">
   <div class="wrap">
-    <div class="jhero__stage reveal">
-      <span class="deco deco--x jhero__deco jhero__deco--x"></span>
-      <span class="deco deco--diamond jhero__deco jhero__deco--diamond"></span>
-      <span class="deco deco--circle jhero__deco jhero__deco--circle"></span>
-      <span class="deco deco--tri jhero__deco jhero__deco--tri"></span>
-      <div class="jhero__video" data-video="" role="button" tabindex="0" aria-label="Watch the trailer">
-        <div class="ph ph--dark jhero__videobg"><img class="ph__img" loading="lazy" src="../uploads/outbreak-lab.jpg" alt="Outbreak Lab — VR game poster"></div>
-        <video class="jhero__player" src="../uploads/video-gamers.mp4" preload="metadata" playsinline=""></video>
-        <span class="jhero__scrim"></span>
-        <span class="jhero__vtitle">Survive an invasion<br>of zombies</span>
-        <span class="jhero__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></span>
+    <h1 class="jhero__title reveal">Outbreak Lab</h1>
+    <div class="jhero__content">
+      <!-- Left Column: Synopsis -->
+      <div class="jhero__left reveal">
+        <h2 class="eyebrow-bar jhero__sh"><span>Synopsis</span></h2>
+        <p class="lead">The secret X-Labs laboratory has gone silent. Team Alpha, sent in to re-establish contact, is no longer showing any sign of life. Now it's your turn to step in.</p>
+        <p class="lead">Team Bravo, you're up! As soon as you deploy, you will quickly realise the mission has turned into a nightmare. Forbidden experiments have spun out of control, and terrifying creatures now haunt the corridors of the complex.</p>
+        <p class="lead">Your objective: push deep into the laboratory, fight off hordes of monsters and neutralise the source of the disaster before it's too late.</p>
+        <p class="lead">Good luck, Bravo. Dismissed.</p>
+      </div>
+      <!-- Right Column: Video -->
+      <div class="jhero__stage reveal" data-d="1">
+        <div class="jhero__video" data-video="" role="button" tabindex="0" aria-label="Watch the trailer">
+          <div class="ph ph--dark jhero__videobg"><img class="ph__img" loading="lazy" src="../uploads/outbreak-lab.jpg" alt="Outbreak Lab — VR game poster"></div>
+          <video class="jhero__player" src="../uploads/video-gamers.mp4" preload="metadata" playsinline=""></video>
+          <span class="jhero__scrim"></span>
+          <span class="jhero__vtitle">Survive an invasion<br>of zombies</span>
+          <span class="jhero__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></span>
+        </div>
       </div>
     </div>
-    <h1 class="jhero__title reveal" data-d="2">Outbreak Lab</h1>
-  </div>
-</section>
-
-<!-- ===== HISTOIRE ===== -->
-<section class="section bg-ink jstory">
-  <div class="wrap jstory__grid">
-    <div class="jstory__text reveal">
-      <h2 class="eyebrow-bar jstory__h"><span>Story</span> <span class="btn-arrow btn-arrow--lime jstory__arrow" data-arrow=""></span></h2>
-      <p class="lead">The secret X-Labs laboratory has gone silent. Team Alpha, sent in to re-establish contact, is no longer showing any sign of life. Now it's your turn to step in.</p>
-      <p class="lead" style="margin-top:18px">Team Bravo, you're up! As soon as you deploy, you will quickly realise the mission has turned into a nightmare. Forbidden experiments have spun out of control, and terrifying creatures now haunt the corridors of the complex.</p>
-      <p class="lead" style="margin-top:18px">Your objective: push deep into the laboratory, fight off hordes of monsters, find out what happened to your brothers in arms and neutralise the source of the disaster before it's too late.</p>
-      <p class="lead" style="margin-top:18px">Good luck, Bravo. Dismissed.</p>
-    </div>
-    <aside class="jstory__meta reveal" data-d="1">
+    <!-- Metadata full width (under video) -->
+    <div class="jhero__meta reveal">
       <div class="jmeta"><span class="jmeta__k">Game type</span><span class="jmeta__v">Zombies</span></div>
       <div class="jmeta"><span class="jmeta__k">Duration</span><span class="jmeta__v">30 minutes</span></div>
       <div class="jmeta"><span class="jmeta__k">Number of players</span><span class="jmeta__v">2 to 12 players</span></div>
       <div class="jmeta"><span class="jmeta__k">Objective</span><span class="jmeta__v">Survive, eliminate the threats and uncover the secret of X-Labs.</span></div>
-      <div class="jstory__tags">
-        <span class="tag-genre">Survival</span><span class="tag-genre">Action</span>
-        <span class="tag-genre">Horror</span>
-      </div>
-    </aside>
-  </div>
-  <div class="wrap reveal" data-d="1" style="display:flex;justify-content:center;margin-bottom:clamp(36px,4vw,56px)">
-    <a class="btn btn--lime" href="#reserver">Book</a>
+    </div>
+    <div class="jhero__cta reveal">
+      <a class="btn btn--lime" href="#reserver">Book</a>
+    </div>
   </div>
 </section>
 
-<!-- ===== AVIS ===== -->
+<!-- ===== REVIEWS ===== -->
 <section class="section bg-ink javis">
   <div class="wrap">
     <div class="javis__head reveal">
@@ -89,22 +80,17 @@
   </div>
 </section>
 
-<!-- ===== PLUS DE JEUX ===== -->
+<!-- ===== MORE EXPERIENCES ===== -->
 <section class="section bg-ink jmore">
   <div class="wrap">
-    <h2 class="eyebrow-bar jmore__h"><span>More games</span></h2>
+    <h2 class="eyebrow-bar jmore__h"><span>More experiences</span></h2>
     <div class="jmore__grid reveal" data-d="1"></div>
     <div class="jmore__cta reveal"><a class="btn btn--lime" href="catalogue.html">View the full catalogue</a></div>
   </div>
 </section>
 
-<!-- ===== MARQUEE GAMING ===== -->
-<div class="marquee marquee--lime jgmq">
-  <div class="marquee__track" style="--mg:36px" data-gmq=""></div>
-</div>
 
 <!-- ===== SNACK ===== -->
-<div data-snack-teaser=""></div>
 
 <div data-footer=""></div>
 
