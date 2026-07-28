@@ -1,0 +1,7 @@
+# Système / éditeurs
+.DS_Store
+Thumbs.db
+*.log
+
+# Dossiers de travail (audits, captures de dev)
+_check/

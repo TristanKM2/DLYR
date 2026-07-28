@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /_check/
+Disallow: /uploads/7.INPI-
+
+Sitemap: https://www.dlyr-vr.com/sitemap.xml

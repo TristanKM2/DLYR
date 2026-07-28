@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalogue des expériences VR — 9 jeux immersifs | D'LYR</title>
+<meta name="description" content="Découvrez toutes les expériences VR de D'LYR : action, horreur, aventure, famille. Filtrez par genre, durée et nombre de joueurs.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Cuprum:ital,wght@0,400;0,700;1,700&family=Sora:wght@400;600;700;800&family=Inter:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@500;700&family=Iceland&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/cat-list.css">
+<link rel="stylesheet" href="css/tweaks.css">
+<link rel="canonical" href="https://www.dlyr-vr.com/catalogue.html">
+<link rel="alternate" hreflang="fr" href="https://www.dlyr-vr.com/catalogue.html">
+<link rel="alternate" hreflang="en" href="https://www.dlyr-vr.com/en/catalogue.html">
+<link rel="alternate" hreflang="x-default" href="https://www.dlyr-vr.com/catalogue.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="D'LYR">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="D'LYR — Expériences VR">
+<meta property="og:description" content="Découvrez toutes les expériences VR de D'LYR : action, horreur, aventure, famille. Filtrez par genre, durée et nombre de joueurs.">
+<meta property="og:url" content="https://www.dlyr-vr.com/catalogue.html">
+<meta property="og:image" content="https://www.dlyr-vr.com/uploads/DLYR-09-ea5d8366.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1c3024">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="uploads/DLYR-11.png">
+<link rel="apple-touch-icon" sizes="180x180" href="uploads/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+</head>
+<body data-page="catalogue" data-nav="paper">
+
+<!-- ===== PAGE HERO ===== -->
+<section class="phero">
+  <div class="wrap phero__grid">
+    <div class="reveal">
+      <h1 class="phero__title">Expériences<br>VR</h1>
+      <p class="phero__lead">Des expériences immersives en réalité virtuelle. Action, aventure, escape game, quiz, culturel entre amis ou en famille : trouvez le monde qui vous fera vibrer.</p>
+      <div class="phero__cue">
+        <span class="btn-arrow btn-arrow--lime" data-arrow></span>
+        <span style="font-family:var(--f-btn);font-size:clamp(18px,1.6vw,24px)">Explorez nos mondes</span>
+      </div>
+    </div>
+    <div class="phero__deco reveal" data-d="1">
+      <div class="ph"><img class="ph__img" loading="lazy" src="uploads/paradise-expedition.jpg" alt="Paradise Expedition — jeu VR chez D'LYR"></div>
+      <div class="ph"><img class="ph__img" loading="lazy" src="uploads/experiences/Personnes dans arene.png" alt="Personnes en immersion VR chez D'LYR"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATALOGUE ===== -->
+<section class="section bg-ink cat">
+  <div class="wrap">
+    <div class="cat__bar reveal">
+      <div class="cat__filters" data-genre-filters></div>
+      <div class="cat__tools">
+        <label class="cat__select">
+          <span>Joueurs</span>
+          <select data-filter-players>
+            <option value="all">Tous</option>
+            <option value="solo">Solo (1)</option>
+            <option value="small">2 à 4</option>
+            <option value="large">5 à 6</option>
+          </select>
+        </label>
+        <label class="cat__select">
+          <span>Trier</span>
+          <select data-sort>
+            <option value="az">A → Z</option>
+            <option value="dur">Durée</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <p class="cat__count" data-count></p>
+    <div class="cat__grid" data-grid></div>
+    <p class="cat__empty" data-empty hidden>Aucune expérience ne correspond à ces filtres.</p>
+  </div>
+</section>
+
+
+
+<div data-footer></div>
+
+<script src="js/site.js"></script>
+<script src="js/games-data.js"></script>
+<script src="js/cat-list.js"></script>
+<script src="js/tweaks.js"></script>
+
+<script src="js/seo-jsonld.js"></script>
+<script src="js/i18n-en-ui.js"></script>
+<script src="js/i18n-en-games.js"></script>
+<script src="js/i18n-en-content.js"></script>
+<script src="js/i18n-en-legal.js"></script>
+<script src="js/i18n-en-privacy.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>
