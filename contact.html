@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Écrivez-nous | D'LYR Colombes</title>
+<meta name="description" content="Contactez D'LYR à Colombes : formulaire, téléphone, email, horaires et accès. Réponse garantie sous 24/48h pour vos réservations et événements.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Cuprum:ital,wght@0,400;0,700;1,700&family=Sora:wght@400;600;700;800&family=Inter:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@500;700&family=Iceland&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/evenements.css">
+<link rel="stylesheet" href="css/tweaks.css">
+<link rel="canonical" href="https://www.dlyr-vr.com/contact.html">
+<link rel="alternate" hreflang="fr" href="https://www.dlyr-vr.com/contact.html">
+<link rel="alternate" hreflang="en" href="https://www.dlyr-vr.com/en/contact.html">
+<link rel="alternate" hreflang="x-default" href="https://www.dlyr-vr.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="D'LYR">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="D'LYR — Contact">
+<meta property="og:description" content="Contactez D'LYR à Colombes : formulaire, téléphone, email, horaires et accès. Réponse garantie sous 24/48h.">
+<meta property="og:url" content="https://www.dlyr-vr.com/contact.html">
+<meta property="og:image" content="https://www.dlyr-vr.com/uploads/DLYR-09-ea5d8366.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1c3024">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="uploads/DLYR-11.png">
+<link rel="apple-touch-icon" sizes="180x180" href="uploads/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+</head>
+<body data-page="contact" data-nav="paper">
+
+<!-- ===== PAGE HERO ===== -->
+<section class="phero">
+  <div class="wrap phero__grid">
+    <div class="reveal">
+      <h1 class="phero__title">Contact</h1>
+      <p class="phero__lead">Une question, une date à bloquer, un groupe à accueillir&nbsp;? Écrivez-nous&nbsp;: notre équipe vous répond sous 24/48h.</p>
+      <div class="phero__cue">
+        <span class="btn-arrow btn-arrow--lime" data-arrow></span>
+        <span style="font-family:var(--f-btn);font-size:clamp(18px,1.6vw,24px)">Écrivez-nous</span>
+      </div>
+    </div>
+    <div class="phero__deco reveal" data-d="1">
+      <div class="ph"><img class="ph__img" loading="lazy" src="uploads/accueil.jpg" alt="L'accueil de D'LYR à Colombes"></div>
+      <div class="ph"><img class="ph__img" loading="lazy" src="uploads/lounge.jpg" alt="L'espace lounge de D'LYR"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORMULAIRE ===== -->
+<section class="section bg-ink">
+  <div class="wrap cts__grid">
+    <div class="reveal">
+      <h2 class="h1 accent eyebrow-bar cts__h"><span>Nous écrire</span></h2>
+      <p class="lead cts__lead">Réservations de groupe, anniversaires, privatisation, objets oubliés ou simple curiosité&nbsp;: tout arrive dans la même boîte, et rien ne reste sans réponse.</p>
+      <ul class="cts__list">
+        <li><span data-ic="pin"></span><span>3 Bd Charles de Gaulle,<br>92700 Colombes</span></li>
+        <li><span data-ic="clock"></span><span>7j/7 · Lun–Ven 11h–22h30<br>Samedi 10h–23h · Dimanche 10h–21h30</span></li>
+        <li><span data-ic="phone"></span><span><a href="tel:+33147800000">01 47 80 00 00</a></span></li>
+        <li><span data-ic="mail"></span><span><a href="mailto:contact@dlyr-vr.com">contact@dlyr-vr.com</a></span></li>
+      </ul>
+      <div class="cts__social" data-social></div>
+    </div>
+    <form class="quote__form reveal" data-d="1" data-contact>
+      <div class="quote__row">
+        <label class="field"><span>Nom</span><input type="text" name="nom" autocomplete="name" placeholder="Votre nom" required></label>
+        <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" placeholder="vous@email.com" required></label>
+      </div>
+      <div class="quote__row">
+        <label class="field"><span>Téléphone</span><input type="tel" name="tel" autocomplete="tel" placeholder="06 12 34 56 78"></label>
+        <label class="field"><span>Sujet</span>
+          <select name="sujet">
+            <option>Réservation</option><option>Anniversaire</option><option>EVG / EVJF</option><option>Entreprise</option><option>Bar &amp; Snack</option><option>Autre</option>
+          </select>
+        </label>
+      </div>
+      <label class="field"><span>Votre message</span><textarea name="msg" rows="5" placeholder="Dites-nous tout : date, nombre de joueurs, questions…" required></textarea></label>
+      <button class="btn btn--lime" type="submit">Envoyer le message</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== OÙ NOUS TROUVER ===== -->
+<div data-maps></div>
+
+<div data-footer></div>
+
+<script src="js/site.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/tweaks.js"></script>
+
+<script src="js/seo-jsonld.js"></script>
+<script src="js/i18n-en-ui.js"></script>
+<script src="js/i18n-en-games.js"></script>
+<script src="js/i18n-en-content.js"></script>
+<script src="js/i18n-en-legal.js"></script>
+<script src="js/i18n-en-privacy.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

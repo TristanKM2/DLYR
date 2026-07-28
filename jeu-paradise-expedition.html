@@ -31,66 +31,69 @@
 </head>
 <body data-page="jeux" data-game="paradise-expedition" data-nav="dark">
 
-<!-- ===== HERO VIDÉO ===== -->
+<!-- ===== HERO : TITRE + 2 COLONNES ===== -->
 <section class="jhero bg-ink">
   <div class="wrap">
-    <div class="jhero__stage reveal">
-      <span class="deco deco--x jhero__deco jhero__deco--x"></span>
-      <span class="deco deco--diamond jhero__deco jhero__deco--diamond"></span>
-      <span class="deco deco--circle jhero__deco jhero__deco--circle"></span>
-      <span class="deco deco--tri jhero__deco jhero__deco--tri"></span>
-      <div class="jhero__video" data-video role="button" tabindex="0" aria-label="Lire la bande-annonce">
-        <div class="ph ph--dark jhero__videobg"><img class="ph__img" loading="lazy" src="uploads/paradise-expedition.jpg" alt="Paradise Expedition — affiche du jeu VR"></div>
-        <video class="jhero__player jhero__player--portrait" src="uploads/paradise-expedition.mp4" preload="metadata" playsinline></video>
-        <span class="jhero__scrim"></span>
-        <span class="jhero__vtitle">Dans ce paradis perdu, chaque<br>rencontre peut être votre dernière</span>
-        <span class="jhero__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+    <h1 class="jhero__title reveal">Paradise Expedition</h1>
+    <div class="jhero__content">
+      <!-- Colonne gauche : Synopsis -->
+      <div class="jhero__left reveal">
+        <h2 class="eyebrow-bar jhero__sh"><span>Synopsis</span></h2>
+        <p class="lead">Au cœur d'une terre aride et oubliée du monde se cache un sanctuaire inattendu : une immense serre tropicale où la nature a repris ses droits. Cascades cristallines, végétation luxuriante et ruines envahies par les lianes composent un décor aussi magnifique que dangereux.</p>
+        <p class="lead">Mais derrière cette oasis paradisiaque se cache un terrain de combat impitoyable. Dans ce labyrinthe végétal, chaque joueur lutte pour sa propre survie.</p>
+        <p class="lead">Ici, aucune alliance n'est possible. Chacun joue pour lui-même. Seuls les plus rapides, les plus précis et les plus stratégiques parviendront à dominer cet éden perdu.</p>
+      </div>
+      <!-- Colonne droite : Vidéo -->
+      <div class="jhero__stage reveal" data-d="1">
+        <div class="jhero__video" data-video role="button" tabindex="0" aria-label="Lire la bande-annonce">
+          <div class="ph ph--dark jhero__videobg"><img class="ph__img" loading="lazy" src="uploads/paradise-expedition.jpg" alt="Paradise Expedition — affiche du jeu VR"></div>
+          <video class="jhero__player jhero__player--portrait" src="uploads/paradise-expedition.mp4" preload="metadata" playsinline></video>
+          <span class="jhero__scrim"></span>
+          <span class="jhero__vtitle">Dans ce paradis perdu, chaque<br>rencontre peut être votre dernière</span>
+          <span class="jhero__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
       </div>
     </div>
-    <h1 class="jhero__title reveal" data-d="2">Paradise Expedition</h1>
-  </div>
-</section>
-
-<!-- ===== HISTOIRE ===== -->
-<section class="section bg-ink jstory">
-  <div class="wrap jstory__grid">
-    <div class="jstory__text reveal">
-      <h2 class="eyebrow-bar jstory__h"><span>Histoire</span> <span class="btn-arrow btn-arrow--lime jstory__arrow" data-arrow></span></h2>
-      <p class="lead">Au cœur d'une terre aride et oubliée du monde se cache un sanctuaire inattendu : une immense serre tropicale où la nature a repris ses droits. Cascades cristallines, végétation luxuriante et ruines envahies par les lianes composent un décor aussi magnifique que dangereux.</p>
-      <p class="lead" style="margin-top:18px">Mais derrière cette oasis paradisiaque se cache un terrain de combat impitoyable. Dans ce labyrinthe végétal, chaque joueur lutte pour sa propre survie. Utilisez les feuillages pour vous dissimuler, surprenez vos adversaires au détour d'un sentier ou lancez-vous dans des affrontements explosifs au milieu des cascades et des jardins suspendus.</p>
-      <p class="lead" style="margin-top:18px">Ici, aucune alliance n'est possible. Chacun joue pour lui-même. Seuls les plus rapides, les plus précis et les plus stratégiques parviendront à dominer cet éden perdu.</p>
-    </div>
-    <aside class="jstory__meta reveal" data-d="1">
+    <!-- Métadonnées sur la même ligne (sous la vidéo) -->
+    <div class="jhero__meta reveal">
       <div class="jmeta"><span class="jmeta__k">Type de jeu</span><span class="jmeta__v">Free For All</span></div>
       <div class="jmeta"><span class="jmeta__k">Durée</span><span class="jmeta__v">30 minutes</span></div>
       <div class="jmeta"><span class="jmeta__k">Nombre de joueurs</span><span class="jmeta__v">2 à 12 joueurs</span></div>
       <div class="jmeta"><span class="jmeta__k">Objectif</span><span class="jmeta__v">Éliminer un maximum d'adversaires et réaliser le meilleur score.</span></div>
-      <div class="jstory__tags">
-        <span class="tag-genre">Free For All</span><span class="tag-genre">Compétition</span><span class="tag-genre">Survie</span>
-      </div>
-    </aside>
-  </div>
-  <div class="wrap reveal" data-d="1" style="display:flex;justify-content:center;margin-bottom:clamp(36px,4vw,56px)">
-    <a class="btn btn--lime" href="#reserver">Réserver</a>
+    </div>
+    <div class="jhero__cta reveal">
+      <a class="btn btn--lime" href="#reserver">Réserver</a>
+    </div>
   </div>
 </section>
 
-<!-- ===== PLUS DE JEUX ===== -->
+<!-- ===== AVIS ===== -->
+<section class="section bg-ink javis">
+  <div class="wrap">
+    <div class="javis__head reveal">
+      <h2 class="eyebrow-bar"><span>Avis</span></h2>
+      <div class="javis__score"><span class="javis__scorelabel">Note<br>moyenne</span><span class="javis__scorenum">9,5/10</span></div>
+    </div>
+    <div class="javis__carousel reveal" data-d="1" data-javis>
+      <button class="rev__nav rev__nav--prev" aria-label="Précédent">‹</button>
+      <div class="javis__viewport"><div class="javis__track" data-javis-track></div></div>
+      <button class="rev__nav rev__nav--next" aria-label="Suivant">›</button>
+    </div>
+    <div class="javis__dots" data-javis-dots></div>
+  </div>
+</section>
+
+<!-- ===== PLUS D'EXPÉRIENCES ===== -->
 <section class="section bg-ink jmore">
   <div class="wrap">
-    <h2 class="eyebrow-bar jmore__h"><span>Plus de jeux</span></h2>
+    <h2 class="eyebrow-bar jmore__h"><span>Plus d'expériences</span></h2>
     <div class="jmore__grid reveal" data-d="1"></div>
     <div class="jmore__cta reveal"><a class="btn btn--lime" href="catalogue.html">Voir tout le catalogue</a></div>
   </div>
 </section>
 
-<!-- ===== MARQUEE GAMING ===== -->
-<div class="marquee marquee--lime jgmq">
-  <div class="marquee__track" style="--mg:36px" data-gmq></div>
-</div>
 
 <!-- ===== SNACK ===== -->
-<div data-snack-teaser></div>
 
 <div data-footer></div>
 
