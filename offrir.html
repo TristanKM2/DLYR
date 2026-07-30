@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/pages.css">
 <link rel="stylesheet" href="css/offrir.css">
+<link rel="stylesheet" href="css/activites.css">
 <link rel="stylesheet" href="css/tweaks.css">
 <link rel="canonical" href="https://www.dlyr-vr.com/offrir.html">
 <link rel="alternate" hreflang="fr" href="https://www.dlyr-vr.com/offrir.html">
@@ -36,7 +37,7 @@
   <div class="wrap phero__grid">
     <div class="reveal">
       <h1 class="phero__title">Offrir<br>D'LYR</h1>
-      <p class="phero__lead">Faites plaisir à coup sûr&nbsp;: offrez une carte cadeau D'LYR et laissez l'heureux élu choisir son immersion VR, ses fléchettes, son quiz ou sa soirée au bar.</p>
+      <p class="phero__lead">Faites plaisir à coup sûr&nbsp;: offrez une carte cadeau D'LYR et laissez l'heureux(se) élu(e) choisir son immersion VR, ses fléchettes, son quiz ou sa soirée au bar.</p>
       <div class="phero__cue">
         <span class="btn-arrow btn-arrow--lime" data-arrow></span>
         <span style="font-family:var(--f-btn);font-size:clamp(18px,1.6vw,24px)">Reçue par email en quelques minutes</span>
@@ -57,11 +58,11 @@
         <h2 class="eyebrow-bar" style="margin-bottom:6px"><span style="color:var(--paper)">La e-carte cadeau</span></h2>
         <p class="lead">Sélectionnez le montant de votre choix parmi nos différentes propositions, ajoutez un petit mot personnalisé, et la carte est envoyée par email instantanément. Valable sur toutes nos activités.</p>
         <ul class="gift__points">
-          <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span> Choix parmi les montants proposés</li>
+          <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span> Dès 20 euros</li>
           <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span> Valable 12 mois</li>
           <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span> Reçue par email, à imprimer ou à transférer</li>
         </ul>
-        <a class="btn btn--lime" href="#" data-offrir="e-carte">Offrir le montant de votre choix</a>
+        <button class="btn btn--lime smtz-w" data-smtz-gid="19897" data-smtz-wid="5722" type="button">Offrir une carte cadeau</button>
       </div>
       <div class="gcardvisual">
         <span class="gcardvisual__ribbon" aria-hidden="true">Cadeau</span>
@@ -77,30 +78,30 @@
 </section>
 
 <!-- ===== FORMULES PRÊTES À OFFRIR ===== -->
-<section class="section bg-paper tex">
+<section class="section bg-ink combo" id="formules">
   <div class="wrap">
-    <h2 class="h1 eyebrow-bar reveal" style="margin-bottom:clamp(40px,5vw,64px)"><span>Formules prêtes à offrir</span></h2>
-    <div class="gift__grid">
-      <article class="gcard reveal">
-        <span class="gcard__tag">Le découverte</span>
-        <h3 class="gcard__name">Session VR</h3>
-        <p class="gcard__desc">Une session de jeu en réalité virtuelle pour 1 personne. L'idée cadeau parfaite pour faire découvrir l'immersion.</p>
-        <div class="gcard__price"><span>25€</span>/pers.</div>
-        <a class="btn btn--ink-o btn--sm" href="#" data-offrir="Session VR">Offrir</a>
+    <h2 class="h1 combo__h reveal">Formules prêtes à offrir</h2>
+    <div class="combo__grid">
+      <article class="cform reveal">
+        <span class="cform__tag">Le découverte</span>
+        <h3 class="cform__name">Session VR</h3>
+        <p class="cform__desc">Une session de jeu en réalité virtuelle pour 1 personne. L'idée cadeau parfaite pour faire découvrir l'immersion.</p>
+        <div class="cform__price"><span>25€</span></div>
+        <button class="btn btn--lime-o btn--sm smtz-w" data-smtz-gid="19897" data-smtz-wid="5722" type="button">Offrir</button>
       </article>
-      <article class="gcard gcard--feat reveal" data-d="1">
-        <span class="gcard__tag gcard__tag--feat">Le plus offert</span>
-        <h3 class="gcard__name">Duo VR + Quiz</h3>
-        <p class="gcard__desc">Une session VR et une partie de Quiz Hologame pour 2. À partager entre amis, en couple ou en famille.</p>
-        <div class="gcard__price"><span>59€</span>/duo</div>
-        <a class="btn btn--lime btn--sm" href="#" data-offrir="Duo VR + Quiz">Offrir</a>
+      <article class="cform cform--feat reveal" data-d="1">
+        <span class="cform__tag cform__tag--feat">Le plus offert</span>
+        <h3 class="cform__name">Duo VR + Quiz</h3>
+        <p class="cform__desc">Une session VR et une partie de Quiz Hologame pour 2. À partager entre amis, en couple ou en famille.</p>
+        <div class="cform__price"><span>59€</span></div>
+        <button class="btn btn--lime btn--sm smtz-w" data-smtz-gid="19897" data-smtz-wid="5722" type="button">Offrir</button>
       </article>
-      <article class="gcard reveal" data-d="2">
-        <span class="gcard__tag">Soirée complète</span>
-        <h3 class="gcard__name">Le Grand Jeu</h3>
-        <p class="gcard__desc">VR + fléchettes + quiz + boisson signature pour 1 personne. La soirée D'LYR en cadeau, tout compris.</p>
-        <div class="gcard__price"><span>54€</span>/pers.</div>
-        <a class="btn btn--ink-o btn--sm" href="#" data-offrir="Le Grand Jeu">Offrir</a>
+      <article class="cform reveal" data-d="2">
+        <span class="cform__tag">Soirée complète</span>
+        <h3 class="cform__name">Le Grand Jeu</h3>
+        <p class="cform__desc">VR + fléchettes + quiz + boisson signature pour 1 personne. La soirée D'LYR en cadeau, tout compris.</p>
+        <div class="cform__price"><span>54€</span></div>
+        <button class="btn btn--lime-o btn--sm smtz-w" data-smtz-gid="19897" data-smtz-wid="5722" type="button">Offrir</button>
       </article>
     </div>
   </div>
@@ -141,6 +142,18 @@
 
 
 <div data-footer></div>
+
+  <!-- Start Smeetz Embed Code -->
+  <script>
+  !function(e, t, n, i, p, r, s) {
+    e[n] || ((p = e[n] = function() {
+    p.p ? p.p.apply(p, arguments) : p.q.push(arguments);
+    }).q = [], p.t = 1 * new Date(), p.g = "19897", (r = t.createElement("script")).async = 1,
+    r.src = "https://tracker.smeetz.com/smeetz-main-widget.js", (s = t.getElementsByTagName("script")[0]).parentNode.insertBefore(r, s));
+  }(window, document, "_smtz");
+  </script>
+  <div class="smtz-w" data-smtz-gid="19897" data-smtz-wid="5722" style="display:none"></div>
+  <!-- End Smeetz Embed Code -->
 
 <script src="js/site.js"></script>
 <script src="js/offrir.js"></script>

@@ -38,3 +38,28 @@
 [data-btn-style="outline"] .btn--lime{ background:transparent !important; color:var(--lime) !important; }
 [data-btn-style="outline"] .btn--light{ background:transparent !important; color:var(--ink) !important; }
 [data-btn-style="outline"] .btn--lime:hover{ background:var(--lime) !important; color:var(--ink) !important; }
+
+/* ---- Lien "Laissez-nous un avis" sous KPI ---- */
+.stat__review-link{
+  display:inline-block; margin-top:18px;
+  font-family:var(--f-btn); font-weight:700; font-size:clamp(15px,1.2vw,18px);
+  color:var(--lime); text-decoration:underline; text-underline-offset:4px;
+  transition:color .25s;
+}
+.stat__review-link:hover{ color:var(--paper); }
+
+/* ---- Enseigne dans encart "Où nous trouver" ---- */
+.maps__enseigne{ border-radius:var(--r-md); overflow:hidden; margin-bottom:8px; }
+.maps__card-section{ display:flex; flex-direction:column; gap:6px; }
+
+/* ---- Prix formule cform ---- */
+.cform__amount{
+  font-family:var(--f-display); font-weight:800; font-size:clamp(36px,4vw,48px);
+  color:var(--paper); line-height:1;
+}
+.cform__price{ margin:auto 0 8px; }
+
+/* ---- Boutons désactivés ---- */
+button[disabled]{
+  opacity:.55; cursor:not-allowed; pointer-events:none;
+}

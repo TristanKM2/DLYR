@@ -70,7 +70,8 @@ window.DLYR_EN = Object.assign(window.DLYR_EN || {}, {
   "Réservez votre place ici": "Book your spot here",
   ". Accès A86.": ". A86 access.",
   "Nous contacter": "Get in touch",
-  "Carte — D'LYR, 3 Bd Charles de Gaulle, Colombes": "Map — D'LYR, 3 Bd Charles de Gaulle, Colombes",
+  "Carte — D'LYR, 3 Bd Charles de Gaulle, Colombes": "Map — D'LYR, 1 Bd Charles de Gaulle, Colombes",
+  "Carte — D'LYR, 1 Bd Charles de Gaulle, Colombes": "Map — D'LYR, 1 Bd Charles de Gaulle, Colombes",
 
   /* ---------- Communs ---------- */
   "Précédent": "Previous",

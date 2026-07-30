@@ -30,7 +30,7 @@
 
   function apply() {
     let list = GAMES.filter(g =>
-      (state.genre === 'Tous' || g.genre === state.genre) &&
+      (state.genre === 'Tous' || g.genre === state.genre || (state.genre === 'Adapté aux enfants' && g.genre === 'Culturel')) &&
       (state.players === 'all' || (g.players && playersBucket(g.players) === state.players))
     );
     list.sort((a, b) => state.sort === 'dur' ? (a.dur || 99) - (b.dur || 99) : a.name.localeCompare(b.name));

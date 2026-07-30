@@ -108,7 +108,7 @@
         <div class="footer__grid">
           <div class="footer__contact">
             <h4>Contactez-nous</h4>
-            <p>${ICONS.pin}<span>3 Bd Charles de Gaulle,<br>92700 Colombes</span></p>
+            <p>${ICONS.pin}<span>1 Bd Charles de Gaulle,<br>92700 Colombes – Hall A - Rez de Jardin</span></p>
             <p>${ICONS.clock}<span>Ouvert 7j/7 · Lun–Ven 11h–22h30<br>Samedi 10h–23h · Dimanche 10h–21h30</span></p>
             <p>${ICONS.phone}<span><a href="tel:+33147800000">01 47 80 00 00</a></span></p>
             <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg><a href="mailto:contact@dlyr-vr.com" style="text-decoration:underline">contact@dlyr-vr.com</a></p>
@@ -120,7 +120,7 @@
               <a href="#" aria-label="LinkedIn">${ICONS.linkedin}</a>
             </div>
           </div>
-          ${col('Activités', [['Expériences','catalogue.html'],['Fléchettes','activites.html'],['Laissez-nous un avis ⭐','https://www.google.com/maps/search/?api=1&query=D%27LYR%2C+3+Boulevard+Charles+de+Gaulle%2C+92700+Colombes']])}
+          ${col('Activités', [['Expériences','catalogue.html'],['Fléchettes','activites.html'],['Laissez-nous un avis ⭐','https://www.google.com/maps/search/?api=1&query=D%27LYR%2C+1+Boulevard+Charles+de+Gaulle%2C+92700+Colombes']])}
           ${col('Mentions légales', [['Politique de confidentialité','politique-confidentialite.html'],['Mentions légales','mentions-legales.html'],['CGV','cgv.html']])}
           ${col('Plan du site', [['Accueil','index.html'],['Expériences','catalogue.html'],['Fléchettes','activites.html'],['Évènements','evenements.html'],['Entreprises','entreprises.html'],['Offrir','offrir.html'],['Bar&Snack','snack-bar.html'],['FAQ','faq.html'],['Contact','contact.html']])}
         </div>
@@ -414,14 +414,14 @@
     const mount = document.querySelector('[data-maps]');
     if (!mount) return;
     mount.outerHTML = `
-    <section class="section bg-ink">
+    <section class="section bg-paper tex pmaps" id="ounoustrouver">
       <div class="wrap">
         <h2 class="h1 pmaps__h">Où nous trouver ?</h2>
         <div class="pmaps__layout reveal">
-          <div class="ph ph--dark pmaps__map map-embed"><iframe src="https://www.google.com/maps?q=D%27LYR%2C%203%20Boulevard%20Charles%20de%20Gaulle%2C%2092700%20Colombes&output=embed&hl=fr" title="Carte — D'LYR, 3 Bd Charles de Gaulle, Colombes" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+          <div class="ph pmaps__map map-embed"><iframe src="https://www.google.com/maps?q=1+Boulevard+Charles+de+Gaulle+92700+Colombes&output=embed&hl=fr" title="Carte — D'LYR, 1 Bd Charles de Gaulle, Colombes" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
           <div class="pmaps__card">
             <h3 class="h3">Horaires d'ouverture</h3>
-            <p class="pmaps__line">${ICONS.pin} 3 Bd Charles de Gaulle, 92700 Colombes</p>
+            <p class="pmaps__line">${ICONS.pin} 1 Bd Charles de Gaulle, 92700 Colombes – Hall A - Rez de Jardin</p>
             <p class="pmaps__line">${ICONS.clock} 7j/7 · Lun–Ven 11h–22h30 · Sam. 10h–23h · Dim. 10h–21h30</p>
             <hr class="pmaps__rule">
             <h3 class="h3">Comment s'y rendre ?</h3>
@@ -430,7 +430,7 @@
               <p><strong>En bus&nbsp;:</strong> Lignes 167 / 366 — arrêt Charles de Gaulle.</p>
               <p><strong>En voiture&nbsp;:</strong> Parking Q-Park à proximité — tarif négocié. <a href="#" data-qpark style="text-decoration:underline">Réservez votre place ici</a>. Accès A86.</p>
             </div>
-            <a class="btn btn--light" href="mailto:contact@dlyr-vr.com?subject=${encodeURIComponent("Contact D'LYR")}" style="align-self:flex-start;margin-top:8px">Nous contacter</a>
+            <a class="btn btn--ink" href="mailto:contact@dlyr-vr.com?subject=${encodeURIComponent("Contact D'LYR")}" style="align-self:flex-start;margin-top:8px">Nous contacter</a>
           </div>
         </div>
       </div>
@@ -457,7 +457,7 @@
 
   /* ---------- Lightbox images ---------- */
   function lightboxInit() {
-    const imgs = [...document.querySelectorAll('.ph__img, [data-lightbox]')]
+    const imgs = [...document.querySelectorAll('[data-lightbox="true"]')]
       .filter(el => !el.closest('[data-video]') && !el.closest('a'));
     if (!imgs.length) return;
     const ov = document.createElement('div');

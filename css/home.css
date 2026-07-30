@@ -204,15 +204,16 @@
 /* ---------- ÉVÈNEMENTS ---------- */
 .ev__head{ display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:46px; }
 .ev__head .lead{ color:var(--paper); }
+.ev.bg-paper .ev__head .lead{ color:var(--muted); }
 .ev__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-.ecard{ background:rgba(194,208,179,.04); border:1px solid rgba(194,208,179,.08); border-radius:var(--r-sm); overflow:hidden; transition:transform .3s, border-color .3s; }
-.ecard:hover{ transform:translateY(-6px); border-color:var(--lime); }
+.ecard{ background:var(--ink); border:1px solid rgba(194,208,179,.2); border-radius:var(--r-sm); overflow:hidden; transition:transform .3s, border-color .3s, box-shadow .3s; box-shadow:0 12px 32px rgba(0,0,0,.15); }
+.ecard:hover{ transform:translateY(-6px); border-color:var(--lime); box-shadow:0 20px 40px rgba(0,0,0,.25); }
 .ecard__media{ aspect-ratio:4/3; border-radius:0; transition:transform .55s cubic-bezier(.2,.8,.2,1); }
 .ecard:hover .ecard__media{ transform:scale(1.05); }
 .ecard__body{ padding:24px; }
 .ecard__body .h3{ color:var(--paper); margin-bottom:18px; }
 .ecard__tags{ display:flex; flex-direction:column; gap:10px; }
-.ecard__tags li{ font-family:var(--f-btn); font-weight:700; font-size:16px; color:var(--ink); background:var(--blue-2); padding:7px 16px; border-radius:var(--r-pill); align-self:flex-start; }
+.ecard__tags li{ font-family:var(--f-btn); font-weight:700; font-size:14px; color:var(--ink); background:var(--lime); padding:6px 14px; border-radius:var(--r-pill); align-self:flex-start; }
 .ev__more{ margin-top:46px; display:flex; justify-content:center; }
 
 /* ---------- SNACK BAR ---------- */
@@ -266,6 +267,10 @@
 .stat__label{ order:-1; }
 .stats__aside{ display:flex; flex-direction:column; gap:24px; }
 .stats__merci{ color:var(--ink); }
+.stats.bg-ink .stat__label{ color:rgba(194,208,179,.85); }
+.stats.bg-ink .stat__num{ color:var(--lime); }
+.stats.bg-ink .stat__suf{ color:var(--paper); }
+.stats.bg-ink .stats__merci{ color:var(--paper); }
 .stats__media{ aspect-ratio:16/8; }
 
 /* ---------- MAPS ---------- */

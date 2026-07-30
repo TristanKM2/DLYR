@@ -43,8 +43,8 @@
       </div>
     </div>
     <div class="phero__deco reveal" data-d="1">
-      <div class="ph"><img class="ph__img" loading="lazy" src="uploads/accueil.jpg" alt="L'accueil de D'LYR à Colombes"></div>
-      <div class="ph"><img class="ph__img" loading="lazy" src="uploads/lounge.jpg" alt="L'espace lounge de D'LYR"></div>
+      <div class="ph" style="aspect-ratio:3/4;border-radius:var(--r-md);overflow:hidden"><img class="ph__img" loading="lazy" src="uploads/brand/Porte entrée.png" alt="Porte d'entrée de D'LYR à Colombes" style="object-fit:contain;width:100%;height:100%"></div>
+      <div class="ph" style="aspect-ratio:16/10"><img class="ph__img" loading="lazy" src="uploads/brand/Enseigne.png" alt="Enseigne D'LYR à Colombes" style="object-fit:cover;width:100%;height:100%"></div>
     </div>
   </div>
 </section>
@@ -56,7 +56,7 @@
       <h2 class="h1 accent eyebrow-bar cts__h"><span>Nous écrire</span></h2>
       <p class="lead cts__lead">Réservations de groupe, anniversaires, privatisation, objets oubliés ou simple curiosité&nbsp;: tout arrive dans la même boîte, et rien ne reste sans réponse.</p>
       <ul class="cts__list">
-        <li><span data-ic="pin"></span><span>3 Bd Charles de Gaulle,<br>92700 Colombes</span></li>
+        <li><span data-ic="pin"></span><span>1 Bd Charles de Gaulle,<br>92700 Colombes – Hall A - Rez de Jardin</span></li>
         <li><span data-ic="clock"></span><span>7j/7 · Lun–Ven 11h–22h30<br>Samedi 10h–23h · Dimanche 10h–21h30</span></li>
         <li><span data-ic="phone"></span><span><a href="tel:+33147800000">01 47 80 00 00</a></span></li>
         <li><span data-ic="mail"></span><span><a href="mailto:contact@dlyr-vr.com">contact@dlyr-vr.com</a></span></li>
@@ -65,11 +65,14 @@
     </div>
     <form class="quote__form reveal" data-d="1" data-contact>
       <div class="quote__row">
-        <label class="field"><span>Nom</span><input type="text" name="nom" autocomplete="name" placeholder="Votre nom" required></label>
-        <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" placeholder="vous@email.com" required></label>
+        <label class="field"><span>Prénom</span><input type="text" name="prenom" autocomplete="given-name" placeholder="Votre prénom" required></label>
+        <label class="field"><span>Nom</span><input type="text" name="nom" autocomplete="family-name" placeholder="Votre nom" required></label>
       </div>
       <div class="quote__row">
+        <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" placeholder="vous@email.com" required></label>
         <label class="field"><span>Téléphone</span><input type="tel" name="tel" autocomplete="tel" placeholder="06 12 34 56 78"></label>
+      </div>
+      <div class="quote__row">
         <label class="field"><span>Sujet</span>
           <select name="sujet">
             <option>Réservation</option><option>Anniversaire</option><option>EVG / EVJF</option><option>Entreprise</option><option>Bar &amp; Snack</option><option>Autre</option>

@@ -41,14 +41,8 @@
   border-color:var(--lime);
   background:rgba(194,208,179,.07);
 }
-/* connecteur entre les étapes */
-.howto__step::after{
-  content:""; position:absolute; top:calc(clamp(28px,3vw,40px) + 30px);
-  right:-1px; width:calc(clamp(18px,2.2vw,28px) + 2px); height:2px;
-  background:repeating-linear-gradient(90deg,var(--lime) 0 8px,transparent 8px 14px);
-  opacity:.5;
-}
-.howto__step:last-child::after{ display:none; }
+/* connecteur entre les étapes — désactivé */
+.howto__step::after{ display:none; }
 .howto__num{
   display:inline-grid; place-items:center; flex:none;
   width:60px; height:60px; border-radius:50%;
@@ -65,7 +59,6 @@
 }
 @media (max-width:760px){
   .howto{ grid-template-columns:1fr; }
-  .howto__step::after{ display:none; }
 }
 .gift__points{ display:flex; flex-direction:column; gap:12px; }
 .gift__points li{ display:flex; align-items:center; gap:12px; font-family:var(--f-btn); font-weight:700; font-size:clamp(16px,1.4vw,20px); color:var(--paper); }
@@ -85,5 +78,18 @@
 .gcardvisual__label{ font-family:var(--f-btn); font-weight:700; font-size:14px; letter-spacing:.16em; text-transform:uppercase; color:rgba(194,208,179,.55); }
 .gcardvisual__val{ font-family:var(--f-display); font-weight:800; font-size:clamp(40px,6vw,72px); color:var(--lime); line-height:.9; }
 .gcardvisual__chip{ position:absolute; left:clamp(24px,3vw,38px); top:50%; transform:translateY(-50%); width:48px; height:36px; border-radius:8px; background:linear-gradient(135deg,#d2dac5,#9a9a9a); z-index:1; opacity:.9; }
+
+/* Boutons montant carte cadeau */
+.gift__amounts{ display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
+.gift__amt{
+  font-family:var(--f-display); font-weight:800; font-size:clamp(20px,2vw,28px);
+  color:var(--paper); background:transparent; border:2px solid rgba(194,208,179,.3);
+  border-radius:var(--r-pill); padding:12px 28px; cursor:pointer;
+  transition:border-color .25s, background .25s, color .25s, transform .25s;
+}
+.gift__amt:hover, .gift__amt.active{
+  border-color:var(--lime); background:var(--lime); color:var(--ink);
+  transform:translateY(-3px);
+}
 
 @media (max-width:900px){ .gift__grid{ grid-template-columns:1fr; } .gift__hero{ grid-template-columns:1fr; } }
