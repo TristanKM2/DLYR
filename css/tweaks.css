@@ -63,3 +63,80 @@
 button[disabled]{
   opacity:.55; cursor:not-allowed; pointer-events:none;
 }
+
+/* ============================================================
+   Overpass des styles automatiques Smeetz sur les boutons (.smtz-w)
+   ============================================================ */
+button.smtz-w,
+button.btn.smtz-w,
+a.btn.smtz-w {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  font-family: var(--f-btn), 'Barlow', sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: .02em !important;
+  border-radius: 12px !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  box-shadow: none !important;
+  outline: none !important;
+  margin: 0 !important;
+  height: auto !important;
+  min-height: unset !important;
+}
+
+button.btn--lime-o.smtz-w,
+.btn--lime-o.smtz-w {
+  --bg: #243b2d !important;
+  --fg: #ffffff !important;
+  --bd: rgba(212,188,114,.45) !important;
+  --fx: var(--lime, #d4bc72) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(212,188,114,.45) !important;
+  background: transparent !important;
+}
+
+button.btn--lime.smtz-w,
+.btn--lime.smtz-w {
+  --bg: #243b2d !important;
+  --fg: #ffffff !important;
+  --bd: rgba(212,188,114,.45) !important;
+  --fx: var(--lime, #d4bc72) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(212,188,114,.45) !important;
+  background: transparent !important;
+}
+
+button.btn--sm.smtz-w,
+.btn--sm.smtz-w {
+  padding: 10px 22px !important;
+  font-size: clamp(15px, 1vw, 18px) !important;
+}
+
+button.smtz-w.btn:hover,
+button.smtz-w.btn--lime:hover,
+button.smtz-w.btn--lime-o:hover {
+  color: var(--ink, #1c3024) !important;
+  border-color: var(--lime, #d4bc72) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .3) !important;
+}
+
+/* Annulation de tous les sous-éléments éventuellement injectés par Smeetz dans le bouton */
+button.smtz-w *,
+.smtz-w * {
+  font-family: inherit !important;
+  color: inherit !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  text-transform: inherit !important;
+}

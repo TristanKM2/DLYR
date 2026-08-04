@@ -177,6 +177,8 @@ ul{ list-style:none; }
 
 .btn--sm{ padding:10px 22px; font-size:clamp(15px,1vw,18px); }
 
+
+
 /* Bouton flèche carré (lime) */
 .btn-arrow{
   width:clamp(56px,5vw,82px); aspect-ratio:1; border-radius:var(--r-sm);

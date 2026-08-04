@@ -299,6 +299,11 @@
       productId: '76867',
       codes: '162222,162223,162225,162226',
       cats: '162222,162223,162225,162226'
+    },
+    'catalogue': {
+      productId: '76933',
+      codes: '162309,162310,162311',
+      cats: '162309,162310,162311'
     }
   };
 
@@ -349,6 +354,14 @@
       e.preventDefault();
       var p = currentProduct();
       if (p) {
+        var cat = a.getAttribute('data-smeetz-cat');
+        if (cat) {
+          p = Object.assign({}, p, {
+            cats: cat,
+            codes: cat,
+            grouptickets: cat
+          });
+        }
         smeetzOpen(p);
         return;
       }
