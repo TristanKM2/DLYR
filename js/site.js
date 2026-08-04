@@ -289,16 +289,15 @@
     },
     'flechettes': {
       productId: '76883',
-      cats: '161831'
+      wId: '5721'
     },
     'activites': {
       productId: '76883',
-      cats: '161831'
+      wId: '5721'
     },
     'offrir': {
       productId: '76867',
-      codes: '162222,162223,162225,162226',
-      cats: '162222,162223,162225,162226'
+      wId: '5722'
     },
     'catalogue': {
       productId: '76933',
@@ -319,6 +318,13 @@
     s.parentNode.insertBefore(r, s);
   }
 
+  // Pré-chargement silencieux dès l'initialisation de la page
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', smeetzLoad);
+  } else {
+    smeetzLoad();
+  }
+
   function currentProduct() {
     var slug = (location.pathname.split('/').pop() || '').replace(/\.html?$/i, '');
     return SMEETZ_PRODUCTS[slug] || null;
@@ -326,28 +332,24 @@
 
   function smeetzOpen(prod) {
     smeetzLoad();
-    if (prod && prod.productId) {
-      window._smtz('openwidget', 1 * new Date(), {
-        productId: prod.productId,
-        lightbox: true,
-        listView: false,
-        gId: SMEETZ_GID,
-        codes: prod.codes || prod.cats,
-        cats: prod.cats,
-        grouptickets: prod.cats
-      });
-    } else if (prod && prod.widgetId) {
-      window._smtz('openwidget', 1 * new Date(), {
-        widgetId: prod.widgetId,
-        gId: prod.gId || SMEETZ_GID,
-        lightbox: true
-      });
-    }
+    if (!prod) return;
+    var opts = {
+      productId: prod.productId,
+      lightbox: true,
+      gId: SMEETZ_GID
+    };
+    if (prod.wId) opts.wId = prod.wId;
+    if (prod.widgetId) opts.wId = prod.widgetId;
+    if (prod.cats) opts.cats = prod.cats;
+    if (prod.codes) opts.codes = prod.codes;
+    if (prod.listView !== undefined) opts.listView = prod.listView;
+
+    window._smtz('openwidget', 1 * new Date(), opts);
   }
 
   function reserve() {
     var prod = currentProduct();
-    if (prod) smeetzLoad();
+    smeetzLoad();
     document.addEventListener('click', (e) => {
       const a = e.target.closest('a[href="#reserver"], [data-smeetz-open]');
       if (!a) return;
@@ -359,7 +361,8 @@
           p = Object.assign({}, p, {
             cats: cat,
             codes: cat,
-            grouptickets: cat
+            grouptickets: cat,
+            listView: false
           });
         }
         smeetzOpen(p);

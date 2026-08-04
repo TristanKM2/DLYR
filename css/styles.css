@@ -441,3 +441,19 @@ img[loading="lazy"]{ transition:opacity .45s ease; }
 .lang-btn:hover{transform:scale(1.12)}
 .lang-btn:focus-visible{outline:2px solid #d4bc72;outline-offset:2px}
 .drawer .lang-btn{align-self:center;margin-top:4px}
+
+/* ---------- Smeetz Lightbox Overlay ---------- */
+#smtz-lightbox-container,
+#smtz-cart-lightbox-container,
+.smtz-lightbox-container,
+.smtz-lightbox-iframe,
+iframe[src*="smeetz"],
+iframe[id*="smtz"],
+.smtz-cart-lightbox,
+.smtz-cart-lightbox-active-container,
+div[class*="smtz"],
+div[id*="smtz"] {
+  background-color: #101f15 !important;
+  color-scheme: dark !important;
+}
+
