@@ -8,7 +8,7 @@
   // ⚠️ RAPPEL : la boîte contact@dlyr-vr.com n'est pas encore active côté client.
   // Le 1er envoi via FormSubmit déclenchera un e-mail d'activation à confirmer sur cette adresse.
   const DEST = 'tristankouker@gmail.com';
-  const WORKER_ENDPOINT = '/send-email';
+  const WORKER_ENDPOINT = 'https://dlyr-cms-worker.tristankouker.workers.dev/send-email';
   const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/' + encodeURIComponent(DEST);
 
   const form = document.querySelector('[data-quote]');

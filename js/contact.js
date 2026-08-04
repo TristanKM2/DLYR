@@ -18,7 +18,7 @@
   /* Envoi via FormSubmit (même service que la demande de devis), repli mailto.
      ⚠️ RAPPEL : le 1er envoi déclenche un mail d'activation à confirmer sur contact@dlyr-vr.com. */
   const DEST = 'tristankouker@gmail.com';
-  const WORKER_ENDPOINT = '/send-email';
+  const WORKER_ENDPOINT = 'https://dlyr-cms-worker.tristankouker.workers.dev/send-email';
   const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/' + encodeURIComponent(DEST);
 
   function form() {
