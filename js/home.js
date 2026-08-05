@@ -32,7 +32,6 @@
     { name: 'Snow Village', genre: 'Adapté aux enfants', theme: 'Coopératif · Magie de Noël', pitch: "Le village du Père Noël est attaqué et la magie s'éteint. En famille, défendez les lutins et rendez Noël à Snow Village.", dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/experiences/Snow Village Sans titre.png', href: 'jeu-snow-village.html' },
     { name: 'Icarus Station', genre: 'Escape game', theme: 'Coopératif · Science-fiction', pitch: "La station Icarus-7 dérive et ses systèmes lâchent un à un. Réparez, coopérez, atteignez la plateforme d'extraction avant le vide spatial.", dur: '30 min', pl: '2 à 12 joueurs', img: 'uploads/experiences/Icarus Station sans titre.png', href: 'jeu-icarus-station.html' },
     { name: 'Brain Arena', genre: 'Quiz', theme: 'Multijoueur · Culture générale', pitch: "Le premier jeu télévisé immersif où votre cerveau est l'arme absolue. Buzzez plus vite que les autres et grimpez au classement.", dur: '30 min', pl: '2 à 8 joueurs', img: 'uploads/experiences/Brain Arena sans titre.png', href: 'jeu-brain-arena.html' },
-    { name: 'Spirit of the Wild', genre: 'Aventure', theme: 'Sensoriel · Nature', pitch: "Inspiré des légendes du Grand Nord : devenez créature mythique, traversez des paysages enchanteurs et éveillez l'animal qui sommeille en vous.", dur: '30 min', pl: '2 à 10 joueurs', img: 'uploads/experiences/Spirit of the wild sans titre.png', href: 'jeu-spirit-of-the-wild.html' },
   ];
   function posters() {
     const grid = document.querySelector('[data-posters]');

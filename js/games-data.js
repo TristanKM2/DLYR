@@ -82,17 +82,7 @@ window.DLYR_GAMES = [
       "Entre compétition acharnée, éclats de rire et surprises, Brain Arena transforme la culture générale en une véritable expérience immersive où chacun peut devenir champion. Alors, êtes-vous prêt à prouver que vous êtes le plus brillant de l'arène\u00a0?"
     ]
   },
-  {
-    slug: 'spirit-of-the-wild', name: 'Spirit of the Wild', genre: 'Culturel',
-    tags: ['Sensoriel', 'Nature', 'Légendes'],
-    type: 'Expérience sensorielle', pl: '2 à 10 joueurs', players: 10, dur: 30,
-    img: 'uploads/experiences/Spirit of the wild sans titre.png',
-    objective: null,
-    tagline: "Éveillez l'animal<br>qui sommeille en vous",
-    story: [
-      "Dans un monde inspiré des légendes du Grand Nord, laissez votre esprit s'unir à la nature. Transformez-vous en créature mythique, explorez des paysages enchanteurs et découvrez une expérience immersive où votre regard, votre voix et vos émotions deviennent votre véritable pouvoir."
-    ]
-  },
+
   {
     slug: 'icarus-station', name: 'Icarus Station', genre: 'Escape Game',
     tags: ['Escape Game', 'Coopératif', 'Science-fiction'],

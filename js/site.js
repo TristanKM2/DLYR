@@ -265,11 +265,6 @@
       codes: '1XNKDUDZ,AKFVPTCM,SGFWVCRM,EZV89MBD,ZV14GA5M',
       cats: '161577,161578,161579,161580,161581'
     },
-    'jeu-spirit-of-the-wild': {
-      productId: '76843',
-      codes: 'Z3VTAVSP,TRXCH7QH,QTHQLW63,ZQTMBGHH,LUL8N73Y',
-      cats: '161569,161570,161571,161572,161573'
-    },
     'jeu-snow-village': {
       productId: '76838',
       codes: 'DHNL3T62,BXMEJGZT,VNCVZHHG,ZNMSBGF2,RD2T2LYF',
