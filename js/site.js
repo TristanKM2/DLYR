@@ -252,8 +252,10 @@
   var SMEETZ_PRODUCTS = {
     'jeu-brain-arena': {
       productId: '76840',
+      wId: '5696',
       codes: 'M1GAXSNW,VTGRZERM,9FYJTSN6,JCS35DY7,CFQ4FUTQ',
-      cats: '161527,161528,161529,161530,161531'
+      cats: '161527,161528,161529,161530,161531',
+      grouptickets: '161527,161528,161529,161530,161531'
     },
     'jeu-volcanic-warfare': {
       productId: '76836',
@@ -361,12 +363,14 @@
     var opts = {
       productId: prod.productId,
       lightbox: true,
+      listView: false,
       gId: SMEETZ_GID
     };
     if (prod.wId) opts.wId = prod.wId;
     if (prod.widgetId) opts.wId = prod.widgetId;
     if (prod.cats) opts.cats = prod.cats;
     if (prod.codes) opts.codes = prod.codes;
+    if (prod.grouptickets || prod.cats) opts.grouptickets = prod.grouptickets || prod.cats;
     if (prod.listView !== undefined) opts.listView = prod.listView;
 
     window._smtz('openwidget', 1 * new Date(), opts);
