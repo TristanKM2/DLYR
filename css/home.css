@@ -151,7 +151,7 @@
 .slide:hover .ph{ transform:scale(1.03); }
 .slide__scrim{ position:absolute; inset:0; background:linear-gradient(transparent 40%, rgba(0,0,0,.85)); }
 .slide__video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; background:#000; }
-.slide__video--portrait{ object-fit:contain; background:rgba(12,12,14,.55); backdrop-filter:blur(18px); }
+.slide__video--portrait{ object-fit:cover; }
 .slide__ctrl{ position:absolute; bottom:18px; right:22px; display:flex; gap:10px; z-index:3; }
 .slide__ctrl button{ width:44px; height:44px; border-radius:50%; background:rgba(0,0,0,.55); border:1px solid rgba(194,208,179,.35); color:var(--paper); display:grid; place-items:center; cursor:pointer; transition:background .2s, color .2s; }
 .slide__ctrl button:hover{ background:var(--lime); color:var(--ink); border-color:var(--lime); }
