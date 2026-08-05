@@ -402,37 +402,29 @@
   }
 
   /* ============================================================
-     Google Analytics 4 — chargé UNIQUEMENT après consentement
-     ============================================================
-     ⚠️ À CONFIGURER : remplacer G-XXXXXXXXXX par le vrai
-     identifiant de mesure GA4 (Admin > Flux de données > Web).
-     Tant que la valeur reste 'G-XXXXXXXXXX', rien n'est chargé. */
-  var GA_ID = 'G-X0R7MLMGFH';
+     Google Tag Manager — chargé UNIQUEMENT après consentement
+     ============================================================ */
+  var GTM_ID = 'GTM-P924MCGJ';
 
-  function loadGA() {
-    if (window.__gaLoaded) return;
-    if (!GA_ID || GA_ID === 'G-XXXXXXXXXX' || GA_ID.indexOf('G-') !== 0) return;
-    window.__gaLoaded = true;
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(s);
+  function loadGTM() {
+    if (window.__gtmLoaded) return;
+    window.__gtmLoaded = true;
     window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', GA_ID);
+    window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+    var f = document.getElementsByTagName('script')[0];
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    f.parentNode.insertBefore(j, f);
   }
 
   function analytics() {
     var KEY = 'dlyr_cookie_consent';
     try {
-      if (localStorage.getItem(KEY) !== 'refused') loadGA();
-    } catch (e) {
-      loadGA();
-    }
+      if (localStorage.getItem(KEY) === 'accepted') loadGTM();
+    } catch (e) {}
     window.addEventListener('dlyr:consent', function (e) {
-      if (e.detail !== 'refused') loadGA();
+      if (e.detail === 'accepted') loadGTM();
     });
   }
 
