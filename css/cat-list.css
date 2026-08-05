@@ -31,7 +31,9 @@
 .xcard__meta svg{ width:14px; height:14px; }
 .cat__empty{ text-align:center; color:rgba(194,208,179,.6); font-size:18px; padding:60px 0; }
 
-.catmq{ color:var(--ink); }
+/* Réduction de l'espace vertical entre le catalogue et la section Pass VR */
+.section.cat { padding-bottom: clamp(16px, 2vw, 32px); }
+.section.cat + .section.combo { padding-top: clamp(20px, 2.5vw, 36px); }
 
 @media (max-width:1100px){ .cat__grid{ grid-template-columns:repeat(3,1fr); } }
 @media (max-width:820px){ .cat__grid{ grid-template-columns:1fr 1fr; gap:16px; } }
