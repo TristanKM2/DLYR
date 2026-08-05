@@ -265,6 +265,28 @@
       codes: '1XNKDUDZ,AKFVPTCM,SGFWVCRM,EZV89MBD,ZV14GA5M',
       cats: '161577,161578,161579,161580,161581'
     },
+    'jeu-quantum-dome-project': {
+      productId: '76844',
+      codes: '1XNKDUDZ,AKFVPTCM,SGFWVCRM,EZV89MBD,ZV14GA5M',
+      cats: '161577,161578,161579,161580,161581'
+    },
+    'jeu-titanic-le-reve-englouti': {
+      productId: '76927',
+      wId: '5728',
+      codes: 'C3JZ8CKD,G12S499W,LXULSELA,UPM4NHNJ,2W22L8HQ',
+      cats: '162281,162282,162283,162284,162285'
+    },
+    'jeu-versailles-les-jardins-disparus-du-roi-soleil': {
+      productId: '76926',
+      wId: '5727',
+      codes: '1H7VEAEP,8J2MEYQV,PXDGHTT6,STRUAWHQ,CJ2GWPE2',
+      cats: '162271,162272,162273,162274,162275'
+    },
+    'jeu-gaudi-latelier-du-divin': {
+      productId: '76843',
+      codes: 'Z3VTAVSP,TRXCH7QH,QTHQLW63,ZQTMBGHH,LUL8N73Y',
+      cats: '161569,161570,161571,161572,161573'
+    },
     'jeu-snow-village': {
       productId: '76838',
       codes: 'DHNL3T62,BXMEJGZT,VNCVZHHG,ZNMSBGF2,RD2T2LYF',
