@@ -59,7 +59,7 @@
         });
         item.classList.toggle('open', !open);
         btn.setAttribute('aria-expanded', String(!open));
-        panel.style.maxHeight = open ? null : panel.scrollHeight + 'px';
+        panel.style.maxHeight = open ? null : (panel.scrollHeight + 40) + 'px';
       });
     });
 

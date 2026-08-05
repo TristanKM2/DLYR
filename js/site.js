@@ -27,8 +27,13 @@
     clock: '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
     phone: '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l1.6 5-2.2 1.4a12 12 0 0 0 5.2 5.2L15.2 15l5 1.6V21a1.6 1.6 0 0 1-1.8 1.6A17 17 0 0 1 3.4 5.8 1.6 1.6 0 0 1 5 4z"/></svg>',
     arrow: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 9v9H9"/></svg>',
+  const SOCIAL = {
+    tiktok: 'https://www.tiktok.com/@dlyr.vr',
+    facebook: 'https://www.facebook.com/profile.php?id=61591286531090',
+    instagram: 'https://www.instagram.com/dlyr.vr/',
+    linkedin: 'https://www.linkedin.com/company/d-lyr/'
   };
-  window.DLYR_ICONS = ICONS;
+  window.DLYR_SOCIAL = SOCIAL;
 
   function brand(onPaper) {
     const isEN = document.documentElement.lang === 'en' || /\/en\//i.test(location.pathname);
@@ -117,10 +122,10 @@
             <p><a href="https://www.google.com/maps/search/?api=1&query=D%27LYR%2C+1+Boulevard+Charles+de+Gaulle%2C+92700+Colombes" target="_blank" rel="noopener" style="text-decoration:underline;font-weight:bold;color:var(--lime)">Laissez-nous un avis ⭐</a></p>
             <div class="footer__followlabel">Follow us !</div>
             <div class="footer__social">
-              <a href="#" aria-label="TikTok">${ICONS.tiktok}</a>
-              <a href="#" aria-label="Facebook">${ICONS.facebook}</a>
-              <a href="#" aria-label="Instagram">${ICONS.instagram}</a>
-              <a href="#" aria-label="LinkedIn">${ICONS.linkedin}</a>
+              <a href="${SOCIAL.tiktok}" target="_blank" rel="noopener" aria-label="TikTok">${ICONS.tiktok}</a>
+              <a href="${SOCIAL.facebook}" target="_blank" rel="noopener" aria-label="Facebook">${ICONS.facebook}</a>
+              <a href="${SOCIAL.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${ICONS.instagram}</a>
+              <a href="${SOCIAL.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn">${ICONS.linkedin}</a>
             </div>
           </div>
           ${col('Activités', [['Expériences','catalogue.html'],['Fléchettes','flechettes.html']])}

@@ -6,12 +6,18 @@
 
   /* ---------- Injection des icônes ---------- */
   function icons() {
+    const S = window.DLYR_SOCIAL || {
+      tiktok: 'https://www.tiktok.com/@dlyr.vr',
+      facebook: 'https://www.facebook.com/profile.php?id=61591286531090',
+      instagram: 'https://www.instagram.com/dlyr.vr/',
+      linkedin: 'https://www.linkedin.com/company/d-lyr/'
+    };
     const soc = document.querySelector('[data-social]');
     if (soc) soc.innerHTML =
-      `<a href="#" aria-label="TikTok">${I.tiktok}</a>
-       <a href="#" aria-label="Facebook">${I.facebook}</a>
-       <a href="#" aria-label="Instagram">${I.instagram}</a>
-       <a href="#" aria-label="LinkedIn">${I.linkedin}</a>`;
+      `<a href="${S.tiktok}" target="_blank" rel="noopener" aria-label="TikTok">${I.tiktok}</a>
+       <a href="${S.facebook}" target="_blank" rel="noopener" aria-label="Facebook">${I.facebook}</a>
+       <a href="${S.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${I.instagram}</a>
+       <a href="${S.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn">${I.linkedin}</a>`;
     document.querySelectorAll('.btn-arrow').forEach(b => { if (b.textContent.trim() === '_ARROW_') b.innerHTML = I.arrow; });
     document.querySelectorAll('[data-ic]').forEach(s => { s.innerHTML = I[s.dataset.ic] || ''; });
   }

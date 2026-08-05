@@ -4,15 +4,21 @@
   const MAIL = '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>';
 
   function chrome() {
+    const S = window.DLYR_SOCIAL || {
+      tiktok: 'https://www.tiktok.com/@dlyr.vr',
+      facebook: 'https://www.facebook.com/profile.php?id=61591286531090',
+      instagram: 'https://www.instagram.com/dlyr.vr/',
+      linkedin: 'https://www.linkedin.com/company/d-lyr/'
+    };
     const ar = document.querySelector('[data-arrow]');
     if (ar) ar.innerHTML = I.arrow || '';
     document.querySelectorAll('[data-ic]').forEach(s => { s.innerHTML = s.dataset.ic === 'mail' ? MAIL : (I[s.dataset.ic] || ''); });
     const soc = document.querySelector('[data-social]');
     if (soc) soc.innerHTML =
-      `<a href="#" aria-label="TikTok">${I.tiktok || ''}</a>
-       <a href="#" aria-label="Facebook">${I.facebook || ''}</a>
-       <a href="#" aria-label="Instagram">${I.instagram || ''}</a>
-       <a href="#" aria-label="LinkedIn">${I.linkedin || ''}</a>`;
+      `<a href="${S.tiktok}" target="_blank" rel="noopener" aria-label="TikTok">${I.tiktok || ''}</a>
+       <a href="${S.facebook}" target="_blank" rel="noopener" aria-label="Facebook">${I.facebook || ''}</a>
+       <a href="${S.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${I.instagram || ''}</a>
+       <a href="${S.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn">${I.linkedin || ''}</a>`;
   }
 
   /* Envoi via FormSubmit (même service que la demande de devis), repli mailto.
