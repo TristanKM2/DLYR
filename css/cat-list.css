@@ -16,8 +16,7 @@
 .xcard{ position:relative; border-radius:var(--r-sm); overflow:hidden; aspect-ratio:3/4; display:block; background:#0e1a13; border:1px solid rgba(194,208,179,.12); transition:transform .3s, box-shadow .3s, border-color .3s; }
 .xcard:hover{ transform:translateY(-6px); border-color:var(--lime); box-shadow:0 20px 44px rgba(0,0,0,.5); }
 .xcard .ph{ position:absolute; inset:0; border-radius:0; background:transparent; display:flex; align-items:center; justify-content:center; transition:transform .6s cubic-bezier(.2,.8,.2,1); }
-.xcard .ph__img{ width:100%; height:100%; object-fit:contain; border-radius:0; }
-.xcard .ph__img[src*="Snow"]{ object-fit:cover; object-position:center 15%; }
+.xcard .ph__img{ width:100%; height:100%; object-fit:cover; object-position:center; border-radius:0; }
 .xcard:hover .ph{ transform:scale(1.03); }
 .xcard__scrim{ display:none; }
 .xcard__header{ position:absolute; top:0; left:0; right:0; padding:16px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:6px; z-index:4; pointer-events:none; }

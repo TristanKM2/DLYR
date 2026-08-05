@@ -6,7 +6,7 @@ window.DLYR_GAMES = [
     slug: 'harbor-siege', name: 'Harbor Siege', genre: 'Action',
     tags: ['Conquête', 'Stratégie', "Esprit d'équipe"],
     type: 'Domination', pl: '2 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/experiences/Harbor Siege sans titre.png', vid: 'uploads/harbor-siege.mp4',
+    img: 'uploads/experiences/Harbor Siege sans titre.png', vid: 'uploads/experiences/harbor-siege.mp4',
     objective: 'Capturer et défendre les zones de contrôle pour mener votre équipe à la victoire.',
     tagline: 'Prenez le contrôle du port.<br>Dominez le champ de bataille.',
     story: [
@@ -32,7 +32,7 @@ window.DLYR_GAMES = [
     slug: 'paradise-expedition', name: 'Paradise Expedition', genre: 'Action',
     tags: ['Free For All', 'Compétition', 'Survie'],
     type: 'Free For All', pl: '2 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/experiences/Paradise Expedition sans Titre.png', vid: 'uploads/paradise-expedition.mp4',
+    img: 'uploads/experiences/Paradise Expedition sans Titre.png', vid: 'uploads/experiences/paradise-expedition.mp4',
     objective: "Éliminer un maximum d'adversaires et réaliser le meilleur score.",
     tagline: 'Dans ce paradis perdu, chaque<br>rencontre peut être votre dernière',
     story: [
@@ -45,7 +45,7 @@ window.DLYR_GAMES = [
     slug: 'volcanic-warfare', name: 'Volcanic Warfare', genre: 'Action',
     tags: ['Team Deathmatch', 'Coopération', 'Tactique'],
     type: 'Team Deathmatch', pl: '4 à 8 joueurs', players: 8, dur: 30,
-    img: 'uploads/experiences/Volcanic Warfare sans titre.png', vid: 'uploads/volcanic-warfare.mp4',
+    img: 'uploads/experiences/Volcanic Warfare sans titre.png', vid: 'uploads/experiences/volcanic-warfare.mp4',
     objective: "Éliminer un maximum d'adversaires et permettre à votre équipe d'atteindre le score le plus élevé.",
     tagline: 'Deux équipes.<br>Une seule victoire.',
     story: [
@@ -58,7 +58,7 @@ window.DLYR_GAMES = [
     slug: 'snow-village', name: 'Snow Village', genre: 'Adapté aux enfants',
     tags: ['Famille', 'Coopératif', 'Magie de Noël'],
     type: 'Family Adventure', pl: '2 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/experiences/Snow Village Sans titre.png', vid: 'uploads/snow-village.mp4',
+    img: 'uploads/experiences/Snow Village Sans titre.png', vid: 'uploads/experiences/snow-village.mp4',
     objective: 'Défendre le village du Père Noël, sauver les habitants et vaincre les armées du sorcier maléfique.',
     tagline: 'La magie de Noël est en danger.<br>Devenez les héros de Snow Village.',
     story: [
@@ -72,7 +72,7 @@ window.DLYR_GAMES = [
     slug: 'brain-arena', name: 'Brain Arena', genre: 'Quiz',
     tags: ['Quiz', 'Multijoueur', 'Culture générale'],
     type: 'Quiz immersif multijoueur', pl: '2 à 8 joueurs', players: 8, dur: 30,
-    img: 'uploads/experiences/Brain Arena sans titre.png', vid: 'uploads/brain-arena.mp4',
+    img: 'uploads/experiences/Brain Arena sans titre.png', vid: 'uploads/experiences/brain-arena.mp4',
     objective: 'Accumuler le maximum de points en répondant correctement et rapidement aux questions pour terminer en tête du classement.',
     tagline: 'La connaissance est<br>votre meilleure arme',
     story: [
@@ -97,12 +97,12 @@ window.DLYR_GAMES = [
     slug: 'icarus-station', name: 'Icarus Station', genre: 'Escape Game',
     tags: ['Escape Game', 'Coopératif', 'Science-fiction'],
     type: 'Escape Game coopératif', pl: '2 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/experiences/Icarus Station sans titre.png', vid: 'uploads/icarus-station.mp4',
+    img: 'uploads/experiences/Icarus Station sans titre.png', vid: 'uploads/experiences/icarus-station.mp4',
     objective: "Réparer les systèmes de la station, traverser les secteurs sinistrés et rejoindre la plateforme d'extraction avant l'effondrement d'Icarus-7.",
     tagline: "Échappez-vous avant que la station<br>ne sombre dans le vide spatial",
     story: [
       "Une catastrophe sans précédent frappe la station spatiale Icarus-7. Alors qu'elle poursuit sa mission aux confins de l'espace, un mystérieux virus informatique prend le contrôle des systèmes critiques de la station. En quelques minutes, les communications sont coupées, les protocoles de sécurité désactivés et la commandante de bord neutralisée. Vous faites partie des derniers survivants.",
-      "Privée de contrôle, la station se désagrège peu à peu. Les sas se verrouillent, les systèmes vitaux tombent en panne et des secteurs entiers sont désormais inaccessibles. Dans le silence glacé de l'espace, chaque erreur peut être fatale.",
+      "Privée de contrôle, la station se désagrège peu à peu. Les sas se verrouillent, les systems vitaux tombent en panne et des secteurs entiers sont désormais inaccessibles. Dans le silence glacé de l'espace, chaque erreur peut être fatale.",
       "Votre mission est simple\u00a0: traverser les différentes zones endommagées, réactiver les systèmes essentiels, résoudre les pannes provoquées par l'attaque et atteindre la plateforme mobile d'extraction avant qu'il ne soit trop tard.",
       "Mais vous n'êtes pas seuls. Une présence inconnue semble évoluer dans les couloirs de la station, tandis que le compte à rebours vers la destruction approche inexorablement de son terme. Le temps presse. L'ennemi se rapproche. L'espace ne pardonne aucune erreur."
     ]
@@ -111,7 +111,7 @@ window.DLYR_GAMES = [
     slug: 'quantum-dome-project', name: 'Quantum Dome Project — Le Louvre Abu Dhabi', genre: 'Culturel',
     tags: ['Culturel', 'Exploration', 'Histoire'],
     type: 'Aventure culturelle immersive', pl: '2 à 20 participants', players: 20, dur: 30,
-    img: 'uploads/experiences/Quantum Dome sans titre.png', vid: 'uploads/time-quest.mp4',
+    img: 'uploads/experiences/Quantum Dome sans titre.png', vid: 'uploads/experiences/time-quest.mp4',
     objective: 'Explorer les civilisations du passé et résoudre les mystères du temps.',
     tagline: "Traversez les siècles.<br>Vivez l'Histoire.",
     story: [

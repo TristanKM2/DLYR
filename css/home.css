@@ -177,7 +177,7 @@
 .pnav:active{ transform:scale(.94); }
 .pnav:focus-visible{ outline:3px solid var(--lime); outline-offset:3px; }
 .poster{ position:relative; display:block; height:var(--ph); aspect-ratio:var(--ar,9/16); border-radius:var(--r-lg); overflow:hidden; background:#0d1710; isolation:isolate; }
-.poster__img{ display:block; width:100%; height:100%; max-width:none; object-fit:contain; transition:transform .6s cubic-bezier(.2,.8,.2,1); }
+.poster__img{ display:block; width:100%; height:100%; max-width:none; object-fit:cover; object-position:center; transition:transform .6s cubic-bezier(.2,.8,.2,1); }
 .poster:hover .poster__img{ transform:scale(1.035); }
 .pinfo{ display:flex; flex-direction:column; align-items:flex-start; gap:14px; }
 .pinfo__name{ font-family:var(--f-display); font-weight:800; font-size:clamp(30px,3.4vw,54px); line-height:1; color:var(--paper); }
