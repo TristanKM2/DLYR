@@ -33,7 +33,7 @@
 .quote__row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
 .field{ display:flex; flex-direction:column; gap:8px; }
 .field span{ font-family:var(--f-btn); font-weight:700; font-size:15px; color:rgba(194,208,179,.8); }
-.field input,.field select,.field textarea{ font-family:var(--f-body); font-size:16px; color:var(--paper); background:rgba(194,208,179,.06); border:2px solid rgba(194,208,179,.16); border-radius:12px; padding:14px 16px; transition:border-color .2s; }
+.field input,.field select,.field textarea{ font-family:var(--f-body); font-size:16px; color:var(--paper); background:rgba(194,208,179,.06); border:2px solid rgba(194,208,179,.16); border-radius:12px; padding:14px 16px; transition:border-color .2s; width:100%; max-width:100%; }
 .field input::placeholder,.field textarea::placeholder{ color:rgba(194,208,179,.4); }
 .field input:focus,.field select:focus,.field textarea:focus{ outline:none; border-color:var(--lime); }
 .field select option{ color:#111; }
@@ -45,4 +45,4 @@
 .quote__err a{ color:var(--lime); text-decoration:underline; font-weight:700; }
 
 @media (max-width:900px){ .ev2__grid{ grid-template-columns:1fr; } .ev2__grid--five .evtype{ flex:0 0 100%; max-width:100%; } .steps__grid{ grid-template-columns:1fr 1fr; } .quote__inner{ grid-template-columns:1fr; } }
-@media (max-width:520px){ .steps__grid{ grid-template-columns:1fr; } .quote__row{ grid-template-columns:1fr; } }
+@media (max-width:640px){ .steps__grid{ grid-template-columns:1fr; } .quote__row{ grid-template-columns:1fr; } }

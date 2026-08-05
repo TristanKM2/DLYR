@@ -312,7 +312,7 @@
   .act__row{ grid-template-columns:1fr; }
   .rcard{ flex-basis:100%; }
   .stats__nums{ gap:32px 24px; }
-  .ready__title{ font-size:clamp(56px,18vw,90px); }
+  .ready__title{ font-size:clamp(32px,10vw,72px); overflow-wrap:break-word; word-break:break-word; }
   .rev__nav, .slider__nav{ width:44px; height:44px; font-size:24px; }
 }
 
@@ -332,7 +332,8 @@
   .slider__dots button, .rev__dots button{ width:12px; height:12px; }
   .slider__dots, .rev__dots{ gap:12px; }
   .rcard{ padding:0 2px; }
-  .rcard__inner{ padding:22px 20px; }
+  .rcard__inner{ padding:20px 16px; gap:12px; }
+  .rcard__text{ font-size:15px; }
   .prail{ gap:0; }
   .prail__track{ touch-action:pan-x pan-y; }
   .prail{ --ph:clamp(300px,46vh,400px); gap:0; }
@@ -341,6 +342,8 @@
   .pinfo__meta{ justify-content:center; }
   .pnav{ width:44px; height:44px; }
   .intro__title{ white-space:normal; }
+  .hero{ min-height:auto; padding-bottom:clamp(48px,8vh,80px); }
+  .hero__scroll{ display:none; }
   .hero__intro{ font-size:16px; padding:16px 18px; }
   .hero__logo{ max-width:140px; }
   /* Hero : CTA pleine largeur */

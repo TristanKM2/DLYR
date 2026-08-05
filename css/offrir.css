@@ -92,4 +92,18 @@
   transform:translateY(-3px);
 }
 
-@media (max-width:900px){ .gift__grid{ grid-template-columns:1fr; } .gift__hero{ grid-template-columns:1fr; } }
+@media (max-width:1024px){
+  .gift__grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:900px){
+  .gift__hero{ grid-template-columns:1fr; gap:36px; }
+}
+@media (max-width:720px){
+  .gift__grid{ grid-template-columns:1fr; }
+}
+@media (max-width:640px){
+  .gcardvisual{ transform:none; animation:none; max-width:100%; }
+  .gcardvisual__ribbon{ right:-20px; font-size:11px; padding:5px 36px; }
+  .gift__amounts{ gap:8px; }
+  .gift__amt{ font-size:16px; padding:8px 18px; }
+}

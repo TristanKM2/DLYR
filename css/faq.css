@@ -25,7 +25,9 @@
 .faq__ul strong{ color:rgba(194,208,179,.95); }
 
 @media (max-width:780px){
-  .faq__layout{ grid-template-columns:1fr; }
-  .faq__catlist{ flex-direction:row; flex-wrap:wrap; }
-  .faq__cat{ width:auto; font-size:15px; padding:10px 16px; }
+  .faq__layout{ grid-template-columns:1fr; gap:24px; }
+  .faq__catlist{ display:flex; flex-direction:row; overflow-x:auto; flex-wrap:nowrap; width:100%; -webkit-overflow-scrolling:touch; padding-bottom:6px; gap:8px; }
+  .faq__cat{ flex:none; width:auto; font-size:14px; padding:8px 14px; }
+  .faq__q{ padding:16px 18px; font-size:15px; }
+  .faq__a-inner{ padding:0 18px 20px; font-size:15px; }
 }

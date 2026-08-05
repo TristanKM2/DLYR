@@ -20,7 +20,7 @@
 .amb__h{ margin-bottom:clamp(32px,4vw,48px); }
 .amb__h span{ color:var(--paper); }
 .amb__grid{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:170px; gap:18px; }
-.amb__img{ border-radius:var(--r-sm); }
+.amb__img{ border-radius:var(--r-sm); width:100%; height:100%; object-fit:cover; display:block; }
 .amb__img--a{ grid-column:span 2; grid-row:span 2; }
 .amb__img--b{ grid-column:span 2; }
 .amb__img--c{ grid-column:span 1; }
@@ -30,6 +30,9 @@
 
 @media (max-width:760px){
   .menu__list{ grid-template-columns:1fr; gap:0 0; }
-  .amb__grid{ grid-template-columns:1fr 1fr; grid-auto-rows:150px; }
-  .amb__img--a{ grid-column:span 2; }
+  .amb__grid{ grid-template-columns:1fr 1fr; grid-auto-rows:140px; gap:12px; }
+  .amb__img--a{ grid-column:span 2; grid-row:span 1; }
+  .amb__img--b{ grid-column:span 2; }
+  .amb__img--c{ grid-column:span 1; }
+  .amb__img--d{ grid-column:span 1; }
 }

@@ -34,8 +34,10 @@
 .catmq{ color:var(--ink); }
 
 @media (max-width:1100px){ .cat__grid{ grid-template-columns:repeat(3,1fr); } }
-@media (max-width:900px){ .cat__grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:820px){ .cat__grid{ grid-template-columns:1fr 1fr; gap:16px; } }
 @media (max-width:560px){
   .cat__grid{ grid-template-columns:1fr; }
-  .cat__bar{ flex-direction:column; align-items:flex-start; }
+  .cat__bar{ flex-direction:column; align-items:flex-start; gap:14px; }
+  .cat__filters{ display:flex; overflow-x:auto; flex-wrap:nowrap; width:100%; -webkit-overflow-scrolling:touch; padding-bottom:6px; gap:8px; }
+  .cat__chip{ flex:none; font-size:15px; padding:7px 16px; }
 }

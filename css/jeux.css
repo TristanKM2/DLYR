@@ -2,7 +2,7 @@
    D'LYR — Jeux VR (fiche jeu)
    ============================================================ */
 .jhero{ padding-top:110px; padding-bottom:clamp(12px,1.5vw,24px); }
-.jhero__title{ text-align:center; font-family:var(--f-display); font-weight:800; font-size:clamp(48px,9vw,128px); line-height:1; color:var(--paper); margin-bottom:clamp(28px,4vw,48px); text-transform:uppercase; letter-spacing:.01em; }
+.jhero__title{ text-align:center; font-family:var(--f-display); font-weight:800; font-size:clamp(30px,7vw,128px); line-height:1; color:var(--paper); margin-bottom:clamp(28px,4vw,48px); text-transform:uppercase; letter-spacing:.01em; overflow-wrap:break-word; word-break:break-word; }
 
 /* Layout 2 colonnes : gauche = synopsis+meta, droite = vidéo */
 .jhero__content{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,4vw,64px); align-items:start; }
@@ -14,7 +14,7 @@
 .jhero__left .lead{ color:rgba(194,208,179,.82); font-size:clamp(15px,1.2vw,17px); line-height:1.6; }
 
 /* Métadonnées sur toute la largeur (sous la vidéo) */
-.jhero__meta{ display:flex; flex-direction:row; flex-wrap:wrap; gap:16px 40px; margin-top:clamp(24px,3vw,40px); padding-top:20px; border-top:1px solid rgba(194,208,179,.12); align-items:flex-start; }
+.jhero__meta{ display:flex; flex-direction:row; flex-wrap:wrap; gap:12px 24px; margin-top:clamp(24px,3vw,40px); padding-top:20px; border-top:1px solid rgba(194,208,179,.12); align-items:flex-start; }
 .jmeta{ display:flex; flex-direction:column; gap:3px; flex:0 0 auto; }
 .jmeta:nth-child(4){ flex:1 1 260px; }
 .jmeta__k{ font-family:var(--f-display); font-weight:700; font-size:clamp(14px,1.1vw,16px); color:var(--paper); text-transform:uppercase; letter-spacing:.02em; }
