@@ -111,7 +111,7 @@ window.DLYR_GAMES = [
     slug: 'quantum-dome-project', name: 'Quantum Dome Project — Le Louvre Abu Dhabi', genre: 'Culturel',
     tags: ['Culturel', 'Exploration', 'Histoire'],
     type: 'Aventure culturelle immersive', pl: '2 à 20 participants', players: 20, dur: 30,
-    img: 'uploads/experiences/Quantum Dome sans titre.png', vid: 'uploads/experiences/time-quest.mp4',
+    img: 'uploads/experiences/Quantum Dome sans titre.png', vid: 'uploads/experiences/Quantum Dome Project.mp4',
     objective: 'Explorer les civilisations du passé et résoudre les mystères du temps.',
     tagline: "Traversez les siècles.<br>Vivez l'Histoire.",
     story: [
@@ -123,7 +123,7 @@ window.DLYR_GAMES = [
     slug: 'titanic-le-reve-englouti', name: 'Titanic — Le Rêve Englouti', genre: 'Aventure',
     tags: ['Aventure', 'Histoire', 'Exploration'],
     type: 'Aventure immersive', pl: '2 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/experiences/Titanic sans titre.png',
+    img: 'uploads/experiences/Titanic sans titre.png', vid: 'uploads/experiences/Titanic.mp4',
     objective: 'Explorer le Titanic, percer ses mystères et revivre son voyage inaugural.',
     tagline: 'Redécouvrez le Titanic.<br>Remontez le temps.',
     story: [
@@ -136,7 +136,7 @@ window.DLYR_GAMES = [
     slug: 'versailles-les-jardins-disparus-du-roi-soleil', name: 'Versailles — Les Jardins Disparus du Roi Soleil', genre: 'Culturel',
     tags: ['Culturel', 'Histoire', 'Exploration'],
     type: 'Exploration historique immersive', pl: '2 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/experiences/Vesailles sans titre.png',
+    img: 'uploads/experiences/Vesailles sans titre.png', vid: 'uploads/experiences/Versailles.mp4',
     objective: 'Explorer les jardins disparus et découvrir les trésors cachés de Versailles.',
     tagline: 'Explorez le Versailles du XVIIe siècle.<br>Guidés par André Le Nôtre.',
     story: [
@@ -148,7 +148,7 @@ window.DLYR_GAMES = [
     slug: 'gaudi-latelier-du-divin', name: "Gaudí — L'Atelier du Divin", genre: 'Culturel',
     tags: ['Culturel', 'Art', 'Architecture'],
     type: 'Exploration narrative', pl: '2 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/experiences/Gaudi sans titre.png',
+    img: 'uploads/experiences/Gaudi sans titre.png', vid: 'uploads/experiences/Gaudi.mp4',
     objective: 'Comprendre Gaudí, plonger dans son atelier et reprendre son œuvre : la Sagrada Familia.',
     tagline: 'Pénétrez dans la tête du maître.<br>Poursuivez le rêve de la Sagrada Familia.',
     story: [
