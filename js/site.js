@@ -253,9 +253,9 @@
     'jeu-brain-arena': {
       productId: '76840',
       wId: '5696',
-      codes: 'M1GAXSNW,VTGRZERM,9FYJTSN6,JCS35DY7,CFQ4FUTQ',
-      cats: '161527,161528,161529,161530,161531',
-      grouptickets: '161527,161528,161529,161530,161531'
+      codes: 'M1GAXSNW,VTGRZERM,9FYJTSN6,JCS35DY7,CFQ4FUTQ,9NAAR2DK',
+      cats: '161527,161528,161529,161530,161531,162411',
+      grouptickets: '161527,161528,161529,161530,161531,162411'
     },
     'jeu-volcanic-warfare': {
       productId: '76836',
