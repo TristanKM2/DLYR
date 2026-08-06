@@ -259,8 +259,10 @@
     },
     'jeu-volcanic-warfare': {
       productId: '76836',
-      codes: '7ZN7QTLN,9EYV77ZG,R8J9LAFN,963UTFK2,S2NEFHFY',
-      cats: '161505,161506,161507,161508,161509'
+      wId: '5702',
+      codes: '7ZN7QTLN,9EYV77ZG,R8J9LAFN,963UTFK2,S2NEFHFY,R3PL6MLA',
+      cats: '161505,161506,161507,161508,161509,162435',
+      grouptickets: '161505,161506,161507,161508,161509,162435'
     },
     'jeu-time-quest': {
       productId: '76844',
@@ -269,50 +271,66 @@
     },
     'jeu-quantum-dome-project': {
       productId: '76844',
-      codes: '1XNKDUDZ,AKFVPTCM,SGFWVCRM,EZV89MBD,ZV14GA5M',
-      cats: '161577,161578,161579,161580,161581'
+      wId: '5701',
+      codes: '1XNKDUDZ,AKFVPTCM,SGFWVCRM,EZV89MBD,ZV14GA5M,PASY7MTE',
+      cats: '161577,161578,161579,161580,161581,162424',
+      grouptickets: '161577,161578,161579,161580,161581,162424'
     },
     'jeu-titanic-le-reve-englouti': {
       productId: '76927',
       wId: '5728',
-      codes: 'C3JZ8CKD,G12S499W,LXULSELA,UPM4NHNJ,2W22L8HQ',
-      cats: '162281,162282,162283,162284,162285'
+      codes: 'C3JZ8CKD,G12S499W,LXULSELA,UPM4NHNJ,2W22L8HQ,BJBS73JP',
+      cats: '162281,162282,162283,162284,162285,162433',
+      grouptickets: '162281,162282,162283,162284,162285,162433'
     },
     'jeu-versailles-les-jardins-disparus-du-roi-soleil': {
       productId: '76926',
       wId: '5727',
-      codes: '1H7VEAEP,8J2MEYQV,PXDGHTT6,STRUAWHQ,CJ2GWPE2',
-      cats: '162271,162272,162273,162274,162275'
+      codes: '1H7VEAEP,8J2MEYQV,PXDGHTT6,STRUAWHQ,CJ2GWPE2,F5SU884N',
+      cats: '162271,162272,162273,162274,162275,162434',
+      grouptickets: '162271,162272,162273,162274,162275,162434'
     },
     'jeu-gaudi-latelier-du-divin': {
       productId: '76843',
-      codes: 'Z3VTAVSP,TRXCH7QH,QTHQLW63,ZQTMBGHH,LUL8N73Y',
-      cats: '161569,161570,161571,161572,161573'
+      wId: '5700',
+      codes: 'Z3VTAVSP,TRXCH7QH,QTHQLW63,ZQTMBGHH,LUL8N73Y,P2YK3LM4',
+      cats: '161569,161570,161571,161572,161573,162419',
+      grouptickets: '161569,161570,161571,161572,161573,162419'
     },
     'jeu-snow-village': {
       productId: '76838',
-      codes: 'DHNL3T62,BXMEJGZT,VNCVZHHG,ZNMSBGF2,RD2T2LYF',
-      cats: '161520,161521,161522,161523,161524'
+      wId: '5699',
+      codes: 'DHNL3T62,BXMEJGZT,VNCVZHHG,ZNMSBGF2,RD2T2LYF,U65Q4H33',
+      cats: '161520,161521,161522,161523,161524,162432',
+      grouptickets: '161520,161521,161522,161523,161524,162432'
     },
     'jeu-paradise-expedition': {
       productId: '76835',
-      codes: 'QZPVPZS7,M72Y7F4A,EX113SNJ,A79QDY3W,399NK1TT',
-      cats: '161498,161499,161500,161501,161502'
+      wId: '5698',
+      codes: 'QZPVPZS7,M72Y7F4A,EX113SNJ,A79QDY3W,399NK1TT,V5LWKYHQ',
+      cats: '161498,161499,161500,161501,161502,162423',
+      grouptickets: '161498,161499,161500,161501,161502,162423'
     },
     'jeu-outbreak-lab': {
       productId: '76834',
-      codes: 'MCRD4MW5,KPBVEJDR,H68LXZ3X,MU84YMAJ,T7E5JVAB',
-      cats: '161493,161494,161495,161496,161497'
+      wId: '5695',
+      codes: 'MCRD4MW5,KPBVEJDR,H68LXZ3X,MU84YMAJ,T7E5JVAB,B3KDK6TL',
+      cats: '161493,161494,161495,161496,161497,162422',
+      grouptickets: '161493,161494,161495,161496,161497,162422'
     },
     'jeu-icarus-station': {
       productId: '76837',
-      codes: 'NHYT93B7,LF8KAE68,VBH8FM5T,AQL6HKWS,WPX4M16T',
-      cats: '161513,161514,161515,161516,161517'
+      wId: '5697',
+      codes: 'NHYT93B7,LF8KAE68,VBH8FM5T,AQL6HKWS,WPX4M16T,P1ZK58GC',
+      cats: '161513,161514,161515,161516,161517,162421',
+      grouptickets: '161513,161514,161515,161516,161517,162421'
     },
     'jeu-harbor-siege': {
       productId: '75662',
-      codes: 'YTDM1D5P,44YF2JL1,KVQP12CW,L7EFY8RJ,7TUSP6DM',
-      cats: '153187,161042,161043,161044,161045'
+      wId: '5694',
+      codes: 'YTDM1D5P,44YF2JL1,KVQP12CW,L7EFY8RJ,7TUSP6DM,4GYYSYZ4',
+      cats: '153187,161042,161043,161044,161045,162420',
+      grouptickets: '153187,161042,161043,161044,161045,162420'
     },
     'flechettes': {
       productId: '76883',
