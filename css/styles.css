@@ -458,3 +458,13 @@ div[id*="smtz"] {
   color-scheme: dark !important;
 }
 
+/* ============================================================
+   Masquage temporaire Lancement : Sections Avis clients & Notes
+   (Pour réafficher plus tard, supprimer ou commenter ce bloc)
+   ============================================================ */
+.rev,
+.stats,
+.javis {
+  display: none !important;
+}
+
