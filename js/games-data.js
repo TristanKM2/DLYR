@@ -110,9 +110,9 @@ window.DLYR_GAMES = [
     ]
   },
   {
-    slug: 'titanic-le-reve-englouti', name: 'Titanic — Le Rêve Englouti', genre: 'Aventure',
-    tags: ['Aventure', 'Histoire', 'Exploration'],
-    type: 'Aventure immersive', pl: '2 à 12 joueurs', players: 12, dur: 30,
+    slug: 'titanic-le-reve-englouti', name: 'Titanic — Le Rêve Englouti', genre: 'Culturel',
+    tags: ['Culturel', 'Histoire', 'Exploration'],
+    type: 'Exploration historique immersive', pl: '2 à 12 joueurs', players: 12, dur: 30,
     img: 'uploads/experiences/Titanic sans titre.png', vid: 'uploads/experiences/Titanic.mp4',
     objective: 'Explorer le Titanic, percer ses mystères et revivre son voyage inaugural.',
     tagline: 'Redécouvrez le Titanic.<br>Remontez le temps.',
