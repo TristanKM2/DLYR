@@ -117,5 +117,24 @@ window.DLYR_EN = Object.assign(window.DLYR_EN || {}, {
 window.DLYR_EN = Object.assign(window.DLYR_EN || {}, {
  "Brain Arena — Quiz, Multijoueur, Culture générale. Accumuler le maximum de points en répondant correctement et rapidement aux questions pour terminer en tête": "Brain Arena — Quiz, Multiplayer, General knowledge. Rack up points by answering questions correctly and quickly to finish top of the leaderboard.",
  "Icarus Station — Escape game, Coopératif, Science-fiction. Réparer les systèmes de la station, traverser les secteurs sinistrés et rejoindre la plateforme d'e": "Icarus Station — Escape game, Co-op, Science fiction. Repair the station's systems, cross the stricken sectors and reach the extraction platform.",
- "Spirit of the Wild — Sensoriel, Nature, Légendes. Dans un monde inspiré des légendes du Grand Nord, laissez votre esprit s'unir à la nature. Transformez-vous": "Spirit of the Wild — Sensory, Nature, Legends. In a world inspired by the legends of the Great North, let your spirit become one with nature."
+ "Spirit of the Wild — Sensoriel, Nature, Légendes. Dans un monde inspiré des légendes du Grand Nord, laissez votre esprit s'unir à la nature. Transformez-vous": "Spirit of the Wild — Sensory, Nature, Legends. In a world inspired by the legends of the Great North, let your spirit become one with nature.",
+ /* Section Contact : Qui sommes-nous */
+ "Qui sommes-nous ?": "About us",
+ "Les Fondateurs de D'LYR": "The Founders of D'LYR",
+ "Deux passionnés, une même conviction": "Two enthusiasts, one shared conviction",
+ "Né de l'association de deux entrepreneurs chevronnés, D'LYR réinvente le divertissement et le partage grâce aux loisirs immersifs. Marque 100 % française, D'LYR s'appuie sur un écosystème de partenaires locaux et s'associe aux meilleurs studios de développement VR français pour faire disparaître la technologie au profit de l'émotion.": "Born from the partnership of two seasoned entrepreneurs, D'LYR reinvents entertainment and sharing through immersive leisure. A 100% French brand, D'LYR relies on an ecosystem of local partners and teams up with top French VR development studios to fade technology into the background and put emotion first.",
+ "Président & Co-fondateur": "President & Co-founder",
+ "Entrepreneur passionné de tech depuis 30 ans, il vise à démocratiser l'immersion pour faire voyager le public à travers le temps et l'espace.": "Tech-passionate entrepreneur for 30 years, aiming to democratise immersion to take the public on a journey through time and space.",
+ "« Les plus beaux souvenirs sont ceux que l'on vit ensemble. »": "\u201cThe best memories are the ones we experience together.\u201d",
+ "Directeur Général & Co-fondateur": "CEO & Co-founder",
+ "Expert en expérience client et rigueur opérationnelle, il vise l'excellence pour faire de D'LYR la référence des loisirs nouvelle génération.": "Expert in customer experience and operational excellence, aiming to make D'LYR the benchmark for new-generation leisure.",
+ "Pourquoi D'LYR ?": "Why D'LYR?",
+ "Convaincus que les meilleurs souvenirs se vivent ensemble plutôt qu'à travers un écran, nous offrons un espace pour :": "Convinced that the best memories are lived together rather than through a screen, we offer a space to:",
+ "Explorer des mondes extraordinaires et l'Histoire autrement.": "Explore extraordinary worlds and history in a new way.",
+ "Partager des émotions fortes et relever des défis collectifs (famille, amis, entreprises).": "Share strong emotions and take on collective challenges (family, friends, corporate).",
+ "Vivre des aventures uniques grâce à la création et au savoir-faire français.": "Live unique adventures powered by French creation and know-how.",
+ "Notre Vocation & Promesse": "Our Vocation & Promise",
+ "Notre mission :": "Our mission:",
+ "Rendre la réalité virtuelle d'exception accessible à tous, en mettant à l'honneur le talent des studios français pour offrir émerveillement, rires et coopération.": "Make exceptional virtual reality accessible to all, showcasing the talent of French studios to deliver wonder, laughter and cooperation.",
+ "D'LYR — Vivez l'immersion.": "D'LYR — Experience immersion."
 });
