@@ -16,6 +16,7 @@ window.DLYR_EN = Object.assign(window.DLYR_EN || {}, {
   "Entreprises": "Corporate",
   "Réserver": "Book Now",
   "RÉSERVER": "BOOK NOW",
+  "Sélectionner": "Select",
   "Votre prochaine aventure": "Your next adventure",
   "Offrir": "Gift Card",
   "OFFRIR": "GIFT CARD",
