@@ -134,19 +134,19 @@ export default {
       const resendApiKey = env.RESEND_API_KEY;
       if (!resendApiKey) return json(500, { ok:false, error:'RESEND_API_KEY non configurée' });
 
-      const toEmail = env.DEST_EMAIL || 'tristankouker@gmail.com';
+      const toEmail = env.DEST_EMAIL || 'contact@dlyr-vr.com';
       const fromEmail = env.FROM_EMAIL || 'D\'LYR Website <onboarding@resend.dev>';
       const subject = body._subject || body.subject || 'Nouveau message reçu depuis le site D\'LYR';
 
       const replyTo = body.Email || body.email || undefined;
-      const ccEmail = body.cc || undefined;
+      const bccEmail = body.bcc || undefined;
 
       // Construction du corps HTML sous forme de tableau propre
       let html = `<div style="font-family:sans-serif;font-size:16px;color:#1c3024;max-width:600px;margin:0 auto;padding:20px;border:1px solid #e0e0e0;border-radius:10px">
         <h2 style="color:#1c3024;border-bottom:2px solid #d4bc72;padding-bottom:10px">${subject}</h2>
         <table style="width:100%;border-collapse:collapse;margin-top:15px">`;
 
-      const ignoreKeys = ['_subject', '_template', '_captcha', 'cc'];
+      const ignoreKeys = ['_subject', '_template', '_captcha', 'bcc'];
       for (const [key, value] of Object.entries(body)){
         if (ignoreKeys.includes(key)) continue;
         html += `<tr>
@@ -169,7 +169,7 @@ export default {
           to: [toEmail],
           subject: subject,
           html: html,
-          ...(ccEmail ? { cc: [ccEmail] } : {}),
+          ...(bccEmail ? { bcc: [bccEmail] } : {}),
           ...(replyTo ? { reply_to: replyTo } : {})
         })
       });

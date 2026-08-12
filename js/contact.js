@@ -22,9 +22,9 @@
   }
 
   /* Envoi via Resend (Cloudflare Worker), repli mailto en cas d'échec. */
-  const DEST = 'tristankouker@gmail.com';
-  const DEST2 = 'contact@dlyr-vr.com';
-  const WORKER_ENDPOINT = 'https://dlyr-cms-worker.tristankouker.workers.dev/send-email';
+  const DEST = 'contact@dlyr-vr.com';
+  const BCC  = 'tristankouker@gmail.com';
+  const WORKER_ENDPOINT = 'https://dlyr.tristankouker.workers.dev/send-email';
 
   function form() {
     const f = document.querySelector('[data-contact]');
@@ -48,7 +48,7 @@
         'Téléphone': tel || (en ? 'Not provided' : 'Non précisé'),
         Sujet: sujet, Message: msg || '—',
         _subject: `Contact D'LYR — ${sujet}`,
-        cc: DEST2,
+        bcc: BCC,
       };
       try {
         const res = await fetch(WORKER_ENDPOINT, {

@@ -5,9 +5,9 @@
   if (ar) ar.innerHTML = I.arrow || '';
 
   // Adresse de réception des demandes de devis
-  const DEST = 'tristankouker@gmail.com';
-  const DEST2 = 'contact@dlyr-vr.com';
-  const WORKER_ENDPOINT = 'https://dlyr-cms-worker.tristankouker.workers.dev/send-email';
+  const DEST = 'contact@dlyr-vr.com';
+  const BCC  = 'tristankouker@gmail.com';
+  const WORKER_ENDPOINT = 'https://dlyr.tristankouker.workers.dev/send-email';
 
   const form = document.querySelector('[data-quote]');
   if (!form) return;
@@ -39,7 +39,7 @@
       'Nombre de personnes': pers || 'Non précisé',
       Message: msg || '—',
       _subject: `Nouvelle demande de devis D'LYR — ${TYPE_LABEL[type] || type}`,
-      cc: DEST2,
+      bcc: BCC,
     };
 
     try {
