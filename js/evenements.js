@@ -5,11 +5,9 @@
   if (ar) ar.innerHTML = I.arrow || '';
 
   // Adresse de réception des demandes de devis
-  // ⚠️ RAPPEL : la boîte contact@dlyr-vr.com n'est pas encore active côté client.
-  // Le 1er envoi via FormSubmit déclenchera un e-mail d'activation à confirmer sur cette adresse.
   const DEST = 'tristankouker@gmail.com';
+  const DEST2 = 'contact@dlyr-vr.com';
   const WORKER_ENDPOINT = 'https://dlyr-cms-worker.tristankouker.workers.dev/send-email';
-  const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/' + encodeURIComponent(DEST);
 
   const form = document.querySelector('[data-quote]');
   if (!form) return;
@@ -41,31 +39,17 @@
       'Nombre de personnes': pers || 'Non précisé',
       Message: msg || '—',
       _subject: `Nouvelle demande de devis D'LYR — ${TYPE_LABEL[type] || type}`,
+      cc: DEST2,
     };
 
     try {
-      let sent = false;
-      // 1. Essai d'envoi via Resend (Cloudflare Worker)
-      try {
-        const res = await fetch(WORKER_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        const data = await res.json().catch(() => ({}));
-        if (res.ok && data && data.ok) sent = true;
-      } catch (_) {}
-
-      // 2. Repli automatique si le worker n'est pas encore déployé
-      if (!sent) {
-        const res2 = await fetch(FORMSUBMIT_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ ...payload, _template: 'table', _captcha: 'false' }),
-        });
-        const data2 = await res2.json().catch(() => ({}));
-        if (!res2.ok || (data2 && data2.success === 'false')) throw new Error('Échec de l\'envoi');
-      }
+      const res = await fetch(WORKER_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data || !data.ok) throw new Error('fail');
 
       form.innerHTML = `<div class="quote__done"><strong>Merci ${nom || ''} !</strong><br>Votre demande a bien été envoyée. Notre équipe vous recontacte sous 24/48h.</div>`;
       window.DLYR_toast && window.DLYR_toast('Demande de devis envoyée !');

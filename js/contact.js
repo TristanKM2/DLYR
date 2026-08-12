@@ -21,11 +21,10 @@
        <a href="${S.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn">${I.linkedin || ''}</a>`;
   }
 
-  /* Envoi via FormSubmit (même service que la demande de devis), repli mailto.
-     ⚠️ RAPPEL : le 1er envoi déclenche un mail d'activation à confirmer sur contact@dlyr-vr.com. */
+  /* Envoi via Resend (Cloudflare Worker), repli mailto en cas d'échec. */
   const DEST = 'tristankouker@gmail.com';
+  const DEST2 = 'contact@dlyr-vr.com';
   const WORKER_ENDPOINT = 'https://dlyr-cms-worker.tristankouker.workers.dev/send-email';
-  const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/' + encodeURIComponent(DEST);
 
   function form() {
     const f = document.querySelector('[data-contact]');
@@ -49,30 +48,16 @@
         'Téléphone': tel || (en ? 'Not provided' : 'Non précisé'),
         Sujet: sujet, Message: msg || '—',
         _subject: `Contact D'LYR — ${sujet}`,
+        cc: DEST2,
       };
       try {
-        let sent = false;
-        // 1. Essai d'envoi via Resend (Cloudflare Worker)
-        try {
-          const res = await fetch(WORKER_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(payload),
-          });
-          const data = await res.json().catch(() => ({}));
-          if (res.ok && data && data.ok) sent = true;
-        } catch (_) {}
-
-        // 2. Repli automatique si le worker n'est pas encore déployé
-        if (!sent) {
-          const res2 = await fetch(FORMSUBMIT_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({ ...payload, _template: 'table', _captcha: 'false' }),
-          });
-          const data2 = await res2.json().catch(() => ({}));
-          if (!res2.ok || (data2 && data2.success === 'false')) throw new Error('fail');
-        }
+        const res = await fetch(WORKER_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data || !data.ok) throw new Error('fail');
 
         f.innerHTML = `<div class="quote__done"><strong>${en ? 'Thank you' : 'Merci'} ${nom || ''} !</strong><br>${en ? 'Your message has been sent. We reply within 24/48h.' : 'Votre message a bien été envoyé. Nous vous répondons sous 24/48h.'}</div>`;
         window.DLYR_toast && window.DLYR_toast(en ? 'Message sent!' : 'Message envoyé !');
