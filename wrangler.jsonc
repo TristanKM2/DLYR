@@ -1,0 +1,15 @@
+{
+  "name": "dlyr",
+  "main": "worker/dlyr-cms-worker.js",
+  "compatibility_date": "2026-08-12",
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/auth", "/save", "/upload", "/send-email"]
+  },
+  "vars": {
+    "DEST_EMAIL": "contact@dlyr-vr.com",
+    "FROM_EMAIL": "D'LYR Website <contact@dlyr-vr.com>"
+  }
+}
