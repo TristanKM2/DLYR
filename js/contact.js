@@ -23,7 +23,6 @@
 
   /* Envoi via Resend (Cloudflare Worker), repli mailto en cas d'échec. */
   const DEST = 'contact@dlyr-vr.com';
-  const BCC  = 'tristankouker@gmail.com';
   const WORKER_ENDPOINT = 'https://dlyr.tristankouker.workers.dev/send-email';
 
   function form() {
@@ -48,7 +47,6 @@
         'Téléphone': tel || (en ? 'Not provided' : 'Non précisé'),
         Sujet: sujet, Message: msg || '—',
         _subject: `Contact D'LYR — ${sujet}`,
-        bcc: BCC,
       };
       try {
         const res = await fetch(WORKER_ENDPOINT, {

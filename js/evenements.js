@@ -6,7 +6,6 @@
 
   // Adresse de réception des demandes de devis
   const DEST = 'contact@dlyr-vr.com';
-  const BCC  = 'tristankouker@gmail.com';
   const WORKER_ENDPOINT = 'https://dlyr.tristankouker.workers.dev/send-email';
 
   const form = document.querySelector('[data-quote]');
@@ -39,7 +38,6 @@
       'Nombre de personnes': pers || 'Non précisé',
       Message: msg || '—',
       _subject: `Nouvelle demande de devis D'LYR — ${TYPE_LABEL[type] || type}`,
-      bcc: BCC,
     };
 
     try {
