@@ -49,7 +49,7 @@ window.DLYR_EN = Object.assign(window.DLYR_EN || {}, {
 
   /* ---------- Bandeau cookies ---------- */
   "Cookies & confidentialité": "Cookies & privacy",
-  "Nous utilisons des cookies pour le bon fonctionnement du site et, avec votre accord, pour mesurer son audience. Notre module de réservation (Smeetz) dépose également ses propres cookies.": "We use cookies to keep the site running smoothly and, with your consent, to measure its audience. Our booking module (Smeetz) also sets its own cookies.",
+  "Nous utilisons des cookies pour le bon fonctionnement du site et, avec votre accord, pour mesurer son audience (Microsoft Clarity). Notre module de réservation (Smeetz) dépose également ses propres cookies.": "We use cookies to keep the site running smoothly and, with your consent, to measure its audience (Microsoft Clarity). Our booking module (Smeetz) also sets its own cookies.",
   "En savoir plus": "Learn more",
   "Tout accepter": "Accept all",
   "Continuer sans accepter": "Continue without accepting",
@@ -106,7 +106,7 @@ window.DLYR_EN = Object.assign(window.DLYR_EN || {}, {
   "EVG/EVJF & Anniversaires": "Stag & hen dos · Birthdays",
   "Vivez une expérience unique": "Live a one-of-a-kind experience",
   "Découvrez nos activités !": "Discover our activities!",
-  "Plongez dans des mondes immersifs en réalité virtuelle, seul ou jusqu'à 6 joueurs. Action, aventure, horreur : chaque session est une nouvelle réalité.": "Dive into immersive virtual reality worlds, solo or with up to 6 players. Action, adventure, horror: every session is a new reality.",
+  "Plongez dans des mondes immersifs en réalité virtuelle, seul ou jusqu'à 12 joueurs. Action, aventure, horreur : chaque session est une nouvelle réalité.": "Dive into immersive virtual reality worlds, solo or with up to 12 players. Action, adventure, horror: every session is a new reality.",
   "Des cibles électroniques connectées, des dizaines de modes de jeu et des classements en temps réel. Idéal entre amis, autour d'un verre.": "Connected electronic dartboards, dozens of game modes and real-time leaderboards. Perfect with friends over a drink.",
   "Privatisez D'LYR pour vos grands moments. Une équipe dédiée vous accompagne du début à la fin.": "Book D'LYR exclusively for your big moments. A dedicated team supports you from start to finish.",
   "Anniversaires": "Birthdays",
@@ -194,7 +194,7 @@ window.DLYR_EN = Object.assign(window.DLYR_EN || {}, {
   "Durée": "Duration",
   "Aucune expérience ne correspond à ces filtres.": "No experience matches these filters.",
   "Nouveautés chaque mois": "New releases every month",
-  "Jusqu'à 6 joueurs": "Up to 6 players",
+  "Jusqu'à 12 joueurs": "Up to 12 players",
   "Découvrez toutes les expériences VR de D'LYR : action, horreur, aventure, famille. Filtrez par genre, durée et nombre de joueurs.": "Discover all D'LYR VR experiences: action, horror, adventure, family. Filter by genre, duration and player count.",
 
   /* ---------- Entreprises ---------- */

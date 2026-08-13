@@ -436,13 +436,31 @@
     f.parentNode.insertBefore(j, f);
   }
 
+  /* ============================================================
+     Microsoft Clarity — chargé UNIQUEMENT après consentement
+     ============================================================ */
+  var CLARITY_ID = 'y1sla4fh4d';
+
+  function loadClarity() {
+    if (window.__clarityLoaded) return;
+    window.__clarityLoaded = true;
+    window.clarity = window.clarity || function () {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+    var t = document.createElement('script');
+    t.async = true;
+    t.src = 'https://www.clarity.ms/tag/' + CLARITY_ID;
+    var y = document.getElementsByTagName('script')[0];
+    y.parentNode.insertBefore(t, y);
+  }
+
   function analytics() {
     var KEY = 'dlyr_cookie_consent';
     try {
-      if (localStorage.getItem(KEY) === 'accepted') loadGTM();
+      if (localStorage.getItem(KEY) === 'accepted') { loadGTM(); loadClarity(); }
     } catch (e) {}
     window.addEventListener('dlyr:consent', function (e) {
-      if (e.detail === 'accepted') loadGTM();
+      if (e.detail === 'accepted') { loadGTM(); loadClarity(); }
     });
   }
 
@@ -456,7 +474,7 @@
     b.setAttribute('aria-label', 'Gestion des cookies');
     b.innerHTML =
       '<div class="cookiebar__txt"><strong>Cookies &amp; confidentialit\u00e9</strong>' +
-      'Nous utilisons des cookies pour le bon fonctionnement du site et, avec votre accord, pour mesurer son audience. Notre module de r\u00e9servation (Smeetz) d\u00e9pose \u00e9galement ses propres cookies. ' +
+      'Nous utilisons des cookies pour le bon fonctionnement du site et, avec votre accord, pour mesurer son audience (Microsoft Clarity). Notre module de r\u00e9servation (Smeetz) d\u00e9pose \u00e9galement ses propres cookies. ' +
       '<a href="politique-confidentialite.html#cookies">En savoir plus</a></div>' +
       '<div class="cookiebar__btns">' +
       '<button class="btn btn--lime btn--sm" data-cc="accepted">Tout accepter</button>' +
