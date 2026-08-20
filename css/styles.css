@@ -551,120 +551,112 @@ a:focus-visible .ph__img {
 }
 
 /* ============================================================
-   GRANDE BANDEROLLE DÉFILANTE XXL (Orientation 28° - Derrière Nav)
+   BANDEROLLE PROMO HORIZONTALE (Droit sous la nav, statique au scroll)
    ============================================================ */
-.promo-banner-diag {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 45; /* Derrière la nav fixe (z-index: 60) */
-  pointer-events: none;
-}
-
-.promo-banner-diag__track {
+.promo-bar-hz {
   position: absolute;
-  top: 240px;
-  right: -300px;
-  width: 2800px;
-  height: 86px;
-  transform: rotate(28deg);
-  transform-origin: 80% 50%;
+  top: 110px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 48px;
   background: var(--lime, #d4bc72);
   color: var(--ink, #1c3024);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, .65);
-  border-top: 3.5px solid rgba(255, 255, 255, .6);
-  border-bottom: 3.5px solid rgba(0, 0, 0, .35);
-  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .35);
+  border-top: 1.5px solid rgba(255, 255, 255, .4);
+  border-bottom: 1.5px solid rgba(0, 0, 0, .25);
+  overflow: hidden;
+  z-index: 70; /* Toujours au premier plan */
   display: flex;
   align-items: center;
+}
+
+.promo-bar-hz__link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
   overflow: hidden;
-  pointer-events: auto;
   cursor: pointer;
   transition: filter .2s ease;
 }
 
-.promo-banner-diag__track:hover {
-  filter: brightness(1.08);
+.promo-bar-hz__link:hover {
+  filter: brightness(1.06);
 }
 
-.promo-banner-diag__track--static {
+.promo-bar-hz__link--static {
   cursor: default;
   pointer-events: none;
 }
 
-.promo-banner-diag__track--static:hover {
+.promo-bar-hz__link--static:hover {
   filter: none;
 }
 
-.promo-banner-diag__marquee {
+.promo-bar-hz__marquee {
   display: flex;
   width: max-content;
-  animation: promoMarquee 26s linear infinite;
+  animation: promoMarqueeHz 28s linear infinite;
   will-change: transform;
 }
 
-.promo-banner-diag__group {
+.promo-bar-hz__group {
   display: flex;
   align-items: center;
-  gap: 40px;
-  padding-right: 40px;
+  gap: 36px;
+  padding-right: 36px;
   flex-shrink: 0;
   white-space: nowrap;
   font-family: var(--f-display);
   font-weight: 800;
-  font-size: 26px;
-  letter-spacing: .08em;
+  font-size: 17px;
+  letter-spacing: .06em;
   text-transform: uppercase;
   color: var(--ink, #1c3024);
 }
 
-.promo-banner-diag__track:hover .promo-banner-diag__marquee {
+.promo-bar-hz:hover .promo-bar-hz__marquee {
   animation-play-state: paused;
 }
 
-.promo-banner-diag__sep {
-  opacity: .6;
-  font-size: 18px;
+.promo-bar-hz__sep {
+  opacity: .55;
+  font-size: 13px;
 }
 
-@keyframes promoMarquee {
-  0% {
+@keyframes promoMarqueeHz {
+  from {
     transform: translateX(0);
   }
-  100% {
+  to {
     transform: translateX(-50%);
   }
 }
 
-@media (max-width: 1100px) {
-  .promo-banner-diag__track {
-    top: 170px;
-    right: -240px;
-    width: 2200px;
-    height: 70px;
-    transform: rotate(25deg);
+@media (max-width: 900px) {
+  .promo-bar-hz {
+    top: 96px;
+    height: 42px;
   }
-  .promo-banner-diag__group {
-    font-size: 20px;
-    gap: 30px;
-    padding-right: 30px;
+  .promo-bar-hz__group {
+    font-size: 14px;
+    gap: 24px;
+    padding-right: 24px;
   }
 }
 
-@media (max-width: 640px) {
-  .promo-banner-diag__track {
-    top: 130px;
-    right: -180px;
-    width: 1800px;
-    height: 52px;
-    transform: rotate(20deg);
+@media (max-width: 600px) {
+  .promo-bar-hz {
+    top: 88px;
+    height: 38px;
   }
-  .promo-banner-diag__group {
-    font-size: 15px;
-    gap: 20px;
-    padding-right: 20px;
+  .promo-bar-hz__group {
+    font-size: 12.5px;
+    gap: 18px;
+    padding-right: 18px;
   }
 }
 
