@@ -10,7 +10,7 @@
     name: g.name, genre: g.genre, type: g.type, dur: g.dur, players: g.players, pl: g.pl,
     img: g.img, href: 'jeu-' + g.slug + '.html'
   }));
-  const GENRES = ['Tous', 'Action', 'Aventure', 'Escape Game', 'Quiz', 'Adapté aux enfants', 'Culturel'];
+  const GENRES = ['Tous', 'Action', 'Aventure', 'Escape Game', 'Quiz', 'Adapté aux enfants' /* , 'Culturel' — désactivé temporairement */];
   const GCOLOR = { Action: '#43744c', Aventure: '#1b8a4b', 'Escape Game': '#7c3aed', Quiz: '#0e7490', 'Adapté aux enfants': '#c2410c', Culturel: '#b91c1c' };
 
   const state = { genre: 'Tous', players: 'all', sort: 'az' };
@@ -30,7 +30,7 @@
 
   function apply() {
     let list = GAMES.filter(g =>
-      (state.genre === 'Tous' || g.genre === state.genre || (state.genre === 'Adapté aux enfants' && g.genre === 'Culturel')) &&
+      (state.genre === 'Tous' || g.genre === state.genre) &&
       (state.players === 'all' || (g.players && playersBucket(g.players) === state.players))
     );
     list.sort((a, b) => state.sort === 'dur' ? (a.dur || 99) - (b.dur || 99) : a.name.localeCompare(b.name));

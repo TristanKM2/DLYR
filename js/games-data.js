@@ -97,6 +97,10 @@ window.DLYR_GAMES = [
       "Mais vous n'êtes pas seuls. Une présence inconnue semble évoluer dans les couloirs de la station, tandis que le compte à rebours vers la destruction approche inexorablement de son terme. Le temps presse. L'ennemi se rapproche. L'espace ne pardonne aucune erreur."
     ]
   },
+  /* ============================================================
+     JEUX CULTURELS — TEMPORAIREMENT DÉSACTIVÉS (droits en attente)
+     Décommenter ce bloc pour les réactiver.
+     ============================================================
   {
     slug: 'quantum-dome-project', name: 'Quantum Dome Project — Le Louvre Abu Dhabi', genre: 'Culturel',
     tags: ['Culturel', 'Exploration', 'Histoire'],
@@ -147,4 +151,5 @@ window.DLYR_GAMES = [
       "Avec Gaudí, L'Atelier du Divin, nous voulons emmener l'utilisateur dans la tête du célèbre architecte : la reconstitution exceptionnelle de l'atelier disparu en 1926 est l'occasion de créer un parcours narratif dans la psyché unique du maître catalan."
     ]
   }
+  ============================================================ */
 ];

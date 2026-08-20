@@ -531,7 +531,7 @@
             <div class="pmaps__how">
               <p><strong>En métro&nbsp;:</strong> Ligne T2 — arrêt Charlebourg, à 5 min à pied.</p>
               <p><strong>En bus&nbsp;:</strong> Lignes 167 / 366 — arrêt Charles de Gaulle.</p>
-              <p><strong>En voiture&nbsp;:</strong> Parking Q-Park à 300m — tarif négocié. <a href="#" data-qpark style="text-decoration:underline">Réservez votre place ici</a>. Accès A86.</p>
+              <p><strong>En voiture&nbsp;:</strong> Parking Q-Park à 300m — tarif négocié. <a href="http://www.q-park.fr/dlyr-vr" target="_blank" rel="noopener" style="text-decoration:underline">Réservez votre place ici</a>. Accès A86.</p>
             </div>
             <a class="btn btn--ink" href="mailto:contact@dlyr-vr.com?subject=${encodeURIComponent("Contact D'LYR")}" style="align-self:flex-start;margin-top:8px">Nous contacter</a>
           </div>
