@@ -2,8 +2,36 @@
    D'LYR — Jeux VR (fiche jeu)
    ============================================================ */
 .jhero{ padding-top:110px; padding-bottom:clamp(12px,1.5vw,24px); }
-.jhero__title{ text-align:center; font-family:var(--f-display); font-weight:800; font-size:clamp(30px,7vw,128px); line-height:1; color:var(--paper); margin-bottom:clamp(28px,4vw,48px); text-transform:uppercase; letter-spacing:.01em; overflow-wrap:break-word; word-break:break-word; }
+.jhero__title{ text-align:center; font-family:var(--f-display); font-weight:800; font-size:clamp(30px,7vw,128px); line-height:1; color:var(--paper); margin-bottom:clamp(16px,2.2vw,28px); text-transform:uppercase; letter-spacing:.01em; overflow-wrap:break-word; word-break:break-word; }
 
+/* CTA Réserver sous le titre : jaune doré fixe, taille équilibrée et bien visible */
+.jhero__cta{ display:flex; justify-content:center; margin-top:0; margin-bottom:clamp(28px,3.5vw,48px); }
+.jhero__cta .btn{
+  background:var(--lime,#d4bc72) !important;
+  color:var(--ink,#1c3024) !important;
+  border:2px solid var(--lime,#d4bc72) !important;
+  padding:16px 48px;
+  font-family:var(--f-display);
+  font-size:clamp(20px, 1.5vw, 25px);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  border-radius:14px;
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+}
+.jhero__cta .btn::before,
+.jhero__cta .btn::after{
+  display:none !important;
+}
+.jhero__cta .btn:hover,
+.jhero__cta .btn:focus-visible{
+  background:var(--lime,#d4bc72) !important;
+  color:var(--ink,#1c3024) !important;
+  border-color:var(--lime,#d4bc72) !important;
+  transform:translateY(-4px);
+  box-shadow:0 14px 32px rgba(0,0,0,.45);
+  filter:brightness(1.05);
+}
 /* Layout 2 colonnes : gauche = synopsis+meta, droite = vidéo */
 .jhero__content{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,4vw,64px); align-items:start; }
 .jhero__left{ display:flex; flex-direction:column; gap:24px; }
@@ -21,9 +49,6 @@
 .jmeta__v{ font-family:var(--f-body); font-size:15px; color:rgba(194,208,179,.7); line-height:1.5; }
 .jhero__tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; }
 
-/* CTA Réserver et réduction de l'écart avec Plus d'expériences */
-.jhero{ padding-top:110px; padding-bottom:clamp(12px,1.5vw,24px); }
-.jhero__cta{ display:flex; justify-content:center; margin-top:clamp(20px,2.5vw,32px); margin-bottom:0; }
 .jmore{ padding-top:clamp(16px,2vw,36px); }
 
 /* Vidéo à droite */

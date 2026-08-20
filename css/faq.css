@@ -1,7 +1,7 @@
 /* ============================================================
    D'LYR — FAQ
    ============================================================ */
-.faq__layout{ display:grid; grid-template-columns:280px 1fr; gap:clamp(32px,4vw,64px); align-items:start; width:100%; min-width:0; }
+.faq__layout{ display:grid; grid-template-columns:280px 1fr; gap:clamp(32px,4vw,64px); align-items:start; min-width:0; }
 .faq__cats{ width:100%; min-width:0; }
 .faq__catstitle{ margin-bottom:26px; }
 .faq__catstitle span{ color:var(--paper); }
