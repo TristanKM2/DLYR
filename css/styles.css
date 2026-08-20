@@ -559,12 +559,12 @@ a:focus-visible .ph__img {
   left: 0;
   right: 0;
   width: 100%;
-  height: 48px;
+  height: 58px;
   background: var(--lime, #d4bc72);
   color: var(--ink, #1c3024);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, .35);
-  border-top: 1.5px solid rgba(255, 255, 255, .4);
-  border-bottom: 1.5px solid rgba(0, 0, 0, .25);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .4);
+  border-top: 2px solid rgba(255, 255, 255, .45);
+  border-bottom: 2px solid rgba(0, 0, 0, .28);
   overflow: hidden;
   z-index: 70; /* Toujours au premier plan */
   display: flex;
@@ -606,14 +606,14 @@ a:focus-visible .ph__img {
 .promo-bar-hz__group {
   display: flex;
   align-items: center;
-  gap: 36px;
-  padding-right: 36px;
+  gap: 40px;
+  padding-right: 40px;
   flex-shrink: 0;
   white-space: nowrap;
   font-family: var(--f-display);
   font-weight: 800;
-  font-size: 17px;
-  letter-spacing: .06em;
+  font-size: 20px;
+  letter-spacing: .07em;
   text-transform: uppercase;
   color: var(--ink, #1c3024);
 }
@@ -624,7 +624,7 @@ a:focus-visible .ph__img {
 
 .promo-bar-hz__sep {
   opacity: .55;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 @keyframes promoMarqueeHz {
@@ -639,24 +639,24 @@ a:focus-visible .ph__img {
 @media (max-width: 900px) {
   .promo-bar-hz {
     top: 96px;
-    height: 42px;
+    height: 48px;
   }
   .promo-bar-hz__group {
-    font-size: 14px;
-    gap: 24px;
-    padding-right: 24px;
+    font-size: 16px;
+    gap: 26px;
+    padding-right: 26px;
   }
 }
 
 @media (max-width: 600px) {
   .promo-bar-hz {
     top: 88px;
-    height: 38px;
+    height: 42px;
   }
   .promo-bar-hz__group {
-    font-size: 12.5px;
-    gap: 18px;
-    padding-right: 18px;
+    font-size: 13.5px;
+    gap: 20px;
+    padding-right: 20px;
   }
 }
 
