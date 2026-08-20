@@ -669,6 +669,34 @@ a:focus-visible .ph__img {
   flex: none;
 }
 
+/* Boutons de la barre de navigation & drawer mobile : jaune doré fixe, sans fond vert ni animation montante */
+.nav__cta .btn,
+.drawer__cta .btn {
+  background: var(--lime, #d4bc72) !important;
+  color: var(--ink, #1c3024) !important;
+  border: 2px solid var(--lime, #d4bc72) !important;
+  box-shadow: none;
+}
+
+.nav__cta .btn::before,
+.nav__cta .btn::after,
+.drawer__cta .btn::before,
+.drawer__cta .btn::after {
+  display: none !important;
+}
+
+.nav__cta .btn:hover,
+.nav__cta .btn:focus-visible,
+.drawer__cta .btn:hover,
+.drawer__cta .btn:focus-visible {
+  background: var(--lime, #d4bc72) !important;
+  color: var(--ink, #1c3024) !important;
+  border-color: var(--lime, #d4bc72) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+  filter: brightness(1.05);
+}
+
 .nav__burger {
   display: none;
   width: 48px;

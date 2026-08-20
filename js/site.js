@@ -88,8 +88,8 @@
       ${PAGES.map(p => `<a href="${p.href}"${p.key === current ? ' aria-current="page"' : ''}>${p.label}</a>`).join('')}
       <div class="drawer__cta">
         <button class="lang-btn" data-lang-toggle type="button" aria-label="Switch site to English" title="English version"><svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"></rect><path d="M0 0 60 40M60 0 0 40" stroke="#fff" stroke-width="8"></path><path d="M0 0 60 40M60 0 0 40" stroke="#C8102E" stroke-width="4"></path><path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="13"></path><path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="8"></path></svg></button>
-        <a class="btn btn--paper-o" href="${BOOK_HREF}">Réserver</a>
-        <a class="btn btn--paper-o" href="offrir.html">Offrir</a>
+        <a class="btn btn--sm btn--cta" href="${BOOK_HREF}">Réserver</a>
+        <a class="btn btn--sm btn--cta" href="offrir.html">Offrir</a>
       </div>`;
     body.appendChild(drawer);
 
