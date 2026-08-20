@@ -551,6 +551,124 @@ a:focus-visible .ph__img {
 }
 
 /* ============================================================
+   GRANDE BANDEROLLE DÉFILANTE XXL (Orientation 28° - Derrière Nav)
+   ============================================================ */
+.promo-banner-diag {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 45; /* Derrière la nav fixe (z-index: 60) */
+  pointer-events: none;
+}
+
+.promo-banner-diag__track {
+  position: absolute;
+  top: 240px;
+  right: -300px;
+  width: 2800px;
+  height: 86px;
+  transform: rotate(28deg);
+  transform-origin: 80% 50%;
+  background: var(--lime, #d4bc72);
+  color: var(--ink, #1c3024);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .65);
+  border-top: 3.5px solid rgba(255, 255, 255, .6);
+  border-bottom: 3.5px solid rgba(0, 0, 0, .35);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: filter .2s ease;
+}
+
+.promo-banner-diag__track:hover {
+  filter: brightness(1.08);
+}
+
+.promo-banner-diag__track--static {
+  cursor: default;
+  pointer-events: none;
+}
+
+.promo-banner-diag__track--static:hover {
+  filter: none;
+}
+
+.promo-banner-diag__marquee {
+  display: flex;
+  width: max-content;
+  animation: promoMarquee 26s linear infinite;
+  will-change: transform;
+}
+
+.promo-banner-diag__group {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-right: 40px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink, #1c3024);
+}
+
+.promo-banner-diag__track:hover .promo-banner-diag__marquee {
+  animation-play-state: paused;
+}
+
+.promo-banner-diag__sep {
+  opacity: .6;
+  font-size: 18px;
+}
+
+@keyframes promoMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1100px) {
+  .promo-banner-diag__track {
+    top: 170px;
+    right: -240px;
+    width: 2200px;
+    height: 70px;
+    transform: rotate(25deg);
+  }
+  .promo-banner-diag__group {
+    font-size: 20px;
+    gap: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .promo-banner-diag__track {
+    top: 130px;
+    right: -180px;
+    width: 1800px;
+    height: 52px;
+    transform: rotate(20deg);
+  }
+  .promo-banner-diag__group {
+    font-size: 15px;
+    gap: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ============================================================
    NAVIGATION
    ============================================================ */
 .nav {
