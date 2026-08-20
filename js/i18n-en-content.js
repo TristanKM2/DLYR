@@ -128,6 +128,7 @@ window.DLYR_EN = Object.assign(window.DLYR_EN || {}, {
  "« Les plus beaux souvenirs sont ceux que l'on vit ensemble. »": "\u201cThe best memories are the ones we experience together.\u201d",
  "Directeur Général & Co-fondateur": "CEO & Co-founder",
  "Expert en expérience client et rigueur opérationnelle, il vise l'excellence pour faire de D'LYR la référence des loisirs nouvelle génération.": "Expert in customer experience and operational excellence, aiming to make D'LYR the benchmark for new-generation leisure.",
+ "« Que vous soyez un gamer chevronné ou que vous n'ayez jamais touché un casque de votre vie, nous avons pensé D'LYR comme un lieu chaleureux et accessible à tous. »": "\u201cWhether you are a seasoned gamer or have never touched a VR headset in your life, we designed D'LYR as a welcoming and accessible place for everyone.\u201d",
  "Pourquoi D'LYR ?": "Why D'LYR?",
  "Convaincus que les meilleurs souvenirs se vivent ensemble plutôt qu'à travers un écran, nous offrons un espace pour :": "Convinced that the best memories are lived together rather than through a screen, we offer a space to:",
  "Explorer des mondes extraordinaires et l'Histoire autrement.": "Explore extraordinary worlds and history in a new way.",

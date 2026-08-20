@@ -171,7 +171,7 @@ window.DLYR_EN = Object.assign(window.DLYR_EN || {}, {
   "Nos formules": "Our packages",
   "Le classique": "The classic",
   "Apéro Fléchettes": "Darts & Drinks",
-  "1h de fléchettes + une pizza à partager.": "1 hr of darts + a pizza to share.",
+  "30 min de fléchettes + une pizza à partager.": "30 min of darts + a pizza to share.",
   "Combo VR + Quiz": "VR + Quiz Combo",
   "1 session VR + une partie de Quiz Hologame en équipe.": "1 VR session + a team game of Hologame Quiz.",
   "Soirée complète": "Full evening",
