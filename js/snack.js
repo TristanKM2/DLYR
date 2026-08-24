@@ -123,7 +123,12 @@
     }
 
     const items = MENU[key] || [];
-    listEl.innerHTML = items.map((it, i) => `
+    const bannerHtml = key === 'pizza' ? `
+      <div class="menu__tagline reveal" data-d="0">
+        ${isEn ? 'Dine in or takeaway' : 'À consommer sur place ou à emporter'}
+      </div>` : '';
+
+    listEl.innerHTML = bannerHtml + items.map((it, i) => `
       <div class="mitem reveal" data-d="${i % 4}">
         <div class="mitem__info">
           <div class="mitem__name">${it.n}${it.b ? `<span class="mitem__badge">${it.b}</span>` : ''}</div>

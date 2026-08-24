@@ -19,6 +19,7 @@
 .menu.bg-paper .menu__tab.on{ background:var(--ink) !important; color:var(--paper) !important; border-color:var(--ink) !important; box-shadow:0 4px 14px rgba(28,48,36,.25); }
 
 .menu__list{ display:grid; grid-template-columns:1fr 1fr; gap:8px 56px; }
+.menu__tagline{ grid-column:1 / -1; display:inline-flex; align-items:center; padding:10px 24px; background:rgba(212,188,114,.14); border:1.5px solid rgba(212,188,114,.45); border-radius:var(--r-pill); font-family:var(--f-btn); font-weight:700; font-size:clamp(16px,1.3vw,19px); letter-spacing:.02em; color:var(--lime); margin-bottom:14px; width:fit-content; }
 .mitem{ display:flex; align-items:baseline; gap:14px; padding:18px 0; border-bottom:1px solid rgba(194,208,179,.15); }
 .menu.bg-paper .mitem{ border-bottom:1px solid rgba(28,48,36,.12); }
 .mitem__info{ flex:1; min-width:0; }
