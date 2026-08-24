@@ -1,24 +1,48 @@
 /* ============================================================
    D'LYR — Snack Bar
    ============================================================ */
+.section.amb{ padding-bottom:clamp(16px, 2.5vw, 36px); }
+.section.menu{ padding-top:clamp(16px, 2.5vw, 36px); }
+
 .menu__head{ display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap; margin-bottom:clamp(32px,4vw,48px); }
-.menu__head .eyebrow-bar span{ color:var(--paper); }
+.menu__head .eyebrow-bar span{ color:inherit; }
+
 .menu__tabs{ display:flex; flex-wrap:wrap; gap:10px; }
-.menu__tab{ font-family:var(--f-btn); font-weight:700; font-size:17px; color:var(--paper); padding:10px 22px; border-radius:var(--r-pill); border:2px solid rgba(194,208,179,.2); transition:.2s; }
-.menu__tab:hover{ border-color:var(--lime); }
-.menu__tab.on{ background:var(--lime); color:var(--ink); border-color:var(--lime); }
+.menu__tab{ font-family:var(--f-btn); font-weight:700; font-size:16px; color:var(--paper); background:rgba(194,208,179,.06); padding:10px 22px; border-radius:var(--r-pill); border:2px solid rgba(194,208,179,.2); transition:all .2s ease; cursor:pointer; }
+.menu__tab:hover{ border-color:var(--lime); background:rgba(212,188,114,.12); color:var(--lime); }
+.menu__tab.on{ background:var(--lime) !important; color:var(--ink) !important; border-color:var(--lime) !important; box-shadow:0 4px 14px rgba(212,188,114,.35); }
+
+/* Thème fond clair (.bg-paper) pour le menu */
+.menu.bg-paper .menu__head .eyebrow-bar span{ color:var(--ink); }
+.menu.bg-paper .menu__tab{ color:var(--ink); background:rgba(28,48,36,.06); border-color:rgba(28,48,36,.2); }
+.menu.bg-paper .menu__tab:hover{ border-color:var(--ink); background:rgba(28,48,36,.12); color:var(--ink); }
+.menu.bg-paper .menu__tab.on{ background:var(--ink) !important; color:var(--paper) !important; border-color:var(--ink) !important; box-shadow:0 4px 14px rgba(28,48,36,.25); }
 
 .menu__list{ display:grid; grid-template-columns:1fr 1fr; gap:8px 56px; }
-.mitem{ display:flex; align-items:baseline; gap:14px; padding:18px 0; border-bottom:1px solid rgba(194,208,179,.1); }
+.mitem{ display:flex; align-items:baseline; gap:14px; padding:18px 0; border-bottom:1px solid rgba(194,208,179,.15); }
+.menu.bg-paper .mitem{ border-bottom:1px solid rgba(28,48,36,.12); }
 .mitem__info{ flex:1; min-width:0; }
-.mitem__name{ font-family:var(--f-display); font-weight:700; font-size:clamp(19px,1.7vw,23px); color:var(--paper); display:flex; align-items:center; gap:10px; }
-.mitem__badge{ font-family:var(--f-btn); font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink); background:var(--lime); padding:2px 9px; border-radius:var(--r-pill); }
-.mitem__desc{ font-size:14px; color:rgba(194,208,179,.6); margin-top:4px; line-height:1.4; }
+.mitem__name{ font-family:var(--f-display); font-weight:700; font-size:clamp(19px,1.7vw,23px); color:var(--paper); display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.menu.bg-paper .mitem__name{ color:var(--ink); }
+.mitem__badge{ font-family:var(--f-btn); font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink); background:var(--lime); padding:2px 9px; border-radius:var(--r-pill); display:inline-block; }
+.menu.bg-paper .mitem__badge{ background:var(--ink); color:var(--paper); }
+.mitem__desc{ font-size:14px; color:rgba(194,208,179,.65); margin-top:4px; line-height:1.45; }
+.menu.bg-paper .mitem__desc{ color:rgba(28,48,36,.7); }
 .mitem__dots{ flex:1; border-bottom:2px dotted rgba(194,208,179,.22); transform:translateY(-4px); min-width:18px; }
+.menu.bg-paper .mitem__dots{ border-bottom:2px dotted rgba(28,48,36,.25); }
 .mitem__price{ font-family:var(--f-display); font-weight:800; font-size:clamp(19px,1.7vw,23px); color:var(--lime); white-space:nowrap; }
+.menu.bg-paper .mitem__price{ color:var(--ink); }
+
+.menu__legal{ margin-top:clamp(32px,4vw,48px); padding-top:24px; border-top:1px solid rgba(194,208,179,.15); font-size:13px; line-height:1.6; color:rgba(194,208,179,.6); display:flex; flex-direction:column; gap:8px; }
+.menu__legal strong{ color:rgba(194,208,179,.88); font-weight:700; }
+.menu__legal-stock{ margin-top:4px; font-size:12.5px; color:rgba(194,208,179,.45); }
+.menu.bg-paper .menu__legal{ border-top:1px solid rgba(28,48,36,.18); color:rgba(28,48,36,.7); }
+.menu.bg-paper .menu__legal strong{ color:var(--ink); }
+.menu.bg-paper .menu__legal-stock{ color:rgba(28,48,36,.5); }
 
 .amb__h{ margin-bottom:clamp(32px,4vw,48px); }
-.amb__h span{ color:var(--paper); }
+.amb.bg-paper .amb__h span{ color:var(--ink); }
+.amb.bg-ink .amb__h span{ color:var(--paper); }
 .amb__grid{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:170px; gap:18px; }
 .amb__img{ border-radius:var(--r-sm); width:100%; height:100%; object-fit:cover; display:block; }
 .amb__img--a{ grid-column:span 2; grid-row:span 2; }
@@ -26,10 +50,13 @@
 .amb__img--c{ grid-column:span 1; }
 .amb__img--d{ grid-column:span 1; }
 .amb__foot{ display:flex; justify-content:space-between; align-items:center; gap:32px; flex-wrap:wrap; margin-top:36px; }
-.amb__foot .lead{ color:rgba(194,208,179,.85); }
+.amb.bg-paper .amb__foot .lead{ color:var(--ink); }
+.amb.bg-ink .amb__foot .lead{ color:rgba(194,208,179,.85); }
 
 @media (max-width:760px){
   .menu__list{ grid-template-columns:1fr; gap:0 0; }
+  .menu__tabs{ width:100%; }
+  .menu__tab{ font-size:14px; padding:8px 16px; }
   .amb__grid{ grid-template-columns:1fr 1fr; grid-auto-rows:140px; gap:12px; }
   .amb__img--a{ grid-column:span 2; grid-row:span 1; }
   .amb__img--b{ grid-column:span 2; }

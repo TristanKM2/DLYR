@@ -37,10 +37,10 @@
     <div class="reveal">
       <h1 class="phero__title">Bar<br>&amp;Snack</h1>
       <p class="phero__lead">Boissons signature avec ou sans alcool, pizzas artisanales prêtes en 2 minutes et snacking à partager. La pause gourmande entre deux parties.</p>
-      <div class="phero__cue">
+      <a href="#menu" class="phero__cue" style="text-decoration:none;color:inherit">
         <span class="btn-arrow btn-arrow--lime" data-arrow></span>
-        <span style="font-family:var(--f-btn);font-size:clamp(18px,1.6vw,24px)">Un espace lounge pour se détendre en musique</span>
-      </div>
+        <span style="font-family:var(--f-btn);font-size:clamp(18px,1.6vw,24px)">Découvrez notre carte</span>
+      </a>
     </div>
     <div class="phero__deco reveal" data-d="1">
       <div class="ph"><img class="ph__img" loading="lazy" src="uploads/lounge.jpg" alt="Boissons au bar de D'LYR"></div>
@@ -61,6 +61,29 @@
     </div>
     <div class="amb__foot reveal">
       <p class="lead">Un espace convivial ouvert à tous, joueurs ou non. Venez simplement boire un verre, grignoter et profiter de l'ambiance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CARTE / MENU ===== -->
+<section class="section bg-ink menu" id="menu">
+  <div class="wrap">
+    <div class="menu__head reveal">
+      <h2 class="h1 eyebrow-bar"><span>La Carte</span></h2>
+      <div class="menu__tabs" data-tabs>
+        <button class="menu__tab on" data-tab="boissons-froides">Boissons froides</button>
+        <button class="menu__tab" data-tab="boissons-chaudes">Boissons chaudes</button>
+        <button class="menu__tab" data-tab="alcool">Boissons alcoolisées</button>
+        <button class="menu__tab" data-tab="pizza">Pizzas</button>
+      </div>
+    </div>
+    <div class="menu__list" data-menu></div>
+    <div class="menu__legal reveal">
+      <p><strong>Prix &amp; Service :</strong> Tous nos prix sont nets, exprimés en Euros (€), taxes et service compris.</p>
+      <p><strong>Protection des mineurs &amp; Santé :</strong> L'abus d'alcool est dangereux pour la santé, à consommer avec modération. La vente d'alcool est strictement interdite aux mineurs de moins de 18 ans.</p>
+      <p><strong>Eau potable :</strong> L'eau potable fraîche est mise à disposition gratuitement pour accompagner votre repas.</p>
+      <p><strong>Allergènes :</strong> La liste détaillée des 14 allergènes majeurs contenus dans nos pizzas et boissons est disponible sur demande auprès de notre équipe.</p>
+      <p class="menu__legal-stock"><em>Dans la limite des stocks disponibles</em></p>
     </div>
   </div>
 </section>
