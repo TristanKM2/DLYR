@@ -36,6 +36,10 @@
       { n: "Infusion Menthe", d: "Théière 40 cl", p: "3,50€" }
     ],
     "alcool": [],
+    "snack": [
+      { n: "Popcorn Baff Caramel", d: "200g", p: "4€" },
+      { n: "Chips Lay's Barbecue", d: "130g", p: "3€" }
+    ],
     "pizza": [
       { n: "Margherita", d: "Sauce tomate à l'origan, mozzarella et basilic", p: "10€", b: "Végé" },
       { n: "Reine", d: "Sauce tomate à l'origan, mozzarella, jambon et basilic", p: "11€" },
@@ -77,6 +81,10 @@
       { n: "Mint Herbal Infusion", d: "Teapot 40 cl", p: "€3.50" }
     ],
     "alcool": [],
+    "snack": [
+      { n: "Baff Caramel Popcorn", d: "200g", p: "€4" },
+      { n: "Lay's Barbecue Chips", d: "130g", p: "€3" }
+    ],
     "pizza": [
       { n: "Margherita", d: "Oregano tomato sauce, mozzarella and fresh basil", p: "€10", b: "Veggie" },
       { n: "Reine", d: "Oregano tomato sauce, mozzarella, ham and fresh basil", p: "€11" },
