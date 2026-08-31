@@ -18,25 +18,34 @@
       { n: "Fuze Tea Pêche", d: "Canette 33 cl", p: "3€" },
       { n: "Oasis Tropical", d: "Canette 33 cl", p: "3€" },
       { n: "Schweppes Agrumes", d: "Canette 33 cl", p: "3€" },
-      { n: "Red Bull", d: "Canette 35,5 cl", p: "4€" },
+      { n: "Red Bull", d: "Canette 35,5 cl", p: "5€" },
       { n: "Eau minérale Mont Blanc", d: "Bouteille 50 cl", p: "3€" },
       { n: "Eau gazeuse San Pellegrino", d: "Bouteille 50 cl", p: "3€" },
       { n: "Pago Orange", d: "Jus de fruits · Bouteille 33 cl", p: "4€" },
       { n: "Pago Fraise", d: "Jus de fruits · Bouteille 33 cl", p: "4€" },
       { n: "Pago Tropical", d: "Jus de fruits · Bouteille 33 cl", p: "4€" },
-      { n: "Pago Ananas", d: "Jus de fruits · Bouteille 33 cl", p: "4€" }
+      { n: "Pago Ananas", d: "Jus de fruits · Bouteille 33 cl", p: "4€" },
+      { n: "La Goudale 0.0%", d: "Bière sans alcool · Bouteille 33 cl", p: "5€" }
     ],
     "boissons-chaudes": [
       { n: "Café expresso", d: "7 cl", p: "2,50€" },
       { n: "Café allongé", d: "12 cl", p: "3€" },
       { n: "Café double", d: "14 cl", p: "3,50€" },
-      { n: "Thé vert Menthe", d: "Théière 40 cl", p: "3,50€" },
-      { n: "Thé Noir Earl Grey", d: "Théière 40 cl", p: "3,50€" },
-      { n: "Thé vert Agrumes", d: "Théière 40 cl", p: "3,50€" },
-      { n: "Infusion Menthe", d: "Théière 40 cl", p: "3,50€" }
+      { n: "Thé vert à la menthe Twinings", d: "Théière 40 cl", p: "3,50€" },
+      { n: "Thé Earl Grey Twinings", d: "Théière 40 cl", p: "3,50€" },
+      { n: "Thé vert saveur citron Twinings", d: "Théière 40 cl", p: "3,50€" },
+      { n: "Infusion Menthe", d: "La Tisanière Après Repas · Théière 40 cl", p: "3,50€" }
     ],
-    "alcool": [],
+    "alcool": [
+      { n: "Bière pression", d: "25 cl", p: "4,20€" },
+      { n: "Bière pression", d: "50 cl", p: "8€" }
+    ],
     "snack": [
+      { n: "Bounty", d: "57g", p: "2,80€" },
+      { n: "M&M's Peanut", d: "45g", p: "2,80€" },
+      { n: "Mars", d: "51g", p: "2,80€" },
+      { n: "Snickers", d: "50g", p: "2,80€" },
+      { n: "Twix", d: "50g", p: "2,80€" },
       { n: "Popcorn Baff Caramel", d: "200g", p: "4€" },
       { n: "Chips Lay's Barbecue", d: "130g", p: "3€" }
     ],
@@ -63,25 +72,34 @@
       { n: "Fuze Tea Peach", d: "Can 33 cl", p: "€3" },
       { n: "Oasis Tropical", d: "Can 33 cl", p: "€3" },
       { n: "Schweppes Citrus", d: "Can 33 cl", p: "€3" },
-      { n: "Red Bull", d: "Can 35.5 cl", p: "€4" },
+      { n: "Red Bull", d: "Can 35.5 cl", p: "€5" },
       { n: "Mont Blanc Mineral Water", d: "Still water bottle 50 cl", p: "€3" },
       { n: "San Pellegrino Sparkling Water", d: "Sparkling water bottle 50 cl", p: "€3" },
       { n: "Pago Orange", d: "Fruit juice · Bottle 33 cl", p: "€4" },
       { n: "Pago Strawberry", d: "Fruit juice · Bottle 33 cl", p: "€4" },
       { n: "Pago Tropical", d: "Fruit juice · Bottle 33 cl", p: "€4" },
-      { n: "Pago Pineapple", d: "Fruit juice · Bottle 33 cl", p: "€4" }
+      { n: "Pago Pineapple", d: "Fruit juice · Bottle 33 cl", p: "€4" },
+      { n: "La Goudale 0.0%", d: "Non-alcoholic beer · Bottle 33 cl", p: "€5" }
     ],
     "boissons-chaudes": [
       { n: "Espresso", d: "7 cl", p: "€2.50" },
       { n: "Americano", d: "12 cl", p: "€3" },
       { n: "Double Espresso", d: "14 cl", p: "€3.50" },
-      { n: "Mint Green Tea", d: "Teapot 40 cl", p: "€3.50" },
-      { n: "Earl Grey Black Tea", d: "Teapot 40 cl", p: "€3.50" },
-      { n: "Citrus Green Tea", d: "Teapot 40 cl", p: "€3.50" },
-      { n: "Mint Herbal Infusion", d: "Teapot 40 cl", p: "€3.50" }
+      { n: "Twinings Mint Green Tea", d: "Teapot 40 cl", p: "€3.50" },
+      { n: "Twinings Earl Grey Tea", d: "Teapot 40 cl", p: "€3.50" },
+      { n: "Twinings Lemon Green Tea", d: "Teapot 40 cl", p: "€3.50" },
+      { n: "Mint Herbal Infusion", d: "La Tisanière After Meal · Teapot 40 cl", p: "€3.50" }
     ],
-    "alcool": [],
+    "alcool": [
+      { n: "Draft Beer", d: "25 cl", p: "€4.20" },
+      { n: "Draft Beer", d: "50 cl", p: "€8" }
+    ],
     "snack": [
+      { n: "Bounty", d: "57g", p: "€2.80" },
+      { n: "M&M's Peanut", d: "45g", p: "€2.80" },
+      { n: "Mars", d: "51g", p: "€2.80" },
+      { n: "Snickers", d: "50g", p: "€2.80" },
+      { n: "Twix", d: "50g", p: "€2.80" },
       { n: "Baff Caramel Popcorn", d: "200g", p: "€4" },
       { n: "Lay's Barbecue Chips", d: "130g", p: "€3" }
     ],
@@ -105,31 +123,6 @@
   if (!listEl || !tabsEl) return;
 
   function render(key) {
-    if (key === 'alcool') {
-      const isBgPaper = !!listEl.closest('.bg-paper');
-      const comingBg = isBgPaper ? 'rgba(28,48,36,.04)' : 'rgba(194,208,179,.04)';
-      const comingBd = isBgPaper ? 'rgba(28,48,36,.22)' : 'rgba(194,208,179,.25)';
-      const comingTitleColor = isBgPaper ? 'var(--ink)' : 'var(--paper)';
-      const comingTextColor = isBgPaper ? 'rgba(28,48,36,.75)' : 'rgba(194,208,179,.7)';
-      const comingBadgeBg = isBgPaper ? 'var(--ink)' : 'var(--lime)';
-      const comingBadgeColor = isBgPaper ? 'var(--paper)' : 'var(--ink)';
-
-      listEl.innerHTML = `
-        <div class="mitem-coming-soon reveal" style="grid-column: 1 / -1; text-align:center; padding: 48px 24px; background: ${comingBg}; border: 1px dashed ${comingBd}; border-radius: var(--r-md);">
-          <span style="font-family:var(--f-btn); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:${comingBadgeColor}; background:${comingBadgeBg}; padding:4px 14px; border-radius:var(--r-pill); display:inline-block; margin-bottom:16px;">
-            ${isEn ? 'Coming Soon' : 'À venir'}
-          </span>
-          <h3 style="font-family:var(--f-display); font-weight:700; font-size:clamp(22px,2vw,28px); color:${comingTitleColor}; margin-bottom:12px;">
-            ${isEn ? 'Alcoholic Drinks Menu Coming Soon' : 'Carte des boissons alcoolisées à venir'}
-          </h3>
-          <p style="font-size:15px; color:${comingTextColor}; max-width:52ch; margin:0 auto; line-height:1.5;">
-            ${isEn ? 'Our selection of beers, wines and champagnes will be available very soon.' : 'Notre sélection de bières, vins et champagnes sera disponible très prochainement.'}
-          </p>
-        </div>`;
-      if (window.DLYR_reveal) window.DLYR_reveal();
-      return;
-    }
-
     const items = MENU[key] || [];
     const bannerHtml = key === 'pizza' ? `
       <div class="menu__tagline reveal" data-d="0">

@@ -97,27 +97,11 @@ window.DLYR_GAMES = [
       "Mais vous n'êtes pas seuls. Une présence inconnue semble évoluer dans les couloirs de la station, tandis que le compte à rebours vers la destruction approche inexorablement de son terme. Le temps presse. L'ennemi se rapproche. L'espace ne pardonne aucune erreur."
     ]
   },
-  /* ============================================================
-     JEUX CULTURELS — TEMPORAIREMENT DÉSACTIVÉS (droits en attente)
-     Décommenter ce bloc pour les réactiver.
-     ============================================================
-  {
-    slug: 'quantum-dome-project', name: 'Quantum Dome Project — Le Louvre Abu Dhabi', genre: 'Culturel',
-    tags: ['Culturel', 'Exploration', 'Histoire'],
-    type: 'Aventure culturelle immersive', pl: '1 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/experiences/Quantum Dome sans titre.png', vid: 'uploads/experiences/Quantum Dome Project.mp4',
-    objective: 'Explorer les civilisations du passé et résoudre les mystères du temps.',
-    tagline: "Traversez les siècles.<br>Vivez l'Histoire.",
-    story: [
-      "Embarquez pour une aventure extraordinaire à travers les âges. À la suite d'une mystérieuse perturbation temporelle, vous êtes propulsés dans les plus grandes civilisations de l'Histoire. Explorez la majesté de la Rome impériale, découvrez les trésors de la légendaire Maison de la Sagesse de Bagdad et plongez au cœur de l'Inde moghole dans une expérience immersive unique.",
-      "Voyagez librement avec votre groupe à travers des mondes reconstitués à taille réelle, rencontrez leurs habitants, percez leurs secrets et vivez l'Histoire comme si vous y étiez."
-    ]
-  },
   {
     slug: 'titanic-le-reve-englouti', name: 'Titanic — Le Rêve Englouti', genre: 'Culturel',
     tags: ['Culturel', 'Histoire', 'Exploration'],
     type: 'Exploration historique immersive', pl: '1 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/experiences/Titanic sans titre.png', vid: 'uploads/experiences/Titanic.mp4',
+    img: 'uploads/experiences/Titanic sans titre.png',
     objective: 'Explorer le Titanic, percer ses mystères et revivre son voyage inaugural.',
     tagline: 'Redécouvrez le Titanic.<br>Remontez le temps.',
     story: [
@@ -125,31 +109,5 @@ window.DLYR_GAMES = [
       "Au cours de cette plongée virtuelle à 3800 mètres sous la surface de l'Atlantique, vous explorerez l'épave du Titanic comme jamais auparavant.",
       "Grâce à une technologie de reconstitution révolutionnaire, vous allez remonter le temps et embarquer à bord du Titanic pour son voyage inaugural. Quels secrets du passé allez-vous découvrir dans les profondeurs de l'océan ?"
     ]
-  },
-  {
-    slug: 'versailles-les-jardins-disparus-du-roi-soleil', name: 'Versailles — Les Jardins Disparus du Roi Soleil', genre: 'Culturel',
-    tags: ['Culturel', 'Histoire', 'Exploration'],
-    type: 'Exploration historique immersive', pl: '1 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/experiences/Vesailles sans titre.png', vid: 'uploads/experiences/Versailles.mp4',
-    objective: 'Explorer les jardins disparus et découvrir les trésors cachés de Versailles.',
-    tagline: 'Explorez le Versailles du XVIIe siècle.<br>Guidés par André Le Nôtre.',
-    story: [
-      "Cette expérience permet aux visiteurs d'explorer des lieux emblématiques et aujourd'hui disparus des jardins, en les projetant au cœur du XVIIe siècle pour une déambulation poétique et interactive guidée par André Le Nôtre, le jardinier de Louis XIV.",
-      "Une occasion unique de découvrir la Ménagerie royale et ses animaux exotiques, le bosquet du Labyrinthe et ses fontaines, la grotte de Téthys et ses décors de rocaille exceptionnels !"
-    ]
-  },
-  {
-    slug: 'gaudi-latelier-du-divin', name: "Gaudí — L'Atelier du Divin", genre: 'Culturel',
-    tags: ['Culturel', 'Art', 'Architecture'],
-    type: 'Exploration narrative', pl: '1 à 12 joueurs', players: 12, dur: 30,
-    img: 'uploads/experiences/Gaudi sans titre.png', vid: 'uploads/experiences/Gaudi.mp4',
-    objective: 'Comprendre Gaudí, plonger dans son atelier et reprendre son œuvre : la Sagrada Familia.',
-    tagline: 'Pénétrez dans la tête du maître.<br>Poursuivez le rêve de la Sagrada Familia.',
-    story: [
-      "Affaibli par l'âge et sentant la mort venir, Gaudí invite ses nouveaux assistants à découvrir son atelier pour comprendre sa vision et prolonger son rêve. En se glissant dans le costume d'un disciple et guidé par la voix de Gaudí lui-même, l'utilisateur découvre la personnalité hors du commun de l'architecte, sa méthode de travail révolutionnaire et son univers foisonnant.",
-      "Avec un objectif, comprendre Gaudí et pour reprendre, au moment venu, l'œuvre auquel il a consacré sa vie : la Sagrada Familia.",
-      "Avec Gaudí, L'Atelier du Divin, nous voulons emmener l'utilisateur dans la tête du célèbre architecte : la reconstitution exceptionnelle de l'atelier disparu en 1926 est l'occasion de créer un parcours narratif dans la psyché unique du maître catalan."
-    ]
   }
-  ============================================================ */
 ];
