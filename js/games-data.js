@@ -86,7 +86,7 @@ window.DLYR_GAMES = [
   {
     slug: 'icarus-station', name: 'Icarus Station', genre: 'Escape Game',
     tags: ['Escape Game', 'Coopératif', 'Science-fiction'],
-    type: 'Escape Game coopératif', pl: '2 à 12 joueurs', players: 12, dur: 30,
+    type: 'Escape Game VR coopératif', pl: '2 à 6 joueurs', players: 6, dur: 45,
     img: 'uploads/experiences/Icarus Station sans titre.png', vid: 'uploads/experiences/icarus-station.mp4',
     objective: "Réparer les systèmes de la station, traverser les secteurs sinistrés et rejoindre la plateforme d'extraction avant l'effondrement d'Icarus-7.",
     tagline: "Échappez-vous avant que la station<br>ne sombre dans le vide spatial",
