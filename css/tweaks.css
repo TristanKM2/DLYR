@@ -39,14 +39,39 @@
 [data-btn-style="outline"] .btn--light{ background:transparent !important; color:var(--ink) !important; }
 [data-btn-style="outline"] .btn--lime:hover{ background:var(--lime) !important; color:var(--ink) !important; }
 
-/* ---- Lien "Laissez-nous un avis" sous KPI ---- */
+/* ---- Bouton "Laissez-nous un avis" sous KPI ---- */
 .stat__review-link{
-  display:inline-block; margin-top:18px;
-  font-family:var(--f-btn); font-weight:700; font-size:clamp(15px,1.2vw,18px);
-  color:var(--lime); text-decoration:underline; text-underline-offset:4px;
-  transition:color .25s;
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  margin-top:20px; padding:12px 24px;
+  border-radius:999px;
+  background:rgba(212,188,114,.08);
+  border:1.5px solid var(--lime, #d4bc72);
+  color:var(--lime, #d4bc72);
+  font-family:var(--f-btn), 'Barlow', sans-serif;
+  font-weight:700;
+  font-size:clamp(14px, 1.1vw, 16px);
+  letter-spacing:.04em;
+  text-decoration:none;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);
+  transition:transform .22s cubic-bezier(.4,0,.2,1), background .22s ease, color .22s ease, box-shadow .22s ease, border-color .22s ease;
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
 }
-.stat__review-link:hover{ color:var(--paper); }
+.stat__review-link:hover{
+  background:var(--lime, #d4bc72);
+  color:var(--ink, #1c3024);
+  transform:translateY(-3px);
+  box-shadow:0 10px 24px rgba(212,188,114,.35);
+  border-color:var(--lime, #d4bc72);
+}
+.stat__review-link:hover .stat__review-star{
+  transform:scale(1.15) rotate(15deg);
+  color:var(--ink, #1c3024);
+}
+.stat__review-star{
+  color:var(--lime, #d4bc72);
+  transition:transform .22s ease, color .22s ease;
+  flex:none;
+}
 
 /* ---- Enseigne dans encart "Où nous trouver" ---- */
 .maps__enseigne{ border-radius:var(--r-md); overflow:hidden; margin-bottom:8px; }

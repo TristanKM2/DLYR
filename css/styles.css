@@ -1424,7 +1424,6 @@ div[id*="smtz"] {
    (Pour réafficher plus tard, supprimer ou commenter ce bloc)
    ============================================================ */
 .rev,
-.stats,
 .javis {
   display: none !important;
 }
