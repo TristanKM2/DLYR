@@ -1,8 +1,8 @@
 /* ============================================================
    D'LYR — Snack Bar
    ============================================================ */
-.section.amb{ padding-bottom:clamp(16px, 2.5vw, 36px); }
-.section.menu{ padding-top:clamp(16px, 2.5vw, 36px); }
+.section.menu{ padding-top:clamp(16px, 2vw, 32px); padding-bottom:clamp(12px, 1.5vw, 24px); }
+.section.amb{ padding-top:clamp(12px, 1.5vw, 24px); padding-bottom:clamp(32px, 4vw, 56px); }
 
 .menu__head{ display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap; margin-bottom:clamp(32px,4vw,48px); }
 .menu__head .eyebrow-bar span{ color:inherit; }

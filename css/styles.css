@@ -1139,7 +1139,8 @@ a[class*="card"]:hover {
 }
 
 .hero__photo {
-  animation: hero-kb 26s ease-in-out infinite alternate;
+  animation: none;
+  transform: none;
 }
 
 @keyframes hero-kb {
