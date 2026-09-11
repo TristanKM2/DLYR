@@ -52,64 +52,121 @@
 <!-- ===== OFFRES PRO ===== -->
 <section class="section bg-ink ev2">
   <div class="wrap">
-    <h2 class="h1 eyebrow-bar ev2__h reveal"><span>Nos formats</span></h2>
-    <div class="ev2__grid ev2__grid--five">
-      <article class="evtype reveal">
-        <div class="ph ph--dark evtype__media"><img class="ph__img" loading="lazy" src="../uploads/evenements/Soirée étudiante.png" alt="Team Building en réalité virtuelle chez D'LYR"></div>
-        <div class="evtype__body">
-          <h3 class="evtype__name">Team Building</h3>
-          <p class="evtype__desc">Renforcez la cohésion d'équipe autour d'expériences VR coopératives où chacun a un rôle à jouer. Défis, classements et débrief convivial au bar.</p>
-          <ul class="evtype__tags"><li>Coopération</li><li>Jusqu'à 20</li><li>Défis en équipe</li></ul>
+    <div class="shead reveal" style="margin-bottom:clamp(32px,3.5vw,48px)">
+      <div>
+        <h2 class="h1 eyebrow-bar ev2__h" style="margin-bottom:12px"><span>Tailored Corporate Formats</span></h2>
+        <p class="lead" style="color:rgba(194,208,179,.8)">Choose a package tailored to your goals or contact our dedicated team to craft your turnkey event.</p>
+      </div>
+    </div>
+
+    <!-- Switcher d'onglets B2B -->
+    <div class="pro-tabs reveal">
+      <nav class="pro-tabs__nav" role="tablist" aria-label="Corporate event formats">
+        <button class="pro-tab-btn is-active" data-pro-tab="teambuilding" role="tab" aria-selected="true">Team Building</button>
+        <button class="pro-tab-btn" data-pro-tab="seminaire" role="tab" aria-selected="false">Seminars &amp; Meetings</button>
+        <button class="pro-tab-btn" data-pro-tab="soiree" role="tab" aria-selected="false">Parties &amp; Afterworks</button>
+        <button class="pro-tab-btn" data-pro-tab="lancement" role="tab" aria-selected="false">Product Launches</button>
+      </nav>
+
+      <!-- Panel 1: Team Building -->
+      <div class="pro-pane is-active" data-pro-pane="teambuilding" role="tabpanel">
+        <div class="ph ph--dark pro-pane__media">
+          <img class="ph__img" loading="lazy" src="../uploads/evenements/teambuilding-dlyr.jpg" alt="Corporate Team Building at D'LYR">
         </div>
-      </article>
-      <article class="evtype reveal" data-d="1">
-        <div class="ph ph--dark evtype__media"><img class="ph__img" loading="lazy" src="../uploads/Lancement de produit 2.png" alt="Soirée d'entreprise chez D'LYR"></div>
-        <div class="evtype__body">
-          <h3 class="evtype__name">Soirée d'entreprise</h3>
-          <p class="evtype__desc">Fin d'année, after-work ou célébration d'un succès&nbsp;: VR, fléchettes, quiz et boissons dans une ambiance festive, complexe privatisé pour vous.</p>
-          <ul class="evtype__tags"><li>Privatisation</li><li>Bar &amp; boissons</li><li>Ambiance festive</li></ul>
+        <div class="pro-pane__content">
+          <span class="pro-pane__tag">Cohesion &amp; Challenge</span>
+          <h3 class="pro-pane__title">Immersive Team Building</h3>
+          <p class="pro-pane__desc">Strengthen team bonds and communication with cooperative VR experiences where every role matters. Tactical missions, virtual escape games and team tournaments, followed by a warm debrief over drinks at the bar.</p>
+          <ul class="pro-pane__points">
+            <li><span class="ic">✓</span> From 6 to 180 guests (smooth team rotations)</li>
+            <li><span class="ic">✓</span> Cooperative, competitive and strategy team games</li>
+            <li><span class="ic">✓</span> Private lounge and bar area for debriefing</li>
+          </ul>
+          <div class="pro-pane__ideal">
+            <strong>Ideal for:</strong> Onboarding new team members, boosting collective morale and rewarding your staff.
+          </div>
+          <a class="btn btn--lime pro-pane__cta" href="#reserver" data-select-type="Team building">Request a Team Building Quote</a>
         </div>
-      </article>
-      <article class="evtype reveal" data-d="2">
-        <div class="ph ph--dark evtype__media"><img class="ph__img" loading="lazy" src="../uploads/hero-accueil.jpg" alt="Séminaire chez D'LYR"></div>
-        <div class="evtype__body">
-          <h3 class="evtype__name">Séminaire</h3>
-          <p class="evtype__desc">Un espace meeting privatisé pour vos réunions et présentations, suivi d'une session VR pour décompresser. Restauration et pauses gourmandes incluses.</p>
-          <ul class="evtype__tags"><li>Espace meeting</li><li>Privatisation</li><li>Restauration</li></ul>
+      </div>
+
+      <!-- Panel 2: Seminars & Meetings -->
+      <div class="pro-pane" data-pro-pane="seminaire" role="tabpanel">
+        <div class="ph ph--dark pro-pane__media">
+          <img class="ph__img" loading="lazy" src="../uploads/evenements/seminaire-entreprise.jpg" alt="Equipped meeting room and corporate seminar at D'LYR">
         </div>
-      </article>
-      <article class="evtype reveal" data-d="3">
-        <div class="ph ph--dark evtype__media"><img class="ph__img" loading="lazy" src="../uploads/evenements/Lancement de produit.png" alt="Lancement de produit chez D'LYR"></div>
-        <div class="evtype__body">
-          <h3 class="evtype__name">Lancement de produit</h3>
-          <p class="evtype__desc">Présentez vos nouveautés dans un cadre technologique d'exception. Espace scénique, écrans géants, cocktail et animations VR.</p>
-          <ul class="evtype__tags"><li>Espace scénique</li><li>Buffet Traiteur</li><li>Animations VR</li></ul>
+        <div class="pro-pane__content">
+          <span class="pro-pane__tag">Work &amp; Brainstorm</span>
+          <h3 class="pro-pane__title">Seminars &amp; Team Meetings</h3>
+          <p class="pro-pane__desc">Step out of the ordinary office for your strategic sessions. Enjoy our bright, fully equipped private meeting room for presentations, before transitioning seamlessly to an immersive VR decompression session.</p>
+          <ul class="pro-pane__points">
+            <li><span class="ic">✓</span> HD display, sound system, flipchart and dedicated Wi-Fi</li>
+            <li><span class="ic">✓</span> Welcome coffee, pastries and gourmet breaks</li>
+            <li><span class="ic">✓</span> Smooth transition from work session to VR &amp; darts relaxation</li>
+          </ul>
+          <div class="pro-pane__ideal">
+            <strong>Ideal for:</strong> Executive boards, quarterly reviews, training workshops and strategy days.
+          </div>
+          <a class="btn btn--lime pro-pane__cta" href="#reserver" data-select-type="Séminaire">Plan your seminar</a>
         </div>
-      </article>
-      <article class="evtype reveal" data-d="4">
-        <div class="ph ph--dark evtype__media"><img class="ph__img" loading="lazy" src="../uploads/evenements/Teambuilding.png" alt="Réunion d'équipe chez D'LYR"></div>
-        <div class="evtype__body">
-          <h3 class="evtype__name">Réunion d'équipe</h3>
-          <p class="evtype__desc">Rassemblez vos équipes hors du bureau dans un cadre stimulant. Réunion de travail suivie d'activités immersives et ludiques.</p>
-          <ul class="evtype__tags"><li>Espace dédié</li><li>Équipement vidéo</li><li>Activités VR</li></ul>
+      </div>
+
+      <!-- Panel 3: Parties & Afterworks -->
+      <div class="pro-pane" data-pro-pane="soiree" role="tabpanel">
+        <div class="ph ph--dark pro-pane__media">
+          <img class="ph__img" loading="lazy" src="../uploads/evenements/soiree-etudiante.jpg" alt="Festive corporate party at D'LYR">
         </div>
-      </article>
+        <div class="pro-pane__content">
+          <span class="pro-pane__tag">Celebration &amp; Sharing</span>
+          <h3 class="pro-pane__title">Corporate Evenings &amp; Afterworks</h3>
+          <p class="pro-pane__desc">Celebrate milestones, end-of-year parties or festive afterworks in an extraordinary venue. Enjoy full or partial privatization of the venue with unlimited access to VR experiences, connected darts and catering options.</p>
+          <ul class="pro-pane__points">
+            <li><span class="ic">✓</span> Custom privatization of the venue or relaxation lounge</li>
+            <li><span class="ic">✓</span> Cocktail receptions, artisan pizzas and dedicated bar</li>
+            <li><span class="ic">✓</span> Customizable sound system and open entertainment</li>
+          </ul>
+          <div class="pro-pane__ideal">
+            <strong>Ideal for:</strong> Holiday parties, milestone celebrations, casual company afterworks.
+          </div>
+          <a class="btn btn--lime pro-pane__cta" href="#reserver" data-select-type="Soirée d'entreprise">Schedule your party</a>
+        </div>
+      </div>
+
+      <!-- Panel 4: Product Launches -->
+      <div class="pro-pane" data-pro-pane="lancement" role="tabpanel">
+        <div class="ph ph--dark pro-pane__media">
+          <img class="ph__img" loading="lazy" src="../uploads/evenements/lancement-produit.jpg" alt="Product launch and custom event at D'LYR">
+        </div>
+        <div class="pro-pane__content">
+          <span class="pro-pane__tag">Prestige &amp; Impact</span>
+          <h3 class="pro-pane__title">Product Launches &amp; VIP Events</h3>
+          <p class="pro-pane__desc">Give your innovations a spectacular technological stage. Our modular presentation spaces, professional A/V setup and immersive VR experiences will captivate clients, press and partners.</p>
+          <ul class="pro-pane__points">
+            <li><span class="ic">✓</span> Modular stage area with giant screens</li>
+            <li><span class="ic">✓</span> Premium catering services and custom hospitality</li>
+            <li><span class="ic">✓</span> Dedicated technical coordination on event day</li>
+          </ul>
+          <div class="pro-pane__ideal">
+            <strong>Ideal for:</strong> Press conferences, client demos, annual meetings and brand evenings.
+          </div>
+          <a class="btn btn--lime pro-pane__cta" href="#reserver" data-select-type="Lancement de produit">Create your custom event</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== POURQUOI D'LYR ===== -->
+<!-- ===== WHY D'LYR ===== -->
 <section class="section bg-paper tex steps">
   <div class="wrap">
     <div class="steps__head reveal" style="flex-direction:column;align-items:flex-start;gap:12px">
-      <h2 class="h1 eyebrow-bar"><span>Pourquoi D'LYR&nbsp;?</span></h2>
-      <p class="lead">Un lieu unique pour sortir du cadre et créer du lien entre collègues.</p>
+      <h2 class="h1 eyebrow-bar"><span>Why Choose D'LYR?</span></h2>
+      <p class="lead">A one-of-a-kind venue to break the routine and strengthen team bonds.</p>
     </div>
     <div class="steps__grid">
-      <div class="step reveal"><span class="step__num">01</span><h3 class="step__t">Fédérateur</h3><p class="step__d">Une prise en main immédiate pour réunir tous les profils autour d'un moment de partage mémorable.</p></div>
-      <div class="step reveal" data-d="1"><span class="step__num">02</span><h3 class="step__t">Clé en main</h3><p class="step__d">Activités, restauration, espace privatif&nbsp;: on organise votre venue de A à Z.</p></div>
-      <div class="step reveal" data-d="2"><span class="step__num">03</span><h3 class="step__t">Grande capacité</h3><p class="step__d">Un lieu exceptionnel pouvant accueillir jusqu'à 180 personnes.</p></div>
-      <div class="step reveal" data-d="3"><span class="step__num">04</span><h3 class="step__t">Accessible</h3><p class="step__d">À 5 min du T2 à Colombes, parking Q-Park à 300m (tarif négocié) et accès direct A86.</p></div>
+      <div class="step reveal"><span class="step__num">01</span><h3 class="step__t">Unifying</h3><p class="step__d">Instant accessibility so everyone can participate and share an unforgettable team moment.</p></div>
+      <div class="step reveal" data-d="1"><span class="step__num">02</span><h3 class="step__t">Turnkey</h3><p class="step__d">Immersive activities, catering and private spaces: we manage your event from A to Z.</p></div>
+      <div class="step reveal" data-d="2"><span class="step__num">03</span><h3 class="step__t">Large Capacity</h3><p class="step__d">An expansive venue designed to host up to 180 guests comfortably.</p></div>
+      <div class="step reveal" data-d="3"><span class="step__num">04</span><h3 class="step__t">Accessible</h3><p class="step__d">5 min from Tram T2 in Colombes, Q-Park parking at 300m (discounted rate) and direct A86 highway access.</p></div>
     </div>
   </div>
 </section>
@@ -118,28 +175,28 @@
 <section class="section bg-ink quote" id="reserver">
   <div class="wrap quote__inner reveal">
     <div class="quote__text">
-      <h2 class="h1 quote__h">Demandez votre devis</h2>
-      <p class="lead">Une date, un nombre de participants, un objectif&nbsp;? Parlons-en. Réponse garantie sous 24h à 48h.</p>
+      <h2 class="h1 quote__h">Request your quote</h2>
+      <p class="lead">A preferred date, guest count, or custom goals? Let's discuss. Guaranteed reply within 24h to 48h.</p>
     </div>
     <form class="quote__form" data-quote>
       <div class="quote__row">
-        <label class="field"><span>Raison Sociale</span><input type="text" name="societe" placeholder="Nom de l'entreprise" required></label>
-        <label class="field"><span>Prénom et Nom</span><input type="text" name="nom" placeholder="Votre prénom et nom" required></label>
+        <label class="field"><span>Company</span><input type="text" name="societe" placeholder="Company Name" required></label>
+        <label class="field"><span>First &amp; Last Name</span><input type="text" name="nom" placeholder="Your name" required></label>
       </div>
       <div class="quote__row">
-        <label class="field"><span>Email</span><input type="email" name="email" placeholder="vous@entreprise.com" required></label>
-        <label class="field"><span>Téléphone</span><input type="tel" name="tel" autocomplete="tel" placeholder="06 12 34 56 78" required></label>
+        <label class="field"><span>Email</span><input type="email" name="email" placeholder="you@company.com" required></label>
+        <label class="field"><span>Phone</span><input type="tel" name="tel" autocomplete="tel" placeholder="+33 6 12 34 56 78" required></label>
       </div>
       <div class="quote__row">
-        <label class="field"><span>Nb de participants</span><input type="number" name="pers" min="1" placeholder="ex : 24"></label>
-        <label class="field"><span>Type d'évènement</span>
+        <label class="field"><span>Number of guests</span><input type="number" name="pers" min="1" placeholder="e.g. 24"></label>
+        <label class="field"><span>Event type</span>
           <select name="type">
-            <option>Team building</option><option>Séminaire</option><option>Réunion d'équipe</option><option>Soirée d'entreprise</option><option>Lancement de produit</option><option>Autre</option>
+            <option value="Team building">Team building</option><option value="Séminaire">Seminar / Meeting</option><option value="Soirée d'entreprise">Corporate Party / Afterwork</option><option value="Lancement de produit">Product Launch / VIP</option><option value="Autre">Other</option>
           </select>
         </label>
       </div>
-      <label class="field"><span>Votre message</span><textarea name="msg" rows="3" placeholder="Date souhaitée, objectifs, idées…"></textarea></label>
-      <button class="btn btn--lime" type="submit">Envoyer ma demande</button>
+      <label class="field"><span>Your message</span><textarea name="msg" rows="3" placeholder="Desired date, schedule, specific requests…"></textarea></label>
+      <button class="btn btn--lime" type="submit">Submit Quote Request</button>
     </form>
   </div>
 </section>

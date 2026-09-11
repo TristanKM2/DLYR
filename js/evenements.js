@@ -4,6 +4,50 @@
   const ar = document.querySelector('[data-arrow]');
   if (ar) ar.innerHTML = I.arrow || '';
 
+  // Switcher d'onglets B2B Pro
+  const tabBtns = document.querySelectorAll('[data-pro-tab]');
+  const tabPanes = document.querySelectorAll('[data-pro-pane]');
+  if (tabBtns.length) {
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.proTab;
+        tabBtns.forEach(b => {
+          b.classList.toggle('is-active', b === btn);
+          b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+        });
+        tabPanes.forEach(pane => {
+          pane.classList.toggle('is-active', pane.dataset.proPane === target);
+        });
+      });
+    });
+
+    // Boutons CTA "Demander un devis pour ce format"
+    document.querySelectorAll('[data-select-type]').forEach(cta => {
+      cta.addEventListener('click', (e) => {
+        e.preventDefault();
+        const typeVal = cta.dataset.selectType;
+        const formEl = document.querySelector('form[data-quote]');
+        const select = formEl ? formEl.querySelector('select[name="type"]') : null;
+        if (select && typeVal) {
+          for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].value.toLowerCase().includes(typeVal.toLowerCase()) || select.options[i].text.toLowerCase().includes(typeVal.toLowerCase())) {
+              select.selectedIndex = i;
+              break;
+            }
+          }
+        }
+        const targetSection = document.getElementById('reserver') || formEl;
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const firstInput = formEl ? formEl.querySelector('input:not([type="hidden"])') : null;
+          if (firstInput) {
+            setTimeout(() => { firstInput.focus(); }, 450);
+          }
+        }
+      });
+    });
+  }
+
   // Adresse de réception des demandes de devis
   const DEST = 'contact@dlyr-vr.com';
   const WORKER_ENDPOINT = 'https://dlyr.tristankouker.workers.dev/send-email';

@@ -400,9 +400,9 @@
     document.addEventListener('click', (e) => {
       const a = e.target.closest('a[href="#reserver"], [data-smeetz-open]');
       if (!a) return;
-      e.preventDefault();
       var p = currentProduct();
       if (p) {
+        e.preventDefault();
         var cat = a.getAttribute('data-smeetz-cat');
         if (cat) {
           p = Object.assign({}, p, {
@@ -415,6 +415,13 @@
         smeetzOpen(p);
         return;
       }
+      var target = document.getElementById('reserver');
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+      e.preventDefault();
       location.href = 'catalogue.html';
     });
   }

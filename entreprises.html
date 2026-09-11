@@ -52,48 +52,105 @@
 <!-- ===== OFFRES PRO ===== -->
 <section class="section bg-ink ev2">
   <div class="wrap">
-    <h2 class="h1 eyebrow-bar ev2__h reveal"><span>Nos formats</span></h2>
-    <div class="ev2__grid ev2__grid--five">
-      <article class="evtype reveal">
-        <div class="ph ph--dark evtype__media"><img class="ph__img" loading="lazy" src="uploads/evenements/Soirée étudiante.png" alt="Team Building en réalité virtuelle chez D'LYR"></div>
-        <div class="evtype__body">
-          <h3 class="evtype__name">Team Building</h3>
-          <p class="evtype__desc">Renforcez la cohésion d'équipe autour d'expériences VR coopératives où chacun a un rôle à jouer. Défis, classements et débrief convivial au bar.</p>
-          <ul class="evtype__tags"><li>Coopération</li><li>Jusqu'à 20</li><li>Défis en équipe</li></ul>
+    <div class="shead reveal" style="margin-bottom:clamp(32px,3.5vw,48px)">
+      <div>
+        <h2 class="h1 eyebrow-bar ev2__h" style="margin-bottom:12px"><span>Nos formats sur-mesure</span></h2>
+        <p class="lead" style="color:rgba(194,208,179,.8)">Choisissez une formule adaptée à vos objectifs ou contactez notre équipe pour construire votre événement clé en main.</p>
+      </div>
+    </div>
+
+    <!-- Switcher d'onglets B2B -->
+    <div class="pro-tabs reveal">
+      <nav class="pro-tabs__nav" role="tablist" aria-label="Formats d'événements entreprises">
+        <button class="pro-tab-btn is-active" data-pro-tab="teambuilding" role="tab" aria-selected="true">Team Building</button>
+        <button class="pro-tab-btn" data-pro-tab="seminaire" role="tab" aria-selected="false">Séminaires &amp; Réunions</button>
+        <button class="pro-tab-btn" data-pro-tab="soiree" role="tab" aria-selected="false">Soirées &amp; Afterworks</button>
+        <button class="pro-tab-btn" data-pro-tab="lancement" role="tab" aria-selected="false">Lancements de produit</button>
+      </nav>
+
+      <!-- Panel 1: Team Building -->
+      <div class="pro-pane is-active" data-pro-pane="teambuilding" role="tabpanel">
+        <div class="ph ph--dark pro-pane__media">
+          <img class="ph__img" loading="lazy" src="uploads/evenements/teambuilding-dlyr.jpg" alt="Team Building d'équipe chez D'LYR">
         </div>
-      </article>
-      <article class="evtype reveal" data-d="1">
-        <div class="ph ph--dark evtype__media"><img class="ph__img" loading="lazy" src="uploads/Lancement de produit 2.png" alt="Soirée d'entreprise chez D'LYR"></div>
-        <div class="evtype__body">
-          <h3 class="evtype__name">Soirée d'entreprise</h3>
-          <p class="evtype__desc">Fin d'année, after-work ou célébration d'un succès&nbsp;: VR, fléchettes, quiz et boissons dans une ambiance festive, complexe privatisé pour vous.</p>
-          <ul class="evtype__tags"><li>Privatisation</li><li>Bar &amp; boissons</li><li>Ambiance festive</li></ul>
+        <div class="pro-pane__content">
+          <span class="pro-pane__tag">Cohésion &amp; Challenge</span>
+          <h3 class="pro-pane__title">Team Building immersif</h3>
+          <p class="pro-pane__desc">Renforcez les liens et la communication de vos collaborateurs autour d'expériences VR coopératives où chaque rôle compte. Missions tactiques, escape games virtuels et tournois par équipes, suivis d'un débrief convivial au bar.</p>
+          <ul class="pro-pane__points">
+            <li><span class="ic">✓</span> De 6 à 180 participants (rotation fluide par équipes)</li>
+            <li><span class="ic">✓</span> Jeux coopératifs, compétitifs ou réflexion en équipe</li>
+            <li><span class="ic">✓</span> Espace lounge et bar privatisable pour le débriefing</li>
+          </ul>
+          <div class="pro-pane__ideal">
+            <strong>Idéal pour :</strong> Intégrer de nouveaux collaborateurs, stimuler l'émulation collective et récompenser vos équipes.
+          </div>
+          <a class="btn btn--lime pro-pane__cta" href="#reserver" data-select-type="Team building">Demander un devis Team Building</a>
         </div>
-      </article>
-      <article class="evtype reveal" data-d="2">
-        <div class="ph ph--dark evtype__media"><img class="ph__img" loading="lazy" src="uploads/hero-accueil.jpg" alt="Séminaire chez D'LYR"></div>
-        <div class="evtype__body">
-          <h3 class="evtype__name">Séminaire</h3>
-          <p class="evtype__desc">Un espace meeting privatisé pour vos réunions et présentations, suivi d'une session VR pour décompresser. Restauration et pauses gourmandes incluses.</p>
-          <ul class="evtype__tags"><li>Espace meeting</li><li>Privatisation</li><li>Restauration</li></ul>
+      </div>
+
+      <!-- Panel 2: Séminaires & Réunions -->
+      <div class="pro-pane" data-pro-pane="seminaire" role="tabpanel">
+        <div class="ph ph--dark pro-pane__media">
+          <img class="ph__img" loading="lazy" src="uploads/evenements/seminaire-entreprise.jpg" alt="Salle de réunion équipée et séminaire d'entreprise chez D'LYR">
         </div>
-      </article>
-      <article class="evtype reveal" data-d="3">
-        <div class="ph ph--dark evtype__media"><img class="ph__img" loading="lazy" src="uploads/evenements/Lancement de produit.png" alt="Lancement de produit chez D'LYR"></div>
-        <div class="evtype__body">
-          <h3 class="evtype__name">Lancement de produit</h3>
-          <p class="evtype__desc">Présentez vos nouveautés dans un cadre technologique d'exception. Espace scénique, écrans géants, cocktail et animations VR.</p>
-          <ul class="evtype__tags"><li>Espace scénique</li><li>Buffet Traiteur</li><li>Animations VR</li></ul>
+        <div class="pro-pane__content">
+          <span class="pro-pane__tag">Work &amp; Brainstorm</span>
+          <h3 class="pro-pane__title">Séminaires &amp; Réunions d'équipe</h3>
+          <p class="pro-pane__desc">Sortez du cadre traditionnel pour vos réunions stratégiques. Profitez de notre salle privative lumineuse et tout équipée pour vos présentations de travail, avant d'enchaîner sur une session de décompression ludique et immersive.</p>
+          <ul class="pro-pane__points">
+            <li><span class="ic">✓</span> Écran HD, paperboard, sonorisation et Wi-Fi dédié</li>
+            <li><span class="ic">✓</span> Café d'accueil, viennoiseries et pauses gourmandes</li>
+            <li><span class="ic">✓</span> Transition fluide réunion de travail / détente VR &amp; fléchettes</li>
+          </ul>
+          <div class="pro-pane__ideal">
+            <strong>Idéal pour :</strong> Comités de direction, réunions trimestrielles, sessions de formation et journées d'étude.
+          </div>
+          <a class="btn btn--lime pro-pane__cta" href="#reserver" data-select-type="Séminaire">Organiser votre séminaire</a>
         </div>
-      </article>
-      <article class="evtype reveal" data-d="4">
-        <div class="ph ph--dark evtype__media"><img class="ph__img" loading="lazy" src="uploads/evenements/Teambuilding.png" alt="Réunion d'équipe chez D'LYR"></div>
-        <div class="evtype__body">
-          <h3 class="evtype__name">Réunion d'équipe</h3>
-          <p class="evtype__desc">Rassemblez vos équipes hors du bureau dans un cadre stimulant. Réunion de travail suivie d'activités immersives et ludiques.</p>
-          <ul class="evtype__tags"><li>Espace dédié</li><li>Équipement vidéo</li><li>Activités VR</li></ul>
+      </div>
+
+      <!-- Panel 3: Soirées & Afterworks -->
+      <div class="pro-pane" data-pro-pane="soiree" role="tabpanel">
+        <div class="ph ph--dark pro-pane__media">
+          <img class="ph__img" loading="lazy" src="uploads/evenements/soiree-etudiante.jpg" alt="Soirée d'entreprise festive chez D'LYR">
         </div>
-      </article>
+        <div class="pro-pane__content">
+          <span class="pro-pane__tag">Fête &amp; Partage</span>
+          <h3 class="pro-pane__title">Soirées d'entreprise &amp; Afterworks</h3>
+          <p class="pro-pane__desc">Célébrez vos réussites, fêtes de fin d'année ou afterworks festifs dans un lieu hors du commun. Profitez d'une privatisation totale ou partielle du complexe avec accès illimité aux expériences VR, bornes de fléchettes connectées et buffet traiteur.</p>
+          <ul class="pro-pane__points">
+            <li><span class="ic">✓</span> Privatisation sur mesure du complexe ou des espaces détente</li>
+            <li><span class="ic">✓</span> Cocktails dînatoires, pizzas artisanales et bar dédié</li>
+            <li><span class="ic">✓</span> Ambiance musicale personnalisable et animations libres</li>
+          </ul>
+          <div class="pro-pane__ideal">
+            <strong>Idéal pour :</strong> Fêtes de fin d'année, célébration de milestones, afterworks d'entreprise décontractés.
+          </div>
+          <a class="btn btn--lime pro-pane__cta" href="#reserver" data-select-type="Soirée d'entreprise">Planifier votre soirée</a>
+        </div>
+      </div>
+
+      <!-- Panel 4: Lancements de produit -->
+      <div class="pro-pane" data-pro-pane="lancement" role="tabpanel">
+        <div class="ph ph--dark pro-pane__media">
+          <img class="ph__img" loading="lazy" src="uploads/evenements/lancement-produit.jpg" alt="Lancement de produit et événement sur-mesure chez D'LYR">
+        </div>
+        <div class="pro-pane__content">
+          <span class="pro-pane__tag">Prestige &amp; Impact</span>
+          <h3 class="pro-pane__title">Lancements de produit &amp; Événements VIP</h3>
+          <p class="pro-pane__desc">Offrez une tribune technologique spectaculaire à vos innovations. Nos espaces scéniques modulables, notre infrastructure audio-vidéo et nos expériences immersives captiveront vos clients, journalistes et partenaires.</p>
+          <ul class="pro-pane__points">
+            <li><span class="ic">✓</span> Espace scénique modulable avec écrans géants</li>
+            <li><span class="ic">✓</span> Prestations traiteur haut de gamme et service sur mesure</li>
+            <li><span class="ic">✓</span> Accompagnement technique et régie dédiée le jour J</li>
+          </ul>
+          <div class="pro-pane__ideal">
+            <strong>Idéal pour :</strong> Présentations presse, démonstrations clients, assemblées générales et soirées de marque.
+          </div>
+          <a class="btn btn--lime pro-pane__cta" href="#reserver" data-select-type="Lancement de produit">Créer votre événement sur mesure</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
