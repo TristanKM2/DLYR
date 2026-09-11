@@ -361,7 +361,7 @@
   .pnav{ width:44px; height:44px; }
   .intro__title{ white-space:normal; }
   .hero{ min-height:clamp(520px, 85vh, 720px); padding-bottom:clamp(48px,8vh,80px); }
-  .hero__photo{ object-fit:cover; object-position:50% 20%; }
+  .hero__photo{ object-fit:cover; object-position:50% 25%; transform:none!important; }
   .hero__scroll{ display:none; }
   .hero__intro{ font-size:16px; padding:16px 18px; }
   .hero__logo{ max-width:140px; }
