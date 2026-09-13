@@ -1,14 +1,14 @@
-{
+﻿{
  "name": "D'LYR — Vivez l'immersion VR",
  "short_name": "D'LYR",
  "icons": [
   {
-   "src": "/uploads/apple-touch-icon.png",
+   "src": "/uploads/brand/apple-touch-icon.png",
    "sizes": "180x180",
    "type": "image/png"
   },
   {
-   "src": "/uploads/icon-512.png",
+   "src": "/uploads/brand/icon-512.png",
    "sizes": "512x512",
    "type": "image/png"
   }

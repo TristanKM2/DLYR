@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    D'LYR — Jeux VR : vidéo, avis, plus de jeux, marquee
    ============================================================ */
 (function () {
@@ -60,7 +60,7 @@
     const dots = document.querySelector('[data-javis-dots]');
     track.innerHTML = AVIS.map(a => `
       <div class="jrcard">
-        <div class="ph ph--dark jrcard__img"><img class="ph__img" loading="lazy" src="uploads/hero-accueil.jpg" alt=""></div>
+        <div class="ph ph--dark jrcard__img"><img class="ph__img" loading="lazy" src="uploads/home/hero-accueil.jpg" alt=""></div>
         <div class="jrcard__body">
           <span class="jrcard__name">${a.n}</span>
           <span class="jrcard__stars">★★★★★</span>

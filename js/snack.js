@@ -58,7 +58,7 @@
       { n: "Montagnarde", d: "Crème fraîche, mozzarella, jambon cru, raclette, champignons et basilic", p: "12€" },
       { n: "All Pollo", d: "Sauce tomate à l'origan, mozzarella, poulet rôti halal, oignons rouges, sauce BBQ et basilic", p: "12€", b: "Halal" },
       { n: "Méridionale", d: "Sauce tomate à l'origan, poivrons, courgettes, mozzarella, oignons rouges, provola fumé, tomates séchées et basilic", p: "12€", b: "Végé" },
-      { n: "Raffinée", d: "Crème fraîche, mozzarella, jambon cuit fumé, mascarpone, huile de truffe et basilic", p: "13€" }
+      { n: "D'LYR Signature", d: "Crème fraîche, mozzarella, jambon cuit fumé, mascarpone, huile de truffe et basilic", p: "13€" }
     ]
   };
 
@@ -112,7 +112,7 @@
       { n: "Montagnarde", d: "Fresh cream, mozzarella, cured ham, raclette cheese, mushrooms and basil", p: "€12" },
       { n: "All Pollo", d: "Oregano tomato sauce, mozzarella, halal roasted chicken, red onions, BBQ sauce and basil", p: "€12", b: "Halal" },
       { n: "Méridionale", d: "Oregano tomato sauce, bell peppers, zucchini, mozzarella, red onions, smoked provola, sun-dried tomatoes and basil", p: "€12", b: "Veggie" },
-      { n: "Raffinée", d: "Fresh cream, mozzarella, smoked cooked ham, mascarpone, truffle oil and basil", p: "€13" }
+      { n: "D'LYR Signature", d: "Fresh cream, mozzarella, smoked cooked ham, mascarpone, truffle oil and basil", p: "€13" }
     ]
   };
 

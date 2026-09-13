@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    D'LYR — Site shell (nav + footer + interactions partagées)
    ============================================================ */
 (function () {
@@ -136,7 +136,7 @@
           ${col('Plan du site', [['Accueil','index.html'],['Expériences','catalogue.html'],['Fléchettes','flechettes.html'],['Évènements','evenements.html'],['Entreprises','entreprises.html'],['Offrir','offrir.html'],['Bar&Snack','snack-bar.html'],['FAQ','faq.html'],['Contact','contact.html']])}
         </div>
       </div>
-      <div class="footer__word" aria-hidden="true"><img src="uploads/DLYR-05.png" alt=""></div>
+      <div class="footer__word" aria-hidden="true"><img src="uploads/brand/DLYR-05.png" alt=""></div>
       <div class="footer__bar">© D'LYR — Vivez l'immersion VR · Colombes</div>
     </footer>`;
   }
@@ -556,8 +556,8 @@
       <div class="wrap">
         <h2 class="h1 eyebrow-bar" style="margin-bottom:clamp(36px,4vw,56px)"><span>Bar&amp;Snack</span></h2>
         <div class="steaser__grid reveal">
-          <div class="ph steaser__media steaser__media--tall"><img class="ph__img" loading="lazy" src="uploads/lounge.jpg" alt="Le bar de D'LYR"></div>
-          <div class="ph steaser__media"><img class="ph__img" src="uploads/lounge.jpg" alt="L'espace lounge de D'LYR"></div>
+          <div class="ph steaser__media steaser__media--tall"><img class="ph__img" loading="lazy" src="uploads/lounge/lounge.jpg" alt="Le bar de D'LYR"></div>
+          <div class="ph steaser__media"><img class="ph__img" src="uploads/lounge/lounge.jpg" alt="L'espace lounge de D'LYR"></div>
           <div class="ph steaser__media"><img class="ph__img" loading="lazy" src="${prefix}uploads/snack-bar/acceuil.jpg" alt="L'espace bar & snack"></div>
         </div>
         <div class="steaser__foot reveal"><a class="btn btn--ink-o" href="snack-bar.html">Voir la carte</a></div>
