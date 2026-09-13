@@ -1,0 +1,11 @@
+.git
+node_modules
+.claude
+.gemini
+.agents
+*.md
+*.ps1
+wrangler.jsonc
+.gitignore
+.gitattributes
+.assetsignore
